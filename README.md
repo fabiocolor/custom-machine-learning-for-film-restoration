@@ -89,5 +89,13 @@ nuke-chroma-recovery-template/
 
 ---
 
+## Start Here
+- Canonical guide (Nuke + CopyCat): `WORKFLOW_GUIDE.md`
+- Quick operator checklist: `DOCS/copycat_sop.md`
+
+Focus of this repository is the CopyCat workflow only. Keep all assets repository‑relative and log parameters/QC in `notes/experiments.md`.
+
+---
+
 ## License
 Currently unlicensed and private. All rights reserved until finalized.

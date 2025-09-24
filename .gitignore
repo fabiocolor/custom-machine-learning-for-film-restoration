@@ -45,3 +45,10 @@ venv/
 
 # NOTE: QC renders are intentionally tracked to support reviews
 # QC/**
+
+# Demo media: only track web proxies, ignore originals
+/DEMOS - Exploración del Aprendizaje Automático Experimental en la Restauración de Películas/**/*.mp4
+!/DEMOS - Exploración del Aprendizaje Automático Experimental en la Restauración de Películas/**/*_web.mp4
+
+# ffmpeg 2-pass temp logs
+ffmpeg2pass-*.log*

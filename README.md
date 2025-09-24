@@ -37,7 +37,7 @@ Select representative frames from faded source and matching color reference. Loc
 ### 2) Alignment (with linked Crop)
 Align reference precisely to source so only chroma differs. Combine global F_Align with manual Transform for edge cases; use Dissolve to compare modes; apply a linked Crop for consistent framing.
 
-![Alignment](DOCS/images/ALIGNMENT.png)
+![Alignment](DOCS/images/ALIGNMENT%20cropped.png)
 
 ### 3) CopyCat Training
 Reconstruct chroma only while preserving original luma and detail. Replace reference luma with source luma, remove extra channels, clamp values, and train CopyCat on aligned pairs.

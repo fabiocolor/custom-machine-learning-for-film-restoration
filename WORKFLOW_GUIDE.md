@@ -240,7 +240,7 @@ Nuke command shortcuts for each stage:
 
 ## Step 2.2: Alignment
 
-![Alignment Node Graph](DOCS/images/ALIGNMENT.png)
+![Alignment Node Graph](DOCS/images/ALIGNMENT%20cropped.png)
 *Alignment section (red) showing F_Align and Transform nodes for precise geometric registration*
 
 **Purpose**: Precisely register reference to source for pixel-accurate training

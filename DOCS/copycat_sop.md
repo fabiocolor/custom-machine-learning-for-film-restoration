@@ -19,8 +19,8 @@ Checklist
 - Save QC grabs to `pipeline/01_dataset_curation/QC/YYYY-MM-DD/` and log in `notes/experiments.md`.
 
 Reference
-- Screenshot: `DOCS/images/DATASET CURATION.png`
-- FrameRange: `DOCS/images/frame range.png`
+- Screenshot: `DOCS/images/DATASET CURATION cropped.png`
+- FrameRange: `DOCS/images/frame range cropped.png`
 
 ## Stage 2 — Alignment (pipeline/02_alignment)
 Goal: pixel‑accurate registration of reference to source, then linked crop.
@@ -34,20 +34,20 @@ Checklist
 - Ensure identical crop boxes on source/reference; copy bbox where needed.
 
 Reference
-- Alignment overview: `DOCS/images/ALIGNMENT.png`
-- F_Align UI: `DOCS/images/f_align.png`
-- Dissolve: `DOCS/images/dissolve.png`
-- Crop examples: `DOCS/images/crop2.png`
+- Alignment overview: `DOCS/images/ALIGNMENT cropped.png`
+- F_Align UI: `DOCS/images/f align cropped.png`
+- Dissolve: `DOCS/images/dissolve cropped.png`
+- Crop examples: `DOCS/images/crop2 cropped.png`
 - Copy bbox: `DOCS/images/copybbox.png`
 
 ## Stage 3 — CopyCat Training (pipeline/03_copycat_training)
 Goal: train chroma‑only model; preserve original luma.
 
 Node chain (per both branches unless noted)
-1) Colorspace: Linear → YCbCr (YUV) — `DOCS/images/colorspace linear to yuv.png`
+1) Colorspace: Linear → YCbCr (YUV) — `DOCS/images/colorspace linear to yuv cropped.png`
 2) Shuffle: Build target with reference chroma (Cb/Cr) + source luma (Y); build input from source as degraded chroma.
 3) Colorspace: YCbCr → Linear
-4) Grade: clamp black/white to avoid <0 or >1 — `DOCS/images/grade.png`
+4) Grade: clamp black/white to avoid <0 or >1 — `DOCS/images/grade cropped.png`
 5) Remove: strip alpha; train RGB only — `DOCS/images/remove.png`
 6) Copy bbox: keep consistent bbox
 
@@ -67,11 +67,11 @@ Rules of thumb
 - Increase dataset frames progressively if convergence stalls (4→7→11)
 
 Reference
-- Training layout: `DOCS/images/COPYCAT TRAINING.png`
-- Settings panel: `DOCS/images/COPYCAT SETTINGS.png`
-- Preview: `DOCS/images/COPYCAT SETTINGS PREVIEW.png`
-- Contact sheet: `DOCS/images/COPYCAT SETTINGS CONTACT SHEET.png`
-- Shuffle/Channels: `DOCS/images/shuffle.png`
+- Training layout: `DOCS/images/COPYCAT TRAINING cropped.png`
+- Settings panel: `DOCS/images/COPYCAT SETTINGS cropped.png`
+- Preview: `DOCS/images/COPYCAT SETTINGS PREVIEW cropped.png`
+- Contact sheet: `DOCS/images/COPYCAT SETTINGS CONTACT SHEET cropped.png`
+- Shuffle/Channels: `DOCS/images/shuffle cropped.png`
 
 Monitoring
 - Loss should trend down smoothly; watch for chroma ringing/bleed in contact sheets.
@@ -88,9 +88,9 @@ Checklist
 - Non‑Commercial: reformat to 1080p if required; document this in notes.
 
 Reference
-- Inference layout: `DOCS/images/INFERENCE RENDER.png`
-- Inference node: `DOCS/images/inference.png`
-- Reformat/Write: `DOCS/images/reformat.png`, `DOCS/images/write.png`
+- Inference layout: `DOCS/images/INFERENCE RENDER cropped.png`
+- Inference node: `DOCS/images/inference cropped.png`
+- Reformat/Write: `DOCS/images/reformat cropped.png`, `DOCS/images/write.png`
 
 ## Stage 5 — MatchGrade Baseline (pipeline/05_matchgrade_render)
 Goal: produce LUT‑based baseline for comparison/QC.
@@ -102,8 +102,8 @@ Checklist
 - Render baseline plates for A/B in Resolve.
 
 Reference
-- MatchGrade: `DOCS/images/matchgrade.png`
-- Stage overview: `DOCS/images/MATCHGRADE RENDER OPTIONAL.png`
+- MatchGrade: `DOCS/images/matchgrade cropped.png`
+- Stage overview: `DOCS/images/MATCHGRADE RENDER OPTIONAL cropped.png`
 
 ## QC & Logging (all stages)
 - Place screenshots/comps in `QC/YYYY-MM-DD/` inside the active stage folder.
@@ -119,4 +119,3 @@ Reference
 - Black borders/subtitles: must be cropped out before training; animate crop when needed.
 - Bounding box mismatches: copy bbox to keep spatial metadata aligned.
 - Over‑tuning F_Align: default global solves suffice; excessive tweaks can degrade results.
-

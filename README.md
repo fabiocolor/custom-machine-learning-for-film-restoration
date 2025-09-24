@@ -3,7 +3,7 @@
 
 This repository documents a reusable workflow for machine‑learning‑assisted chroma recovery in film restoration, implemented in Foundry Nuke with the CopyCat node. It captures the logic and purpose of each stage without project‑specific settings, serving as a foundation for consistent, adaptable restoration work.
 
-![Node Graph Overview](DOCS/images/NODE%20GRAPH%20OVERVIEW.png)
+![Node Graph Overview](DOCS/images/NODE%20GRAPH%20OVERVIEW%20cropped.png)
 
 ---
 
@@ -32,7 +32,7 @@ Restore missing or degraded chroma in scanned film by training small, targeted m
 ### 1) Dataset Curation
 Select representative frames from faded source and matching color reference. Lock matching frames (FrameHold) and assemble with AppendClip.
 
-![Dataset Curation](DOCS/images/DATASET%20CURATION.png)
+![Dataset Curation](DOCS/images/DATASET%20CURATION%20cropped.png)
 
 ### 2) Alignment (with linked Crop)
 Align reference precisely to source so only chroma differs. Combine global F_Align with manual Transform for edge cases; use Dissolve to compare modes; apply a linked Crop for consistent framing.
@@ -42,17 +42,17 @@ Align reference precisely to source so only chroma differs. Combine global F_Ali
 ### 3) CopyCat Training
 Reconstruct chroma only while preserving original luma and detail. Replace reference luma with source luma, remove extra channels, clamp values, and train CopyCat on aligned pairs.
 
-![CopyCat Training](DOCS/images/COPYCAT%20TRAINING.png)
+![CopyCat Training](DOCS/images/COPYCAT%20TRAINING%20cropped.png)
 
 ### 4) Inference & Render
 Apply the trained model to the full sequence, remove non‑image areas (sprockets/audio), format for output, and render to the archival colorspace.
 
-![Inference Render](DOCS/images/INFERENCE%20RENDER.png)
+![Inference Render](DOCS/images/INFERENCE%20RENDER%20cropped.png)
 
 ### 5) MatchGrade Baseline (optional)
 Compare ML recovery to Nuke’s MatchGrade using the same dataset frames as a baseline.
 
-![MatchGrade Comparison](DOCS/images/MATCHGRADE%20RENDER%20OPTIONAL.png)
+![MatchGrade Comparison](DOCS/images/MATCHGRADE%20RENDER%20OPTIONAL%20cropped.png)
 
 ---
 

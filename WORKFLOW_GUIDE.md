@@ -17,7 +17,7 @@ This workflow demonstrates chroma recovery for degraded film using machine learn
 ![Raw Scan - Severe Magenta Degradation](DOCS/images/RAW%20SCAN%20UNBALANCED.png)
 *Original scan showing severe magenta shift characteristic of faded chromogenic film*
 
-![Final Recovery Result](DOCS/images/FULL%20OVERVIEW%20COMPARISON.png)
+![Final Recovery Result](DOCS/images/FULL%20OVERVIEW%20COMPARISON%20cropped.png)
 *Complete workflow comparison: Original → Balanced → Reference → ML Result*
 
 ---
@@ -87,7 +87,7 @@ Nuke command shortcuts for each stage:
 
 # Phase 1: DaVinci Resolve Preprocessing
 
-![DaVinci Resolve Setup](DOCS/images/REFERENCE%20PRE%20ALIGNMENT%20RESOLVE.png)
+![DaVinci Resolve Setup](DOCS/images/REFERENCE%20PRE%20ALIGNMENT%20RESOLVE%20cropped.png)
 *DaVinci Resolve timeline showing source material organization and initial color reference setup*
 
 ## Step 1.1: Project Setup
@@ -129,10 +129,10 @@ Nuke command shortcuts for each stage:
 
 ## Step 1.4: Export for Nuke
 
-![Media Settings](DOCS/images/media%20settings.png)
+![Media Settings](DOCS/images/media%20settings%20cropped.png)
 *DaVinci Resolve media settings showing EXR format configuration*
 
-![Project Settings](DOCS/images/project%20settings.png)
+![Project Settings](DOCS/images/project%20settings%20cropped.png)
 *Project settings showing ACES workflow configuration with Rec.709 output*
 
 **ACES Workflow Integration:**
@@ -162,12 +162,12 @@ Nuke command shortcuts for each stage:
 
 ## Workflow Overview
 
-![Complete Nuke Workflow](DOCS/images/NODE%20GRAPH%20OVERVIEW.png)
+![Complete Nuke Workflow](DOCS/images/NODE%20GRAPH%20OVERVIEW%20cropped.png)
 *Complete 5-stage Nuke workflow: Dataset Curation → Alignment → CopyCat Training → Inference → MatchGrade Comparison*
 
 ## Step 2.1: Dataset Curation
 
-![Dataset Curation Node Graph](DOCS/images/DATASET%20CURATION.png)
+![Dataset Curation Node Graph](DOCS/images/DATASET%20CURATION%20cropped.png)
 *Dataset curation showing target and source frame selection with FrameRange and AppendClip nodes*
 
 **Purpose**: Select representative frame pairs for ML training
@@ -195,7 +195,7 @@ Nuke command shortcuts for each stage:
 
 2. **FrameRange and FrameHold Nodes**:
 
-   ![FrameRange Parameters](DOCS/images/frame%20range.png)
+   ![FrameRange Parameters](DOCS/images/frame%20range%20cropped.png)
    *FrameRange node showing 1-1 frame range setting for single frame output*
 
    - **FrameRange**: Set to 1-1 to pass only one frame at a time
@@ -240,7 +240,7 @@ Nuke command shortcuts for each stage:
 
 ## Step 2.2: Alignment
 
-![Alignment Node Graph](DOCS/images/COPYCAT%20TRAINING.png)
+![Alignment Node Graph](DOCS/images/ALIGNMENT.png)
 *Alignment section (red) showing F_Align and Transform nodes for precise geometric registration*
 
 **Purpose**: Precisely register reference to source for pixel-accurate training
@@ -261,7 +261,7 @@ The alignment workflow provides two methods with path switching capability:
 
 ### F_Align Node (Automatic Alignment):
 
-![F_Align Parameters](DOCS/images/f_align.png)
+![F_Align Parameters](DOCS/images/f%20align%20cropped.png)
 *F_Align node showing analysis region setup and tracking parameters*
 
 - **Setup Strategy**: Adjust analysis region to fit reference limits
@@ -272,7 +272,7 @@ The alignment workflow provides two methods with path switching capability:
 
 ### Transform Node (Manual Alignment):
 
-![Transform Parameters](DOCS/images/transfrom.png)
+![Transform Parameters](DOCS/images/transfrom%20cropped.png)
 *Transform node with scale and translation fine-tuning controls*
 
 - **Manual Control**: Keyframe-based translate and scale values
@@ -318,7 +318,7 @@ The alignment workflow provides two methods with path switching capability:
 
 **Median Filter for Reference Cleanup**:
 
-![Median Filter](DOCS/images/median.png)
+![Median Filter](DOCS/images/median%20cropped.png)
 *Median filter for reference quality improvement*
 
 - **Purpose**: Remove dust, dirt, compression artifacts from video/telecine references
@@ -339,7 +339,7 @@ The alignment workflow provides two methods with path switching capability:
 
 1. **RGB to YUV Conversion**:
 
-   ![Colorspace Linear to YUV](DOCS/images/colorspace%20linear%20to%20yuv.png)
+   ![Colorspace Linear to YUV](DOCS/images/colorspace%20linear%20to%20yuv%20cropped.png)
    *Colorspace conversion from Linear to YUV for luma/chroma separation*
 
    - **Both Paths**: Linear → YUV transformation
@@ -348,7 +348,7 @@ The alignment workflow provides two methods with path switching capability:
 
 2. **Luma/Chroma Extraction Strategy**:
 
-   ![Shuffle Node](DOCS/images/shuffle.png)
+   ![Shuffle Node](DOCS/images/shuffle%20cropped.png)
    *Shuffle node for luma/chroma channel manipulation*
 
    **Target Processing**:
@@ -393,7 +393,7 @@ The alignment workflow provides two methods with path switching capability:
 
 ### CopyCat Training Node
 
-![CopyCat Settings](DOCS/images/COPYCAT%20SETTINGS.png)
+![CopyCat Settings](DOCS/images/COPYCAT%20SETTINGS%20cropped.png)
 *CopyCat training interface showing model parameters, loss curve monitoring, and contact sheet validation*
 
 1. **Input Connections**:
@@ -460,7 +460,7 @@ For screenshots and knob mapping, see `DOCS/copycat_sop.md`.
 
 ## Step 2.4: Inference & Render
 
-![Inference Render](DOCS/images/INFERENCE%20RENDER.png)
+![Inference Render](DOCS/images/INFERENCE%20RENDER%20cropped.png)
 *Inference stage showing full sequence processing with trained CopyCat model*
 
 **Purpose**: Apply trained model to full sequence
@@ -486,7 +486,7 @@ For screenshots and knob mapping, see `DOCS/copycat_sop.md`.
 
 3. **Model Application**:
 
-   ![Inference Node](DOCS/images/inference.png)
+   ![Inference Node](DOCS/images/inference%20cropped.png)
    *Inference node applying trained model to full sequence*
 
    - **Inference**: Apply trained CopyCat model
@@ -513,7 +513,7 @@ Tip: For a stage‑by‑stage checklist focused on CopyCat, see `DOCS/copycat_so
 
 ## Step 2.5: MatchGrade Comparison (Optional)
 
-![MatchGrade Render](DOCS/images/MATCHGRADE%20RENDER%20OPTIONAL.png)
+![MatchGrade Render](DOCS/images/MATCHGRADE%20RENDER%20OPTIONAL%20cropped.png)
 *MatchGrade comparison workflow showing traditional color matching as baseline reference*
 
 **Purpose**: Create baseline comparison using traditional LUT-based color matching
@@ -528,7 +528,7 @@ Tip: For a stage‑by‑stage checklist focused on CopyCat, see `DOCS/copycat_so
 
 ### MatchGrade Configuration
 
-![MatchGrade Parameters](DOCS/images/matchgrade.png)
+![MatchGrade Parameters](DOCS/images/matchgrade%20cropped.png)
 *MatchGrade node showing automatic color matching settings and controls*
 
 **Analysis Setup**:
@@ -589,7 +589,7 @@ Tip: For a stage‑by‑stage checklist focused on CopyCat, see `DOCS/copycat_so
 
 # Phase 3: DaVinci Resolve Integration
 
-![Final Integration in Resolve](DOCS/images/FINAL%20COLOR%20RECOVERY%20COMPOSITE%20RESOLVE.png)
+![Final Integration in Resolve](DOCS/images/FINAL%20COLOR%20RECOVERY%20COMPOSITE%20RESOLVE%20cropped.png)
 *Final integration showing ML results composited in DaVinci Resolve timeline*
 
 ## Step 3.1: Import ML Results

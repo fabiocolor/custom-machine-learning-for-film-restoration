@@ -1,0 +1,47 @@
+# OS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+Desktop.ini
+.Spotlight-V100
+.Trashes
+
+# Editors / IDE
+.idea/
+.vscode/
+*.code-workspace
+*.swp
+*.swo
+
+# Python cache (for embedded scripts/knobs)
+__pycache__/
+*.pyc
+
+# Nuke artifacts
+*.autosave
+*.nk~
+*.backup
+*.bak
+
+# Logs and caches
+*.log
+*.tmp
+logs/
+**/logs/**
+**/cache/**
+
+# CopyCat training byproducts (keep weights out unless explicitly archived)
+pipeline/03_copycat_training/**/weights/**
+pipeline/03_copycat_training/**/checkpoints/**
+pipeline/03_copycat_training/**/artifacts/**
+pipeline/03_copycat_training/**/logs/**
+
+# Local environments
+.env
+.venv/
+venv/
+
+# NOTE: QC renders are intentionally tracked to support reviews
+# QC/**

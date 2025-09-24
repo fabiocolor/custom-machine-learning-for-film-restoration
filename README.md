@@ -1,74 +1,66 @@
 
 # Chroma Recovery Workflow Template for Nuke
 
-This repository documents a reusable workflow for **machine learning assisted chroma recovery** in film restoration, implemented in Foundry Nuke with the CopyCat node.  
-It captures the logic and purpose of each stage without project-specific settings, serving as a foundation for consistent, adaptable restoration work.
+This repository documents a reusable workflow for machine‑learning‑assisted chroma recovery in film restoration, implemented in Foundry Nuke with the CopyCat node. It captures the logic and purpose of each stage without project‑specific settings, serving as a foundation for consistent, adaptable restoration work.
+
+![Node Graph Overview](DOCS/images/NODE%20GRAPH%20OVERVIEW.png)
+
+---
+
+## Start Here
+- Read the canonical workflow guide: [WORKFLOW_GUIDE.md](WORKFLOW_GUIDE.md)
+- Operator checklist and SOP: [DOCS/copycat_sop.md](DOCS/copycat_sop.md)
+- Log decisions and QC notes: [notes/experiments.md](notes/experiments.md)
+
+Quick start commands:
+- Alignment (iterate): `nuke --nukex --script pipeline/02_alignment/<shot>.nk`
+- CopyCat training (headless): `nuke --nukex --bg --script pipeline/03_copycat_training/<session>.nk`
+- Inference render: `nuke --nukex --script pipeline/04_inference_render/<shot>_render.nk`
 
 ---
 
 ## Purpose and Rationale
-
-The goal is to restore missing or degraded chroma in scanned film by training **small, targeted models** on curated source and reference material.  
-This approach prioritizes:
-
-1. **Archival Integrity** – Only use ethically sourced, verifiable references; avoid opaque pre-trained datasets.  
-2. **Specificity** – Train for one film or reel to preserve unique grain, texture, and color traits.  
-3. **Control** – Keep all workflow decisions transparent and reproducible.
+Restore missing or degraded chroma in scanned film by training small, targeted models on curated source and reference material. This approach prioritizes:
+1. Archival integrity — ethically sourced, verifiable references; no opaque pre‑trained data.
+2. Specificity — per‑film or per‑reel models to keep grain, texture, and color traits.
+3. Control — transparent, reproducible decisions end‑to‑end.
 
 ---
 
 ## Workflow Stages
 
-### 1. Dataset Curation
-**Purpose:** Select representative frames from faded source and matching color reference.  
-**Why:** The dataset defines what the model learns; mismatched or poor frames produce poor results.  
-**Method:** Lock matching frames (`FrameHold`) and assemble them with `AppendClip`.
+### 1) Dataset Curation
+Select representative frames from faded source and matching color reference. Lock matching frames (FrameHold) and assemble with AppendClip.
+
+![Dataset Curation](DOCS/images/DATASET%20CURATION.png)
+
+### 2) Alignment (with linked Crop)
+Align reference precisely to source so only chroma differs. Combine global F_Align with manual Transform for edge cases; use Dissolve to compare modes; apply a linked Crop for consistent framing.
+
+![Alignment](DOCS/images/ALIGNMENT.png)
+
+### 3) CopyCat Training
+Reconstruct chroma only while preserving original luma and detail. Replace reference luma with source luma, remove extra channels, clamp values, and train CopyCat on aligned pairs.
+
+![CopyCat Training](DOCS/images/COPYCAT%20TRAINING.png)
+
+### 4) Inference & Render
+Apply the trained model to the full sequence, remove non‑image areas (sprockets/audio), format for output, and render to the archival colorspace.
+
+![Inference Render](DOCS/images/INFERENCE%20RENDER.png)
+
+### 5) MatchGrade Baseline (optional)
+Compare ML recovery to Nuke’s MatchGrade using the same dataset frames as a baseline.
+
+![MatchGrade Comparison](DOCS/images/MATCHGRADE%20RENDER%20OPTIONAL.png)
 
 ---
 
-### 2. Alignment (with Crop)
-**Purpose:** Align reference precisely to source so only chroma differs.  
-**Why:** Misalignment creates false color edges and ghosting.  
-**Method:**  
-- Auto: `F_Align` with global settings.  
-- Manual: `Transform` with keyframes for frame-by-frame fixes.  
-- `Dissolve` toggles between auto and manual.  
-- **Linked Crop** removes overscan/black borders and keeps framing consistent across source and reference.
-
----
-
-### 3. CopyCat Training
-**Purpose:** Train a model to reconstruct chroma only, preserving original luma and detail.  
-**Why:** Prevents the model from altering texture or sharpness while restoring color.  
-**Method:**  
-- Replace reference luma with source luma.  
-- Remove extra channels and clamp values.  
-- Train CopyCat on aligned pairs.
-
----
-
-### 4. Inference & Render
-**Purpose:** Apply the trained model to the full sequence and output archival-ready files.  
-**Why:** This is the final chroma-restored version for preservation or grading.  
-**Method:**  
-- Apply model to source sequence.  
-- Remove non-image areas (sprockets, audio).  
-- Format for output and render to archival color space.
-
----
-
-### 5. MatchGrade Comparison (Optional)
-**Purpose:** Compare ML-based recovery with Nuke’s built-in MatchGrade.  
-**Why:** Provides a performance baseline for evaluating model output.  
-**Method:** Use same dataset frames, apply grade to sequence, compare results.
-
----
-
-## Key Principles
-- **No fixed values** – Steps remain constant; parameters vary per project.  
-- **Manual logging** – Record changes and reasoning in `notes/experiments.md` and commits.  
-- **Consistency** – Keep node structure stable for reproducibility.  
-- **Preservation-first** – All choices protect original image integrity.
+## Docs Index
+- Workflow guide: [WORKFLOW_GUIDE.md](WORKFLOW_GUIDE.md)
+- SOP/quick checklist: [DOCS/copycat_sop.md](DOCS/copycat_sop.md)
+- Notes and QC log: [notes/experiments.md](notes/experiments.md)
+- Reference images: [DOCS/images/](DOCS/images)
 
 ---
 
@@ -76,24 +68,26 @@ This approach prioritizes:
 ```
 nuke-chroma-recovery-template/
 ├── README.md
-├── notes/experiments.md
-├── nuke_base/                # Store your .nknc template here
-├── pipeline/
-│   ├── 01_dataset_curation/
-│   ├── 02_alignment/
-│   ├── 03_copycat_training/
-│   ├── 04_inference_render/
-│   └── 05_matchgrade_render/
-└── tools/
+├── WORKFLOW_GUIDE.md
+├── DOCS/
+│   ├── copycat_sop.md
+│   └── images/
+├── notes/
+│   └── experiments.md
+├── nuke_base/                # store base .nknc template
+└── pipeline/
+    ├── 01_dataset_curation/
+    ├── 02_alignment/
+    ├── 03_copycat_training/
+    ├── 04_inference_render/
+    └── 05_matchgrade_render/
 ```
 
 ---
 
-## Start Here
-- Canonical guide (Nuke + CopyCat): `WORKFLOW_GUIDE.md`
-- Quick operator checklist: `DOCS/copycat_sop.md`
-
-Focus of this repository is the CopyCat workflow only. Keep all assets repository‑relative and log parameters/QC in `notes/experiments.md`.
+## Versioning
+- Track changes in [CHANGELOG.md](CHANGELOG.md). Use commit scopes per stage (e.g., `alignment:`, `copycat:`).
+- Tag stable checkpoints after QC review, e.g., `git tag -a v0.1.0 -m "first working template" && git push origin v0.1.0`.
 
 ---
 

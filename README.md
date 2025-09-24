@@ -3,7 +3,7 @@
 
 This repository documents a reusable workflow for machine‑learning‑assisted chroma recovery in film restoration, implemented in Foundry Nuke with the CopyCat node. It captures the logic and purpose of each stage without project‑specific settings, serving as a foundation for consistent, adaptable restoration work.
 
-![Node Graph Overview](DOCS/images/NODE%20GRAPH%20OVERVIEW.png)
+![Node Graph Overview](DOCS/images_cropped/NODE%20GRAPH%20OVERVIEW.png)
 
 ---
 
@@ -32,27 +32,27 @@ Restore missing or degraded chroma in scanned film by training small, targeted m
 ### 1) Dataset Curation
 Select representative frames from faded source and matching color reference. Lock matching frames (FrameHold) and assemble with AppendClip.
 
-![Dataset Curation](DOCS/images/DATASET%20CURATION.png)
+![Dataset Curation](DOCS/images_cropped/DATASET%20CURATION.png)
 
 ### 2) Alignment (with linked Crop)
 Align reference precisely to source so only chroma differs. Combine global F_Align with manual Transform for edge cases; use Dissolve to compare modes; apply a linked Crop for consistent framing.
 
-![Alignment](DOCS/images/ALIGNMENT.png)
+![Alignment](DOCS/images_cropped/ALIGNMENT.png)
 
 ### 3) CopyCat Training
 Reconstruct chroma only while preserving original luma and detail. Replace reference luma with source luma, remove extra channels, clamp values, and train CopyCat on aligned pairs.
 
-![CopyCat Training](DOCS/images/COPYCAT%20TRAINING.png)
+![CopyCat Training](DOCS/images_cropped/COPYCAT%20TRAINING.png)
 
 ### 4) Inference & Render
 Apply the trained model to the full sequence, remove non‑image areas (sprockets/audio), format for output, and render to the archival colorspace.
 
-![Inference Render](DOCS/images/INFERENCE%20RENDER.png)
+![Inference Render](DOCS/images_cropped/INFERENCE%20RENDER.png)
 
 ### 5) MatchGrade Baseline (optional)
 Compare ML recovery to Nuke’s MatchGrade using the same dataset frames as a baseline.
 
-![MatchGrade Comparison](DOCS/images/MATCHGRADE%20RENDER%20OPTIONAL.png)
+![MatchGrade Comparison](DOCS/images_cropped/MATCHGRADE%20RENDER%20OPTIONAL.png)
 
 ---
 
@@ -60,7 +60,7 @@ Compare ML recovery to Nuke’s MatchGrade using the same dataset frames as a ba
 - Workflow guide: [WORKFLOW_GUIDE.md](WORKFLOW_GUIDE.md)
 - SOP/quick checklist: [DOCS/copycat_sop.md](DOCS/copycat_sop.md)
 - Notes and QC log: [notes/experiments.md](notes/experiments.md)
-- Reference images: [DOCS/images/](DOCS/images)
+- Reference images: [DOCS/images/](DOCS/images) · Cropped: [DOCS/images_cropped/](DOCS/images_cropped)
 
 ---
 

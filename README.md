@@ -62,70 +62,72 @@ Compare ML recovery to Nuke’s MatchGrade using the same dataset frames as a ba
 ---
 
 ## Demos (Inline Players)
-The repository README can render inline players for MP4s stored in the repo. These examples use relative paths with `?raw=1` so GitHub serves the media bytes directly. Playback is limited to collaborators if the repo is private.
+GitHub strips `<video>` tags in READMEs, so inline players may not render on the repository page even if they work in editors or previewers. Please view the demos on GitHub Pages instead:
+
+- Live players: https://fabiocolor.github.io/nuke-chroma-recovery-template/demos.html
 
 ### MKILL
 COLOR-MATCHED-COMPARISON
 
-<video controls preload="metadata" width="960" src="https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/mkill_color_matched_comparison_web.mp4?raw=1"></video>
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/mkill_color_matched_comparison_web.mp4)
 
 MKILL GAUGE MATCHING COMPARISON (x265)
 
-<video controls preload="metadata" width="960" src="https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/mkill_mkill_gauge_matching_comparison_x265_web.mp4?raw=1"></video>
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/mkill_mkill_gauge_matching_comparison_x265_web.mp4)
 
 MKILL COLOR COMPARISON (x265)
 
-<video controls preload="metadata" width="960" src="https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/mkill_mkill_color_comparison_x265_web.mp4?raw=1"></video>
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/mkill_mkill_color_comparison_x265_web.mp4)
 
 MKILL COLOR RECOVERY (x265)
 
-<video controls preload="metadata" width="960" src="https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/mkill_mkill_color_recovery_x265_web.mp4?raw=1"></video>
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/mkill_mkill_color_recovery_x265_web.mp4)
 
 ### REBELION DE TAPADAS
 ROGER_REBELIONDELASTAPADAS_P3D65_NUKE-COMPARISON
 
-<video controls preload="metadata" width="960" src="https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/rebelion_de_tapadas_roger_rebeliondelastapadas_p3d65_nuke_comparison_web.mp4?raw=1"></video>
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/rebelion_de_tapadas_roger_rebeliondelastapadas_p3d65_nuke_comparison_web.mp4)
 
 REBELION FINAL COMPARISON (x265)
 
-<video controls preload="metadata" width="960" src="https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/rebelion_de_tapadas_rebelion_final_comparison_x265_web.mp4?raw=1"></video>
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/rebelion_de_tapadas_rebelion_final_comparison_x265_web.mp4)
 
 ### FRIENDS
 FRIENDS COMPARISON (x265)
 
-<video controls preload="metadata" width="960" src="https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/friends_friends_comparison_x265_web.mp4?raw=1"></video>
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/friends_friends_comparison_x265_web.mp4)
 
 FRIENDS COLOR RESULT (x265)
 
-<video controls preload="metadata" width="960" src="https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/friends_friends_color_result_x265_web.mp4?raw=1"></video>
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/friends_friends_color_result_x265_web.mp4)
 
 ### CANDY CANDY
 CANDY CANDY OPENING 16MM COLOR (x265)
 
-<video controls preload="metadata" width="960" src="https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/candy_candy_candy_candy_opening_16mm_color_x265_web.mp4?raw=1"></video>
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/candy_candy_candy_candy_opening_16mm_color_x265_web.mp4)
 
 CANDY CANDY FINAL COMPARISON (x265)
 
-<video controls preload="metadata" width="960" src="https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/candy_candy_candy_candy_final_comparison_x265_web.mp4?raw=1"></video>
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/candy_candy_candy_candy_final_comparison_x265_web.mp4)
 
 ### FRONTIER EXPERIENCE
 FRONTIER EXPERIENCE — COLOR
 
-<video controls preload="metadata" width="960" src="https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/frontier_experience_frontier_experience_color_web.mp4?raw=1"></video>
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/frontier_experience_frontier_experience_color_web.mp4)
 
 FRONTIER EXPERIENCE — COMPARISON
 
-<video controls preload="metadata" width="960" src="https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/frontier_experience_frontier_experience_comparison_web.mp4?raw=1"></video>
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/frontier_experience_frontier_experience_comparison_web.mp4)
 
 ### KNIGHTS OF THE TRAILS
 KNIGHTS COMPARISON
 
-<video controls preload="metadata" width="960" src="https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/knights_of_the_trails_knights_comparison_web.mp4?raw=1"></video>
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/knights_of_the_trails_knights_comparison_web.mp4)
 
 ### MURALLA VERDE
 MURALLA-VERDE — TRAILER COMPARACIÓN
 
-<video controls preload="metadata" width="960" src="https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/muralla_verde_muralla_verde_trailer_comparacion_web.mp4?raw=1"></video>
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/muralla_verde_muralla_verde_trailer_comparacion_web.mp4)
 
 ---
 

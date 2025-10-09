@@ -1,6 +1,6 @@
 # Machine Learning-Based Film Recovery in Nuke
 
-A comprehensive workflow template for using Foundry Nuke with CopyCat to create custom machine learning models for **both luma and chroma recovery** in film restoration. This approach trains small, targeted models specific to each film or reel, preserving the unique characteristics of the original material.
+A comprehensive workflow template for using Foundry Nuke with CopyCat to create custom machine learning models for **both spatial information and chroma recovery** in film restoration. This approach trains small, targeted models specific to each film or reel, preserving the unique characteristics of the original material.
 
 ![Node Graph Overview](docs/images/NODE%20GRAPH%20OVERVIEW%20cropped.png)
 
@@ -10,7 +10,7 @@ A comprehensive workflow template for using Foundry Nuke with CopyCat to create 
 
 1. **Introduction** → Read below to understand both recovery approaches
 2. **Chroma Recovery** → [docs/chroma-recovery.md](docs/chroma-recovery.md) - Restore missing or faded color information
-3. **Luma Recovery** → [docs/luma-recovery.md](docs/luma-recovery.md) - Restore missing or degraded brightness/luminance
+3. **Spatial Recovery** → [docs/luma-recovery.md](docs/luma-recovery.md) - Enhance spatial information using multiple sources
 4. **Case Studies** → [docs/case-studies.md](docs/case-studies.md) - Real-world examples of both approaches
 5. **Quick Reference** → [docs/copycat_sop.md](docs/copycat_sop.md) - Operator checklist and SOP
 
@@ -27,10 +27,10 @@ Two complementary machine learning approaches for film restoration in Nuke:
 - Trains models to reconstruct chroma (color channels) while preserving original luma
 - Essential for color-faded films, damaged color negatives, or chroma loss
 
-**💡 Luma Recovery**
-- Restores missing or degraded **brightness/luminance information**
-- Trains models to reconstruct luma (brightness channel) while preserving existing chroma
-- Essential for damaged emulsion, brightness degradation, or luma channel loss
+**💡 Spatial Information Recovery**
+- Restores and enhances **spatial information** using multiple sources
+- Trains models to transfer spatial characteristics (resolution, sharpness, grain) between sources
+- Essential for homogenizing different film elements and reconstructing missing spatial data
 
 ### Why Machine Learning in Nuke?
 
@@ -64,16 +64,16 @@ Traditional film restoration often relies on:
 
 **Detailed Guide:** → [docs/chroma-recovery.md](docs/chroma-recovery.md)
 
-### 💡 Luma Recovery Workflow
+### 💡 Spatial Information Recovery Workflow
 
-**When to use:** Damaged emulsion, brightness degradation, luma channel damage, under/overexposed areas
+**When to use:** Multiple sources of same content, homogenization needs, spatial quality improvement, partial reconstruction
 
 **Process Overview:**
-1. **Dataset Curation** - Select frames from damaged source + good reference
-2. **Alignment** - Match brightness and contrast levels
-3. **CopyCat Training** - Train model to reconstruct luma
-4. **Inference & Render** - Apply to full sequence
-5. **Validation** - Verify brightness and detail preservation
+1. **Source Identification** - Identify multiple sources with different spatial qualities
+2. **Overlap Detection** - Find common frames between sources
+3. **Dataset Curation** - Select overlapping frames for spatial transfer
+4. **CopyCat Training** - Train model to transfer spatial characteristics
+5. **Application & Homogenization** - Apply to sequence and validate consistency
 
 **Detailed Guide:** → [docs/luma-recovery.md](docs/luma-recovery.md)
 
@@ -91,12 +91,12 @@ Real-world applications demonstrating both recovery approaches:
 - **[Muralla Verde](docs/case-studies/muralla-verde-chroma-recovery.md)** - Trailer project
 - **[Frontier Experience](docs/case-studies/frontier-experience-chroma-recovery.md)** - Film project
 
-### Luma Recovery Examples
-- **[Knights of the Trail](docs/case-studies/knights-trail-luma-recovery.md)** - Luma reconstruction
-- **[El Tinterillo](docs/case-studies/tinterillo-luma-recovery.md)** - Comprehensive luma recovery
+### Spatial Recovery Examples
+- **[Knights of the Trail](docs/case-studies/knights-trail-luma-recovery.md)** - Spatial reconstruction
+- **[El Tinterillo](docs/case-studies/tinterillo-luma-recovery.md)** - Comprehensive spatial recovery
 
 ### Combined Recovery Examples
-- **[Mission Kill](docs/case-studies/missionkill-combined-recovery.md)** - Both luma and chroma recovery
+- **[Mission Kill](docs/case-studies/missionkill-combined-recovery.md)** - Both spatial and chroma recovery
 
 **All Case Studies:** → [docs/case-studies.md](docs/case-studies.md)
 
@@ -137,7 +137,7 @@ nuke-chroma-recovery-template/
 - Basic understanding of ML concepts (helpful but not required)
 
 ### First Project
-1. Choose your recovery type: **Chroma** (color) or **Luma** (brightness)
+1. Choose your recovery type: **Chroma** (color) or **Spatial** (resolution, grain, detail)
 2. Read the appropriate workflow guide
 3. Review relevant case studies
 4. Follow the SOP checklist
@@ -148,8 +148,8 @@ nuke-chroma-recovery-template/
 | Film Type | Recommended Recovery | Examples |
 |-----------|---------------------|----------|
 | Color-faded prints | Chroma Recovery | Candy Candy, Friends |
-| Damaged negatives | Combined Recovery | Mission Kill |
-| Brightness issues | Luma Recovery | Knights of the Trail, El Tinterillo |
+| Multiple sources available | Spatial Recovery | Knights of the Trail, El Tinterillo |
+| Complex degradation | Combined Recovery | Mission Kill |
 | Historical material | Chroma Recovery (careful) | Rebelión de Tapadas |
 
 ---
@@ -208,4 +208,4 @@ This workflow template is provided for educational and research purposes in film
 
 ---
 
-**Start exploring:** [Chroma Recovery](docs/chroma-recovery.md) • [Luma Recovery](docs/luma-recovery.md) • [Case Studies](docs/case-studies.md)
+**Start exploring:** [Chroma Recovery](docs/chroma-recovery.md) • [Spatial Recovery](docs/luma-recovery.md) • [Case Studies](docs/case-studies.md)

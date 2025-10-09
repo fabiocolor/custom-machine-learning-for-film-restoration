@@ -1,169 +1,188 @@
-# Luma Recovery Workflow
+# Spatial Information Recovery (Luma Channel)
 
-A comprehensive guide for using CopyCat in Nuke to restore missing or degraded **brightness/luminance information** in film material. This workflow trains machine learning models to reconstruct luma channels while preserving the original chroma.
+A comprehensive guide for using CopyCat in Nuke to recover and enhance **spatial information** using overlapping content from multiple sources. This workflow trains machine learning models to transfer spatial characteristics (resolution, sharpness, grain structure) between different versions of the same content.
 
-## When to Use Luma Recovery
+## When to Use Spatial Recovery
 
 **Ideal for:**
-- Damaged emulsion or film base
-- Brightness degradation over time
-- Luma channel damage or loss
-- Under/overexposed areas
-- Film with inconsistent brightness
-- Chemical damage affecting silver halides
+- Homogenizing different film elements (prints, transfers, scans)
+- Transferring spatial quality from high-quality source to lower-quality source
+- Reconstructing missing or damaged image parts
+- Sharpening and detail enhancement
+- Grain structure matching
+- Spatial quality improvement across multiple sources
 
 **Real-world examples:**
-- [Knights of the Trail](case-studies/knights-trail-luma-recovery.md) - Luma reconstruction
-- [El Tinterillo](case-studies/tinterillo-luma-recovery.md) - Comprehensive luma recovery
+- [Knights of the Trail](case-studies/knights-trail-luma-recovery.md) - Spatial reconstruction with detailed workflow
+- [El Tinterillo](case-studies/tinterillo-luma-recovery.md) - Comprehensive spatial recovery with training steps
+- [Mission Kill](case-studies/missionkill-combined-recovery.md) - Combined spatial and chroma recovery
 
 ## Workflow Overview
 
-The luma recovery process follows five key stages:
+The spatial recovery process uses overlapping content from multiple sources:
 
-### 1️⃣ Dataset Curation
-Select representative frames from damaged source and good reference
+### 1️⃣ Source Identification
+Identify multiple sources of the same content with different spatial qualities
 
-### 2️⃣ Alignment
-Match brightness and contrast levels between source and reference
+### 2️⃣ Overlap Detection
+Find common frames between different sources
 
-### 3️⃣ CopyCat Training
-Train model to reconstruct luma while preserving original chroma
+### 3️⃣ Dataset Curation
+Select overlapping frames for training spatial transfer
 
-### 4️⃣ Inference & Render
-Apply trained model to full sequence and output archival files
+### 4️⃣ CopyCat Training
+Train model to transfer spatial characteristics from high-quality to low-quality source
 
-### 5️⃣ Validation
-Verify brightness preservation and detail reconstruction
+### 5️⃣ Application & Homogenization
+Apply trained model to entire sequence and validate spatial consistency
 
 ---
 
 ## Detailed Workflow Steps
 
-### Stage 1: Dataset Curation
+### Stage 1: Source Identification and Analysis
 
-**Objective:** Select matching frame pairs from damaged source and good reference
+**Objective:** Identify and analyze multiple sources of the same content
 
 **Process:**
-1. **Source Selection**: Choose frames with luma damage but preserved chroma
-2. **Reference Selection**: Choose frames with good exposure and detail from same film
-3. **Matching**: Ensure temporal and spatial correspondence
-4. **Quantity**: 8-16 representative frames typically sufficient
-5. **Variety**: Include different lighting conditions and exposure levels
+1. **Source Inventory**: Catalog all available versions
+   - Different film prints (different generations)
+   - Various transfers (telecine, scanning)
+   - Multiple scans (different equipment/settings)
+   - Archive materials vs. restoration elements
 
-**Best Practices:**
-- Focus on brightness/contrast issues rather than color
-- Lock matching frames with FrameHold node
-- Use AppendClip to assemble pairs
-- Include challenging cases (shadows, highlights, midtones)
+2. **Spatial Quality Assessment**:
+   - **Resolution**: Sharpness and detail level
+   - **Grain Structure**: Film grain characteristics
+   - **Damage Assessment**: Scratches, dust, degradation
+   - **Completeness**: Which sources have complete vs. partial content
 
-### Stage 2: Alignment
+3. **Source Classification**:
+   - **High-Quality**: Best spatial characteristics (reference)
+   - **Low-Quality**: Target for improvement
+   - **Partial Sources**: Missing sections or damaged areas
 
-**Objective:** Match brightness and contrast levels between source and reference
+### Stage 2: Overlap Detection and Mapping
 
-**Key Nodes:**
-- **Grade**: Adjust brightness and contrast to match levels
-- **Gamma**: Fine-tune midtone matching
-- **Multiply/Screen**: Adjust for exposure differences
-- **Lookup**: Create custom LUTs for matching
+**Objective:** Find matching frames between different sources
 
-**Alignment Checklist:**
-- [ ] Source and reference brightness levels match
-- [ ] Contrast ratios are similar
-- [ ] Shadow and highlight details correspond
-- [ ] No over/underexposure artifacts
+**Process:**
+1. **Temporal Alignment**: Match timing between sources
+2. **Content Analysis**: Identify overlapping scenes
+3. **Frame Matching**: Find corresponding frames
+4. **Quality Mapping**: Determine which source provides best spatial info for each section
 
-### Stage 3: CopyCat Training
+**Tools and Techniques:**
+- Manual frame-by-frame comparison
+- Automated scene detection
+- Content analysis for matching
+- Timecode synchronization
 
-**Objective:** Train ML model to reconstruct luma from reference
+### Stage 3: Dataset Curation
+
+**Objective:** Select optimal training pairs for spatial transfer
+
+**Training Pair Selection:**
+1. **Source Frames**: Low-quality elements needing improvement
+2. **Reference Frames**: High-quality elements with desired spatial characteristics
+3. **Overlap Requirements**: Exact frame correspondence
+4. **Diversity**: Include various spatial scenarios (sharp edges, textures, grain patterns)
+
+**Optimal Training Data:**
+- **Sharp Edges**: For detail transfer
+- **Textural Areas**: For grain structure learning
+- **Mixed Content**: Various image types and lighting
+- **Problem Areas**: Challenging spatial scenarios
+
+### Stage 4: CopyCat Training for Spatial Transfer
+
+**Objective:** Train ML model to transfer spatial characteristics
 
 **Node Configuration:**
 ```
-Input: Source (damaged luma)
-Reference: Aligned reference (good luma)
-Output: Reconstructed luma
+Input: Low-quality source (target for improvement)
+Reference: High-quality source (spatial characteristics)
+Output: Enhanced source with reference spatial qualities
 ```
 
 **Training Parameters:**
-- **Iterations**: 100-200 (monitor for convergence)
-- **Learning Rate**: Default typically works well
-- **Validation**: Test on frames not in training set
-- **Quality Check**: Look for brightness artifacts or halos
+- **Iterations**: 150-300 (spatial learning requires more iterations)
+- **Learning Rate**: Adjust based on complexity
+- **Validation**: Test on non-training overlap frames
+- **Quality Focus**: Emphasize detail and grain transfer
 
 **Monitoring Training:**
-- Watch loss curves for convergence
-- Check intermediate results for brightness accuracy
-- Validate on held-out frames
-- Monitor for luma bleeding or halos
+- Watch for spatial detail preservation
+- Monitor grain structure transfer
+- Check for over-sharpening or artifacts
+- Validate on challenging spatial scenarios
 
-### Stage 4: Inference & Render
+### Stage 5: Application and Homogenization
 
-**Objective:** Apply trained model to full sequence
+**Objective:** Apply trained model and achieve spatial consistency
 
-**Process:**
-1. Load trained CopyCat node
-2. Connect to source footage
-3. Process entire sequence
-4. Monitor for brightness consistency
-5. Render to archival format
+**Application Process:**
+1. **Model Application**: Apply to entire target sequence
+2. **Spatial Validation**: Check for consistency across frames
+3. **Quality Assessment**: Verify spatial improvement
+4. **Blending**: Combine with existing elements if needed
 
-**Output Settings:**
-- **Format**: Archival codec (ProRes, DNxHD)
-- **Color Space**: Original or archival color space
-- **Bit Depth**: Match source (10-bit for film)
-- **Quality**: Visually lossless
-
-### Stage 5: Validation
-
-**Objective:** Verify brightness preservation and detail reconstruction
-
-**Validation Methods:**
-- **Waveform Monitoring**: Check brightness levels
-- **Histogram Analysis**: Verify distribution
-- **Detail Preservation**: Check for loss or enhancement
-- **Consistency Check**: Ensure uniform results
-
-**Quality Indicators:**
-- Natural brightness reproduction
-- No halos or ringing artifacts
-- Preserved detail in shadows and highlights
-- Consistent across sequence
+**Homogenization Techniques:**
+- **Complete Sequence**: Apply to entire film for consistency
+- **Sectional Application**: Apply only to problematic sections
+- **Progressive Enhancement**: Multiple passes for gradual improvement
+- **Selective Transfer**: Transfer only specific spatial characteristics
 
 ---
 
 ## Technical Considerations
 
-### Brightness vs. Luma
+### Spatial Characteristics Transfer
 
-**Understanding the Difference:**
-- **Brightness**: Perceived lightness
-- **Luma**: Technical luminance signal (Y in YUV/YCbCr)
-- **Our Focus**: Reconstruct luma while preserving chroma
+**What the Model Learns:**
+- **Resolution**: Sharpness and detail level
+- **Grain Structure**: Film grain patterns and characteristics
+- **Edge Definition**: Clarity of edges and transitions
+- **Texture**: Fine details and surface characteristics
+- **Spatial Relationships**: How spatial elements relate to each other
 
-### Color Space Management
+### Source Quality Considerations
 
-**Recommended Workflow:**
-1. **Source Analysis**: Understand original luma range
-2. **Linear Working**: Convert to linear for training
-3. **Reference Matching**: Ensure consistent brightness levels
-4. **Output Conversion**: Render to appropriate archival space
+**High-Quality Source Requirements:**
+- Superior resolution and sharpness
+- Clean grain structure
+- Minimal damage or degradation
+- Complete or near-complete content
+- Consistent spatial characteristics
 
-### Model Size and Quality
+**Low-Quality Source Characteristics:**
+- Lower resolution or softness
+- Damaged or degraded areas
+- Missing spatial information
+- Inconsistent quality across frames
+- Partial content coverage
 
-**Trade-offs:**
-- **Small Models**: Faster training, less detail reconstruction
-- **Large Models**: Better detail preservation, slower training
-- **Recommendation**: Balance detail needs with performance
+### Common Spatial Recovery Scenarios
 
-### Common Issues and Solutions
+**Scenario 1: Print-to-Print Transfer**
+- Different generations of same film
+- Transfer spatial characteristics from better to worse print
+- Maintain film authenticity while improving quality
 
-**Problem:** Brightness halos or ringing
-**Solution:** Reduce model size or training iterations
+**Scenario 2: Scan-to-Scan Enhancement**
+- Different scanning equipment or settings
+- Transfer best spatial qualities between scans
+- Optimize for archival preservation
 
-**Problem:** Loss of detail in shadows/highlights
-**Solution**: Ensure reference has good dynamic range
+**Scenario 3: Partial Reconstruction**
+- Source A has complete content but poor quality
+- Source B has excellent quality but incomplete content
+- Transfer spatial information where content overlaps
 
-**Problem:** Inconsistent brightness across frames
-**Solution**: Check alignment and add more diverse training frames
+**Scenario 4: Homogenization**
+- Multiple sources with different spatial characteristics
+- Create consistent spatial quality across entire project
+- Maintain original characteristics while improving overall quality
 
 ---
 
@@ -171,15 +190,16 @@ Output: Reconstructed luma
 
 ### Related Case Studies
 
-**Luma Recovery Examples:**
-- [Knights of the Trail](case-studies/knights-trail-luma-recovery.md) - Luma reconstruction
-- [El Tinterillo](case-studies/tinterillo-luma-recovery.md) - Comprehensive luma recovery with training steps
+**Spatial Recovery Examples:**
+- [Knights of the Trail](case-studies/knights-trail-luma-recovery.md) - Spatial reconstruction workflow
+- [El Tinterillo](case-studies/tinterillo-luma-recovery.md) - Comprehensive spatial recovery with training steps
+- [Mission Kill](case-studies/missionkill-combined-recovery.md) - Combined spatial and chroma recovery
 
 **Learning from Examples:**
-Each case study demonstrates specific aspects of luma recovery:
-- Different types of luma damage
-- Various reference materials
-- Different validation approaches
+Each case study demonstrates specific aspects of spatial recovery:
+- Different source combinations and overlaps
+- Various spatial quality improvement techniques
+- Different application scenarios and validation approaches
 
 ---
 
@@ -187,38 +207,39 @@ Each case study demonstrates specific aspects of luma recovery:
 
 ### Nuke Node Templates
 
-**Basic Luma Recovery Node Graph:**
+**Basic Spatial Recovery Node Graph:**
 ```
-Source → Grade → Transform → CopyCat (trained) → Output
-Reference → Grade → Transform → CopyCat (reference)
-```
-
-**Advanced Setup:**
-```
-Source → Grade → Transform → CopyCat → Grade → Output
-Reference → Grade → Transform → CopyCat → Grade → Validation
+Low-Quality Source → Transform → CopyCat (trained) → Enhanced Output
+High-Quality Source → Transform → CopyCat (reference)
 ```
 
-### Brightness Matching Tools
+**Advanced Multi-Source Setup:**
+```
+Low-Quality → Transform → CopyCat → Grade → Enhanced Output
+High-Quality 1 → Transform → CopyCat → Validation
+High-Quality 2 → Transform → CopyCat → Quality Check
+```
 
-**Useful Nuke Nodes:**
-- **Grade**: Overall brightness/contrast adjustment
-- **Gamma**: Midtone brightness control
-- **Histogram**: Monitor brightness distribution
-- **Waveform**: Check luma levels visually
+### Quality Assessment Tools
+
+**Spatial Quality Analysis:**
+- **Waveform Monitor**: For spatial frequency analysis
+- **Vectorscope**: For spatial relationship verification
+- **Comparison Tools**: Before/after analysis
+- **Edge Detection**: For detail preservation checking
 
 ### Quick Reference
 
 **Keyboard Shortcuts:**
-- `Tab`: Toggle between source and reference
-- `W`: Enable waveform monitor
-- `H`: Enable histogram display
+- `Tab`: Toggle between sources for comparison
+- `Shift+Tab`: Quick spatial quality check
 - `Ctrl+S`: Save training progress
+- `Space`: Play for motion-based spatial assessment
 
 **Node Tips:**
-- Use Viewer Wipe for before/after comparison
-- Enable CopyCat's built-in validation
-- Monitor with waveform for accuracy
+- Use Viewer Wipe for before/after spatial comparison
+- Enable CopyCat's built-in spatial validation
+- Monitor with waveform for spatial consistency
 
 ---
 
@@ -226,21 +247,20 @@ Reference → Grade → Transform → CopyCat → Grade → Validation
 
 ### Checklist Before Final Render
 
-- [ ] Training converged without brightness artifacts
-- [ ] No halos or ringing around edges
-- [ ] Consistent results across test frames
-- [ ] Preserved detail in shadows and highlights
-- [ ] Natural brightness reproduction
-- [ ] Waveform monitoring shows correct levels
+- [ ] Spatial detail properly transferred from reference
+- [ ] Grain structure matches reference characteristics
+- [ ] No spatial artifacts or over-sharpening
+- [ ] Consistent results across sequence
+- [ ] Original content preserved and enhanced
+- [ ] Spatial homogenization achieved where needed
 
-### Documentation Requirements
+### Validation Requirements
 
-For each project, document:
-- Source material details
-- Reference selection criteria
-- Training parameters and iterations
-- Validation results
-- Brightness/contrast adjustments made
+For each project, validate:
+- **Detail Transfer**: Check sharpness and edge preservation
+- **Grain Matching**: Verify grain structure transfer
+- **Consistency**: Ensure uniform spatial quality
+- **Authenticity**: Maintain original film characteristics
 
 ---
 
@@ -248,51 +268,63 @@ For each project, document:
 
 ### Common Issues
 
-**Training Not Converging:**
-- Check brightness alignment accuracy
-- Increase training frames diversity
-- Adjust learning rate or model size
+**Spatial Artifacts:**
+- Reduce model complexity or training iterations
+- Check reference source quality
+- Validate training data alignment
 
-**Brightness Artifacts:**
-- Reduce model complexity
-- Check for reference contamination
-- Validate training data quality
+**Over-sharpening:**
+- Adjust training parameters
+- Add regularization to training
+- Use softer reference source
 
 **Inconsistent Results:**
-- Ensure consistent brightness matching
+- Ensure consistent overlap between sources
 - Add more diverse training examples
 - Check for temporal consistency
 
 ### When to Seek Help
 
-- Training fails to converge after 200 iterations
-- Significant brightness artifacts appear
-- Results don't match expected levels
-- Technical issues with node setup
+- Training fails to converge after 300 iterations
+- Significant spatial artifacts appear
+- Grain structure not properly transferred
+- Complex multi-source scenarios
 
 ---
 
-## Combined Recovery Projects
+## Advanced Applications
 
-**When Both Luma and Chroma Recovery Needed:**
-Some projects may require both types of recovery. See:
-- [Mission Kill - Combined Recovery](case-studies/missionkill-combined-recovery.md)
+### Multi-Source Spatial Synthesis
 
-**Recommended Approach:**
-1. Complete chroma recovery first
-2. Validate chroma results
-3. Perform luma recovery on chroma-corrected footage
-4. Final validation of both recoveries
+**Complex Scenarios:**
+- Three or more sources with different qualities
+- Transfer best spatial characteristics from each source
+- Create optimal spatial quality through synthesis
+
+### Progressive Spatial Enhancement
+
+**Multi-Stage Approach:**
+1. Initial spatial transfer
+2. Quality assessment and adjustment
+3. Additional refinement passes
+4. Final validation and homogenization
+
+### Partial Content Reconstruction
+
+**Missing Information Recovery:**
+- Use overlapping content to train reconstruction
+- Apply model to missing or damaged areas
+- Blend with existing content seamlessly
 
 ---
 
 ## Next Steps
 
-**After completing luma recovery:**
-1. Document results in experiments log
+**After completing spatial recovery:**
+1. Document spatial improvements and validation results
 2. Consider chroma recovery if color issues remain
 3. Archive trained model for future use
-4. Share case study if appropriate
+4. Share case study with spatial recovery details
 
 **Related Workflows:**
 - [Chroma Recovery](chroma-recovery.md) - For color reconstruction
@@ -300,15 +332,15 @@ Some projects may require both types of recovery. See:
 
 ---
 
-## Comparison: Luma vs. Chroma Recovery
+## Comparison: Spatial vs. Chroma Recovery
 
-| Aspect | Luma Recovery | Chroma Recovery |
-|--------|---------------|------------------|
-| **Target** | Brightness/contrast | Color information |
-| **Reference** | Good exposure | Good color |
-| **Challenges** | Halos, ringing | Color bleeding |
-| **Validation** | Waveform monitoring | Color accuracy |
-| **Common Uses** | Emulsion damage | Faded film |
+| Aspect | Spatial Recovery | Chroma Recovery |
+|--------|------------------|------------------|
+| **Target** | Resolution, sharpness, grain | Color information |
+| **Sources** | Multiple versions of same content | Source + color reference |
+| **Challenge** | Spatial detail transfer | Color accuracy |
+| **Validation** | Spatial quality assessment | Color accuracy testing |
+| **Common Uses** | Print homogenization, detail enhancement | Color faded film recovery |
 
 ---
 

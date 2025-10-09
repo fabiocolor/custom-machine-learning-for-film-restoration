@@ -1,6 +1,6 @@
 # Case Studies
 
-This section documents real-world applications of the chroma recovery workflow on various film restoration projects. Each case study includes project details, challenges encountered, workflow variations, and results.
+This section documents real-world applications of both chroma and spatial recovery workflows on various film restoration projects. Each case study includes project details, challenges encountered, workflow variations, and results.
 
 ## Chroma Recovery Projects
 
@@ -24,16 +24,16 @@ Film project chroma recovery with comprehensive process documentation.
 
 ## Combined Recovery Projects
 
-### [Mission Kill - Combined Luma & Chroma Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/missionkill-combined-recovery.md)
-Comprehensive recovery project demonstrating both luma and chroma reconstruction with generation-based approaches.
+### [Mission Kill - Combined Spatial & Chroma Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/missionkill-combined-recovery.md)
+Comprehensive recovery project demonstrating both spatial and chroma reconstruction with generation-based approaches.
 
-## Luma Recovery Projects
+## Spatial Recovery Projects
 
-### [Knights of the Trail - Luma Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/knights-trail-luma-recovery.md)
-Luma recovery with detailed workflow visualization.
+### [Knights of the Trail - Spatial Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/knights-trail-luma-recovery.md)
+Spatial recovery with detailed workflow visualization.
 
-### [El Tinterillo - Luma Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/tinterillo-luma-recovery.md)
-Luma recovery with comprehensive training documentation.
+### [El Tinterillo - Spatial Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/tinterillo-luma-recovery.md)
+Spatial recovery with comprehensive training documentation.
 
 ---
 

@@ -264,14 +264,14 @@ For each project, document:
 
 **After completing chroma recovery:**
 1. Document results in experiments log
-2. Consider combined luma recovery if needed
+2. Consider combined spatial recovery if needed
 3. Archive trained model for future use
 4. Share case study if appropriate
 
 **Related Workflows:**
-- [Luma Recovery](luma-recovery.md) - For brightness reconstruction
+- [Spatial Recovery](luma-recovery.md) - For spatial information reconstruction
 - [Combined Recovery](case-studies/missionkill-combined-recovery.md) - For complex projects
 
 ---
 
-**Quick Links:** [Case Studies](case-studies.md) • [Luma Recovery](luma-recovery.md) • [SOP](copycat_sop.md)
+**Quick Links:** [Case Studies](case-studies.md) • [Spatial Recovery](luma-recovery.md) • [SOP](copycat_sop.md)

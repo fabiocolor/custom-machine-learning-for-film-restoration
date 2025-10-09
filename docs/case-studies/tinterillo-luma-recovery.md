@@ -1,70 +1,77 @@
-# El Tinterillo - Luma Recovery
+# El Tinterillo - Spatial Recovery
 
 ## Overview
-Luma recovery for the El Tinterillo project, demonstrating comprehensive luminance reconstruction with detailed workflow documentation.
+Spatial recovery for the El Tinterillo project, demonstrating comprehensive spatial information reconstruction with detailed workflow documentation. This case study showcases the complete process of transferring spatial characteristics between multiple sources.
 
 ## Demo Video
 *Note: Add YouTube unlisted video embed here*
 
 ## Project Details
-**Source Material:** Film project
-**Challenge:** Degraded luma information
-**Workflow Version:** CopyCat-based luma recovery
-**Results:** Successful luma reconstruction with comprehensive process documentation
+**Source Material:** Film project with multiple source elements
+**Challenge:** Inconsistent spatial quality across different film elements
+**Workflow Version:** CopyCat-based spatial information transfer
+**Results:** Successful spatial reconstruction with comprehensive process documentation
 
 ---
 
 ## Complete Process Documentation
 
 ### 1. Initial State (Source Material)
-The original scan showing degraded luma information:
+The original scan showing inconsistent spatial quality:
 *Note: Add source/faded state image here*
 
-### 2. Training Dataset Selection
-Representative frames selected for the training dataset:
-*Note: Add contact sheet image here*
+### 2. Multiple Source Identification
+Different source elements with varying spatial characteristics:
+*Note: Add source elements comparison image here*
 
-### 3. ML Training Process
-CopyCat training showing iterative improvement:
+### 3. Overlap Detection and Training Dataset Selection
+Overlapping frames between sources selected for spatial transfer:
+*Note: Add overlap detection image here*
+
+### 4. ML Training Process
+CopyCat training showing spatial characteristic transfer:
 
 ![Tinterillo Training Steps](../images/tinterillo%20training%20steps.jpeg)
 
-### 4. Luma Recovery Process
-The ML-driven luma reconstruction workflow:
+### 5. Spatial Recovery Process
+The ML-driven spatial information transfer workflow:
 
 ![Tinterillo Luma Recovery v1](../images/tinterillo%20luma%20recovery%20v1.jpeg)
 
 ![Tinterillo Luma Recovery](../images/tinterillo%20luma%20recovery.jpeg)
 
-### 5. Final Result
-Recovered luma applied to the full sequence:
+### 6. Final Result
+Enhanced spatial quality applied to the full sequence:
 *Note: Add final result image here*
 
-### 6. Side-by-Side Comparison
-Original (left) vs. Recovered (right):
+### 7. Side-by-Side Comparison
+Original (left) vs. Spatially Enhanced (right):
 
 ![Tinterillo Final Comparison](../images/tinterillo%20final%20comparison.jpeg)
 
-### 7. Traditional vs ML Comparison
-Comparison with traditional luma correction approaches:
+### 8. Traditional vs ML Comparison
+Comparison with traditional spatial enhancement approaches:
 
 ![Tinterillo Luma Recovery Workflow](../images/tinterillo%20luma%20recovey%20workflow.jpeg)
 
-### 8. Technical Analysis
-Luma space transforms and validation metrics:
+### 9. Spatial Quality Analysis
+Resolution, grain structure, and detail assessment:
 *Note: Add technical analysis image here*
 
 ---
 
 ## Technical Notes
-This case study demonstrates comprehensive luma recovery with detailed workflow visualization, showing the step-by-step process of luminance reconstruction using CopyCat-based approaches.
+This case study demonstrates comprehensive spatial information recovery with detailed workflow visualization, showing the step-by-step process of spatial characteristic transfer between multiple sources using CopyCat-based approaches.
 
 ---
 
 ## Lessons Learned
-- **Luma recovery requires different considerations**: Unlike chroma recovery, luma reconstruction focuses on brightness and contrast preservation
+- **Multiple source utilization**: Different film elements can provide complementary spatial information
+- **Overlap detection is critical**: Accurate identification of matching frames is essential for training
+- **Spatial characteristic transfer**: Successfully transferred resolution and detail between sources
 - **Workflow documentation is critical**: Detailed process visualization helps in understanding and reproducing results
-- **Multiple recovery stages**: The project shows multiple stages of luma recovery and refinement
+- **Multiple recovery stages**: The project shows multiple stages of spatial recovery and refinement
+- **Quality homogenization**: Achieved consistent spatial quality across different source elements
 
 ---
 

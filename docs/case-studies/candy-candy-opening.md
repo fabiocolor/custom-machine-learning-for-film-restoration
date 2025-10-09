@@ -5,7 +5,7 @@ Chroma recovery for the opening sequence of Candy Candy, scanned from 16mm film.
 
 ## Demo Video
 
-https://youtu.be/-ZKn-qbuuoQ
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-ZKn-qbuuoQ?si=-B0cNgYvsYsLUkYc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Project Details
 

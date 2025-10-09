@@ -1,40 +1,86 @@
-# Chroma Recovery Workflow
+# Color Recovery Workflow
 
-A comprehensive guide for using CopyCat in Nuke to restore missing or degraded **color information** in film material. This workflow trains machine learning models to reconstruct chroma channels while preserving the original luma.
+A comprehensive guide for using CopyCat in Nuke with convolutional neural networks (CNNs) to restore missing or degraded **color information** in chromogenic film stocks affected by dye fading. This workflow employs supervised learning to train custom models that reconstruct chroma channels while preserving the original spatial information, overcoming the limitations of traditional color correction methods that can only manipulate existing color channels.
 
-## When to Use Chroma Recovery
+## Two Approaches to Color Recovery
 
-**Ideal for:**
-- Color-faded film prints and negatives
-- Damaged chroma channels
-- Color negatives with degraded color layers
-- Historical material with color loss
-- Film with inconsistent color across scenes
+Based on "Exploring Experimental Machine Learning in Film Restoration," color recovery encompasses two approaches depending on reference availability:
 
-**Real-world examples:**
-- [Candy Candy Opening - 16mm](case-studies/candy-candy-opening.md) - 16mm film color reconstruction
-- [Friends](case-studies/friends-chroma-recovery.md) - Film project chroma recovery
-- [Rebelión de Tapadas](case-studies/rebelion-de-tapadas-chroma-recovery.md) - Historical archival material
+### 1. Reference-Based Recovery
+Uses ethically sourced reference materials with accurate color information
+
+**When to use:**
+- DVDs, telecines, or other color-accurate transfers available
+- Earlier-generation prints with better color preservation exist
+- Color references from same film source can be verified
+
+**Examples:**
+- [Candy Candy Opening - 16mm](case-studies/candy-candy-opening.md) - DVD reference-based recovery
+- [Friends](case-studies/friends-chroma-recovery.md) - Telecine reference
+- [Frontier Experience](case-studies/frontier-experience-chroma-recovery.md) - Video transfer reference
+
+### 2. Non-Reference Recovery
+Infers color from external sources when direct references unavailable
+
+**When to use:**
+- No direct color reference exists for the film
+- Historical films requiring period-accurate color reconstruction
+- Color must be inferred from paintings, photographs, or similar materials
+
+**Sources for non-reference recovery:**
+- Historical paintings from same period/location
+- Period photographs with color information
+- Manual color painting in Photoshop based on research
+- Artworks depicting similar subjects/settings
+
+**Examples:**
+- [Rebelión de Tapadas](case-studies/rebelion-de-tapadas-chroma-recovery.md) - Colonial-era paintings (Pancho Fierro, Johann Moritz Rugendas)
 - [Ben](case-studies/ben-chroma-recovery.md) - Manual reference creation
+
+---
+
+## When to Use Color Recovery
+
+**Ideal for films with inter-frame damage:**
+- Chromogenic film stocks with dye fading (Eastman Color, Fuji, Agfa magenta shifts)
+- Color negatives with degraded color layers over time
+- Historical material requiring color reconstruction
+- Films with inconsistent color across scenes due to degradation
+
+**Addresses limitations of traditional methods:**
+- Traditional color grading tools are time-consuming and subjective
+- Can only manipulate existing color channels, cannot "learn" color from external references
+- ML models overcome this by training on supervised pairs, learning color information impossible for traditional filters
 
 ## Workflow Overview
 
-The chroma recovery process follows five key stages:
+Color recovery uses supervised learning with CNNs, training on frame pairs from faded source and color reference (or inferred reference):
 
 ### 1️⃣ Dataset Curation
-Select representative frames from faded source and matching color reference
+Select representative frame pairs: faded source + color reference
+- **Reference-based**: Use DVD/telecine frames with accurate color
+- **Non-reference**: Use paintings/photos or manually created color references
 
 ### 2️⃣ Alignment
-Precisely match reference to source with crop to remove overscan
+Precisely match reference to source at pixel level
+- Remove overscan and ensure perfect spatial correspondence
+- Critical for supervised learning to work correctly
 
-### 3️⃣ CopyCat Training
-Train model to reconstruct chroma while preserving original luma
+### 3️⃣ CopyCat Training (CNN)
+Train convolutional neural network using supervised learning:
+- **Input**: Faded source frames (degraded chroma)
+- **Ground truth**: Reference frames (accurate chroma)
+- **Preservation**: Model learns to reconstruct chroma while preserving original spatial information (luma channel)
 
 ### 4️⃣ Inference & Render
-Apply trained model to full sequence and output archival files
+Apply trained model frame-by-frame to full sequence
+- Output archival-quality files (typically ACES 2065-1 EXR)
+- Maintains film grain and analog characteristics
 
 ### 5️⃣ Validation
-Compare with MatchGrade baseline and validate results
+Compare with traditional methods and validate results
+- MatchGrade baseline comparison (traditional LUT-based approach)
+- Validate color accuracy and grain preservation
 
 ---
 

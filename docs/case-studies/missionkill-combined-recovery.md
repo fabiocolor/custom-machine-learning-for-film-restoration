@@ -3,9 +3,13 @@
 ## Overview
 Comprehensive recovery for the Mission Kill project, demonstrating both spatial and chroma reconstruction using generation-based approaches. This case study shows the complete restoration workflow from severely degraded source material to fully recovered output, utilizing multiple sources for spatial enhancement and color reconstruction.
 
-## Demo Video
+## Demo Videos
 
-[![Mission Kill Combined Recovery Demo](https://img.youtube.com/vi/iqhYnBzcGWc/0.jpg)](https://www.youtube.com/watch?v=iqhYnBzcGWc)
+### Complete Recovery Process
+[![Mission Kill Combined Recovery Demo](https://img.youtube.com/vi/wftwMqKaDFk/0.jpg)](https://www.youtube.com/watch?v=wftwMqKaDFk)
+
+### MatchGrade Comparison
+[![Mission Kill Color Matched Comparison](https://img.youtube.com/vi/x_EKBpOjTEE/0.jpg)](https://www.youtube.com/watch?v=x_EKBpOjTEE)
 
 ## Project Details
 **Source Material:** Film project with multiple degraded elements

@@ -3,9 +3,16 @@
 ## Overview
 Chroma recovery for the Rebelión de Tapadas film project, demonstrating effective color reconstruction using the CopyCat workflow on historical film material.
 
-## Demo Video
+## Demo Videos
 
-[![Rebelión de Tapadas Chroma Recovery Demo](https://img.youtube.com/vi/x_EKBpOjTEE/0.jpg)](https://www.youtube.com/watch?v=x_EKBpOjTEE)
+### Roger Rebelión Process
+[![Rebelión de Tapadas Roger Process](https://img.youtube.com/vi/RAKMxUw78gE/0.jpg)](https://www.youtube.com/watch?v=RAKMxUw78gE)
+
+### Final Recovery Results
+[![Rebelión de Tapadas Final Recovery](https://img.youtube.com/vi/0hkOd2OjGXM/0.jpg)](https://www.youtube.com/watch?v=0hkOd2OjGXM)
+
+### Additional Recovery Process
+[![Rebelión de Tapadas Additional Process](https://img.youtube.com/vi/4UK53lS59R0/0.jpg)](https://www.youtube.com/watch?v=4UK53lS59R0)
 
 ## Project Details
 

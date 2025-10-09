@@ -5,7 +5,7 @@ Chroma recovery for the Friends film project, demonstrating effective color reco
 
 ## Demo Video
 
-[![Friends Chroma Recovery Demo](https://img.youtube.com/vi/wftwMqKaDFk/0.jpg)](https://www.youtube.com/watch?v=wftwMqKaDFk)
+[![Friends Chroma Recovery Demo](https://img.youtube.com/vi/VIkXbGwqDI4/0.jpg)](https://www.youtube.com/watch?v=VIkXbGwqDI4)
 
 ## Project Details
 

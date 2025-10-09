@@ -1,39 +1,47 @@
 # Case Studies
 
-This section documents real-world applications of both chroma and spatial recovery workflows on various film restoration projects. Each case study includes project details, challenges encountered, workflow variations, and results.
+Real-world applications of custom machine learning-based film restoration, demonstrating both **color recovery** and **spatial recovery** workflows using supervised learning with CNNs in Nuke's CopyCat. Each case study includes project details, specific ML techniques used, challenges encountered, and results.
 
-## Chroma Recovery Projects
+## Color Recovery Projects
 
-### [Candy Candy Opening - 16mm Color Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/candy-candy-opening.md)
-16mm film restoration demonstrating effective chroma reconstruction using an earlier workflow iteration.
+### Reference-Based Recovery
+Using DVDs, telecines, or other verifiable color-accurate sources:
 
-### [Friends - Chroma Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/friends-chroma-recovery.md)
-Chroma recovery for the Friends film project with successful color reconstruction results.
+### [Candy Candy Opening - 16mm](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/candy-candy-opening.md)
+Reference-based color recovery using PAL DVD source. Demonstrates chromogenic film dye fading correction while preserving 16mm grain structure.
 
-### [Rebelión de Tapadas - Chroma Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/rebelion-de-tapadas-chroma-recovery.md)
-Historical archival material chroma recovery preserving authentic film characteristics.
+### [Friends](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/friends-chroma-recovery.md)
+Reference-based color recovery using telecine source for film project restoration.
 
-### [Ben - Chroma Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/ben-chroma-recovery.md)
-Complex chroma recovery project requiring manual color reference creation.
+### [Frontier Experience](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/frontier-experience-chroma-recovery.md)
+Reference-based color recovery using video transfer reference.
 
-### [Muralla Verde - Chroma Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/muralla-verde-chroma-recovery.md)
-Trailer project chroma recovery.
+### [Muralla Verde](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/muralla-verde-chroma-recovery.md)
+Trailer project demonstrating reference-based color restoration.
 
-### [Frontier Experience - Chroma Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/frontier-experience-chroma-recovery.md)
-Film project chroma recovery with comprehensive process documentation.
+### Non-Reference Recovery
+Inferring color from paintings, photographs, or manually created references:
 
-## Combined Recovery Projects
+### [Rebelión de Tapadas](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/rebelion-de-tapadas-chroma-recovery.md)
+Non-reference color recovery using colonial-era paintings by Pancho Fierro and Johann Moritz Rugendas. Historical archival material requiring period-accurate color reconstruction.
 
-### [Mission Kill - Combined Spatial & Chroma Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/missionkill-combined-recovery.md)
-Comprehensive recovery project demonstrating both spatial and chroma reconstruction with generation-based approaches.
+### [Ben](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/ben-chroma-recovery.md)
+Non-reference color recovery using manually created references in Photoshop.
+
+---
 
 ## Spatial Recovery Projects
 
-### [Knights of the Trail - Spatial Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/knights-trail-luma-recovery.md)
-Spatial recovery with detailed workflow visualization.
+Three specialized techniques for recovering spatial features:
 
-### [El Tinterillo - Spatial Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/tinterillo-luma-recovery.md)
-Spatial recovery with comprehensive training documentation.
+### [Mission Kill - Gauge Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/missionkill-combined-recovery.md)
+**Technique: Gauge Recovery + Color Recovery**. Transfers spatial characteristics from 35mm internegative to 16mm positive print, combined with color restoration. Demonstrates comprehensive recovery using multiple ML techniques.
+
+### [Knights of the Trail](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/knights-trail-spatial-recovery.md)
+Spatial reconstruction using multiple nitrate print sources. Demonstrates overlapping content technique for detail recovery.
+
+### [El Tinterillo](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/tinterillo-spatial-recovery.md)
+**Technique: Analog Video Reference Recovery**. Two-step telecine-based recovery process: trains on less-damaged telecine sections, then applies to full 16mm scan for comprehensive spatial reconstruction.
 
 ---
 

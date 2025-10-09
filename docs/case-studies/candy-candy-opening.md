@@ -82,4 +82,4 @@ This case study demonstrates several key aspects of the CopyCat-based chroma rec
 
 ---
 
-[← Back to all case studies](../case-studies.md) | [Main README](../../README.md)
+[← Back to all case studies](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies.md) | [Main README](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/README.md)

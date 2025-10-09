@@ -4,7 +4,7 @@ This section documents real-world applications of the chroma recovery workflow o
 
 ## Projects
 
-### [Candy Candy Opening - 16mm Color Recovery](candy-candy-opening.md)
+### [Candy Candy Opening - 16mm Color Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/candy-candy-opening.md)
 16mm film restoration demonstrating effective chroma reconstruction using an earlier workflow iteration.
 
 ---

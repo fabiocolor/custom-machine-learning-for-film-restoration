@@ -3,13 +3,13 @@
 
 This repository documents a reusable workflow for machine‑learning‑assisted chroma recovery in film restoration, implemented in Foundry Nuke with the CopyCat node. It captures the logic and purpose of each stage without project‑specific settings, serving as a foundation for consistent, adaptable restoration work.
 
-![Node Graph Overview](DOCS/images/NODE%20GRAPH%20OVERVIEW%20cropped.png)
+![Node Graph Overview](docs/images/NODE%20GRAPH%20OVERVIEW%20cropped.png)
 
 ---
 
 ## Start Here
 - Read the canonical workflow guide: [WORKFLOW_GUIDE.md](WORKFLOW_GUIDE.md)
-- Operator checklist and SOP: [DOCS/copycat_sop.md](DOCS/copycat_sop.md)
+- Operator checklist and SOP: [docs/copycat_sop.md](docs/copycat_sop.md)
 - Log decisions and QC notes: [notes/experiments.md](notes/experiments.md)
 
  
@@ -29,35 +29,35 @@ Restore missing or degraded chroma in scanned film by training small, targeted m
 ### 1) Dataset Curation
 Select representative frames from faded source and matching color reference. Lock matching frames (FrameHold) and assemble with AppendClip.
 
-![Dataset Curation](DOCS/images/DATASET%20CURATION%20cropped.png)
+![Dataset Curation](docs/images/DATASET%20CURATION%20cropped.png)
 
 ### 2) Alignment (with linked Crop)
 Align reference precisely to source so only chroma differs. Combine global F_Align with manual Transform for edge cases; use Dissolve to compare modes; apply a linked Crop for consistent framing.
 
-![Alignment](DOCS/images/ALIGNMENT%20cropped.png)
+![Alignment](docs/images/ALIGNMENT%20cropped.png)
 
 ### 3) CopyCat Training
 Reconstruct chroma only while preserving original luma and detail. Replace reference luma with source luma, remove extra channels, clamp values, and train CopyCat on aligned pairs.
 
-![CopyCat Training](DOCS/images/COPYCAT%20TRAINING%20cropped.png)
+![CopyCat Training](docs/images/COPYCAT%20TRAINING%20cropped.png)
 
 ### 4) Inference & Render
 Apply the trained model to the full sequence, remove non‑image areas (sprockets/audio), format for output, and render to the archival colorspace.
 
-![Inference Render](DOCS/images/INFERENCE%20RENDER%20cropped.png)
+![Inference Render](docs/images/INFERENCE%20RENDER%20cropped.png)
 
 ### 5) MatchGrade Baseline (optional)
 Compare ML recovery to Nuke’s MatchGrade using the same dataset frames as a baseline.
 
-![MatchGrade Comparison](DOCS/images/MATCHGRADE%20RENDER%20OPTIONAL%20cropped.png)
+![MatchGrade Comparison](docs/images/MATCHGRADE%20RENDER%20OPTIONAL%20cropped.png)
 
 ---
 
 ## Docs Index
 - Workflow guide: [WORKFLOW_GUIDE.md](WORKFLOW_GUIDE.md)
-- SOP/quick checklist: [DOCS/copycat_sop.md](DOCS/copycat_sop.md)
+- SOP/quick checklist: [docs/copycat_sop.md](docs/copycat_sop.md)
 - Notes and QC log: [notes/experiments.md](notes/experiments.md)
-- Reference images: [DOCS/images/](DOCS/images)
+- Reference images: [docs/images/](docs/images)
 
 ---
 
@@ -69,65 +69,65 @@ GitHub strips `<video>` tags in READMEs, so inline players may not render on the
 ### MKILL
 COLOR-MATCHED-COMPARISON
 
-[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/mkill_color_matched_comparison_web.mp4)
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-optimized-20251008-202817/mkill_color_matched_comparison_web.mp4)
 
 MKILL GAUGE MATCHING COMPARISON (x265)
 
-[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/mkill_mkill_gauge_matching_comparison_x265_web.mp4)
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-optimized-20251008-202817/mkill_mkill_gauge_matching_comparison_x265_web.mp4)
 
 MKILL COLOR COMPARISON (x265)
 
-[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/mkill_mkill_color_comparison_x265_web.mp4)
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-optimized-20251008-202817/mkill_mkill_color_comparison_x265_web.mp4)
 
 MKILL COLOR RECOVERY (x265)
 
-[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/mkill_mkill_color_recovery_x265_web.mp4)
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-optimized-20251008-202817/mkill_mkill_color_recovery_x265_web.mp4)
 
 ### REBELION DE TAPADAS
 ROGER_REBELIONDELASTAPADAS_P3D65_NUKE-COMPARISON
 
-[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/rebelion_de_tapadas_roger_rebeliondelastapadas_p3d65_nuke_comparison_web.mp4)
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-optimized-20251008-202817/rebelion_de_tapadas_roger_rebeliondelastapadas_p3d65_nuke_comparison_web.mp4)
 
 REBELION FINAL COMPARISON (x265)
 
-[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/rebelion_de_tapadas_rebelion_final_comparison_x265_web.mp4)
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-optimized-20251008-202817/rebelion_de_tapadas_rebelion_final_comparison_x265_web.mp4)
 
 ### FRIENDS
 FRIENDS COMPARISON (x265)
 
-[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/friends_friends_comparison_x265_web.mp4)
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-optimized-20251008-202817/friends_friends_comparison_x265_web.mp4)
 
 FRIENDS COLOR RESULT (x265)
 
-[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/friends_friends_color_result_x265_web.mp4)
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-optimized-20251008-202817/friends_friends_color_result_x265_web.mp4)
 
 ### CANDY CANDY
 CANDY CANDY OPENING 16MM COLOR (x265)
 
-[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/candy_candy_candy_candy_opening_16mm_color_x265_web.mp4)
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-optimized-20251008-202817/candy_candy_candy_candy_opening_16mm_color_x265_web.mp4)
 
 CANDY CANDY FINAL COMPARISON (x265)
 
-[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/candy_candy_candy_candy_final_comparison_x265_web.mp4)
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-optimized-20251008-202817/candy_candy_candy_candy_final_comparison_x265_web.mp4)
 
 ### FRONTIER EXPERIENCE
 FRONTIER EXPERIENCE — COLOR
 
-[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/frontier_experience_frontier_experience_color_web.mp4)
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-optimized-20251008-202817/frontier_experience_frontier_experience_color_web.mp4)
 
 FRONTIER EXPERIENCE — COMPARISON
 
-[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/frontier_experience_frontier_experience_comparison_web.mp4)
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-optimized-20251008-202817/frontier_experience_frontier_experience_comparison_web.mp4)
 
 ### KNIGHTS OF THE TRAILS
 KNIGHTS COMPARISON
 
-[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/knights_of_the_trails_knights_comparison_web.mp4)
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-optimized-20251008-202817/knights_of_the_trails_knights_comparison_web.mp4)
 
 ### MURALLA VERDE
 MURALLA-VERDE — TRAILER COMPARACIÓN
 
-[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-20251008-143010/muralla_verde_muralla_verde_trailer_comparacion_web.mp4)
+[View video](https://github.com/fabiocolor/nuke-chroma-recovery-template/releases/download/media-optimized-20251008-202817/muralla_verde_muralla_verde_trailer_comparacion_web.mp4)
 
 ---
 
@@ -136,7 +136,7 @@ MURALLA-VERDE — TRAILER COMPARACIÓN
 nuke-chroma-recovery-template/
 ├── README.md
 ├── WORKFLOW_GUIDE.md
-├── DOCS/
+├── docs/
 │   ├── copycat_sop.md
 │   └── images/
 ├── notes/

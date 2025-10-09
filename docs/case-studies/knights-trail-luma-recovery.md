@@ -4,7 +4,8 @@
 Spatial recovery for the Knights of the Trail project, enhancing image quality using multiple sources with different spatial characteristics.
 
 ## Demo Video
-*Note: Add YouTube unlisted video embed here*
+
+[![Knights of the Trail Spatial Recovery Demo](https://img.youtube.com/vi/pyJpooKr3QY/0.jpg)](https://www.youtube.com/watch?v=pyJpooKr3QY)
 
 ## Project Details
 **Source Material:** Film project with multiple source elements

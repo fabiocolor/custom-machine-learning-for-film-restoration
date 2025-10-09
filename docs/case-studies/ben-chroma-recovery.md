@@ -5,7 +5,7 @@ Chroma recovery for the Ben film project, demonstrating comprehensive color reco
 
 ## Demo Video
 
-*Note: Add YouTube unlisted video embed here*
+[![Ben Chroma Recovery Demo](https://img.youtube.com/vi/1EhvuqNN0eo/0.jpg)](https://www.youtube.com/watch?v=1EhvuqNN0eo)
 
 ## Project Details
 

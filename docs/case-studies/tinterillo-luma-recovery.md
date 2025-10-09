@@ -4,7 +4,8 @@
 Spatial recovery for the El Tinterillo project, demonstrating comprehensive spatial information reconstruction with detailed workflow documentation. This case study showcases the complete process of transferring spatial characteristics between multiple sources.
 
 ## Demo Video
-*Note: Add YouTube unlisted video embed here*
+
+[![El Tinterillo Spatial Recovery Demo](https://img.youtube.com/vi/WGMtNO3NViQ/0.jpg)](https://www.youtube.com/watch?v=WGMtNO3NViQ)
 
 ## Project Details
 **Source Material:** Film project with multiple source elements

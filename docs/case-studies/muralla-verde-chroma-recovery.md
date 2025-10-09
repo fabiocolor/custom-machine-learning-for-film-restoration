@@ -4,7 +4,8 @@
 Chroma recovery for the Muralla Verde trailer project.
 
 ## Demo Video
-*Note: Add YouTube unlisted video embed here*
+
+[![Muralla Verde Chroma Recovery Demo](https://img.youtube.com/vi/RAKMxUw78gE/0.jpg)](https://www.youtube.com/watch?v=RAKMxUw78gE)
 
 ## Project Details
 **Source Material:** Trailer project

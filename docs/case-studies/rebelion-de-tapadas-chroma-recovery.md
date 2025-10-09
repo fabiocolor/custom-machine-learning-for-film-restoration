@@ -5,7 +5,7 @@ Chroma recovery for the Rebelión de Tapadas film project, demonstrating effecti
 
 ## Demo Video
 
-*Note: Add YouTube unlisted video embed here*
+[![Rebelión de Tapadas Chroma Recovery Demo](https://img.youtube.com/vi/x_EKBpOjTEE/0.jpg)](https://www.youtube.com/watch?v=x_EKBpOjTEE)
 
 ## Project Details
 

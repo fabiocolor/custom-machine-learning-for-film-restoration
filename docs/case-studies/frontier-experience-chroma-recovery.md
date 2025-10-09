@@ -4,7 +4,8 @@
 Chroma recovery for the Frontier Experience project.
 
 ## Demo Video
-*Note: Add YouTube unlisted video embed here*
+
+[![Frontier Experience Chroma Recovery Demo](https://img.youtube.com/vi/0hkOd2OjGXM/0.jpg)](https://www.youtube.com/watch?v=0hkOd2OjGXM)
 
 ## Project Details
 **Source Material:** Film project

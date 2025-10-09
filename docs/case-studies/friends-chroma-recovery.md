@@ -41,7 +41,7 @@ The ML-driven color reconstruction workflow:
 ### 5. Final Result
 Recovered chroma applied to the full sequence:
 
-*Note: Add final result image here*
+![Friends Color Recovery Result](../images/friends%20color%20recovery%20comparison.jpeg)
 
 ### 6. Side-by-Side Comparison
 Original (left) vs. Recovered (right):

@@ -1,79 +1,124 @@
+# Machine Learning-Based Film Recovery in Nuke
 
-# Chroma Recovery Workflow Template for Nuke
-
-This repository documents a reusable workflow for machine‑learning‑assisted chroma recovery in film restoration, implemented in Foundry Nuke with the CopyCat node. It captures the logic and purpose of each stage without project‑specific settings, serving as a foundation for consistent, adaptable restoration work.
+A comprehensive workflow template for using Foundry Nuke with CopyCat to create custom machine learning models for **both luma and chroma recovery** in film restoration. This approach trains small, targeted models specific to each film or reel, preserving the unique characteristics of the original material.
 
 ![Node Graph Overview](docs/images/NODE%20GRAPH%20OVERVIEW%20cropped.png)
 
 ---
 
-## Start Here
-- Read the canonical workflow guide: [WORKFLOW_GUIDE.md](WORKFLOW_GUIDE.md)
-- Operator checklist and SOP: [docs/copycat_sop.md](docs/copycat_sop.md)
-- Log decisions and QC notes: [notes/experiments.md](notes/experiments.md)
+## Quick Start
 
- 
-
----
-
-## Purpose and Rationale
-Restore missing or degraded chroma in scanned film by training small, targeted models on curated source and reference material. This approach prioritizes:
-1. Archival integrity — ethically sourced, verifiable references; no opaque pre‑trained data.
-2. Specificity — per‑film or per‑reel models to keep grain, texture, and color traits.
-3. Control — transparent, reproducible decisions end‑to‑end.
+1. **Introduction** → Read below to understand both recovery approaches
+2. **Chroma Recovery** → [docs/chroma-recovery.md](docs/chroma-recovery.md) - Restore missing or faded color information
+3. **Luma Recovery** → [docs/luma-recovery.md](docs/luma-recovery.md) - Restore missing or degraded brightness/luminance
+4. **Case Studies** → [docs/case-studies.md](docs/case-studies.md) - Real-world examples of both approaches
+5. **Quick Reference** → [docs/copycat_sop.md](docs/copycat_sop.md) - Operator checklist and SOP
 
 ---
 
-## Workflow Stages
+## Overview
 
-### 1) Dataset Curation
-Select representative frames from faded source and matching color reference. Lock matching frames (FrameHold) and assemble with AppendClip.
+### What This Template Provides
 
-![Dataset Curation](docs/images/DATASET%20CURATION%20cropped.png)
+Two complementary machine learning approaches for film restoration in Nuke:
 
-### 2) Alignment (with linked Crop)
-Align reference precisely to source so only chroma differs. Combine global F_Align with manual Transform for edge cases; use Dissolve to compare modes; apply a linked Crop for consistent framing.
+**🎨 Chroma Recovery**
+- Restores missing or faded **color information**
+- Trains models to reconstruct chroma (color channels) while preserving original luma
+- Essential for color-faded films, damaged color negatives, or chroma loss
 
-![Alignment](docs/images/ALIGNMENT%20cropped.png)
+**💡 Luma Recovery**
+- Restores missing or degraded **brightness/luminance information**
+- Trains models to reconstruct luma (brightness channel) while preserving existing chroma
+- Essential for damaged emulsion, brightness degradation, or luma channel loss
 
-### 3) CopyCat Training
-Reconstruct chroma only while preserving original luma and detail. Replace reference luma with source luma, remove extra channels, clamp values, and train CopyCat on aligned pairs.
+### Why Machine Learning in Nuke?
 
-![CopyCat Training](docs/images/COPYCAT%20TRAINING%20cropped.png)
+Traditional film restoration often relies on:
+- Manual color grading tools (time-consuming, subjective)
+- Generic filters (don't respect film-specific characteristics)
+- One-size-fits-all approaches (lose unique film traits)
 
-### 4) Inference & Render
-Apply the trained model to the full sequence, remove non‑image areas (sprockets/audio), format for output, and render to the archival colorspace.
+**Our ML approach offers:**
 
-![Inference Render](docs/images/INFERENCE%20RENDER%20cropped.png)
-
-### 5) MatchGrade Baseline (optional)
-Compare ML recovery to Nuke’s MatchGrade using the same dataset frames as a baseline.
-
-![MatchGrade Comparison](docs/images/MATCHGRADE%20RENDER%20OPTIONAL%20cropped.png)
+1. **🎯 Film-Specific Models** - Each model learns the unique grain, texture, and characteristics of a specific film
+2. **🔬 Archival Integrity** - Uses ethically sourced reference material from the same film
+3. **🤖 Transparent Process** - All training decisions are documented and reproducible
+4. **🎨 Preserves Authenticity** - Maintains the original look and feel of the source material
+5. **⚡ Efficient Workflow** - Once trained, models can be applied to entire sequences
 
 ---
 
-## Docs Index
-- Workflow guide: [WORKFLOW_GUIDE.md](WORKFLOW_GUIDE.md)
-- SOP/quick checklist: [docs/copycat_sop.md](docs/copycat_sop.md)
-- **Case studies:** [docs/case-studies.md](docs/case-studies.md) - Real-world restoration examples
-- Notes and QC log: [notes/experiments.md](notes/experiments.md)
-- Reference images: [docs/images/](docs/images)
+## Recovery Procedures
+
+### 🎨 Chroma Recovery Workflow
+
+**When to use:** Color-faded films, chroma channel damage, color negatives with degraded color layers
+
+**Process Overview:**
+1. **Dataset Curation** - Select frames from faded source + color reference
+2. **Alignment** - Precisely match reference to source
+3. **CopyCat Training** - Train model to reconstruct chroma
+4. **Inference & Render** - Apply to full sequence
+5. **Validation** - Compare with traditional methods
+
+**Detailed Guide:** → [docs/chroma-recovery.md](docs/chroma-recovery.md)
+
+### 💡 Luma Recovery Workflow
+
+**When to use:** Damaged emulsion, brightness degradation, luma channel damage, under/overexposed areas
+
+**Process Overview:**
+1. **Dataset Curation** - Select frames from damaged source + good reference
+2. **Alignment** - Match brightness and contrast levels
+3. **CopyCat Training** - Train model to reconstruct luma
+4. **Inference & Render** - Apply to full sequence
+5. **Validation** - Verify brightness and detail preservation
+
+**Detailed Guide:** → [docs/luma-recovery.md](docs/luma-recovery.md)
+
+---
+
+## Case Studies
+
+Real-world applications demonstrating both recovery approaches:
+
+### Chroma Recovery Examples
+- **[Candy Candy Opening - 16mm](docs/case-studies/candy-candy-opening.md)** - 16mm film color reconstruction
+- **[Friends](docs/case-studies/friends-chroma-recovery.md)** - Film project chroma recovery
+- **[Rebelión de Tapadas](docs/case-studies/rebelion-de-tapadas-chroma-recovery.md)** - Historical archival material
+- **[Ben](docs/case-studies/ben-chroma-recovery.md)** - Manual reference creation
+- **[Muralla Verde](docs/case-studies/muralla-verde-chroma-recovery.md)** - Trailer project
+- **[Frontier Experience](docs/case-studies/frontier-experience-chroma-recovery.md)** - Film project
+
+### Luma Recovery Examples
+- **[Knights of the Trail](docs/case-studies/knights-trail-luma-recovery.md)** - Luma reconstruction
+- **[El Tinterillo](docs/case-studies/tinterillo-luma-recovery.md)** - Comprehensive luma recovery
+
+### Combined Recovery Examples
+- **[Mission Kill](docs/case-studies/missionkill-combined-recovery.md)** - Both luma and chroma recovery
+
+**All Case Studies:** → [docs/case-studies.md](docs/case-studies.md)
 
 ---
 
 ## Repository Structure
+
 ```
 nuke-chroma-recovery-template/
-├── README.md
-├── WORKFLOW_GUIDE.md
+├── README.md                              # This file - project overview
+├── WORKFLOW_GUIDE.md                      # Detailed technical guide
 ├── docs/
-│   ├── copycat_sop.md
-│   └── images/
+│   ├── chroma-recovery.md                 # Chroma recovery workflow
+│   ├── luma-recovery.md                   # Luma recovery workflow
+│   ├── copycat_sop.md                     # Operator checklist
+│   ├── case-studies.md                    # All case studies index
+│   ├── case-studies/                      # Individual case studies
+│   └── images/                            # Workflow images and examples
 ├── notes/
-│   └── experiments.md
-├── nuke_base/                # store base .nknc template
-└── pipeline/
+│   └── experiments.md                     # Project notes and QC log
+├── nuke_base/                             # Store base .nknc templates
+└── pipeline/                              # Stage-based pipeline templates
     ├── 01_dataset_curation/
     ├── 02_alignment/
     ├── 03_copycat_training/
@@ -83,11 +128,84 @@ nuke-chroma-recovery-template/
 
 ---
 
-## Versioning
-- Track changes in [CHANGELOG.md](CHANGELOG.md). Use commit scopes per stage (e.g., `alignment:`, `copycat:`).
-- Tag stable checkpoints after QC review, e.g., `git tag -a v0.1.0 -m "first working template" && git push origin v0.1.0`.
+## Getting Started
+
+### Prerequisites
+- Foundry Nuke with CopyCat node
+- Source film material (scanned)
+- Reference material (same film or compatible)
+- Basic understanding of ML concepts (helpful but not required)
+
+### First Project
+1. Choose your recovery type: **Chroma** (color) or **Luma** (brightness)
+2. Read the appropriate workflow guide
+3. Review relevant case studies
+4. Follow the SOP checklist
+5. Start with dataset curation
+
+### For Different Film Types
+
+| Film Type | Recommended Recovery | Examples |
+|-----------|---------------------|----------|
+| Color-faded prints | Chroma Recovery | Candy Candy, Friends |
+| Damaged negatives | Combined Recovery | Mission Kill |
+| Brightness issues | Luma Recovery | Knights of the Trail, El Tinterillo |
+| Historical material | Chroma Recovery (careful) | Rebelión de Tapadas |
+
+---
+
+## Technical Approach
+
+### Machine Learning Strategy
+
+**Small, Targeted Models:**
+- Train specific models for each film/reel
+- Avoid large, generic pre-trained models
+- Preserve unique film characteristics
+
+**Data-Driven Training:**
+- Use reference material from the same film
+- Curate representative frames
+- Document all training decisions
+
+**Quality Assurance:**
+- Validate against traditional methods
+- Compare side-by-side results
+- Log all experiments and decisions
+
+### CopyCat Node Configuration
+
+Key settings for successful training:
+- **Dataset Quality** - Representative frame selection
+- **Alignment Accuracy** - Precise source-reference matching
+- **Training Parameters** - Appropriate iterations and learning rates
+- **Validation** - Regular testing during training
+
+---
+
+## Contributing
+
+This template serves as a foundation for your film restoration work. Contributions are welcome through:
+- **Case Studies** - Add your projects with documentation
+- **Workflow Improvements** - Share optimized techniques
+- **Documentation** - Enhance guides and examples
+- **Tools** - Create utility scripts and templates
 
 ---
 
 ## License
-Currently unlicensed and private. All rights reserved until finalized.
+
+This workflow template is provided for educational and research purposes in film preservation and restoration.
+
+---
+
+## Questions & Support
+
+- **Technical Issues:** Check [WORKFLOW_GUIDE.md](WORKFLOW_GUIDE.md)
+- **Quick Reference:** See [docs/copycat_sop.md](docs/copycat_sop.md)
+- **Real Examples:** Browse [case studies](docs/case-studies.md)
+- **Project Notes:** Review [notes/experiments.md](notes/experiments.md)
+
+---
+
+**Start exploring:** [Chroma Recovery](docs/chroma-recovery.md) • [Luma Recovery](docs/luma-recovery.md) • [Case Studies](docs/case-studies.md)

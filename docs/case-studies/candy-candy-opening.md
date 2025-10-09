@@ -16,32 +16,47 @@ Chroma recovery for the opening sequence of Candy Candy, scanned from 16mm film.
 
 ---
 
-## Workflow Documentation
+## Complete Process Documentation
 
-### Training Steps
-The CopyCat training process showing the iterative improvement of the chroma reconstruction model:
+### 1. Initial State (Source Material)
+The original 16mm scan showing faded/degraded chroma information:
 
-![Candy Training Steps](../images/candy%20training%20steps.jpeg)
+*Note: Add source/faded state image here*
 
-### Contact Sheet
-Representative frames selected for the training dataset, showing the range of scenes and color conditions:
+### 2. Training Dataset Selection
+Representative frames selected for the training dataset:
 
 ![Candy Contact Sheet](../images/candy%20contact%20sheet.jpeg)
 
-### Chroma Recovery Process
-The chroma recovery workflow showing the transformation from faded source to reconstructed color:
+### 3. ML Training Process
+CopyCat training showing iterative improvement:
+
+![Candy Training Steps](../images/candy%20training%20steps.jpeg)
+
+### 4. Chroma Recovery Process
+The ML-driven color reconstruction workflow:
 
 ![Candy Chroma Recovery v1](../images/candy%20candy%20chroma%20recovery%20v1.jpeg)
 
-### Color Recovery Result
-Detailed view of the color recovery process:
+### 5. Final Result
+Recovered chroma applied to the full sequence:
 
 ![Candy Color Recovery v1](../images/candy%20color%20recovery%20v1.jpeg)
 
-### Final Comparison
-Side-by-side comparison showing the effectiveness of the chroma recovery:
+### 6. Side-by-Side Comparison
+Original (left) vs. Recovered (right):
 
 ![Candy Final Comparison](../images/candy%20final%20comparison.jpeg)
+
+### 7. Traditional vs ML Comparison
+Comparison with traditional color grading/LUT approaches:
+
+*Note: Add LUT/MatchGrade comparison image here*
+
+### 8. Color Matching Analysis
+Color space transforms and validation metrics:
+
+*Note: Add color matching analysis image here*
 
 ---
 

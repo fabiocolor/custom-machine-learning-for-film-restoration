@@ -30,9 +30,9 @@ Custom machine learning-based film restoration using supervised learning with co
 
 **💡 Spatial Recovery**
 - Restores **spatial features** (resolution, sharpness, grain structure) lost to damage or generational degradation
-- **Unified approach**: Transfer spatial characteristics from better-quality sources to degraded targets
-- **Source variations**: Different film gauges, generations, preservation elements (telecines, safety copies)
-- **Real scenarios often combine multiple factors**: e.g., 35mm internegative + 16mm print = gauge + generation differences
+- Transfers spatial characteristics from better-quality sources to degraded targets using supervised learning
+- **Source scenarios**: Different film gauges (16mm vs 35mm), different generations (print vs internegative), early preservation elements (telecines, safety copies)
+- Real-world projects often combine multiple factors simultaneously (e.g., gauge + generation differences)
 - Addresses **intra-frame damage**: Detail loss, degradation affecting individual frames
 
 ### Why Custom ML Models vs. General-Purpose AI?

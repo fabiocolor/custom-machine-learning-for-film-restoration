@@ -10,7 +10,7 @@ A comprehensive workflow template for training custom machine learning models us
 
 1. **Introduction** → Read below to understand both recovery approaches
 2. **Color Recovery** → [docs/chroma-recovery.md](docs/chroma-recovery.md) - Restore missing or faded color information using reference materials or inferred sources
-3. **Spatial Recovery** → [docs/spatial-recovery.md](docs/spatial-recovery.md) - Recover spatial features using three specialized techniques
+3. **Spatial Recovery** → [docs/spatial-recovery.md](docs/spatial-recovery.md) - Recover spatial features using example specialized techniques (many more possible)
 4. **Case Studies** → [docs/case-studies.md](docs/case-studies.md) - Real-world examples of both approaches
 5. **Quick Reference** → [docs/copycat_sop.md](docs/copycat_sop.md) - Operator checklist and SOP
 

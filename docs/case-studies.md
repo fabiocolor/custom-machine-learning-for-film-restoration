@@ -32,7 +32,7 @@ Non-reference color recovery using manually created references in Photoshop.
 
 ## Spatial Recovery Projects
 
-Three specialized techniques for recovering spatial features:
+Example techniques for recovering spatial features (many more approaches possible):
 
 ### [Mission Kill - Gauge Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/missionkill-combined-recovery.md)
 **Technique: Gauge Recovery + Color Recovery**. Transfers spatial characteristics from 35mm internegative to 16mm positive print, combined with color restoration. Demonstrates comprehensive recovery using multiple ML techniques.

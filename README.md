@@ -35,12 +35,12 @@ Custom machine learning-based film restoration using supervised learning with co
 - Addresses **intra-frame damage**: Detail loss, degradation affecting individual frames
 - **Note**: Non-reference spatial recovery (using commercial/open-source models) is outside the scope of this repository
 
-### Why Custom ML Models vs. General-Purpose AI?
+### Why Custom ML for Film Restoration?
 
 Traditional film restoration tools have inherent limitations:
 - **Spatial and temporal filters** cannot "learn" from external references or apply knowledge across distant parts of a film
-- **Manual color grading** is time-consuming, subjective, and limited to manipulating existing color channels
-- **Generic filters** don't respect film-specific characteristics (grain, texture, analog traits)
+- **Manual color correction** is limited by information present in existing channels—cannot recover what's not there (though frame-by-frame painting is theoretically possible but completely impractical)
+- **Traditional methods** don't respect film-specific characteristics (grain, texture, analog traits)
 
 **General-purpose AI tools (Runway, Sora, Pika Labs) fall short because:**
 - **Aesthetic mismatch**: Trained on contemporary images, impose modern aesthetics, smooth out film grain

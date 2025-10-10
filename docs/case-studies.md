@@ -32,16 +32,22 @@ Non-reference color recovery using manually created references in Photoshop.
 
 ## Spatial Recovery Projects
 
-Example techniques for recovering spatial features (many more approaches possible):
+Spatial recovery using different source scenarios:
 
-### [Mission Kill - Gauge Recovery](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/missionkill-combined-recovery.md)
-**Technique: Gauge Recovery + Color Recovery**. Transfers spatial characteristics from 35mm internegative to 16mm positive print, combined with color restoration. Demonstrates comprehensive recovery using multiple ML techniques.
-
-### [Knights of the Trail](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/knights-trail-spatial-recovery.md)
-Spatial reconstruction using multiple nitrate print sources. Demonstrates overlapping content technique for detail recovery.
+### [Mission Kill](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/missionkill-combined-recovery.md)
+**Sources:** 35mm internegative + 16mm positive print
+**Scenario:** Gauge difference (16mm vs 35mm) + generational difference (print vs internegative)
+Demonstrates spatial recovery addressing multiple source differences simultaneously, combined with color recovery.
 
 ### [El Tinterillo](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/tinterillo-spatial-recovery.md)
-**Technique: Analog Video Reference Recovery**. Two-step telecine-based recovery process: trains on less-damaged telecine sections, then applies to full 16mm scan for comprehensive spatial reconstruction.
+**Sources:** Early telecine preservation element + damaged 16mm film scan
+**Scenario:** Telecine made closer to original (less damage) but with cropping/quality limitations
+Two-step approach: trains on less-damaged telecine sections, then applies to full 16mm scan including damaged areas.
+
+### [Knights of the Trail](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies/knights-trail-spatial-recovery.md)
+**Sources:** Multiple nitrate print sources with varying quality
+**Scenario:** Different prints with different damage patterns and spatial qualities
+Demonstrates using better-preserved sections from multiple sources to improve degraded sections.
 
 ---
 

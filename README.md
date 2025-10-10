@@ -10,7 +10,7 @@ A comprehensive workflow template for training custom machine learning models us
 
 1. **Introduction** → Read below to understand both recovery approaches
 2. **Color Recovery** → [docs/chroma-recovery.md](docs/chroma-recovery.md) - Restore missing or faded color information using reference materials or inferred sources
-3. **Spatial Recovery** → [docs/spatial-recovery.md](docs/spatial-recovery.md) - Recover spatial features using example specialized techniques (many more possible)
+3. **Spatial Recovery** → [docs/spatial-recovery.md](docs/spatial-recovery.md) - Transfer spatial features between different sources of the same content
 4. **Case Studies** → [docs/case-studies.md](docs/case-studies.md) - Real-world examples of both approaches
 5. **Quick Reference** → [docs/copycat_sop.md](docs/copycat_sop.md) - Operator checklist and SOP
 
@@ -28,12 +28,11 @@ Custom machine learning-based film restoration using supervised learning with co
 - **Non-reference**: Infers color from paintings, photographs, or manually created references
 - Addresses **inter-frame damage**: Color fading across sequences
 
-**💡 Spatial Recovery** (Example Techniques)
+**💡 Spatial Recovery**
 - Restores **spatial features** (resolution, sharpness, grain structure) lost to damage or generational degradation
-- **Gauge Recovery**: Transfers spatial characteristics between different film gauges (16mm ↔ 35mm)
-- **Generation Recovery**: Aligns quality across different film generations
-- **Analog Video Reference Recovery**: Two-step telecine-based reconstruction process
-- **Note**: These are examples of tested approaches; the spatial recovery field is vast with many more potential applications
+- **Unified approach**: Transfer spatial characteristics from better-quality sources to degraded targets
+- **Source variations**: Different film gauges, generations, preservation elements (telecines, safety copies)
+- **Real scenarios often combine multiple factors**: e.g., 35mm internegative + 16mm print = gauge + generation differences
 - Addresses **intra-frame damage**: Detail loss, degradation affecting individual frames
 
 ### Why Custom ML Models vs. General-Purpose AI?
@@ -80,24 +79,26 @@ Traditional film restoration tools have inherent limitations:
 
 **Detailed Guide:** → [docs/chroma-recovery.md](docs/chroma-recovery.md)
 
-### 💡 Spatial Recovery Workflow (Example Techniques)
+### 💡 Spatial Recovery Workflow
 
 **When to use:** Films with generational loss, multiple sources of same content, gauge-related quality differences, damage requiring detail reconstruction
 
-**Example Tested Techniques:**
+**Core Approach:**
+Transfer spatial characteristics from better-quality sources to degraded targets using supervised learning with CNNs.
 
-1. **Gauge Recovery** - Transfer spatial characteristics between film gauges (e.g., 16mm → 35mm quality matching)
-2. **Generation Recovery** - Align quality across film generations (e.g., print → internegative alignment)
-3. **Analog Video Reference Recovery** - Two-step process using telecines to recover spatial features from less-damaged sections
-
-**Note:** These represent explored use cases from real restoration projects. The spatial recovery field is significantly broader than color recovery, offering many more potential applications yet to be discovered.
+**Common Source Scenarios:**
+- Multiple film gauges (16mm vs 35mm)
+- Different generations (print, internegative, duplicate)
+- Early preservation elements (telecines, safety copies made closer to original)
+- Multiple prints/scans of varying quality
+- **Combinations** (e.g., 35mm internegative + 16mm print = gauge + generation differences)
 
 **Process Overview:**
-1. **Source Identification** - Identify multiple sources with different spatial qualities
-2. **Overlap Detection** - Find common frames between sources for training pairs
-3. **Dataset Curation** - Select overlapping frames for supervised spatial transfer learning
-4. **CopyCat Training** - Train CNN model to transfer spatial characteristics (resolution, grain, sharpness)
-5. **Application & Validation** - Apply frame-by-frame and validate spatial consistency across sequence
+1. **Source Identification** - Identify all available sources with different spatial qualities
+2. **Overlap Detection** - Find common frames between sources for supervised learning pairs
+3. **Dataset Curation** - Select overlapping frames representing spatial characteristics to transfer
+4. **CopyCat Training** - Train CNN model to transfer spatial features (resolution, grain, sharpness)
+5. **Application & Validation** - Apply frame-by-frame and validate spatial consistency
 
 **Detailed Guide:** → [docs/spatial-recovery.md](docs/spatial-recovery.md)
 
@@ -116,11 +117,9 @@ Real-world applications demonstrating both recovery approaches:
 - **[Frontier Experience](docs/case-studies/frontier-experience-chroma-recovery.md)** - Telecine reference-based recovery
 
 ### Spatial Recovery Examples
-- **[Knights of the Trail](docs/case-studies/knights-trail-spatial-recovery.md)** - Spatial reconstruction using multiple nitrate sources
-- **[El Tinterillo](docs/case-studies/tinterillo-spatial-recovery.md)** - Analog video reference recovery technique
-
-### Combined Recovery Examples
-- **[Mission Kill](docs/case-studies/missionkill-combined-recovery.md)** - Gauge recovery (spatial) + color recovery
+- **[Mission Kill](docs/case-studies/missionkill-combined-recovery.md)** - 35mm internegative + 16mm print (gauge + generation + color recovery)
+- **[El Tinterillo](docs/case-studies/tinterillo-spatial-recovery.md)** - Early telecine preservation element (two-step approach)
+- **[Knights of the Trail](docs/case-studies/knights-trail-spatial-recovery.md)** - Multiple nitrate print sources with varying quality
 
 **All Case Studies:** → [docs/case-studies.md](docs/case-studies.md)
 

@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a **custom machine learning-based film restoration workflow template** using Foundry Nuke's CopyCat node with convolutional neural networks (CNNs). The repository documents reusable workflows for two complementary recovery approaches using supervised learning:
 
 1. **Color Recovery** - Restoring missing or degraded color information in chromogenic film stocks
-2. **Spatial Recovery** - Recovering spatial features (resolution, detail, grain) using example specialized techniques (many more possible)
+2. **Spatial Recovery** - Transferring spatial features between different sources using supervised learning
 
 **Academic Foundation:** Based on the paper "Exploring Experimental Machine Learning in Film Restoration" (Bedoya, 2024), which establishes the conceptual framework, methodology, and ethical principles for custom ML-based restoration.
 
@@ -31,20 +31,25 @@ The project follows a **5-stage pipeline structure** for both color and spatial 
 - Infers color from paintings, photographs, or manual references
 - Used when no direct color reference exists
 
-### Spatial Recovery Techniques
+### Spatial Recovery Approach
 
-Based on academic paper, example tested techniques (spatial field is vast with many more possibilities):
+Based on academic paper, unified approach with various source scenarios:
 
-1. **Gauge Recovery** - Transfer spatial characteristics between film gauges (16mm ↔ 35mm)
-2. **Generation Recovery** - Align quality across film generations (print → negative)
-3. **Analog Video Reference Recovery** - Two-step telecine-based process for partial damage recovery
+**Core methodology:** Transfer spatial characteristics from better-quality sources to degraded targets using supervised learning with CNNs.
 
-These represent explored use cases, not an exhaustive catalog. The spatial recovery field is significantly broader than color recovery.
+**Common source scenarios:**
+- Multiple film gauges (16mm vs 35mm)
+- Different generations (print, internegative, duplicate)
+- Early preservation elements (telecines, safety copies made closer to original)
+- Multiple prints/scans of varying quality
+- **Combinations** (e.g., 35mm internegative + 16mm print = gauge + generation)
+
+The fundamental technique is the same regardless of source type. What varies is the available sources and specific restoration scenario.
 
 ### Key Directories
 
 - `docs/` - Documentation including academic paper and workflow guides
-  - `docs/spatial-recovery.md` - Example spatial recovery techniques (many more possible)
+  - `docs/spatial-recovery.md` - Unified spatial recovery approach with case study examples
   - `docs/chroma-recovery.md` - Reference-based and non-reference color recovery
   - `docs/case-studies/` - Real-world examples with technique classifications
 - `nuke_base/` - Store .nknc template files here

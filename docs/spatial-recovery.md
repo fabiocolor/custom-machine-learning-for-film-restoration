@@ -2,13 +2,15 @@
 
 A comprehensive guide for using CopyCat in Nuke with convolutional neural networks (CNNs) to recover **spatial features** (resolution, sharpness, grain structure, detail) lost to damage or generational degradation. This workflow employs supervised learning to train custom models that transfer spatial characteristics between different sources of the same content, overcoming the limitations of traditional spatial filters that cannot "learn" from external references.
 
-## Three Spatial Recovery Techniques
+## Example Spatial Recovery Techniques
 
-Based on the academic paper "Exploring Experimental Machine Learning in Film Restoration," spatial recovery encompasses three distinct techniques:
+Based on the academic paper "Exploring Experimental Machine Learning in Film Restoration," spatial recovery is a vast field with numerous potential applications. The following three techniques represent explored use cases that demonstrate the range of possibilities:
 
 1. **Gauge Recovery** - Transfer spatial characteristics between different film gauges (e.g., 16mm → 35mm quality matching)
 2. **Generation Recovery** - Align quality across different film generations (e.g., positive print → internegative alignment)
 3. **Analog Video Reference Recovery** - Two-step process using telecines to recover spatial features from less-damaged sections
+
+**Note:** These techniques are examples of tested approaches, not an exhaustive catalog. The spatial recovery field is significantly broader than color recovery, offering many more potential use cases and creative applications yet to be explored.
 
 ## When to Use Spatial Recovery
 
@@ -33,11 +35,12 @@ Based on the academic paper "Exploring Experimental Machine Learning in Film Res
 
 Spatial recovery uses supervised learning with CNNs to train on overlapping content from multiple sources:
 
-### 1️⃣ Source Identification & Technique Selection
-Identify multiple sources and determine which spatial recovery technique applies:
+### 1️⃣ Source Identification & Approach Selection
+Identify multiple sources and determine which spatial recovery approach best fits your scenario. Examples include:
 - **Gauge Recovery**: Different film gauges of same content
 - **Generation Recovery**: Different generations (print, duplicate, negative)
 - **Analog Video Reference Recovery**: Telecine with partial damage requiring two-step approach
+- **Other approaches**: The spatial recovery field is vast—these are starting points, not limitations
 
 ### 2️⃣ Overlap Detection
 Find common frames between different sources for supervised learning pairs
@@ -156,9 +159,9 @@ Output: Enhanced source with reference spatial qualities
 
 ---
 
-## The Three Spatial Recovery Techniques
+## Example Spatial Recovery Techniques (Detailed)
 
-Based on "Exploring Experimental Machine Learning in Film Restoration," spatial recovery encompasses three specialized techniques, each addressing different restoration scenarios:
+Based on "Exploring Experimental Machine Learning in Film Restoration," the following three techniques represent tested approaches from real-world restoration projects. These are examples of what's possible, not an exhaustive list of all spatial recovery applications:
 
 ### Technique 1: Gauge Recovery
 
@@ -249,7 +252,7 @@ Based on "Exploring Experimental Machine Learning in Film Restoration," spatial 
 
 ---
 
-## Comparison of Three Techniques
+## Comparison of Example Techniques
 
 | Technique | Source Type | Use Case | Example | Complexity |
 |-----------|-------------|----------|---------|------------|
@@ -257,7 +260,9 @@ Based on "Exploring Experimental Machine Learning in Film Restoration," spatial 
 | **Generation Recovery** | Different generations | Reverse generational loss | Print → Negative alignment | Medium |
 | **Analog Video Reference** | Telecine + film scan | Partial/damaged spatial recovery | El gran tinterillo | High (two-step) |
 
-**Common principle:** All three techniques use supervised learning with CNNs to "learn" spatial features from reference sources, then transfer those features to improve degraded material—something traditional spatial filters cannot achieve.
+**Common principle:** All these techniques use supervised learning with CNNs to "learn" spatial features from reference sources, then transfer those features to improve degraded material—something traditional spatial filters cannot achieve.
+
+**Beyond these examples:** The spatial recovery field is vast. Any scenario where you have multiple sources of the same content with different spatial characteristics could potentially benefit from custom ML-based spatial transfer. These three techniques are starting points that demonstrate the methodology, not boundaries of what's possible.
 
 ---
 

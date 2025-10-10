@@ -28,11 +28,12 @@ Custom machine learning-based film restoration using supervised learning with co
 - **Non-reference**: Infers color from paintings, photographs, or manually created references
 - Addresses **inter-frame damage**: Color fading across sequences
 
-**💡 Spatial Recovery** (Three Techniques)
+**💡 Spatial Recovery** (Example Techniques)
 - Restores **spatial features** (resolution, sharpness, grain structure) lost to damage or generational degradation
 - **Gauge Recovery**: Transfers spatial characteristics between different film gauges (16mm ↔ 35mm)
 - **Generation Recovery**: Aligns quality across different film generations
 - **Analog Video Reference Recovery**: Two-step telecine-based reconstruction process
+- **Note**: These are examples of tested approaches; the spatial recovery field is vast with many more potential applications
 - Addresses **intra-frame damage**: Detail loss, degradation affecting individual frames
 
 ### Why Custom ML Models vs. General-Purpose AI?
@@ -79,15 +80,17 @@ Traditional film restoration tools have inherent limitations:
 
 **Detailed Guide:** → [docs/chroma-recovery.md](docs/chroma-recovery.md)
 
-### 💡 Spatial Recovery Workflow (Three Techniques)
+### 💡 Spatial Recovery Workflow (Example Techniques)
 
 **When to use:** Films with generational loss, multiple sources of same content, gauge-related quality differences, damage requiring detail reconstruction
 
-**Three Specialized Techniques:**
+**Example Tested Techniques:**
 
 1. **Gauge Recovery** - Transfer spatial characteristics between film gauges (e.g., 16mm → 35mm quality matching)
 2. **Generation Recovery** - Align quality across film generations (e.g., print → internegative alignment)
 3. **Analog Video Reference Recovery** - Two-step process using telecines to recover spatial features from less-damaged sections
+
+**Note:** These represent explored use cases from real restoration projects. The spatial recovery field is significantly broader than color recovery, offering many more potential applications yet to be discovered.
 
 **Process Overview:**
 1. **Source Identification** - Identify multiple sources with different spatial qualities

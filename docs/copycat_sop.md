@@ -1,4 +1,4 @@
-# CopyCat Chroma Recovery — Operator SOP
+# CopyCat Chroma Recovery: Operator SOP
 
 Step‑by‑step, tool‑exact instructions for running the chroma recovery pipeline in Nuke using CopyCat. This SOP matches the repository’s 5‑stage layout and the images in `DOCS/images/`.
 
@@ -8,7 +8,7 @@ Step‑by‑step, tool‑exact instructions for running the chroma recovery pipe
 - Color mgmt: Resolve exports in Rec.709; Nuke final outputs in ACES 2065‑1.
 - Paths: Use repository‑relative paths only; avoid absolute mounts.
 
-## Stage 1 — Dataset Curation (pipeline/01_dataset_curation)
+## Stage 1: Dataset Curation (pipeline/01_dataset_curation)
 Goal: pick representative frame pairs (source vs reference) after Resolve alignment.
 
 Checklist
@@ -22,7 +22,7 @@ Reference
 - Screenshot: `DOCS/images/DATASET CURATION cropped.png`
 - FrameRange: `DOCS/images/FRAME RANGE NODE SETTINGS CROPPED.png`
 
-## Stage 2 — Alignment (pipeline/02_alignment)
+## Stage 2: Alignment (pipeline/02_alignment)
 Goal: pixel‑accurate registration of reference to source, then linked crop.
 
 Checklist
@@ -40,18 +40,18 @@ Reference
 - Crop examples: `DOCS/images/CROP NODE SETTINGS CROPPED.png`
 - Copy bbox: `DOCS/images/COPYBBOX NODE SETTINGS.png`
 
-## Stage 3 — CopyCat Training (pipeline/03_copycat_training)
+## Stage 3: CopyCat Training (pipeline/03_copycat_training)
 Goal: train chroma‑only model; preserve original luma.
 
 Node chain (per both branches unless noted)
-1) Colorspace: Linear → YCbCr (YUV) — `DOCS/images/COLORSPACE NODE LINEAR TO YCBCR SETTINGS CROPPED.png`
+1) Colorspace: Linear → YCbCr (YUV). See `DOCS/images/COLORSPACE NODE LINEAR TO YCBCR SETTINGS CROPPED.png`
 2) Shuffle: Build target with reference chroma (Cb/Cr) + source luma (Y); build input from source as degraded chroma.
-3) Colorspace: YCbCr → Linear — `DOCS/images/COLORSPACE NODE YCBCR TO LINEAR SETTINGS CROPPED.png`
-4) Grade: clamp black/white to avoid <0 or >1 — `DOCS/images/GRADE NODE SETTING CROPPED.png`
-5) Remove: strip alpha; train RGB only — `DOCS/images/REMOVE NODE SETTINGS.png`
+3) Colorspace: YCbCr → Linear. See `DOCS/images/COLORSPACE NODE YCBCR TO LINEAR SETTINGS CROPPED.png`
+4) Grade: clamp black/white to avoid <0 or >1. See `DOCS/images/GRADE NODE SETTING CROPPED.png`
+5) Remove: strip alpha; train RGB only. See `DOCS/images/REMOVE NODE SETTINGS.png`
 6) Copy bbox: keep consistent bbox
 
-CopyCat node — recommended settings
+CopyCat node (recommended settings)
 - Data directory: per‑shot folder under `pipeline/03_copycat_training/<shot>/session_*`
 - GPU: enabled; device auto
 - Model size: Medium
@@ -77,7 +77,7 @@ Monitoring
 - Loss should trend down smoothly; watch for chroma ringing/bleed in contact sheets.
 - Keep QC snapshots in `pipeline/03_copycat_training/QC/YYYY-MM-DD/`.
 
-## Stage 4 — Inference & Render (pipeline/04_inference_render)
+## Stage 4: Inference & Render (pipeline/04_inference_render)
 Goal: apply trained model to full sequence and render archival plates.
 
 Checklist
@@ -92,7 +92,7 @@ Reference
 - Inference node: `DOCS/images/INFERENCE NODE SETTINGS CROPPED.png`
 - Reformat/Write: `DOCS/images/REFORMAT NODE SETTINGS CROPPED.png`, `DOCS/images/WRITE NODE SETTINGS.png`
 
-## Stage 5 — MatchGrade Baseline (pipeline/05_matchgrade_render)
+## Stage 5: MatchGrade Baseline (pipeline/05_matchgrade_render)
 Goal: produce LUT‑based baseline for comparison/QC.
 
 Checklist

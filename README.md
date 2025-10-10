@@ -41,10 +41,10 @@ Custom ML complements traditional film restoration methods, addressing challenge
 
 **What traditional methods cannot do:**
 - **Spatial and temporal filters** cannot "learn" from external references or apply knowledge across distant parts of a film
-- **Traditional color correction** (LUTs, channel balancing) can make images more pleasing to view but cannot truly recover color information lost to degradation or fading—limited by what exists in the channels (though frame-by-frame painting is theoretically possible but completely impractical)
+- **Traditional color correction** (LUTs, channel balancing) can make images more pleasing to view but cannot truly recover color information lost to degradation or fading. Limited by what exists in the channels (though frame-by-frame painting is theoretically possible but completely impractical)
 
 **New value of multiple film elements:**
-Custom ML gives new purpose to multiple copies or elements of the same film. Different prints, generations, or gauges can each contribute unique information to training, improving model accuracy—making previously "redundant" archive materials valuable for restoration.
+Custom ML gives new purpose to multiple copies or elements of the same film. Different prints, generations, or gauges can each contribute unique information to training, improving model accuracy and making previously "redundant" archive materials valuable for restoration.
 
 **General-purpose AI tools (Runway, Sora, Pika Labs) fall short because:**
 - **Aesthetic mismatch**: Trained on contemporary images, impose modern aesthetics, smooth out film grain

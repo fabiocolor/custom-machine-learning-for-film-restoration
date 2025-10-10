@@ -34,7 +34,7 @@ Custom machine learning-based film restoration using supervised learning with co
 - Source scenarios: 16mm vs 35mm gauges, print vs internegative generations, early telecines/safety copies
 - Real-world projects often combine multiple source differences simultaneously
 - Addresses **intra-frame damage**: Detail loss, degradation affecting individual frames
-- **Note**: Non-reference spatial recovery (synthetic references, AI upscaling) not yet explored in this research
+- **Note**: Non-reference spatial recovery (using commercial/open-source models) is outside the scope of this repository
 
 ### Why Custom ML Models vs. General-Purpose AI?
 

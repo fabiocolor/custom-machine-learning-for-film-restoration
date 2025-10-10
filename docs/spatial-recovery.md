@@ -22,7 +22,7 @@ Using verifiable film sources (different gauges, generations, or preservation el
 - Combinations of the above (e.g., 35mm internegative + 16mm print = gauge + generation)
 
 **Note on non-reference spatial recovery:**
-Like color recovery has non-reference approaches (paintings, manual references), spatial recovery could theoretically use non-reference approaches (synthetic references, AI upscaling, etc.). However, this research focuses exclusively on reference-based methods using actual film sources.
+Like color recovery has non-reference approaches (paintings, manual references), spatial recovery could theoretically use non-reference approaches by applying pre-trained commercial or open-source models (upscaling, denoising, etc.) without custom training on film-specific references. However, this is outside the scope of this repository, which focuses exclusively on reference-based methods using actual film sources and custom supervised learning.
 
 ## When to Use Spatial Recovery
 

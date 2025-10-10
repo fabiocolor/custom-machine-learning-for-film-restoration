@@ -47,7 +47,7 @@ Based on academic paper, reference-based approach using actual film sources:
 - Multiple prints/scans of varying quality
 - **Combinations** (e.g., 35mm internegative + 16mm print = gauge + generation)
 
-**Non-reference spatial recovery** (synthetic references, AI upscaling) not explored in this research.
+**Non-reference spatial recovery** (using commercial/open-source pre-trained models) is outside the scope of this repository, which focuses on custom supervised learning with actual film sources.
 
 ### Key Directories
 

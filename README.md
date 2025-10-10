@@ -37,9 +37,14 @@ Custom machine learning-based film restoration using supervised learning with co
 
 ### Why Custom ML for Film Restoration?
 
-Traditional film restoration tools have inherent limitations for certain recovery scenarios:
+Custom ML complements traditional film restoration methods, addressing challenges previously deemed impossible or prohibitively costly:
+
+**What traditional methods cannot do:**
 - **Spatial and temporal filters** cannot "learn" from external references or apply knowledge across distant parts of a film
 - **Manual color correction** is limited by information present in existing channels—cannot recover what's not there (though frame-by-frame painting is theoretically possible but completely impractical)
+
+**New value of multiple film elements:**
+Custom ML gives new purpose to multiple copies or elements of the same film. Different prints, generations, or gauges can each contribute unique information to training, improving model accuracy—making previously "redundant" archive materials valuable for restoration.
 
 **General-purpose AI tools (Runway, Sora, Pika Labs) fall short because:**
 - **Aesthetic mismatch**: Trained on contemporary images, impose modern aesthetics, smooth out film grain

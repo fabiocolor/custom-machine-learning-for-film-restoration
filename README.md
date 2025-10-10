@@ -30,9 +30,8 @@ Custom machine learning-based film restoration using supervised learning with co
 
 **💡 Spatial Recovery**
 - Restores **spatial features** (resolution, sharpness, grain structure) lost to damage or generational degradation
-- **Reference-based**: Transfers spatial characteristics from actual film sources (different gauges, generations, preservation elements)
-- Source scenarios: 16mm vs 35mm gauges, print vs internegative generations, early telecines/safety copies
-- Real-world projects often combine multiple source differences simultaneously
+- **Reference-based**: Transfers spatial characteristics from actual film sources (different gauges, generations, preservation elements like telecines/safety copies)
+- Real-world projects often combine multiple source differences (e.g., 16mm print + 35mm internegative)
 - Addresses **intra-frame damage**: Detail loss, degradation affecting individual frames
 - **Note**: Non-reference spatial recovery (using commercial/open-source models) is outside the scope of this repository
 

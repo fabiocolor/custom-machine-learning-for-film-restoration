@@ -29,35 +29,34 @@ Different source elements with varying spatial characteristics:
 Overlapping frames between sources selected for spatial transfer:
 *Note: Add overlap detection image here*
 
-### 4. ML Training Process
-CopyCat training showing spatial characteristic transfer:
+### 4. Training Dataset Selection
+Contact sheet showing representative frames:
 
-![Tinterillo Training Steps](../images/tinterillo%20training%20steps.jpeg)
+![Tinterillo Contact Sheet](../images/TINTERILLO%20CONTACT%20SHEET.jpeg)
 
-### 5. Spatial Recovery Process
+### 5. ML Training Process
+CopyCat training graph showing spatial characteristic transfer:
+
+![Tinterillo CopyCat Training Graph](../images/TINTERILLO%20COPYCAT%20TRAINING%20GRAPH.png)
+
+Training diagram showing the workflow:
+
+![Tinterillo Training Diagram](../images/TINTERILLO%20TRAINING%20DIAGRAM.jpeg)
+
+### 6. Spatial Recovery Process
 The ML-driven spatial information transfer workflow:
 
-![Tinterillo Luma Recovery v1](../images/tinterillo%20luma%20recovery%20v1.jpeg)
-
-![Tinterillo Luma Recovery](../images/tinterillo%20luma%20recovery.jpeg)
-
-### 6. Final Result
-Enhanced spatial quality applied to the full sequence:
-*Note: Add final result image here*
+![Tinterillo Spatial Recovery Script Overview](../images/TINTERILLO%20SPATIAL%20RECOVERY%20SCRIPT%20OVERVIEW.jpeg)
 
 ### 7. Side-by-Side Comparison
-Original (left) vs. Spatially Enhanced (right):
+Four-way comparison showing the recovery process:
 
-![Tinterillo Final Comparison](../images/tinterillo%20final%20comparison.jpeg)
+![Tinterillo 4 Way Comparison](../images/TINTERILLO%204%20WAY%20COMPARISON.png)
 
-### 8. Traditional vs ML Comparison
-Comparison with traditional spatial enhancement approaches:
+### 8. Spatial Recovery Results
+Before and after spatial recovery:
 
-![Tinterillo Luma Recovery Workflow](../images/tinterillo%20luma%20recovey%20workflow.jpeg)
-
-### 9. Spatial Quality Analysis
-Resolution, grain structure, and detail assessment:
-*Note: Add technical analysis image here*
+![Tinterillo Spatial Recovery Comparison](../images/TINTERILLO%20SPATIAL%20RECOVERY%20COMPARISON.jpeg)
 
 ---
 

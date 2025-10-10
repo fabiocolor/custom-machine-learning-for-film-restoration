@@ -40,30 +40,20 @@ CopyCat training showing iterative improvement:
 
 *Note: Add training steps image here*
 
-### 4. Chroma Recovery Process
+### 4. Reference Material
+Artwork used as color reference:
+
+![Rebelión de las Tapadas Artwork Reference](../images/REBELION%20DE%20LAS%20TAPADAS%20ARTWORK%20REFERENCE.png)
+
+### 5. Chroma Recovery Process
 The ML-driven color reconstruction workflow:
 
-![Rebelión de Tapadas Color Recovery](../images/rebelion%20de%20tapadas%20color%20recovery.jpeg)
-
-### 5. Final Result
-Recovered chroma applied to the full sequence:
-
-*Note: Add final result image here*
+![Rebelión de Tapadas Chroma Recovery Script Overview](../images/REBELION%20DE%20TAPADAS%20CHROMA%20RECOVERY%20SCRIPT%20OVERVIEW.jpeg)
 
 ### 6. Side-by-Side Comparison
-Original (left) vs. Recovered (right):
+Three-way comparison showing the recovery process:
 
-![Rebelión de Tapadas Color Recovery Comparison](../images/rebelion%20de%20tapadas%20color%20recovery%20comparison.jpeg)
-
-### 7. Traditional vs ML Comparison
-Comparison with traditional color grading/LUT approaches:
-
-*Note: Add LUT/MatchGrade comparison image here*
-
-### 8. Color Matching Analysis
-Color space transforms and validation metrics:
-
-*Note: Add color matching analysis image here*
+![Rebelión de las Tapadas 3 Way Comparison](../images/REBELION%20DE%20LAS%20TAPADAS%203%20WAY%20COMPARISON.png)
 
 ---
 

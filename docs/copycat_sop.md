@@ -20,7 +20,7 @@ Checklist
 
 Reference
 - Screenshot: `DOCS/images/DATASET CURATION cropped.png`
-- FrameRange: `DOCS/images/frame range cropped.png`
+- FrameRange: `DOCS/images/FRAME RANGE NODE SETTINGS CROPPED.png`
 
 ## Stage 2 — Alignment (pipeline/02_alignment)
 Goal: pixel‑accurate registration of reference to source, then linked crop.
@@ -35,20 +35,20 @@ Checklist
 
 Reference
 - Alignment overview: `DOCS/images/ALIGNMENT cropped.png`
-- F_Align UI: `DOCS/images/f align cropped.png`
-- Dissolve: `DOCS/images/dissolve cropped.png`
-- Crop examples: `DOCS/images/crop2 cropped.png`
-- Copy bbox: `DOCS/images/copybbox.png`
+- F_Align UI: `DOCS/images/F_ALIGN NODE CROPPED.png`
+- Dissolve: `DOCS/images/DISSOLVE NODE SETTINGS CROPPED.png`
+- Crop examples: `DOCS/images/CROP NODE SETTINGS CROPPED.png`
+- Copy bbox: `DOCS/images/COPYBBOX NODE SETTINGS.png`
 
 ## Stage 3 — CopyCat Training (pipeline/03_copycat_training)
 Goal: train chroma‑only model; preserve original luma.
 
 Node chain (per both branches unless noted)
-1) Colorspace: Linear → YCbCr (YUV) — `DOCS/images/colorspace linear to yuv cropped.png`
+1) Colorspace: Linear → YCbCr (YUV) — `DOCS/images/COLORSPACE NODE LINEAR TO YCBCR SETTINGS CROPPED.png`
 2) Shuffle: Build target with reference chroma (Cb/Cr) + source luma (Y); build input from source as degraded chroma.
-3) Colorspace: YCbCr → Linear
-4) Grade: clamp black/white to avoid <0 or >1 — `DOCS/images/grade cropped.png`
-5) Remove: strip alpha; train RGB only — `DOCS/images/remove.png`
+3) Colorspace: YCbCr → Linear — `DOCS/images/COLORSPACE NODE YCBCR TO LINEAR SETTINGS CROPPED.png`
+4) Grade: clamp black/white to avoid <0 or >1 — `DOCS/images/GRADE NODE SETTING CROPPED.png`
+5) Remove: strip alpha; train RGB only — `DOCS/images/REMOVE NODE SETTINGS.png`
 6) Copy bbox: keep consistent bbox
 
 CopyCat node — recommended settings
@@ -71,7 +71,7 @@ Reference
 - Settings panel: `DOCS/images/COPYCAT SETTINGS cropped.png`
 - Preview: `DOCS/images/COPYCAT SETTINGS PREVIEW cropped.png`
 - Contact sheet: `DOCS/images/COPYCAT SETTINGS CONTACT SHEET cropped.png`
-- Shuffle/Channels: `DOCS/images/shuffle cropped.png`
+- Shuffle/Channels: `DOCS/images/SHUFFLE NODE SETTINGS CROPPED.png`
 
 Monitoring
 - Loss should trend down smoothly; watch for chroma ringing/bleed in contact sheets.
@@ -89,8 +89,8 @@ Checklist
 
 Reference
 - Inference layout: `DOCS/images/INFERENCE RENDER cropped.png`
-- Inference node: `DOCS/images/inference cropped.png`
-- Reformat/Write: `DOCS/images/reformat cropped.png`, `DOCS/images/write.png`
+- Inference node: `DOCS/images/INFERENCE NODE SETTINGS CROPPED.png`
+- Reformat/Write: `DOCS/images/REFORMAT NODE SETTINGS CROPPED.png`, `DOCS/images/WRITE NODE SETTINGS.png`
 
 ## Stage 5 — MatchGrade Baseline (pipeline/05_matchgrade_render)
 Goal: produce LUT‑based baseline for comparison/QC.
@@ -102,7 +102,7 @@ Checklist
 - Render baseline plates for A/B in Resolve.
 
 Reference
-- MatchGrade: `DOCS/images/matchgrade cropped.png`
+- MatchGrade: `DOCS/images/MATCHGRADE NODE SETTINGS CROPPED.png`
 - Stage overview: `DOCS/images/MATCHGRADE RENDER OPTIONAL cropped.png`
 
 ## QC & Logging (all stages)

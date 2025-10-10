@@ -42,24 +42,12 @@ CopyCat training showing spatial characteristic transfer:
 ### 5. Spatial Recovery Process
 The ML-driven spatial information transfer workflow:
 
-![Knights of the Trail Luma Recovery v1](../images/knights%20of%20the%20trail%20luma%20recovery%20v1.jpeg)
+![Knight of a Trail Spatial Recovery Script](../images/KNIGHT%20OF%20A%20TRAIL%20SPATIAL%20RECOVERY%20SCRIPT%20CROPPED.jpeg)
 
-### 6. Final Result
-Enhanced spatial quality applied to the full sequence:
-*Note: Add final result image here*
+### 6. Side-by-Side Comparison
+Four-way comparison showing the recovery process:
 
-### 7. Side-by-Side Comparison
-Original (left) vs. Spatially Enhanced (right):
-
-![Knights of the Trail Final Comparison](../images/knights%20of%20the%20trail%20final%20comparison.jpeg)
-
-### 8. Traditional vs ML Comparison
-Comparison with traditional spatial enhancement approaches:
-*Note: Add traditional comparison image here*
-
-### 9. Spatial Quality Analysis
-Resolution, grain structure, and detail assessment:
-*Note: Add technical analysis image here*
+![Knight of a Trail 4 Way Comparison](../images/KINGHT%20OF%20A%20TRAIL%204%20WAY%20COMPARISON.jpeg)
 
 ---
 

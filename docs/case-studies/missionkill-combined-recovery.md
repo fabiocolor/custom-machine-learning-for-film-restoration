@@ -37,33 +37,20 @@ Overlapping frames selected from multiple sources for combined recovery:
 CopyCat training showing iterative improvement for both spatial and chroma recovery:
 *Note: Add training steps image here*
 
-### 5. Chroma Recovery Process
-The ML-driven color reconstruction workflow using generation-based approach:
+### 5. Combined Recovery Workflow
+The ML-driven spatial and chroma recovery workflow:
 
-![Mission Kill Generation Recovery](../images/mission%20kill%20generation%20recovery.jpeg)
+![Mission Kill Spatial and Chroma Recovery Script Overview](../images/MISSION%20KILL%20SPATIAL%20AND%20CHROMA%20RECOVERY%20SCRIPT%20OVERVIEW.jpeg)
 
-### 6. Spatial Recovery Process
-The ML-driven spatial characteristic transfer workflow:
-*Note: Add spatial recovery process image here*
+### 6. Spatial Recovery Results
+Before and after spatial recovery:
 
-### 7. Final Combined Result
-Enhanced spatial quality and recovered chroma applied to the full sequence:
+![Mission Kill Spatial Recovery Comparison](../images/MISSION%20KILL%20SPATIAL%20RECOVERY%20COMPARISON.jpeg)
 
-![Mission Kill Final Result](../images/mission%20kill%20generation%20recovery.jpeg)
+### 7. Side-by-Side Comparison
+Three-way comparison showing the combined recovery process:
 
-### 8. Side-by-Side Comparison
-Original (left) vs. Combined Recovery (right):
-
-![Mission Kill Generation Recovery Comparison](../images/mission%20kill%20generation%20recovery%20comparison.jpeg)
-
-### 9. Combined Recovery Analysis
-Comprehensive spatial and chroma recovery results showing complete restoration:
-
-![Mission Kill Spatial and Chroma Recovery](../images/mission%20kill%20luma%20and%20chroma%20recovery.jpeg)
-
-### 10. Quality Assessment
-Spatial and chroma quality validation:
-*Note: Add quality assessment image here*
+![Mission Kill 3 Way Comparison](../images/MISSION%20KILL%203%20WAY%20COMPARISON.png)
 
 ---
 

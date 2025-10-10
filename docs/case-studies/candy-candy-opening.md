@@ -26,37 +26,35 @@ The original 16mm scan showing faded/degraded chroma information:
 ### 2. Training Dataset Selection
 Representative frames selected for the training dataset:
 
-![Candy Contact Sheet](../images/candy%20contact%20sheet.jpeg)
+![Candy Candy Training Contact Sheet](../images/CANDY%20CANDY%20TRAINING%20CONTACT%20SHEET.jpeg)
 
 ### 3. ML Training Process
 CopyCat training showing iterative improvement:
 
-![Candy Training Steps](../images/candy%20training%20steps.jpeg)
+![Candy Candy Training Steps](../images/CANDY%20CANDY%20TRAINING%20STEPS.jpeg)
+
+Training graph showing loss convergence:
+
+![Candy Candy CopyCat Graph](../images/CANDY%20CANDY%20COPYCAT%20GRAPH.png)
 
 ### 4. Chroma Recovery Process
-The ML-driven color reconstruction workflow:
+The ML-driven color reconstruction workflow for individual shots:
 
-![Candy Chroma Recovery v1](../images/candy%20candy%20chroma%20recovery%20v1.jpeg)
+![Candy Candy Individual Shot Chroma Recovery Script](../images/CANDY%20CANDY%20INDIVIDUAL%20SHOT%20CHROMA%20RECOVERY%20SCRIPT.jpeg)
 
-### 5. Final Result
-Recovered chroma applied to the full sequence:
+Sequence-level chroma recovery workflow:
 
-![Candy Color Recovery v1](../images/candy%20color%20recovery%20v1.jpeg)
+![Candy Candy Sequence Chroma Recovery Script](../images/CANDY%20CANDY%20SEQUENCE%20CHROMA%20RECOVERY%20SCRIPT.jpeg)
 
-### 6. Side-by-Side Comparison
-Original (left) vs. Recovered (right):
+### 5. Side-by-Side Comparison
+Four-way comparison showing the recovery process:
 
-![Candy Final Comparison](../images/candy%20final%20comparison.jpeg)
+![Candy Candy 4 Way Comparison](../images/CANDY%20CANDY%204%20WAY%20COMPARISON.png)
 
-### 7. Traditional vs ML Comparison
-Comparison with traditional color grading/LUT approaches:
+### 6. Training Collection Overview
+Contact sheet collection showing multiple training sessions:
 
-*Note: Add LUT/MatchGrade comparison image here*
-
-### 8. Color Matching Analysis
-Color space transforms and validation metrics:
-
-*Note: Add color matching analysis image here*
+![CopyCat Contact Sheet Collection](../images/COPYCAT%20CONTACT%20SHEET%20COLLECTION.jpeg)
 
 ---
 

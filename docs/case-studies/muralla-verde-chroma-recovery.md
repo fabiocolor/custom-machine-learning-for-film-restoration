@@ -16,15 +16,46 @@ Chroma recovery for the Muralla Verde trailer project.
 
 ## Complete Process Documentation
 
-### Side-by-Side Comparison
-Original vs. Recovered chroma:
+### 1. Initial State (Source Material)
+The original scan showing degraded color information:
 
-*Note: Add comparison image here*
+![Muralla Verde Raw Scan Unbalanced](../images/MURALLA%20RAW%20SCAN%20UNBALANCED.png)
+
+### 2. Balanced Source Material
+The color-balanced source before chroma recovery:
+
+![Muralla Verde Source](../images/MURALLA%20VERDE%20SOURCE.png)
+
+### 3. Color Reference Material
+Reference material for supervised learning:
+
+![Muralla Verde Color Reference](../images/MURALLA%20VERDE%20COLOR%20REFERENCE.png)
+
+### 4. Reference Pre-Alignment in Resolve
+Initial alignment of reference material in DaVinci Resolve:
+
+![Muralla Verde Reference Pre Alignment Timeline Resolve](../images/MURALLA%20VERDE%20REFERENCE%20PRE%20ALIGNMENT%20TIMELINE%20RESOLVE%20CROPPED.png)
+
+### 5. Chroma Recovery Process
+The complete ML-driven color reconstruction workflow:
+
+![Muralla Verde Chroma Recovery Script Full Overview](../images/MURALLA%20VERDE%20CHROMA%20RECOVERY%20SCRIPT%20FULL%20OVERVIEW%20cropped.png)
+
+### 6. Final Result
+Recovered chroma applied to the full sequence:
+
+![Muralla Verde Chroma Recovery Output](../images/MURALLA%20VERDE%20CHROMA%20RECOVERY%20OUTPUT.png)
+
+### 7. Color Composite Timeline in Resolve
+Final color composite assembled in DaVinci Resolve:
+
+![Muralla Verde Color Composite Timeline Resolve](../images/MURALLA%20VERDE%20COLOR%20COMPOSITE%20TIMELINE%20RESOLVE%20CROPPED.png)
 
 ---
 
 ## Technical Notes
-*Note: Add technical details*
+
+This case study demonstrates comprehensive chroma recovery for the Muralla Verde trailer, showing the complete workflow from raw scan through final composite. The process utilized supervised learning with reference material to reconstruct degraded color information while preserving the original spatial characteristics.
 
 ---
 

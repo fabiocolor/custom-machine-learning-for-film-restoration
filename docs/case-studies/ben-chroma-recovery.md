@@ -26,9 +26,11 @@ The original scan showing faded chroma information:
 ### 2. Manual Reference Creation
 Creating custom color reference materials for training:
 
-![Ben Photoshop Color Reference Creation](../images/ben%20photoshop%20color%20reference%20creation.jpeg)
+![Ben Photoshop Chroma Reference Creation](../images/BEN%20PHOTOSHOP%20CHROMA%20REFERENCE%20CREATION.jpeg)
 
-![Ben Photoshop Color Reference 2](../images/ben%20photoshop%20color%20refrence%202.jpeg)
+![Ben Photoshop Chroma Reference Creation 2](../images/BEN%20PHOTOSHOP%20CHROMA%20REFERENCE%20CREATION%202.jpeg)
+
+![Ben Photoshop Chroma Reference Creation 3](../images/BEN%20PHOTOSHOP%20CHROMA%20REFERENCE%20CREATION%203.jpeg)
 
 ### 3. Training Dataset Selection
 Representative frames selected for the training dataset:
@@ -51,19 +53,9 @@ Recovered chroma applied to the full sequence:
 *Note: Add final result image here*
 
 ### 7. Side-by-Side Comparison
-Original (left) vs. Recovered (right):
+Four-way comparison showing the recovery process:
 
-![Ben Final Comparison](../images/ben%20final%20comparison.jpeg)
-
-### 8. Traditional vs ML Comparison
-Comparison with traditional color grading/LUT approaches:
-
-*Note: Add LUT/MatchGrade comparison image here*
-
-### 9. Color Matching Analysis
-Color space transforms and validation metrics:
-
-*Note: Add color matching analysis image here*
+![Ben 4 Way Comparison](../images/BEN%204%20WAY%20COMPARISON.jpeg)
 
 ---
 

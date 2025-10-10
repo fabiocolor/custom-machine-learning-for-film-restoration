@@ -26,7 +26,7 @@ The original scan showing faded chroma information:
 ### 2. Training Dataset Selection
 Representative frames selected for the training dataset:
 
-![Friends Contact Sheet](../images/contact%20sheet%20friends.jpeg)
+![Friends Chroma Recovery Contact Sheet](../images/FRIENDS%20CHROMA%20RECOVERY%20CONTACT%20SHEET.jpeg)
 
 ### 3. ML Training Process
 CopyCat training showing iterative improvement:
@@ -38,25 +38,10 @@ The ML-driven color reconstruction workflow:
 
 *Note: Add chroma recovery process image here*
 
-### 5. Final Result
-Recovered chroma applied to the full sequence:
+### 5. Side-by-Side Comparison
+Four-way comparison showing the recovery process:
 
-![Friends Color Recovery Result](../images/friends%20color%20recovery%20comparison.jpeg)
-
-### 6. Side-by-Side Comparison
-Original (left) vs. Recovered (right):
-
-![Friends Color Recovery Comparison](../images/friends%20color%20recovery%20comparison.jpeg)
-
-### 7. Traditional vs ML Comparison
-Comparison with traditional color grading/LUT approaches:
-
-*Note: Add LUT/MatchGrade comparison image here*
-
-### 8. Color Matching Analysis
-Color space transforms and validation metrics:
-
-*Note: Add color matching analysis image here*
+![Friends Chroma Recovery Comparison](../images/FRIENDS%20CHROMA%20RECOVERY%20COMPARISON.png)
 
 ---
 

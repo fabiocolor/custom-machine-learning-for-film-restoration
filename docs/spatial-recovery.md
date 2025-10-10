@@ -2,9 +2,12 @@
 
 A comprehensive guide for using CopyCat in Nuke with convolutional neural networks (CNNs) to recover **spatial features** (resolution, sharpness, grain structure, detail) lost to damage or generational degradation. This workflow employs supervised learning to train custom models that transfer spatial characteristics between different sources of the same content, overcoming the limitations of traditional spatial filters that cannot "learn" from external references.
 
-## Core Methodology
+## Reference-Based Spatial Recovery
 
-Based on the academic paper "Exploring Experimental Machine Learning in Film Restoration," spatial recovery uses a unified approach: **transferring spatial characteristics from better-quality sources to degraded targets using supervised learning with CNNs**.
+Based on the academic paper "Exploring Experimental Machine Learning in Film Restoration," this workflow focuses on **reference-based spatial recovery**: transferring spatial characteristics from actual film sources to degraded targets using supervised learning with CNNs.
+
+**What is reference-based spatial recovery?**
+Using verifiable film sources (different gauges, generations, or preservation elements) as spatial references to improve degraded material.
 
 **The fundamental technique is the same regardless of source type.** What varies is:
 - **Available sources**: Different film gauges, generations, preservation elements (telecines, safety copies)
@@ -18,7 +21,8 @@ Based on the academic paper "Exploring Experimental Machine Learning in Film Res
 - Multiple prints/scans of varying quality
 - Combinations of the above (e.g., 35mm internegative + 16mm print = gauge + generation)
 
-**Note:** The spatial recovery field is vast. Any scenario with multiple sources of the same content showing different spatial characteristics can potentially benefit from this approach.
+**Note on non-reference spatial recovery:**
+Like color recovery has non-reference approaches (paintings, manual references), spatial recovery could theoretically use non-reference approaches (synthetic references, AI upscaling, etc.). However, this research focuses exclusively on reference-based methods using actual film sources.
 
 ## When to Use Spatial Recovery
 

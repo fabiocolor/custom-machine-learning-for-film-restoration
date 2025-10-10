@@ -33,9 +33,12 @@ The project follows a **5-stage pipeline structure** for both color and spatial 
 
 ### Spatial Recovery Approach
 
-Based on academic paper, unified approach with various source scenarios:
+Based on academic paper, reference-based approach using actual film sources:
 
-**Core methodology:** Transfer spatial characteristics from better-quality sources to degraded targets using supervised learning with CNNs.
+**Reference-Based:**
+- Uses verifiable film sources (different gauges, generations, preservation elements)
+- Transfers spatial characteristics from better-quality sources to degraded targets
+- Direct supervised learning from actual film elements
 
 **Common source scenarios:**
 - Multiple film gauges (16mm vs 35mm)
@@ -44,7 +47,7 @@ Based on academic paper, unified approach with various source scenarios:
 - Multiple prints/scans of varying quality
 - **Combinations** (e.g., 35mm internegative + 16mm print = gauge + generation)
 
-The fundamental technique is the same regardless of source type. What varies is the available sources and specific restoration scenario.
+**Non-reference spatial recovery** (synthetic references, AI upscaling) not explored in this research.
 
 ### Key Directories
 

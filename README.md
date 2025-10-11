@@ -69,7 +69,7 @@ With advancements in open weights, LoRAs, and fine-tuning capabilities, larger m
 See [case studies](docs/case-studies.md) for experimental examples demonstrating these approaches.
 
 ### Principles and Constraints
-- **Film specific supervised models**: Train on frame pairs from the same film (source and ground truth).
+- **Film specific supervised models**: Train on frame pairs from different containers of the same film.
 - **Temporal context**: Models process frames independently and do not learn across time; there is no scene memory.
 - **Alignment and matching content**: Use pixel accurate alignment; ensure source and reference cover the same picture area. Crop or mask subtitles, on screen logos, watermarks, and letterbox/pillarbox borders.
 - **Content vs container**: Use multiple containers of the same content when available. Choose the best container per target dimension as ground truth. Normalize non target channels so only the target dimension differs. For chroma, prefer the container with superior color and equalize luma and spatial detail; for spatial, prefer the container with superior detail and match color.

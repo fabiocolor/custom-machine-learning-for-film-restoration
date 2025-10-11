@@ -80,7 +80,7 @@ See [case studies](docs/case-studies.md) for experimental examples demonstrating
 1. **Dataset Curation**: Train on frame pairs from different containers of the same film; pick the best container per target dimension and choose representative frames including held out frames for validation
 2. **Alignment**: Register source and reference at pixel level and ensure identical picture area; crop or mask subtitles, logos, watermarks, and letterbox or pillarbox borders; match resolution and frame rate
 3. **Training**: Use CopyCat supervised learning; isolate the target dimension so only color differs for chroma or only spatial features differ for spatial; validate on held out frames
-4. **Inference and Render**: Apply the trained model frame by frame to the sequence; render deterministically with repository relative paths into `pipeline/04_inference_render/`
+4. **Inference and Render**: Apply the trained model frame by frame to the sequence and render outputs
 
 Optional steps
 - **Chroma**: MatchGrade baseline render for comparison and QC

@@ -45,7 +45,7 @@ Like color recovery has non-reference approaches (paintings, manual references),
 
 ## Workflow Overview
 
-Spatial recovery uses supervised learning with CNNs to train on overlapping content from multiple sources:
+Spatial recovery uses supervised learning with CNNs to train on overlapping content from multiple sources. Apply the content vs container principle: prefer the container with superior spatial detail as ground truth and neutralize color so only spatial features differ.
 
 ### 1. Source Identification and Analysis
 Identify and analyze all available sources of the same content:

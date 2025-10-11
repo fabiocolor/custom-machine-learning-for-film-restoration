@@ -65,6 +65,7 @@ Rules of thumb
 - Epoch heuristic: steps ≈ batch × 10,000 (e.g., batch 3 → ~30k minimum)
 - If patch size is 256, extend total steps (e.g., 60k) for stability
 - Increase dataset frames progressively if convergence stalls (4→7→11)
+ - Content vs container: prefer the reference container with superior color for chroma training; normalize luma/spatial so only color differs. For spatial training, prefer the container with superior spatial detail and match color.
 
 Reference
 - Training layout: `DOCS/images/COPYCAT TRAINING cropped.png`

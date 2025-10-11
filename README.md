@@ -46,21 +46,18 @@ Custom ML complements traditional film restoration methods, addressing challenge
 **New value of multiple film elements:**
 Custom ML gives new purpose to multiple copies or elements of the same film. Different prints, generations, or gauges can each contribute unique information to training, improving model accuracy and making previously "redundant" archive materials valuable for restoration.
 
-**General-purpose AI tools (Runway, Sora, Pika Labs) fall short because:**
-- **Aesthetic mismatch**: Trained on contemporary images, impose modern aesthetics, smooth out film grain
-- **Homogenization**: Overfit to modern visual styles, erasing unique historical characteristics
-- **Temporal inconsistency**: Struggle with frame-to-frame consistency, introduce artifacts and hallucinations
-- **Lack of control**: Film archivists require precise control over restoration decisions
-- **Ethical concerns**: Often trained on unauthorized datasets
+**The role of larger models (open-source, commercial):**
+With advancements in open weights, LoRAs, and fine-tuning capabilities, larger models may eventually complement custom approaches for scenarios with little or no reference material. However, archival restoration requires careful, guided application to maintain historical authenticity. This repository focuses on understanding the complete process and maintaining control over archival quality outcomes.
 
-**Custom ML models offer:**
+**Why this custom supervised learning approach:**
 
-1. **🎯 Film-Specific Training** - Small models trained on supervised learning pairs from the specific film being restored
+1. **🎯 Film-Specific Training** - Models trained on supervised learning pairs from the specific film being restored, ensuring preservation of unique characteristics
 2. **🔬 Ethical Data Sourcing** - Uses only authorized, verifiable reference material with proper provenance
-3. **🤖 Transparent & Reproducible** - All training decisions documented, results reproducible
-4. **🎨 Preservation of Authenticity** - Maintains original analog characteristics (grain, texture, flicker)
+3. **🤖 Transparent & Reproducible** - All training decisions documented, results reproducible, full control over the restoration process
+4. **🎨 Preservation of Authenticity** - Maintains original analog characteristics (grain, texture, flicker) through careful guidance
 5. **⚡ Overcome Filter Limitations** - Can "learn" information from external references impossible for traditional filters
-6. **🖥️ Locally Executed** - Small models run on consumer hardware, no cloud dependencies
+6. **📚 Understanding the Process** - Direct control and comprehension of each step ensures archival quality results
+7. **🖥️ Locally Executed** - Small models run on consumer hardware, no cloud dependencies
 
 ---
 

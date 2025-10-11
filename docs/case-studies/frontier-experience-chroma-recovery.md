@@ -11,14 +11,11 @@ Chroma recovery for the Frontier Experience project.
 **Source Material:** Film project
 **Challenge:** Chroma degradation with severely damaged reference color
 **Workflow Version:** CopyCat-based chroma recovery
-**Results:** Acceptable output but far from perfect or good
+**Results:** Output achieved, reference quality limitations noted
 
 **Workflow Approach:** Processed as sequence-level, but results were suboptimal. Reference color was too damaged, and different scenes within the movie were too visually distinct for the model to generalize effectively. Should have been separated by scene at minimum. Demonstrates limitations when reference quality is poor and visual diversity is high.
 
-**Lesson Learned:** Even correlative sequences may require scene-level separation when:
-- Reference material is severely degraded
-- Visual characteristics vary significantly between scenes
-- "Acceptable" output is the goal rather than archival quality
+**Technical Notes:** Demonstrated that reference material quality impacts sequence-level effectiveness. Scene-level separation may be needed even for correlative sequences when visual characteristics vary significantly.
 
 ---
 

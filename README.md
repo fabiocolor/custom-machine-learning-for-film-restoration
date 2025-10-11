@@ -58,7 +58,7 @@ With advancements in open weights, LoRAs, and fine-tuning capabilities, larger m
 
 ## Practical Workflow Considerations
 
-**There is no one-click solution for film restoration.** ML restoration requires careful approach selection based on your material's characteristics. Like generative AI in modern VFX, the best results come from matching the approach to the specific needs of each sequence.
+**There is no one-click solution for film restoration.** ML restoration requires careful approach selection based on your material's characteristics. Like generative AI implementations in modern VFX pipelines, the best results come from matching the approach to the specific needs of each project or element.
 
 **Approach selection framework:**
 - **Sequence-level processing**: When shots are correlative with consistent lighting/style and good reference quality

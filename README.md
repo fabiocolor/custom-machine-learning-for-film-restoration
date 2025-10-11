@@ -77,13 +77,13 @@ With advancements in open weights, LoRAs, and fine-tuning capabilities, larger m
 See [case studies](docs/case-studies.md) for experimental examples demonstrating these approaches.
 
 ### Principles and Constraints
-- **Film specific supervised models**: Train on frame pairs from different containers of the same film.
-- **Temporal context**: Models process frames independently and do not learn across time; there is no scene memory.
-- **Alignment and matching content**: Use pixel accurate alignment; ensure source and reference cover the same picture area. Crop or mask subtitles, on screen logos, watermarks, and letterbox/pillarbox borders.
-- **Domain consistency**: Regroup by scene or shot when composition, lens, grade, or damage changes.
-- **Iterative validation**: Validate on held out frames; step down from sequence to scene to shot when consistency drops.
-- **Compute and memory**: Consumer hardware limits batch sizes and temporal context; validate before running full film passes.
-- **Deterministic pipeline**: Use local execution and repository relative paths for repeatable results.
+- **Training pairs**: Frame pairs from different containers of the same film; pick the best container per target dimension and normalize non target channels.
+- **Alignment**: Pixel accurate registration and identical picture area; crop or mask subtitles, logos, watermarks, and letterbox or pillarbox borders.
+- **Scope and consistency**: Work at the broadest consistent scope; regroup by scene or shot when composition, grade, or damage changes.
+- **Validation**: Validate on held out frames; step down from sequence to scene to shot when consistency drops.
+- **Model limits**: Spatial, frame independent models with no scene memory.
+- **Compute limits**: Consumer hardware constrains batch size and temporal context; avoid full film passes without validation.
+- **Determinism**: Local execution and repository relative paths for repeatable results.
 
 
 ## Recovery Procedures

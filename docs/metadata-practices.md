@@ -349,6 +349,7 @@ Content Credentials (C2PA) for cryptographic provenance:
 
 ## Related Documentation
 
+- **[DaVinci Resolve Metadata Workflow](resolve-metadata-workflow.md)** - Bridge metadata from Nuke to Resolve for final delivery
 - [CopyCat SOP](copycat_sop.md) - Current QC & Logging practices
 - [Color Recovery Workflow](chroma-recovery.md) - Recovery methodology
 - [Spatial Recovery Workflow](spatial-recovery.md) - Spatial recovery approach

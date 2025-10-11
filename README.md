@@ -68,20 +68,14 @@ With advancements in open weights, LoRAs, and fine-tuning capabilities, larger m
 
 See [case studies](docs/case-studies.md) for experimental examples demonstrating these approaches.
 
-**Current technical limitations to understand:**
-- **Temporal context**: Current tools train spatial models that process frames independently and do not learn across time. There is no scene memory.
-- **Alignment and reference quality**: Results depend on pixel accurate matches and strong ground truth. Misalignment or weak references introduce artifacts that look like learning.
-- **Non overlapping content and borders**: Crop or mask subtitles, on screen logos, watermarks, and letterbox or pillarbox borders so source and reference contain the same picture area. Differences outside the target signal are learned as noise.
-- **Target isolation for training**: Make source and reference differ only in the target dimension. For chroma recovery, equalize luma and spatial detail so only color varies. For spatial recovery, match color so only spatial features differ.
-- **Domain shift within sequences**: Changes in composition, lens, grade, or damage reduce transfer between shots. Regroup data or retrain per scene or shot when consistency drops.
-- **Compute and memory**: Consumer hardware limits batch sizes and temporal context. Full film passes without shot by shot validation are inefficient.
-- **Workflow implication**: Favor iterative validation on held out frames. Promote from sequence level to scene level to shot level as needed when visual consistency or reference quality changes.
-
-### Design Principles
+### Principles and Constraints
 - **Film specific supervised models**: Train on pairs from the same film using ethically sourced references
-- **Precise alignment**: Match content exactly; crop or mask subtitles, on screen logos, and borders
+- **Temporal context**: Current tools train spatial models that process frames independently and do not learn across time. There is no scene memory
+- **Alignment and matching content**: Use pixel accurate alignment and ensure source and reference contain the same picture area. Crop or mask subtitles, on screen logos, watermarks, and letterbox or pillarbox borders
 - **Isolate the target**: For chroma, equalize luma and spatial detail so only color differs. For spatial, match color so only spatial features differ
+- **Domain consistency**: When composition, lens, grade, or damage changes, regroup by scene or shot to maintain model validity
 - **Iterative validation**: Test on held out frames and step down from sequence to scene to shot when consistency drops
+- **Compute and memory**: Consumer hardware limits batch sizes and temporal context. Avoid full film passes without validation
 - **Deterministic pipeline**: Prefer local execution and repository relative paths for repeatable results
 
 

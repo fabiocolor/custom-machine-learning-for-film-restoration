@@ -58,12 +58,12 @@ With advancements in open weights, LoRAs, and fine-tuning capabilities, larger m
 
 ## Practical Workflow Considerations
 
-**There is no one-click solution for film restoration.** ML restoration requires iterative refinement and careful approach selection. This mirrors how generative AI is integrated in modern VFX workflows, which also use shot-by-shot approaches to achieve the best possible results.
+**There is no one-click solution for film restoration.** ML restoration requires careful approach selection based on your material's characteristics. Like generative AI in modern VFX, the best results come from matching the approach to the specific needs of each sequence.
 
-**When sequence-level works vs. shot-by-shot:**
-- **Sequence-level successful**: Correlative shots with consistent lighting/style and good reference quality
-- **Scene-level separation needed**: Even correlative sequences with varying visual characteristics or damaged reference material
-- **Shot-by-shot required**: Fast-paced vignettes, trailers with scene cuts, openings with distinct visual styles
+**Approach selection framework:**
+- **Sequence-level processing**: When shots are correlative with consistent lighting/style and good reference quality
+- **Scene-level separation**: Even correlative sequences with varying visual characteristics or damaged reference material
+- **Shot-by-shot processing**: Fast-paced vignettes, trailers with scene cuts, openings with distinct visual styles
 - **Rule of thumb**: Visual consistency AND reference quality determine viability. Multiple distinct scenes or poor reference material require finer granularity.
 
 See [case studies](docs/case-studies.md) for experimental examples demonstrating these approaches.

@@ -26,7 +26,7 @@ This workflow demonstrates chroma recovery for degraded film using machine learn
 
 - **Recovery, Not Enhancement**: Restore what was originally there
 - **Preservation First**: Maintain analog film characteristics (grain, texture)
-- **Reference-Based**: Use verifiable sources for ethical ML training
+- **Reference-Based**: Use verifiable sources for ML training
 - **Shot-Specific**: Parameters adapt to each source/reference pair
 - **Quality Control**: Compare ML results against traditional methods
 
@@ -676,7 +676,7 @@ Tip: For a stage by stage checklist focused on CopyCat, see `DOCS/copycat_sop.md
 
 ---
 
-*This workflow represents a preservation-first approach to film restoration using ethical, reference-based machine learning techniques.*
+*This workflow represents a preservation-first approach to film restoration using reference-based machine learning techniques.*
 
 ---
 

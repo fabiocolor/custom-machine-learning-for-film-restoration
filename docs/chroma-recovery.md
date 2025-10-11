@@ -7,7 +7,7 @@ A comprehensive guide for using CopyCat in Nuke with convolutional neural networ
 Based on "Exploring Experimental Machine Learning in Film Restoration," color recovery encompasses two approaches depending on reference availability:
 
 ### 1. Reference-Based Recovery
-Uses ethically sourced reference materials with accurate color information
+Uses reference materials with accurate color information
 
 **When to use:**
 - DVDs, telecines, or other color-accurate transfers available

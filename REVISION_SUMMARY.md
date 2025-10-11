@@ -99,7 +99,7 @@
 4. ✅ **Core Philosophy**
    - Recovery not enhancement
    - Custom vs General AI critique
-   - Ethical data sourcing
+   - Data sourcing
    - Overcome filter limitations
    - Supervised learning framework
 

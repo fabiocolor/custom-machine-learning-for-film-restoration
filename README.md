@@ -1,6 +1,6 @@
 # Custom Machine Learning for Film Restoration in Nuke
 
-A comprehensive workflow template for training custom machine learning models using Foundry Nuke's CopyCat node and convolutional neural networks (CNNs) for **both spatial recovery and color recovery** in film restoration. This approach overcomes the limitations of traditional spatial and temporal filters by training small, film-specific models on ethically sourced data, preserving the unique analog characteristics of the original material.
+A comprehensive workflow template for training custom machine learning models using Foundry Nuke's CopyCat node and convolutional neural networks (CNNs) for **both spatial recovery and color recovery** in film restoration. This approach overcomes the limitations of traditional spatial and temporal filters by training small, film-specific models on data, preserving the unique analog characteristics of the original material.
 
 ![Node Graph Overview](docs/images/NODE%20GRAPH%20OVERVIEW%20cropped.png)
 
@@ -69,7 +69,7 @@ With advancements in open weights, LoRAs, and fine-tuning capabilities, larger m
 See [case studies](docs/case-studies.md) for experimental examples demonstrating these approaches.
 
 ### Principles and Constraints
-- **Film specific supervised models**: Train on pairs from the same film using ethically sourced references
+- **Film specific supervised models**: Train on pairs from the same film using references
 - **Temporal context**: Current tools train spatial models that process frames independently and do not learn across time. There is no scene memory
 - **Alignment and matching content**: Use pixel accurate alignment and ensure source and reference contain the same picture area. Crop or mask subtitles, on screen logos, watermarks, and letterbox or pillarbox borders
 - **Isolate the target**: For chroma, equalize luma and spatial detail so only color differs. For spatial, match color so only spatial features differ

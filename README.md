@@ -47,7 +47,9 @@ Custom ML complements traditional film restoration methods, addressing challenge
 Custom ML gives new purpose to multiple copies or elements of the same film. Different prints, generations, or gauges can each contribute unique information to training, improving model accuracy and making previously "redundant" archive materials valuable for restoration.
 
 **The role of larger models (open-source, commercial):**
-With advancements in open weights, LoRAs, and fine-tuning capabilities, larger models may eventually complement custom approaches for scenarios with little or no reference material. However, archival restoration requires careful, guided application to maintain historical authenticity. This repository focuses on understanding the complete process and maintaining control over archival quality outcomes.
+With advancements in open weights, LoRAs, and fine-tuning capabilities, larger models may eventually complement custom approaches for scenarios with little or no reference material. However, archival restoration requires careful, guided application to maintain historical authenticity.
+
+**There is no one-click solution for film restoration.** Like AI/ML in VFX, restoration must be done shot by shot with many iterations. Even if output quality is high, it may not be historically appropriate. This repository focuses on understanding the complete process and maintaining control over archival quality outcomes.
 
 **Why this custom supervised learning approach:**
 

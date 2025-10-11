@@ -54,7 +54,7 @@ Infers color from external sources when direct references unavailable
 
 ## Workflow Overview
 
-Color recovery uses supervised learning with CNNs, training on frame pairs from faded source and color reference (or inferred reference). Apply the content vs container principle: prefer the container with superior color as ground truth and normalize non target channels so only color differs.
+Color recovery uses supervised learning with CNNs, training on frame pairs from different containers of the same film (faded source and color reference or inferred reference). Use the container with superior color as ground truth and normalize non target channels so only color differs.
 
 ### 1. Dataset Curation
 Select representative frame pairs: faded source + color reference

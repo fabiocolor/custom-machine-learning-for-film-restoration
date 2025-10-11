@@ -68,7 +68,7 @@ Nuke command shortcuts for each stage:
 - CopyCat: batch 3, patch 512 (256 if limited by crop), checkpoints every 10k, total 40 to 80k steps.
 - Output: ACES 2065-1 EXR half; write to `pipeline/04_inference_render/`.
 - QC: store comps in `QC/YYYY-MM-DD/` under each stage and log findings in `notes/experiments.md`.
- - Content vs container: pick the best container per target dimension. For chroma, use the container with superior color and equalize luma/spatial; for spatial, use the container with superior detail and match color.
+ - Training pairs: frame pairs from different containers of the same film. For chroma, use the container with superior color and equalize luma/spatial; for spatial, use the container with superior detail and match color.
 
 ## Table of Contents
 - Overview and Philosophy

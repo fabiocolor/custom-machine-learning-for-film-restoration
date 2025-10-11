@@ -59,7 +59,7 @@ Identify and analyze all available sources of the same content:
 Find common frames between different sources for supervised learning pairs
 
 ### 3. Dataset Curation
-Select representative overlapping frame pairs (for example, 3, 6, 9, or 33) representing spatial characteristics to transfer. Keep some held out pairs for validation:
+Select representative overlapping frame pairs (for example, 3, 6, 9, or 33) representing spatial characteristics to transfer. Keep some held out pairs for validation. Rule of thumb: shots 3 to 4 pairs; scenes about 16; sequences 33 or more depending on complexity:
 - High-quality source (ground truth reference)
 - Low-quality source (degraded input)
 - Pairs must show identical content for supervised learning

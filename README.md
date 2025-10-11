@@ -77,7 +77,7 @@ With advancements in open weights, LoRAs, and fine-tuning capabilities, larger m
 See [case studies](docs/case-studies.md) for experimental examples demonstrating these approaches.
 
 ### Process Overview
-1. **Dataset Curation**: Train on frame pairs from different containers of the same film; pick the best container per target dimension and choose representative pairs (e.g., 3, 6, 9, or 33) plus held out frames for validation
+1. **Dataset Curation**: Train on frame pairs from different containers of the same film; pick the best container per target dimension and choose representative pairs (for example, 3, 6, 9, or 33) plus held out frames for validation. Rule of thumb: shots 3 to 4 pairs; scenes about 16; sequences 33 or more depending on complexity
 2. **Alignment**: Register source and reference at pixel level and ensure identical picture area; crop or mask subtitles, logos, watermarks, and letterbox or pillarbox borders; match resolution and frame rate
 3. **Training**: Use CopyCat supervised learning on those pairs; isolate the target dimension so only color differs for chroma or only spatial features differ for spatial; validate on held out frames
 4. **Inference and Render**: Apply the trained model to the full original source for the selected shot, scene, or sequence and render outputs
@@ -98,7 +98,7 @@ Optional steps
 - **Non reference recovery**: Infers color from paintings, period photographs, or manually created color references when no direct reference exists
 
 **Process Overview:**
-1. **Dataset Curation**: Select representative frame pairs (e.g., 3, 6, 9, or 33): faded source + color reference (or constructed reference); keep some held out for validation
+1. **Dataset Curation**: Select representative frame pairs (for example, 3, 6, 9, or 33): faded source + color reference (or constructed reference); keep some held out for validation. Rule of thumb: shots 3 to 4 pairs; scenes about 16; sequences 33 or more depending on complexity
 2. **Alignment**: Precisely match reference to source at pixel level
 3. **CopyCat Training**: Train CNN model using supervised learning to reconstruct chroma while preserving original spatial information
 4. **Inference & Render**: Apply the trained model to the full original source for the selected shot, scene, or sequence and render outputs

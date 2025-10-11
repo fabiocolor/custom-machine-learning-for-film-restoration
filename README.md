@@ -69,14 +69,14 @@ With advancements in open weights, LoRAs, and fine-tuning capabilities, larger m
 See [case studies](docs/case-studies.md) for experimental examples demonstrating these approaches.
 
 ### Principles and Constraints
-- **Film specific supervised models**: Train on pairs from the same film using references
-- **Temporal context**: Current tools train spatial models that process frames independently and do not learn across time. There is no scene memory
-- **Alignment and matching content**: Use pixel accurate alignment and ensure source and reference contain the same picture area. Crop or mask subtitles, on screen logos, watermarks, and letterbox or pillarbox borders
-- **Isolate the target**: For chroma, equalize luma and spatial detail so only color differs. For spatial, match color so only spatial features differ
-- **Domain consistency**: When composition, lens, grade, or damage changes, regroup by scene or shot to maintain model validity
-- **Iterative validation**: Test on held out frames and step down from sequence to scene to shot when consistency drops
-- **Compute and memory**: Consumer hardware limits batch sizes and temporal context. Avoid full film passes without validation
-- **Deterministic pipeline**: Prefer local execution and repository relative paths for repeatable results
+- **Film specific supervised models**: Train on frame pairs from the same film (source and ground truth).
+- **Temporal context**: Models process frames independently and do not learn across time; there is no scene memory.
+- **Alignment and matching content**: Use pixel accurate alignment; ensure source and reference cover the same picture area. Crop or mask subtitles, on screen logos, watermarks, and letterbox/pillarbox borders.
+- **Isolate the target**: For chroma, equalize luma and spatial detail so only color differs; for spatial, match color so only spatial features differ.
+- **Domain consistency**: Regroup by scene or shot when composition, lens, grade, or damage changes.
+- **Iterative validation**: Validate on held out frames; step down from sequence to scene to shot when consistency drops.
+- **Compute and memory**: Consumer hardware limits batch sizes and temporal context; validate before running full film passes.
+- **Deterministic pipeline**: Use local execution and repository relative paths for repeatable results.
 
 
 ## Recovery Procedures

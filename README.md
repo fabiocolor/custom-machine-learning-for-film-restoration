@@ -50,9 +50,8 @@ Custom ML gives new purpose to multiple copies or elements of the same film. Dif
 **The role of larger models (open-source, commercial):**
 With advancements in open weights, LoRAs, and fine-tuning capabilities, larger models may eventually complement custom approaches for scenarios with little or no reference material. However, archival restoration requires careful, guided application to maintain historical authenticity.
 
-**There is no one-click solution for film restoration.** ML restoration works best shot by shot with iterative refinement. While sequence-level processing may work for simpler cases where total accuracy is not critical, complex restoration requires shot-level control. Even if output quality is high, it may not be historically appropriate.
+**There is no one-click solution for film restoration.** ML restoration requires iterative refinement and careful approach selection:
 
-**When sequence-level works vs. shot-by-shot:**
 - **Sequence-level successful**: Correlative shots with consistent lighting/style and good reference quality
 - **Scene-level separation needed**: Even correlative sequences with varying visual characteristics or damaged reference material
 - **Shot-by-shot required**: Fast-paced vignettes, trailers with scene cuts, openings with distinct visual styles

@@ -52,6 +52,8 @@ With advancements in open weights, LoRAs, and fine-tuning capabilities, larger m
 
 **There is no one-click solution for film restoration.** ML restoration requires iterative refinement and careful approach selection. This mirrors how generative AI is integrated in modern VFX workflows, which also use shot-by-shot approaches to achieve the best possible results.
 
+**Important context:** Nuke is primarily a VFX tool, not a dedicated restoration application like Phoenix or Diamant. CopyCat has been used extensively in VFX workflows far beyond the scope of this repository. We are adapting Nuke's powerful ML capabilities for archival workflows, but it remains a VFX platform adapted for restoration purposes, not a purpose-built restoration tool.
+
 - **Sequence-level successful**: Correlative shots with consistent lighting/style and good reference quality
 - **Scene-level separation needed**: Even correlative sequences with varying visual characteristics or damaged reference material
 - **Shot-by-shot required**: Fast-paced vignettes, trailers with scene cuts, openings with distinct visual styles

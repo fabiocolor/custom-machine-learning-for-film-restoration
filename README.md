@@ -46,7 +46,12 @@ Custom ML complements traditional film restoration methods, addressing challenge
 
 **What traditional methods cannot do:**
 - **Spatial and temporal filters** cannot "learn" from external references or apply knowledge across distant parts of a film
-- **Traditional color correction** (LUTs, channel balancing) can make images more pleasing to view but cannot truly recover color information lost to degradation or fading, as they are limited by what exists in the channels (though frame by frame painting is theoretically possible but completely impractical)
+- **Traditional color correction** (LUTs, channel balancing): remaps existing channels but cannot reconstruct missing color information
+  - Faded dye layers remove signal; LUTs cannot add absent chroma
+  - Cross channel contamination and nonlinear fading break simple channel adjustments
+  - Global grades are context agnostic; they cannot learn from external references
+  - Manual painting is theoretically possible frame by frame but impractical at scale
+  - See Color Recovery Workflow for supervised pairs that reconstruct chroma while preserving luma
 
 **New value of multiple film elements:**
 Custom ML gives new purpose to multiple copies or elements of the same film. Different prints, generations, or gauges can each contribute unique information to training, improving model accuracy and making previously "redundant" archive materials valuable for restoration.

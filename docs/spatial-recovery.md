@@ -59,7 +59,7 @@ Identify and analyze all available sources of the same content:
 Find common frames between different sources for supervised learning pairs
 
 ### 3. Dataset Curation
-Select overlapping frames representing spatial characteristics to transfer:
+Select representative overlapping frame pairs (for example, 3, 6, 9, or 33) representing spatial characteristics to transfer. Keep some held out pairs for validation:
 - High-quality source (ground truth reference)
 - Low-quality source (degraded input)
 - Pairs must show identical content for supervised learning
@@ -71,7 +71,7 @@ Train a convolutional neural network using supervised learning:
 - Model learns to transfer resolution, grain, sharpness between sources
 
 ### 5. Inference and Validation
-Apply trained model frame by frame to entire sequence and validate spatial consistency
+Apply the trained model to the full original source for the selected shot, scene, or sequence and validate spatial consistency
 
 ---
 

@@ -57,7 +57,7 @@ Constructs color references from external sources when direct references are una
 Color recovery uses supervised learning with CNNs, training on frame pairs from different containers of the same film (faded source and color reference or constructed reference). Use the container with superior color as ground truth and normalize non target channels so only color differs.
 
 ### 1. Dataset Curation
-Select representative frame pairs: faded source + color reference
+Select representative frame pairs (for example, 3, 6, 9, or 33): faded source + color reference (or constructed reference). Keep some held out pairs for validation.
 - **Reference-based**: Use DVD/telecine frames with accurate color
 - **Non-reference**: Use paintings/photos or manually created color references
 
@@ -73,7 +73,7 @@ Train convolutional neural network using supervised learning:
 - **Preservation**: Model learns to reconstruct chroma while preserving original spatial information (luma channel)
 
 ### 4. Inference & Render
-Apply trained model frame by frame to full sequence
+Apply the trained model to the full original source for the selected shot, scene, or sequence and render outputs
 - Output archival-quality files (typically ACES 2065-1 EXR)
 - Maintains film grain and analog characteristics
 
@@ -92,9 +92,9 @@ Compare with traditional methods and validate results
 
 **Process:**
 1. **Source Selection**: Choose frames with faded chroma but visible detail
-2. **Reference Selection**: Choose frames with accurate color from same film
+2. **Reference Selection**: Choose frames with accurate color from the same film or constructed references
 3. **Matching**: Ensure temporal and spatial correspondence
-4. **Quantity**: 8-16 representative frames typically sufficient
+4. **Quantity**: Start with 3 to 9 pairs; increase as needed. Above roughly 33 pairs, training time can exceed 20 hours depending on hardware and settings
 5. **Variety**: Include different lighting conditions and color palettes
 
 **Best Practices:**

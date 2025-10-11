@@ -14,7 +14,7 @@ Goal: pick representative frame pairs (source vs reference) after Resolve alignm
 Checklist
 - Read nodes: Balanced source (`Read2`) and color reference (`Read3`).
 - `FrameRange`: set 1 to 1 for each candidate frame; feed `FrameHold` nodes.
-- `AppendClip`: assemble 3 to 4 frames minimum (begin, mid, end; 4 preferred).
+- `AppendClip`: assemble representative pairs (for example, 3, 6, 9, or 33) covering begin, mid, and end. More pairs improve coverage but increase training time; above roughly 33 pairs, training can exceed 20 hours depending on hardware and settings.
 - Verify: For each index, source and reference show identical content (luma), ignoring color.
 - Save QC grabs to `pipeline/01_dataset_curation/QC/YYYY-MM-DD/` and log in `notes/experiments.md`.
 

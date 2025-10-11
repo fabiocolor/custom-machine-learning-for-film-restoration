@@ -61,7 +61,7 @@ Nuke command shortcuts for each stage:
 ## Start Here
 
 - Preferred scope: shot by shot projects (best quality and stability).
-- Dataset frames: pick 4 to start (begin, end, two mids). Increase to 7/11 if needed.
+- Dataset pairs: start with 3 to 9 representative pairs; increase as needed. Above roughly 33 pairs, training time can exceed 20 hours depending on hardware and settings.
 - Alignment: try F_Align first; switch to manual Transform if difference view shows residual edges.
 - Crop: remove all black borders and burned in subtitles; link or clone crop across source and reference.
 - Colorspace: convert to YCbCr to preserve source luma (Y) and train only on chroma (Cb/Cr).

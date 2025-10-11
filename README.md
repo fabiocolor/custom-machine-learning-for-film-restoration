@@ -51,7 +51,15 @@ Custom ML gives new purpose to multiple copies or elements of the same film. Dif
 **The role of larger models (open-source, commercial):**
 With advancements in open weights, LoRAs, and fine-tuning capabilities, larger models may eventually complement custom approaches for scenarios with little or no reference material. However, archival restoration requires careful, guided application to maintain historical authenticity.
 
-**There is no one-click solution for film restoration.** Like AI/ML in VFX, restoration must be done shot by shot with many iterations. Even if output quality is high, it may not be historically appropriate. This repository focuses on understanding the complete process and maintaining control over archival quality outcomes.
+**There is no one-click solution for film restoration.** ML restoration works best shot by shot with iterative refinement. While sequence-level processing may work for simpler cases where total accuracy is not critical, complex restoration requires shot-level control. Even if output quality is high, it may not be historically appropriate.
+
+**Current technical limitations to understand:**
+- **Context windows**: No model has sufficient context for full-feature inference. Claims of processing entire movies in hours are unrealistic.
+- **Processing power**: Running inference on a complete film without shot-by-shot validation wastes computation on potentially inappropriate output.
+- **Iterative refinement**: Trial and error at the film level is impractical. Shot-by-shot allows course correction.
+- **GPU memory constraints**: Current hardware limits realistic batch sizes and temporal context.
+
+This repository focuses on understanding the complete process and maintaining control over archival quality outcomes through practical, shot-based workflows.
 
 **Why this custom supervised learning approach:**
 

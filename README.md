@@ -66,6 +66,7 @@ See [case studies](docs/case-studies.md) for experimental examples demonstrating
 - **Processing power**: Running inference on a complete film without shot-by-shot validation wastes computation on potentially inappropriate output.
 - **Iterative refinement**: Trial and error at the film level is impractical. Shot-by-shot allows course correction.
 - **GPU memory constraints**: Current hardware limits realistic batch sizes and temporal context.
+- **Spatial-only models**: CopyCat and similar frameworks create spatial models, not temporal models. The model processes frames independently and cannot differentiate between or learn from temporal relationships between frames.
 
 This repository focuses on understanding the complete process and maintaining control over archival quality outcomes through practical, shot-based workflows.
 

@@ -14,6 +14,8 @@ Chroma recovery for the opening sequence of Candy Candy, scanned from 16mm film.
 **Workflow Version:** Previous iteration (pre-template standardization)
 **Results:** Strong color recovery while preserving original grain and texture
 
+**Workflow Approach:** Initial sequence-level training failed due to opening's fast-paced vignettes with rapid scene changes. Required shot-by-shot processing for acceptable results. Opening sequences with multiple distinct visual styles need individual shot treatment.
+
 ---
 
 ## Complete Process Documentation

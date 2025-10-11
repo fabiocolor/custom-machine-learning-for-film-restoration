@@ -12,6 +12,8 @@ Chroma recovery for the Muralla Verde trailer project.
 **Challenge:** Faded chroma in trailer material
 **Workflow Version:** CopyCat-based chroma recovery
 
+**Workflow Approach:** Initial sequence-level training failed because trailer contains multiple distinct scenes spliced together. Required shot-by-shot processing. Trailers with rapid scene cuts and varying visual styles need individual shot treatment for consistent results.
+
 ---
 
 ## Complete Process Documentation

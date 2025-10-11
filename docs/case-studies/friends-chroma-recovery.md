@@ -14,6 +14,8 @@ Chroma recovery for the Friends film project, demonstrating effective color reco
 **Workflow Version:** CopyCat-based chroma recovery
 **Results:** Successful color reconstruction with preserved detail
 
+**Workflow Approach:** Sequence-level training worked successfully. All shots are correlative with consistent lighting and visual style, allowing effective sequence-wide model training. Demonstrates when sequence-level processing is appropriate.
+
 ---
 
 ## Complete Process Documentation

@@ -12,10 +12,12 @@ Comprehensive recovery for the Mission Kill project, demonstrating both spatial 
 [![Mission Kill Color Matched Comparison](https://img.youtube.com/vi/x_EKBpOjTEE/0.jpg)](https://www.youtube.com/watch?v=x_EKBpOjTEE)
 
 ## Project Details
-**Source Material:** Film project with multiple degraded elements
+**Source Material:** Film project with multiple degraded elements (35mm internegative + 16mm positive print)
 **Challenge:** Severe degradation requiring both spatial and chroma recovery approaches
 **Workflow Version:** CopyCat-based combined recovery workflow
 **Results:** Successful spatial and chroma reconstruction with comprehensive recovery process
+
+**Workflow Approach:** Sequence-level training worked successfully. Correlative shots with consistent visual characteristics throughout the sequence allowed effective sequence-wide processing. Example of when sequence-level approach is appropriate for complex recovery.
 
 ---
 

@@ -58,13 +58,13 @@ With advancements in open weights, LoRAs, and fine-tuning capabilities, larger m
 
 ## Practical Workflow Considerations
 
-**There is no one-click solution for film restoration.** ML restoration requires careful approach selection based on your material's characteristics. Like generative AI implementations in modern VFX pipelines, the best results come from matching the approach to the specific needs of each project or element.
+**Granularity principle for chroma/spatial recovery.** Train and infer at the broadest scope that remains compositionally consistent. Correlative shots within a sequence or scene can share a model if framing, lighting, motion, and subject distribution are stable. When visual characteristics or reference quality diverge, compartmentalize and work at a finer granularity (down to shot by shot), mirroring modern generative AI VFX practices.
 
-**Approach selection framework:**
-- **Sequence-level processing**: When shots are correlative with consistent lighting/style and good reference quality
-- **Scene-level separation**: Even correlative sequences with varying visual characteristics or damaged reference material
-- **Shot-by-shot processing**: Fast-paced vignettes, trailers with scene cuts, openings with distinct visual styles
-- **Rule of thumb**: Visual consistency AND reference quality determine viability. Multiple distinct scenes or poor reference material require finer granularity.
+**When to pick sequence, scene, or shot:**
+- **Sequence level processing**: Correlative shots with similar composition and stable lighting/camera; consistent reference quality
+- **Scene level grouping**: Same scene but moderate shifts in composition, lens, grade, or damage; break at scene boundaries
+- **Shot by shot processing**: Major composition changes, new subjects/angles, fast cuts, heavy damage, or weak/uneven reference
+- **Rule of thumb**: If composition or reference quality changes, step down in granularity
 
 See [case studies](docs/case-studies.md) for experimental examples demonstrating these approaches.
 

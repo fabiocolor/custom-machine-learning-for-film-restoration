@@ -76,14 +76,15 @@ With advancements in open weights, LoRAs, and fine-tuning capabilities, larger m
 
 See [case studies](docs/case-studies.md) for experimental examples demonstrating these approaches.
 
-### Principles and Constraints
-- **Training pairs**: Frame pairs from different containers of the same film; pick the best container per target dimension and normalize non target channels.
-- **Alignment**: Pixel accurate registration and identical picture area; crop or mask subtitles, logos, watermarks, and letterbox or pillarbox borders.
-- **Scope and consistency**: Work at the broadest consistent scope; regroup by scene or shot when composition, grade, or damage changes.
-- **Validation**: Validate on held out frames; step down from sequence to scene to shot when consistency drops.
-- **Model limits**: Spatial, frame independent models with no scene memory.
-- **Compute limits**: Consumer hardware constrains batch size and temporal context; avoid full film passes without validation.
-- **Determinism**: Local execution and repository relative paths for repeatable results.
+### Process Overview
+1. **Dataset Curation**: Train on frame pairs from different containers of the same film; pick the best container per target dimension and choose representative frames including held out frames for validation
+2. **Alignment**: Register source and reference at pixel level and ensure identical picture area; crop or mask subtitles, logos, watermarks, and letterbox or pillarbox borders; match resolution and frame rate
+3. **Training**: Use CopyCat supervised learning; isolate the target dimension so only color differs for chroma or only spatial features differ for spatial; validate on held out frames
+4. **Inference and Render**: Apply the trained model frame by frame to the sequence; render deterministically with repository relative paths into `pipeline/04_inference_render/`
+
+Optional steps
+- **Chroma**: MatchGrade baseline render for comparison and QC
+- **Spatial**: Luma matching pass for integration when needed
 
 
 ## Recovery Procedures

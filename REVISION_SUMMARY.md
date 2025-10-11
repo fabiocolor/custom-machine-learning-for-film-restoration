@@ -22,7 +22,7 @@
 - ✅ Expanded "Why Custom Models vs. General-Purpose AI" section
 - ✅ Added explicit critique of Runway/Sora/Pika Labs limitations
 - ✅ Listed three spatial recovery techniques (Gauge, Generation, Analog Video Reference)
-- ✅ Added frame-by-frame inference emphasis
+- ✅ Added frame by frame inference emphasis
 - ✅ Structured color recovery as Reference-Based vs Non-Reference
 - ✅ Updated all internal links to spatial-recovery.md
 
@@ -76,7 +76,7 @@
 - Added: **"Intra-frame damage"** (spatial issues)
 - Added: **"Inter-frame damage"** (color fading)
 - Added: **"Chromogenic film dye degradation"** (technical accuracy)
-- Added: **"Frame-by-frame inference"** (hardware limitations)
+- Added: **"Frame by frame inference"** (hardware limitations)
 
 ---
 
@@ -106,7 +106,7 @@
 5. ✅ **Technical Framework**
    - CNNs (convolutional neural networks)
    - Supervised learning pairs
-   - Frame-by-frame inference
+- Frame by frame inference
    - Local execution (consumer hardware)
 
 ---

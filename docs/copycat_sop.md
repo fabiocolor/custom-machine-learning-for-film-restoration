@@ -1,20 +1,20 @@
 # CopyCat Chroma Recovery: Operator SOP
 
-Step‑by‑step, tool‑exact instructions for running the chroma recovery pipeline in Nuke using CopyCat. This SOP matches the repository’s 5‑stage layout and the images in `DOCS/images/`.
+Step by step, tool exact instructions for running the chroma recovery pipeline in Nuke using CopyCat. This SOP matches the repository’s 5 stage layout and the images in `DOCS/images/`.
 
 ## Prerequisites
-- NukeX Indie/Full for full‑res renders; Non‑Commercial caps at 1920×1080.
+- NukeX Indie/Full for full res renders; Non Commercial caps at 1920×1080.
 - GPU: Apple Silicon or NVIDIA recommended; enable GPU in CopyCat.
-- Color mgmt: Resolve exports in Rec.709; Nuke final outputs in ACES 2065‑1.
-- Paths: Use repository‑relative paths only; avoid absolute mounts.
+- Color mgmt: Resolve exports in Rec.709; Nuke final outputs in ACES 2065-1.
+- Paths: Use repository relative paths only; avoid absolute mounts.
 
 ## Stage 1: Dataset Curation (pipeline/01_dataset_curation)
 Goal: pick representative frame pairs (source vs reference) after Resolve alignment.
 
 Checklist
 - Read nodes: Balanced source (`Read2`) and color reference (`Read3`).
-- `FrameRange`: set 1–1 for each candidate frame; feed `FrameHold` nodes.
-- `AppendClip`: assemble 3–4 frames minimum (begin, mid, end; 4 preferred).
+- `FrameRange`: set 1 to 1 for each candidate frame; feed `FrameHold` nodes.
+- `AppendClip`: assemble 3 to 4 frames minimum (begin, mid, end; 4 preferred).
 - Verify: For each index, source and reference show identical content (luma), ignoring color.
 - Save QC grabs to `pipeline/01_dataset_curation/QC/YYYY-MM-DD/` and log in `notes/experiments.md`.
 
@@ -23,7 +23,7 @@ Reference
 - FrameRange: `DOCS/images/FRAME RANGE NODE SETTINGS CROPPED.png`
 
 ## Stage 2: Alignment (pipeline/02_alignment)
-Goal: pixel‑accurate registration of reference to source, then linked crop.
+Goal: pixel accurate registration of reference to source, then linked crop.
 
 Checklist
 - Auto path: `F_Align` (default settings) with analysis region constrained to valid area.
@@ -41,7 +41,7 @@ Reference
 - Copy bbox: `DOCS/images/COPYBBOX NODE SETTINGS.png`
 
 ## Stage 3: CopyCat Training (pipeline/03_copycat_training)
-Goal: train chroma‑only model; preserve original luma.
+Goal: train chroma only model; preserve original luma.
 
 Node chain (per both branches unless noted)
 1) Colorspace: Linear → YCbCr (YUV). See `DOCS/images/COLORSPACE NODE LINEAR TO YCBCR SETTINGS CROPPED.png`
@@ -52,13 +52,13 @@ Node chain (per both branches unless noted)
 6) Copy bbox: keep consistent bbox
 
 CopyCat node (recommended settings)
-- Data directory: per‑shot folder under `pipeline/03_copycat_training/<shot>/session_*`
+- Data directory: per shot folder under `pipeline/03_copycat_training/<shot>/session_*`
 - GPU: enabled; device auto
 - Model size: Medium
 - Initial weights: None
 - Batch size: 3 (fixed)
 - Patch size: 512 (or 256 when subtitle crop reduces area)
-- Steps/checkpoints: every 10,000; plan for 40–80k total
+- Steps/checkpoints: every 10,000; plan for 40 to 80k total
 - Contact sheet: every 100 for monitoring
 
 Rules of thumb
@@ -83,9 +83,9 @@ Goal: apply trained model to full sequence and render archival plates.
 Checklist
 - Read full source sequence; apply only the “image cleanup” crop (remove sprockets/sound track).
 - Inference node: load trained `.cat` file from Stage 3.
-- Recombine/Clamp: match training chain; ensure final in ACES 2065‑1.
-- Write node: EXR DWAA, 16‑bit half float, path `pipeline/04_inference_render/<shot>_ml_####.exr`.
-- Non‑Commercial: reformat to 1080p if required; document this in notes.
+- Recombine/Clamp: match training chain; ensure final in ACES 2065-1.
+- Write node: EXR DWAA, 16 bit half float, path `pipeline/04_inference_render/<shot>_ml_####.exr`.
+- Non Commercial: reformat to 1080p if required; document this in notes.
 
 Reference
 - Inference layout: `DOCS/images/INFERENCE RENDER cropped.png`
@@ -93,11 +93,11 @@ Reference
 - Reformat/Write: `DOCS/images/REFORMAT NODE SETTINGS CROPPED.png`, `DOCS/images/WRITE NODE SETTINGS.png`
 
 ## Stage 5: MatchGrade Baseline (pipeline/05_matchgrade_render)
-Goal: produce LUT‑based baseline for comparison/QC.
+Goal: produce LUT based baseline for comparison/QC.
 
 Checklist
 - Use the same dataset frames; convert Linear→Log before `MatchGrade` and Log→Linear after.
-- Choose 3D LUT; Pre‑LUT = Log; LUT resolution max.
+- Choose 3D LUT; Pre LUT = Log; LUT resolution max.
 - Copy node to a separate tree to apply to the whole sequence.
 - Render baseline plates for A/B in Resolve.
 
@@ -110,12 +110,12 @@ Reference
 - Log shot ID, frames, crop box, alignment path, model settings, findings in `notes/experiments.md`.
 - Check specifically: spectral artifacts, frame mismatches, luma drift, grain retention.
 
-## Shot‑by‑Shot vs Whole Reel
+## Shot by Shot vs Whole Reel
 - Whole reel single session is faster to stand up but rarely optimal.
-- Shot‑by‑shot yields better quality and stability; prefer this for final outputs.
+- Shot by shot yields better quality and stability; prefer this for final outputs.
 
 ## Common Pitfalls
 - Misalignment: use `Merge (difference)`; switch to manual path if residual edges appear.
 - Black borders/subtitles: must be cropped out before training; animate crop when needed.
 - Bounding box mismatches: copy bbox to keep spatial metadata aligned.
-- Over‑tuning F_Align: default global solves suffice; excessive tweaks can degrade results.
+- Over tuning F_Align: default global solves suffice; excessive tweaks can degrade results.

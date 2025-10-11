@@ -56,30 +56,30 @@ Infers color from external sources when direct references unavailable
 
 Color recovery uses supervised learning with CNNs, training on frame pairs from faded source and color reference (or inferred reference):
 
-### 1️⃣ Dataset Curation
+### 1. Dataset Curation
 Select representative frame pairs: faded source + color reference
 - **Reference-based**: Use DVD/telecine frames with accurate color
 - **Non-reference**: Use paintings/photos or manually created color references
 
-### 2️⃣ Alignment
+### 2. Alignment
 Precisely match reference to source at pixel level
 - Remove overscan and ensure perfect spatial correspondence
 - Critical for supervised learning to work correctly
 
-### 3️⃣ CopyCat Training (CNN)
+### 3. CopyCat Training (CNN)
 Train convolutional neural network using supervised learning:
 - **Input**: Faded source frames (degraded chroma)
 - **Ground truth**: Reference frames (accurate chroma)
 - **Preservation**: Model learns to reconstruct chroma while preserving original spatial information (luma channel)
 
-### 4️⃣ Inference & Render
-Apply trained model frame-by-frame to full sequence
+### 4. Inference & Render
+Apply trained model frame by frame to full sequence
 - Output archival-quality files (typically ACES 2065-1 EXR)
 - Maintains film grain and analog characteristics
 
-### 5️⃣ Validation
+### 5. Validation
 Compare with traditional methods and validate results
-- MatchGrade baseline comparison (traditional LUT-based approach)
+- MatchGrade baseline comparison (traditional LUT based approach)
 - Validate color accuracy and grain preservation
 
 ---
@@ -139,7 +139,7 @@ Output: Reconstructed chroma
 **Monitoring Training:**
 - Watch loss curves for convergence
 - Check intermediate results
-- Validate on held-out frames
+- Validate on held out frames
 - Stop before overfitting
 
 ### Stage 4: Inference & Render
@@ -164,7 +164,7 @@ Output: Reconstructed chroma
 **Objective:** Validate recovery quality and compare with alternatives
 
 **Validation Methods:**
-- **Side-by-Side Comparison**: Original vs. Recovered
+- **Side by Side Comparison**: Original vs. Recovered
 - **MatchGrade Baseline**: Compare with Nuke's built-in tools
 - **Quality Metrics**: Visual assessment and technical analysis
 - **Cross-Reference**: Multiple viewers and displays

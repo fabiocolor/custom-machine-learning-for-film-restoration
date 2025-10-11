@@ -52,3 +52,6 @@ venv/
 
 # ffmpeg 2-pass temp logs
 ffmpeg2pass-*.log*
+# Agent instruction files (not part of repo deliverables)
+.aiagents/
+.claude/

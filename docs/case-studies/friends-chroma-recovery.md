@@ -11,10 +11,10 @@ Chroma recovery for the Friends film project, demonstrating effective color reco
 
 **Source Material:** Film project
 **Challenge:** Faded/degraded chroma information
-**Workflow Version:** CopyCat-based chroma recovery
+**Workflow Version:** CopyCat based chroma recovery
 **Results:** Successful color reconstruction with preserved detail
 
-**Workflow Approach:** Sequence-level training worked successfully. All shots are correlative with consistent lighting and visual style, allowing effective sequence-wide model training. Demonstrates when sequence-level processing is appropriate.
+**Workflow Approach:** Sequence level training worked successfully. All shots are correlative with consistent lighting and visual style, allowing effective sequence wide model training. Demonstrates when sequence level processing is appropriate.
 
 ---
 
@@ -40,7 +40,7 @@ The ML-driven color reconstruction workflow:
 
 *Note: Add chroma recovery process image here*
 
-### 5. Side-by-Side Comparison
+### 5. Side by Side Comparison
 Four-way comparison showing the recovery process:
 
 ![Friends Chroma Recovery Comparison](../images/FRIENDS%20CHROMA%20RECOVERY%20COMPARISON.png)
@@ -49,7 +49,7 @@ Four-way comparison showing the recovery process:
 
 ## Technical Notes
 
-This case study demonstrates the application of CopyCat-based chroma recovery to the Friends project, showing successful reconstruction of missing chroma information while preserving the original image characteristics.
+This case study demonstrates the application of CopyCat based chroma recovery to the Friends project, showing successful reconstruction of missing chroma information while preserving the original image characteristics.
 
 ---
 

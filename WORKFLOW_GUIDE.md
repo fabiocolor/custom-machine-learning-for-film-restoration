@@ -1,6 +1,6 @@
 # Chroma Recovery Workflow Guide
 
-*Machine Learning-Based Film Restoration using Nuke CopyCat*
+*Machine Learning Based Film Restoration using Nuke CopyCat*
 
 ## Overview
 
@@ -34,7 +34,7 @@ This workflow demonstrates chroma recovery for degraded film using machine learn
 
 ## Project Structure
 
-This repo follows a 5‑stage pipeline layout tailored for Nuke + CopyCat. All paths are repository‑relative to avoid hard‑coded absolutes.
+This repo follows a 5 stage pipeline layout tailored for Nuke + CopyCat. All paths are repository relative to avoid hard coded absolutes.
 
 ```
 .
@@ -60,14 +60,14 @@ Nuke command shortcuts for each stage:
 
 ## Start Here
 
-- Preferred scope: shot‑by‑shot projects (best quality and stability).
+- Preferred scope: shot by shot projects (best quality and stability).
 - Dataset frames: pick 4 to start (begin, end, two mids). Increase to 7/11 if needed.
 - Alignment: try F_Align first; switch to manual Transform if difference view shows residual edges.
-- Crop: remove all black borders and burned‑in subtitles; link/clone crop across source and reference.
+- Crop: remove all black borders and burned in subtitles; link or clone crop across source and reference.
 - Colorspace: convert to YCbCr to preserve source luma (Y) and train only on chroma (Cb/Cr).
-- CopyCat: batch 3, patch 512 (256 if limited by crop), checkpoints every 10k, total 40–80k steps.
-- Output: ACES 2065‑1 EXR half; write to `pipeline/04_inference_render/`.
-- QC: store comps in `QC/YYYY‑MM‑DD/` under each stage and log findings in `notes/experiments.md`.
+- CopyCat: batch 3, patch 512 (256 if limited by crop), checkpoints every 10k, total 40 to 80k steps.
+- Output: ACES 2065-1 EXR half; write to `pipeline/04_inference_render/`.
+- QC: store comps in `QC/YYYY-MM-DD/` under each stage and log findings in `notes/experiments.md`.
 
 ## Table of Contents
 - Overview and Philosophy
@@ -112,7 +112,7 @@ Nuke command shortcuts for each stage:
 
 2. **Spatial Alignment**
    - **Accept black borders** on reference if necessary
-   - **Goal**: Maximize pixel-level correspondence between source and reference
+   - **Goal**: Maximize pixel level correspondence between source and reference
    - **Quality Check**: Same luminance information in matching frames
 
 3. **Reference Quality Considerations**
@@ -138,9 +138,9 @@ Nuke command shortcuts for each stage:
 **ACES Workflow Integration:**
 - **Pipeline**: Modified ACES workflow optimized for ML training
 - **Resolve Exports**: Rec.709 colorspace (prevents values above 1.0)
-- **Nuke Exports**: ACES 2065-1 colorspace
-- **ML Training Consideration**: Rec.709 input prevents ACES 2065-1 super-whites from affecting CopyCat training
-- **Color Completeness**: Final ACES 2065-1 output preserves full color information post-ML processing
+- **Nuke Exports**: ACES 2065-1 color space
+- **ML Training Consideration**: Rec.709 input prevents ACES 2065-1 super whites from affecting CopyCat training
+- **Color Completeness**: Final ACES 2065-1 output preserves full color information post ML processing
 - **Future Adaptability**: May change if Nuke modifies ACES behavior with CopyCat
 
 **Export Settings:**
@@ -243,7 +243,7 @@ Nuke command shortcuts for each stage:
 ![Alignment Node Graph](DOCS/images/ALIGNMENT%20cropped.png)
 *Alignment section (red) showing F_Align and Transform nodes for precise geometric registration*
 
-**Purpose**: Precisely register reference to source for pixel-accurate training
+**Purpose**: Precisely register reference to source for pixel accurate training
 
 ### Dual Alignment System
 
@@ -256,7 +256,7 @@ The alignment workflow provides two methods with path switching capability:
 
 2. **Manual Alignment Path** (Transform):
    - Backup method using Transform node
-   - Manual keyframe-based alignment
+   - Manual keyframe based alignment
    - Used when automatic alignment fails
 
 ### F_Align Node (Automatic Alignment):
@@ -296,7 +296,7 @@ The alignment workflow provides two methods with path switching capability:
 - **Size Trade-off**: Accept smaller image size for clean training data
 
 **Subtitle Handling**:
-- **Problem**: Hard-coded/burned-in subtitles affect training
+- **Problem**: Hard coded or burned in subtitles affect training
 - **Training Issues**: Subtitles either disappear or acquire incorrect color
 - **Solution**: Crop to exclude subtitle areas
 - **Strategy**: Crop bottom portion or work around subtitle placement
@@ -454,8 +454,8 @@ For screenshots and knob mapping, see `DOCS/copycat_sop.md`.
 - GPU: enabled; device auto
 - Model size: Medium; Initial weights: None
 - Batch size: 3 (fixed for consistency across machines)
-- Patch size: 512 (or 256 for subtitle‑cropped areas)
-- Checkpoints: every 10k; plan for 40–80k total steps
+- Patch size: 512 (or 256 for subtitle cropped areas)
+- Checkpoints: every 10k; plan for 40 to 80k total steps
 - Contact sheets: every 100 steps
 
 ## Step 2.4: Inference & Render
@@ -498,7 +498,7 @@ For screenshots and knob mapping, see `DOCS/copycat_sop.md`.
 **Nuke Version Considerations**:
 - **NukeX Non-Commercial**: Limited to 1920×1080 output resolution
 - **Nuke Indie/Full NukeX**: Access to full resolution rendering
-- **Workaround**: Reformat to 1080p for non-commercial version only
+- **Workaround**: Reformat to 1080p for non commercial version only
 
 ### Render Settings
 
@@ -509,14 +509,14 @@ For screenshots and knob mapping, see `DOCS/copycat_sop.md`.
 - **Colorspace**: ACES 2065-1
 - **Quality Control**: Import rendered sequence to verify completion and consistency
 
-Tip: For a stage‑by‑stage checklist focused on CopyCat, see `DOCS/copycat_sop.md`.
+Tip: For a stage by stage checklist focused on CopyCat, see `DOCS/copycat_sop.md`.
 
 ## Step 2.5: MatchGrade Comparison (Optional)
 
 ![MatchGrade Render](DOCS/images/MATCHGRADE%20RENDER%20OPTIONAL%20cropped.png)
 *MatchGrade comparison workflow showing traditional color matching as baseline reference*
 
-**Purpose**: Create baseline comparison using traditional LUT-based color matching
+**Purpose**: Create baseline comparison using traditional LUT based color matching
 
 ### MatchGrade Node Fundamentals
 

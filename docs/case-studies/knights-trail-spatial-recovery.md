@@ -17,7 +17,7 @@ Spatial recovery for the Knights of the Trail project, enhancing image quality u
 ## Project Details
 **Source Material:** Film project with multiple source elements
 **Challenge:** Inconsistent spatial quality across different sources
-**Workflow Version:** CopyCat-based spatial information transfer
+**Workflow Version:** CopyCat based spatial information transfer
 
 ---
 
@@ -44,7 +44,7 @@ The ML-driven spatial information transfer workflow:
 
 ![Knight of a Trail Spatial Recovery Script](../images/KNIGHT%20OF%20A%20TRAIL%20SPATIAL%20RECOVERY%20SCRIPT%20CROPPED.jpeg)
 
-### 6. Side-by-Side Comparison
+### 6. Side by Side Comparison
 Four-way comparison showing the recovery process:
 
 ![Knight of a Trail 4 Way Comparison](../images/KINGHT%20OF%20A%20TRAIL%204%20WAY%20COMPARISON.jpeg)

@@ -47,7 +47,7 @@ Like color recovery has non-reference approaches (paintings, manual references),
 
 Spatial recovery uses supervised learning with CNNs to train on overlapping content from multiple sources:
 
-### 1️⃣ Source Identification & Analysis
+### 1. Source Identification and Analysis
 Identify and analyze all available sources of the same content:
 - **Film gauges**: Different gauges (16mm, 35mm) of same content
 - **Film generations**: Different generations (print, internegative, duplicate)
@@ -55,23 +55,23 @@ Identify and analyze all available sources of the same content:
 - **Multiple prints/scans**: Different scans or prints with varying quality
 - **Combinations**: Sources may differ in multiple ways simultaneously
 
-### 2️⃣ Overlap Detection
+### 2. Overlap Detection
 Find common frames between different sources for supervised learning pairs
 
-### 3️⃣ Dataset Curation
+### 3. Dataset Curation
 Select overlapping frames representing spatial characteristics to transfer:
 - High-quality source (ground truth reference)
 - Low-quality source (degraded input)
 - Pairs must show identical content for supervised learning
 
-### 4️⃣ CopyCat Training (CNN)
-Train convolutional neural network using supervised learning:
+### 4. CopyCat Training (CNN)
+Train a convolutional neural network using supervised learning:
 - Input: Low-quality spatial features
 - Ground truth: High-quality spatial features
 - Model learns to transfer resolution, grain, sharpness between sources
 
-### 5️⃣ Inference & Validation
-Apply trained model frame-by-frame to entire sequence and validate spatial consistency
+### 5. Inference and Validation
+Apply trained model frame by frame to entire sequence and validate spatial consistency
 
 ---
 
@@ -110,7 +110,7 @@ Apply trained model frame-by-frame to entire sequence and validate spatial consi
 4. **Quality Mapping**: Determine which source provides best spatial info for each section
 
 **Tools and Techniques:**
-- Manual frame-by-frame comparison
+- Manual frame by frame comparison
 - Automated scene detection
 - Content analysis for matching
 - Timecode synchronization
@@ -174,7 +174,7 @@ Output: Enhanced source with reference spatial qualities
 
 ## Case Study Examples
 
-Real-world spatial recovery projects demonstrating different source scenarios:
+Real world spatial recovery projects demonstrating different source scenarios:
 
 ### Mission Kill (1990)
 **Sources:** 35mm internegative + 16mm positive print

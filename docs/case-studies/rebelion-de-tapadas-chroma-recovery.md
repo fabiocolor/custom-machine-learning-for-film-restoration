@@ -18,7 +18,7 @@ Chroma recovery for the Rebelión de Tapadas film project, demonstrating effecti
 
 **Source Material:** Historical film project
 **Challenge:** Faded/degraded chroma information in archival material
-**Workflow Version:** CopyCat-based chroma recovery
+**Workflow Version:** CopyCat based chroma recovery
 **Results:** Successful color reconstruction while preserving historical characteristics
 
 ---
@@ -50,7 +50,7 @@ The ML-driven color reconstruction workflow:
 
 ![Rebelión de Tapadas Chroma Recovery Script Overview](../images/REBELION%20DE%20TAPADAS%20CHROMA%20RECOVERY%20SCRIPT%20OVERVIEW.jpeg)
 
-### 6. Side-by-Side Comparison
+### 6. Side by Side Comparison
 Three-way comparison showing the recovery process:
 
 ![Rebelión de las Tapadas 3 Way Comparison](../images/REBELION%20DE%20LAS%20TAPADAS%203%20WAY%20COMPARISON.png)
@@ -59,7 +59,7 @@ Three-way comparison showing the recovery process:
 
 ## Technical Notes
 
-This case study demonstrates the application of CopyCat-based chroma recovery to historical archival material, showing successful reconstruction of missing chroma information while preserving the authentic characteristics of the original film.
+This case study demonstrates the application of CopyCat based chroma recovery to historical archival material, showing successful reconstruction of missing chroma information while preserving the authentic characteristics of the original film.
 
 ---
 

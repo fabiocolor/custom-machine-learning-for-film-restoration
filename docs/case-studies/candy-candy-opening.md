@@ -14,7 +14,7 @@ Chroma recovery for the opening sequence of Candy Candy, scanned from 16mm film.
 **Workflow Version:** Previous iteration (pre-template standardization)
 **Results:** Color recovery with preserved grain characteristics
 
-**Workflow Approach:** Initial sequence-level training was attempted but did not work with the opening's fast-paced vignettes with rapid scene changes. Changed to shot-by-shot processing. Opening sequences with multiple distinct visual styles require individual shot treatment.
+**Workflow Approach:** Initial sequence level training was attempted but did not work with the opening's fast paced vignettes with rapid scene changes. Changed to shot by shot processing. Opening sequences with multiple distinct visual styles require individual shot treatment.
 
 ---
 
@@ -48,7 +48,7 @@ Sequence-level chroma recovery workflow:
 
 ![Candy Candy Sequence Chroma Recovery Script](../images/CANDY%20CANDY%20SEQUENCE%20CHROMA%20RECOVERY%20SCRIPT.jpeg)
 
-### 5. Side-by-Side Comparison
+### 5. Side by Side Comparison
 Four-way comparison showing the recovery process:
 
 ![Candy Candy 4 Way Comparison](../images/CANDY%20CANDY%204%20WAY%20COMPARISON.png)
@@ -62,7 +62,7 @@ Contact sheet collection showing multiple training sessions:
 
 ## Technical Notes
 
-This case study demonstrates several key aspects of the CopyCat-based chroma recovery approach:
+This case study demonstrates several key aspects of the CopyCat based chroma recovery approach:
 
 1. **16mm Grain Preservation**: The workflow successfully maintains the characteristic grain structure of 16mm film while reconstructing missing chroma information.
 

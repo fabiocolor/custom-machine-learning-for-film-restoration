@@ -10,10 +10,10 @@ Use this log to capture decisions, parameters, and QC evidence per shot. One sub
 - Crop box (x,y,w,h): 
 - Alignment path: auto(F_Align) | manual(Transform)
 - Colorspace chain: Linear↔YCbCr details
-- Model/route: CopyCat | ESRGAN‑chroma | UNet‑chroma
+- Model/route: CopyCat | ESRGAN chroma | UNet chroma
 - Hyperparams (if training): batch, patch, steps, loss
 - Output path(s): 
-- QC folder: QC/YYYY‑MM‑DD/
+- QC folder: QC/YYYY-MM-DD/
 - Observations:
   - Spectral artifacts: 
   - Frame mismatches: 

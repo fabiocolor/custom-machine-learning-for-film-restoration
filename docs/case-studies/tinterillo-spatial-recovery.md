@@ -10,7 +10,7 @@ Spatial recovery for the El Tinterillo project, demonstrating comprehensive spat
 ## Project Details
 **Source Material:** Film project with multiple source elements
 **Challenge:** Inconsistent spatial quality across different film elements
-**Workflow Version:** CopyCat-based spatial information transfer
+**Workflow Version:** CopyCat based spatial information transfer
 **Results:** Successful spatial reconstruction with comprehensive process documentation
 
 ---
@@ -48,7 +48,7 @@ The ML-driven spatial information transfer workflow:
 
 ![Tinterillo Spatial Recovery Script Overview](../images/TINTERILLO%20SPATIAL%20RECOVERY%20SCRIPT%20OVERVIEW.jpeg)
 
-### 7. Side-by-Side Comparison
+### 7. Side by Side Comparison
 Four-way comparison showing the recovery process:
 
 ![Tinterillo 4 Way Comparison](../images/TINTERILLO%204%20WAY%20COMPARISON.png)
@@ -61,7 +61,7 @@ Before and after spatial recovery:
 ---
 
 ## Technical Notes
-This case study demonstrates comprehensive spatial information recovery with detailed workflow visualization, showing the step-by-step process of spatial characteristic transfer between multiple sources using CopyCat-based approaches.
+This case study demonstrates comprehensive spatial information recovery with detailed workflow visualization, showing the step by step process of spatial characteristic transfer between multiple sources using CopyCat based approaches.
 
 ---
 

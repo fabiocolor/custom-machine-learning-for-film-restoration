@@ -11,7 +11,7 @@ Chroma recovery for the Ben film project, demonstrating comprehensive color reco
 
 **Source Material:** Film project
 **Challenge:** Faded/degraded chroma information requiring manual color reference creation
-**Workflow Version:** CopyCat-based chroma recovery with manual reference preparation
+**Workflow Version:** CopyCat based chroma recovery with manual reference preparation
 **Results:** Successful color reconstruction with custom reference materials
 
 ---
@@ -52,7 +52,7 @@ Recovered chroma applied to the full sequence:
 
 *Note: Add final result image here*
 
-### 7. Side-by-Side Comparison
+### 7. Side by Side Comparison
 Four-way comparison showing the recovery process:
 
 ![Ben 4 Way Comparison](../images/BEN%204%20WAY%20COMPARISON.jpeg)

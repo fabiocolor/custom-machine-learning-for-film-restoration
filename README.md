@@ -54,9 +54,9 @@ With advancements in open weights, LoRAs, and fine-tuning capabilities, larger m
 **There is no one-click solution for film restoration.** ML restoration works best shot by shot with iterative refinement. While sequence-level processing may work for simpler cases where total accuracy is not critical, complex restoration requires shot-level control. Even if output quality is high, it may not be historically appropriate.
 
 **When sequence-level works vs. shot-by-shot:**
-- **Sequence-level successful**: Correlative shots with consistent lighting/style and good reference quality ([examples](docs/case-studies.md))
-- **Scene-level separation needed**: Even correlative sequences with varying visual characteristics or damaged reference material ([examples](docs/case-studies.md))
-- **Shot-by-shot required**: Fast-paced vignettes, trailers with scene cuts, openings with distinct visual styles ([examples](docs/case-studies.md))
+- **Sequence-level successful**: Correlative shots with consistent lighting/style and good reference quality
+- **Scene-level separation needed**: Even correlative sequences with varying visual characteristics or damaged reference material
+- **Shot-by-shot required**: Fast-paced vignettes, trailers with scene cuts, openings with distinct visual styles
 - **Rule of thumb**: Visual consistency AND reference quality determine viability. Multiple distinct scenes or poor reference material require finer granularity.
 
 See [case studies](docs/case-studies.md) for experimental examples demonstrating these approaches.

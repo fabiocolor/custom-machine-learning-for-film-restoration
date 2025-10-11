@@ -8,7 +8,7 @@ A comprehensive workflow template for training custom machine learning models us
 
 ## Quick Start
 
-1. **Color Recovery** → [docs/chroma-recovery.md](docs/chroma-recovery.md): Restore missing or faded color information using reference materials or inferred sources
+1. **Color Recovery** → [docs/chroma-recovery.md](docs/chroma-recovery.md): Restore missing or faded color information using reference materials or constructed references (paintings, photographs, or painted keys)
 2. **Spatial Recovery** → [docs/spatial-recovery.md](docs/spatial-recovery.md): Transfer spatial features between different sources of the same content
 3. **Case Studies** → [docs/case-studies.md](docs/case-studies.md): Real world examples of both approaches
 4. **Quick Reference** → [docs/copycat_sop.md](docs/copycat_sop.md): Operator checklist and SOP
@@ -89,7 +89,7 @@ See [case studies](docs/case-studies.md) for experimental examples demonstrating
 - **Non reference recovery**: Infers color from paintings, period photographs, or manually created color references when no direct reference exists
 
 **Process Overview:**
-1. **Dataset Curation**: Select frame pairs: faded source + color reference (or inferred reference)
+1. **Dataset Curation**: Select frame pairs: faded source + color reference (or constructed reference)
 2. **Alignment**: Precisely match reference to source at pixel level
 3. **CopyCat Training**: Train CNN model using supervised learning to reconstruct chroma while preserving original spatial information
 4. **Inference & Render**: Apply trained model frame by frame to full sequence

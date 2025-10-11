@@ -20,12 +20,12 @@ Uses reference materials with accurate color information
 - [Frontier Experience](case-studies/frontier-experience-chroma-recovery.md) - Video transfer reference
 
 ### 2. Non-Reference Recovery
-Infers color from external sources when direct references unavailable
+Constructs color references from external sources when direct references are unavailable
 
 **When to use:**
 - No direct color reference exists for the film
-- Historical films requiring period-accurate color reconstruction
-- Color must be inferred from paintings, photographs, or similar materials
+- Historical films requiring period accurate color reconstruction
+- Color references can be constructed from paintings, photographs, or similar materials
 
 **Sources for non-reference recovery:**
 - Historical paintings from same period/location
@@ -54,7 +54,7 @@ Infers color from external sources when direct references unavailable
 
 ## Workflow Overview
 
-Color recovery uses supervised learning with CNNs, training on frame pairs from different containers of the same film (faded source and color reference or inferred reference). Use the container with superior color as ground truth and normalize non target channels so only color differs.
+Color recovery uses supervised learning with CNNs, training on frame pairs from different containers of the same film (faded source and color reference or constructed reference). Use the container with superior color as ground truth and normalize non target channels so only color differs.
 
 ### 1. Dataset Curation
 Select representative frame pairs: faded source + color reference

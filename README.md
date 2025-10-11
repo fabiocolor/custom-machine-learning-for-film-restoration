@@ -77,6 +77,13 @@ See [case studies](docs/case-studies.md) for experimental examples demonstrating
 - **Compute and memory**: Consumer hardware limits batch sizes and temporal context. Full film passes without shot by shot validation are inefficient.
 - **Workflow implication**: Favor iterative validation on held out frames. Promote from sequence level to scene level to shot level as needed when visual consistency or reference quality changes.
 
+### Design Principles
+- **Film specific supervised models**: Train on pairs from the same film using ethically sourced references
+- **Precise alignment**: Match content exactly; crop or mask subtitles, on screen logos, and borders
+- **Isolate the target**: For chroma, equalize luma and spatial detail so only color differs. For spatial, match color so only spatial features differ
+- **Iterative validation**: Test on held out frames and step down from sequence to scene to shot when consistency drops
+- **Deterministic pipeline**: Prefer local execution and repository relative paths for repeatable results
+
 
 ## Recovery Procedures
 
@@ -193,33 +200,7 @@ nuke-chroma-recovery-template/
 
 ---
 
-## Technical Approach
-
-### Machine Learning Methodology
-
-
-
-**Custom Model Philosophy:**
-- **Small, film-specific models**: Train dedicated models for each film or reel (not generalized models)
-- **Supervised learning pairs**: Training uses frame pairs (degraded input + reference ground truth)
-- **Ethically sourced data**: All training data obtained with proper authorization and provenance
-- **Locally executed**: Models run on consumer-grade hardware (Apple Silicon, NVIDIA GPUs)
-- **Frame by frame inference**: Current hardware limitations make temporal models infeasible at consumer level
-
-**Training Methodology:**
-1. **Data Preparation**: Film digitized, damaged areas identified, reference materials prepared
-2. **Model Training**: Small ML model trained on subset of frames (complexity determines frame count)
-3. **Inference**: Trained model applied frame by frame to entire film
-4. **Evaluation & Refinement**: Results evaluated, model refined iteratively to improve quality
-
-### CopyCat Node Configuration
-- **Dataset Quality**: Representative frame selection balanced across lighting, color, and damage conditions
-- **Alignment Accuracy**: Pixel level precise source reference matching
-- **Training Parameters**: Iterations and learning rates adjusted for footage complexity
-- **Supervised Pairs**: Ground truth reference paired with degraded input
-- **Validation**: Regular testing on held out frames during training
-
----
+ 
 
 ## Contributing
 

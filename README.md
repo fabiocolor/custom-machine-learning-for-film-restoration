@@ -13,6 +13,7 @@ A comprehensive workflow template for training custom machine learning models us
 3. **Spatial Recovery** → [docs/spatial-recovery.md](docs/spatial-recovery.md) - Transfer spatial features between different sources of the same content
 4. **Case Studies** → [docs/case-studies.md](docs/case-studies.md) - Real-world examples of both approaches
 5. **Quick Reference** → [docs/copycat_sop.md](docs/copycat_sop.md) - Operator checklist and SOP
+6. **Metadata Practices** → [docs/metadata-practices.md](docs/metadata-practices.md) - Documenting ML workflows for archival transparency
 
 ---
 

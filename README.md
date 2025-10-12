@@ -61,7 +61,7 @@ Custom ML gives new purpose to multiple copies or elements of the same film. Dif
 **The role of larger models (open-source, commercial):**
 With advancements in open weights, LoRAs, and fine-tuning capabilities, larger models may eventually complement custom approaches for scenarios with little or no reference material. However, archival restoration requires careful, guided application to maintain historical authenticity.
 
-Note on context: colorization is not the scope of this repository; however, early CopyCat colorization experiments suggested that if a model can synthesize plausible color from grayscale, recovering faded color using references is even more tractable.
+
 
 ---
 
@@ -93,6 +93,8 @@ Optional steps
 ### Color Recovery Workflow
 
 **When to use:** Chromogenic film stocks with dye fading, color negatives with degraded color layers, films requiring historical color reconstruction
+
+Note: Colorization is outside this repository's scope. Early CopyCat colorization experiments suggested that if a model can synthesize color from grayscale, recovering faded color using references is even more tractable.
 
 **Approach:**
 - **Reference based recovery**: Uses DVDs, telecines, or other color accurate sources to train supervised learning models

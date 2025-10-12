@@ -61,8 +61,7 @@ Custom ML gives new purpose to multiple copies or elements of the same film. Dif
 **The role of larger models (open-source, commercial):**
 With advancements in open weights, LoRAs, and fine-tuning capabilities, larger models may eventually complement custom approaches for scenarios with little or no reference material. However, archival restoration requires careful, guided application to maintain historical authenticity.
 
-### Background and Inspiration
-This project began after seeing VFX artists use Nuke's CopyCat to colorize black and white footage. If a small supervised model can learn plausible color in that context, it can be guided to recover color in faded film using references. Early colorization tests (for example, "lolo") informed the dataset and alignment practices used here.
+Note on context: colorization is not the scope of this repository; however, early CopyCat colorization experiments suggested that if a model can synthesize plausible color from grayscale, recovering faded color using references is even more tractable.
 
 ---
 

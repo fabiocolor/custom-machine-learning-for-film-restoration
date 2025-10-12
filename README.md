@@ -45,10 +45,9 @@ Custom machine learning-based film restoration using supervised learning with co
 Custom ML complements traditional film restoration methods, addressing challenges previously deemed impossible or prohibitively costly:
 
 **What traditional methods cannot do:**
-- **Spatial and temporal filters**: operate only within or between neighboring frames; they cannot transfer information from external references or distant shots
-  - Pixel neighborhood filters and motion estimation operate only on nearby pixels
-  - No mechanism to ingest higher quality sources as supervision during filtering
-  - Temporal windows are limited and reset at cuts; no scene memory
+- **Spatial and temporal filters**: limited to local neighborhoods and short temporal windows; cannot use external references or distant shots
+  - Operate on small pixel neighborhoods or short temporal windows; reset at cuts; no scene memory
+  - Cannot ingest higher quality sources as guidance during filtering
   - Sharpen/denoise can amplify artifacts in degraded scans
 - **Traditional color correction** (LUTs, channel balancing): remaps existing channels but cannot reconstruct missing color information
   - Faded dye layers remove signal; LUTs cannot add absent chroma

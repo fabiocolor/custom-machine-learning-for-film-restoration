@@ -46,7 +46,7 @@ Custom ML complements traditional film restoration methods, addressing challenge
 
 **What traditional methods cannot do:**
 - **Spatial and temporal filters**: operate only within or between neighboring frames; they cannot transfer information from external references or distant shots
-  - Local kernels and motion estimation rely on immediate neighborhoods
+  - Pixel neighborhood filters and motion estimation operate only on nearby pixels
   - No mechanism to ingest higher quality sources as supervision during filtering
   - Temporal windows are limited and reset at cuts; no scene memory
   - Sharpen/denoise can amplify artifacts in degraded scans

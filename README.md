@@ -124,11 +124,11 @@ Transfer spatial characteristics from better quality sources to degraded targets
 - **Combinations** (e.g., 35mm internegative + 16mm print = gauge + generation differences)
 
 **Process Overview:**
-1. **Source Identification** - Identify all available sources with different spatial qualities
-2. **Overlap Detection** - Find common frames between sources for supervised learning pairs
-3. **Dataset Curation** - Select overlapping frames representing spatial characteristics to transfer
-4. **CopyCat Training** - Train CNN model to transfer spatial features (resolution, grain, sharpness)
-5. **Application & Validation** - Apply frame by frame and validate spatial consistency
+1. **Dataset Curation**: Select representative overlapping frame pairs (for example, 3, 6, 9, or 33) from different containers of the same film (low quality target + higher quality spatial reference). Keep some held out pairs for validation. Rule of thumb: shots 3 to 4 pairs; scenes about 16; sequences 33 or more depending on complexity
+2. **Alignment**: Precisely match reference to source at pixel level and ensure identical picture area (crop borders, subtitles, and logos)
+3. **CopyCat Training**: Train a CNN with supervised learning to transfer spatial features (resolution, grain, sharpness); match color so only spatial features differ between source and reference
+4. **Inference & Render**: Apply the trained model to the full original source for the selected shot, scene, or sequence and render outputs
+5. **Validation**: Check spatial consistency (detail transfer, grain structure) across the target scope
 
 **Detailed Guide:** → [docs/spatial-recovery.md](docs/spatial-recovery.md)
 

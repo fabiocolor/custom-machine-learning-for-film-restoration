@@ -1,27 +1,35 @@
 # Custom Machine Learning for Film Restoration in Nuke
 
-A comprehensive workflow template for training custom machine learning models using Foundry Nuke's CopyCat node and convolutional neural networks (CNNs) for **both spatial recovery and color recovery** in film restoration. This approach overcomes the limitations of traditional spatial and temporal filters by training small, film-specific models on data, preserving the unique analog characteristics of the original material.
+A comprehensive workflow template for training custom machine learning models using Foundry Nuke's `CopyCat` node and convolutional neural networks (CNNs) for **both spatial recovery and color recovery** in film restoration. This approach addresses limitations of traditional spatial and temporal filters by training small, film‑specific models on data, helping preserve the unique analog characteristics of the original material.
 
-![Node Graph Overview](docs/images/NODE%20GRAPH%20OVERVIEW%20cropped.png)
+![Node Graph Overview](docs/images_kebab/node-graph-overview-cropped.png)
+Figure 1 — Node graph overview.
 
 ---
 
 ## Quick Start
 
-1. **Color Recovery** → [docs/chroma-recovery.md](docs/chroma-recovery.md): Restore missing or faded color information using reference materials or constructed references (paintings, photographs, or painted keys)
-2. **Spatial Recovery** → [docs/spatial-recovery.md](docs/spatial-recovery.md): Transfer spatial features between different sources of the same content
-3. **Case Studies** → [docs/case-studies.md](docs/case-studies.md): Real world examples of both approaches
-4. **Quick Reference** → [docs/copycat_sop.md](docs/copycat_sop.md): Operator checklist and SOP
-5. **Metadata Practices** → [docs/metadata-practices.md](docs/metadata-practices.md): Documenting ML workflows for archival transparency (IPTC/C2PA standards)
-6. **Resolve Workflow** → [docs/resolve-metadata-workflow.md](docs/resolve-metadata-workflow.md): Transferring metadata from Nuke to DaVinci Resolve for final delivery
+1. **Color Recovery** → [docs/chroma-recovery.md](docs/chroma-recovery.md)
+2. **Spatial Recovery** → [docs/spatial-recovery.md](docs/spatial-recovery.md)
+3. **Provenance & Metadata** → [docs/provenance-metadata.md](docs/provenance-metadata.md)
+4. **Glossary — Terms and definitions** → [docs/references/terms-and-definitions.md](docs/references/terms-and-definitions.md)
+
+---
+
+**Presentations**
+- Slides and papers: [docs/presentations/README.md](docs/presentations/README.md)
 
 ---
 
 ## Overview
 
-### Tools and Context
+### Scope
 
-**Important context:** Nuke is primarily a VFX tool, not a dedicated restoration application like Phoenix or Diamant. CopyCat has been used extensively in VFX workflows far beyond the scope of this repository. We are adapting Nuke's powerful ML capabilities for archival workflows, but it remains a VFX platform adapted for restoration purposes, not a purpose-built restoration tool.
+This repository covers end‑to‑end workflows, templates, and conventions for training and applying small, film‑specific ML models in Nuke `CopyCat` for chroma and spatial recovery—spanning dataset curation, alignment, training, inference, and validation with links to procedures and case studies—while also capturing research experiments and findings in reference‑based recovery, non‑reference chroma reconstruction, dataset design, and validation methods. It does not prescribe conformance requirements or provide general‑purpose colorization workflows, and it excludes licensed media and learned weights.
+
+### The Foundry NukeX
+
+NukeX is the advanced edition of Foundry’s Nuke, an industry‑standard, node‑based compositing application used in VFX and finishing. It includes integrated machine‑learning nodes (`CopyCat` and `Inference`) alongside mature color management, robust image I/O, and GPU acceleration. In this template, NukeX serves as a single, versioned environment for dataset curation, alignment, supervised training, inference, and deterministic rendering—so the entire process stays visible and reproducible inside one graph.
 
 ### What This Template Provides
 
@@ -59,7 +67,7 @@ Custom ML complements traditional film restoration methods, addressing challenge
 Custom ML gives new purpose to multiple copies or elements of the same film. Different prints, generations, or gauges can each contribute unique information to training, improving model accuracy and making previously "redundant" archive materials valuable for restoration.
 
 **The role of larger models (open-source, commercial):**
-With advancements in open weights, LoRAs, and fine-tuning capabilities, larger models may eventually complement custom approaches for scenarios with little or no reference material. However, archival restoration requires careful, guided application to maintain historical authenticity.
+With advancements in open weights, Low‑Rank Adaptation (LoRA) adapters, and fine‑tuning capabilities, larger models could eventually complement custom approaches for scenarios with little or no reference material. However, archival restoration requires careful, guided application to maintain historical authenticity.
 
 
 
@@ -70,20 +78,20 @@ With advancements in open weights, LoRAs, and fine-tuning capabilities, larger m
 **Granularity principle for chroma/spatial recovery.** Train and infer at the broadest scope that remains compositionally consistent. Correlative shots within a sequence or scene can share a model if framing, lighting, motion, and subject distribution are stable. When visual characteristics or reference quality diverge, compartmentalize and work at a finer granularity (down to shot by shot), mirroring modern generative AI VFX practices.
 
 **When to pick sequence, scene, or shot:**
-- **Sequence level processing**: Correlative shots with similar composition and stable lighting/camera; consistent reference quality
-- **Scene level grouping**: Same scene but moderate shifts in composition, lens, grade, or damage; break at scene boundaries
-- **Shot by shot processing**: Major composition changes, new subjects/angles, fast cuts, heavy damage, or weak/uneven reference
-- **Rule of thumb**: If composition or reference quality changes, step down in granularity
+- **Sequence‑level processing** — Correlative shots with similar composition and stable lighting and camera; consistent reference quality
+- **Scene‑level grouping** — Same scene with moderate shifts in composition, lens, grade, or damage; break at scene boundaries
+- **Shot‑by‑shot processing** — Major composition changes, new subjects or angles, fast cuts, heavy damage, or weak/uneven reference
+- **Rule of thumb** — If composition or reference quality changes, step down in granularity
 
 See [case studies](docs/case-studies.md) for experimental examples demonstrating these approaches.
 
 ### Process Overview
-1. **Dataset Curation**: Train on frame pairs from different containers of the same film; pick the best container per target dimension and choose representative pairs (for example, 3, 6, 9, or 33) plus held out frames for validation. Rule of thumb: shots 3 to 4 pairs; scenes about 16; sequences 33 or more depending on complexity
-2. **Alignment**: Register source and reference at pixel level and ensure identical picture area; crop or mask subtitles, logos, watermarks, and letterbox or pillarbox borders; match resolution and frame rate
-3. **Training**: Use CopyCat supervised learning on those pairs; isolate the target dimension so only color differs for chroma or only spatial features differ for spatial; validate on held out frames
-4. **Inference and Render**: Apply the trained model to the full original source for the selected shot, scene, or sequence and render outputs
+1. **Curate dataset** — Select representative frame pairs from different containers; choose the best container per target dimension and hold out frames for validation (for example, 3–4 per shot; ~16 per scene; 33+ per sequence)
+2. **Align sources** — Register reference to source at pixel level; ensure identical picture area; crop or mask overlays; match resolution and frame rate
+3. **Train model** — Use `CopyCat` supervised learning; isolate the target dimension (color vs spatial); validate on held‑out frames
+4. **Infer and render** — Apply the trained model to the full source and render outputs
 
-Optional steps
+Optional steps:
 - **Chroma**: MatchGrade baseline render for comparison and QC
 - **Spatial**: Luma matching pass for integration when needed
 
@@ -94,18 +102,18 @@ Optional steps
 
 **When to use:** Chromogenic film stocks with dye fading, color negatives with degraded color layers, films requiring historical color reconstruction
 
-Note: Colorization is outside this repository's scope. Early CopyCat colorization experiments suggested that if a model can synthesize color from grayscale, recovering faded color using references is even more tractable.
+Note: Colorization is outside this repository's scope. Early `CopyCat` colorization experiments suggested that if a model can synthesize color from grayscale, recovering faded color using references is even more tractable.
 
 **Approach:**
-- **Reference based recovery**: Uses DVDs, telecines, or other color accurate sources to train supervised learning models
-- **Non reference recovery**: Infers color from paintings, period photographs, or manually created color references when no direct reference exists
+- **Reference‑based recovery** — Uses DVDs, telecines, or other color‑accurate sources to train supervised models
+- **Non‑reference recovery** — Infers color from paintings, period photographs, or manually created references when no direct reference exists
 
 **Process Overview:**
-1. **Dataset Curation**: Select representative frame pairs (for example, 3, 6, 9, or 33): faded source + color reference (or constructed reference); keep some held out for validation. Rule of thumb: shots 3 to 4 pairs; scenes about 16; sequences 33 or more depending on complexity
-2. **Alignment**: Precisely match reference to source at pixel level
-3. **CopyCat Training**: Train CNN model using supervised learning to reconstruct chroma while preserving original spatial information
-4. **Inference & Render**: Apply the trained model to the full original source for the selected shot, scene, or sequence and render outputs
-5. **Validation**: Compare with traditional color grading methods (MatchGrade baseline)
+1. **Curate dataset** — Select representative source+reference frame pairs; hold out validation frames (for example, 3–4 per shot; ~16 per scene; 33+ per sequence)
+2. **Align sources** — Precisely match reference to source at pixel level
+3. **`CopyCat` training** — Train a CNN with supervised learning to reconstruct chroma while preserving original spatial information
+4. **Infer and render** — Apply the trained model to the full source for the selected scope and render outputs
+5. **Validate** — Compare against a MatchGrade baseline
 
 **Detailed Guide:** → [docs/chroma-recovery.md](docs/chroma-recovery.md)
 
@@ -124,11 +132,11 @@ Transfer spatial characteristics from better quality sources to degraded targets
 - **Combinations** (e.g., 35mm internegative + 16mm print = gauge + generation differences)
 
 **Process Overview:**
-1. **Dataset Curation**: Select representative overlapping frame pairs (for example, 3, 6, 9, or 33) from different containers of the same film (low quality target + higher quality spatial reference). Keep some held out pairs for validation. Rule of thumb: shots 3 to 4 pairs; scenes about 16; sequences 33 or more depending on complexity
-2. **Alignment**: Precisely match reference to source at pixel level and ensure identical picture area (crop borders, subtitles, and logos)
-3. **CopyCat Training**: Train a CNN with supervised learning to transfer spatial features (resolution, grain, sharpness); match color so only spatial features differ between source and reference
-4. **Inference & Render**: Apply the trained model to the full original source for the selected shot, scene, or sequence and render outputs
-5. **Validation**: Check spatial consistency (detail transfer, grain structure) across the target scope
+1. **Curate dataset** — Select overlapping frame pairs from different containers (low‑quality target + higher‑quality spatial reference); hold out validation frames (for example, 3–4 per shot; ~16 per scene; 33+ per sequence)
+2. **Align sources** — Precisely match reference to source at pixel level; ensure identical picture area; crop borders, subtitles, and logos
+3. **`CopyCat` training** — Train a CNN to transfer spatial features (resolution, grain, sharpness); match color so only spatial features differ between source and reference
+4. **Infer and render** — Apply the trained model to the full source and render outputs
+5. **Validate** — Check spatial consistency (detail transfer, grain structure) across the target scope
 
 **Detailed Guide:** → [docs/spatial-recovery.md](docs/spatial-recovery.md)
 
@@ -158,16 +166,14 @@ Transfer spatial characteristics from better quality sources to degraded targets
 ```
 nuke-chroma-recovery-template/
 ├── README.md                              # This file - project overview
-├── WORKFLOW_GUIDE.md                      # Detailed technical guide
 ├── docs/
 │   ├── chroma-recovery.md                 # Chroma recovery workflow
-│   ├── luma-recovery.md                   # Luma recovery workflow
-│   ├── copycat_sop.md                     # Operator checklist
+│   ├── spatial-recovery.md                # Spatial recovery workflow
+│   ├── (operator quick refs in annexes)   # See chroma/spatial docs Annex A
 │   ├── case-studies.md                    # All case studies index
 │   ├── case-studies/                      # Individual case studies
-│   └── images/                            # Workflow images and examples
-├── notes/
-│   └── experiments.md                     # Project notes and QC log
+│   └── images_kebab/                      # Workflow images (canonical)
+├── notes/                                 # Project notes and QC logs
 ├── nuke_base/                             # Store base .nknc templates
 └── pipeline/                              # Stage-based pipeline templates
     ├── 01_dataset_curation/
@@ -179,10 +185,12 @@ nuke-chroma-recovery-template/
 
 ---
 
+ 
+
 ## Getting Started
 
 ### Prerequisites
-- Foundry Nuke with CopyCat node
+- Foundry NukeX (Non‑Commercial or commercial) with `CopyCat` node
 - Source film material (scanned)
 - Reference material (same film or compatible)
 - Basic understanding of ML concepts (helpful but not required)
@@ -191,14 +199,18 @@ nuke-chroma-recovery-template/
 1. Choose your recovery type: **Chroma** (color) or **Spatial** (resolution, grain, detail)
 2. Read the appropriate workflow guide
 3. Review relevant case studies
-4. Follow the SOP checklist
+4. Follow the stepwise procedure in the selected workflow guide
 5. Start with dataset curation
 
 ### For Different Film Types
 
+Examples are summarized in Table 1.
+
+Table 1 — Recovery selection examples.
+
 | Film Type | Recommended Recovery | Examples |
 |-----------|---------------------|----------|
-| Color-faded prints | Chroma Recovery | Candy Candy, Friends |
+| Color‑faded prints | Chroma Recovery | Candy Candy, Friends |
 | Multiple sources available | Spatial Recovery | Knights of the Trail, El Tinterillo |
 | Complex degradation | Combined Recovery | Mission Kill |
 | Historical material | Chroma Recovery (careful) | Rebelión de Tapadas |
@@ -210,10 +222,10 @@ nuke-chroma-recovery-template/
 ## Contributing
 
 Contributions are welcome:
-- **Case Studies** - Add your projects with documentation
-- **Workflow Improvements** - Share optimized techniques
-- **Documentation** - Enhance guides and examples
-- **Tools** - Create utility scripts and templates
+- **Case studies** — representative projects with documentation
+- **Workflow improvements** — optimized techniques
+- **Documentation** — guide and example enhancements
+- **Tools** — utility scripts and templates
 
 ---
 
@@ -225,7 +237,6 @@ This workflow template is provided for educational and research purposes in film
 
 ## Questions & Support
 
-- **Technical Issues:** Check [WORKFLOW_GUIDE.md](WORKFLOW_GUIDE.md)
-- **Quick Reference:** See [docs/copycat_sop.md](docs/copycat_sop.md)
+- **Technical Details:** See annexes in chroma/spatial docs
+- **Quick Reference:** See annexes in chroma/spatial docs
 - **Real Examples:** Browse [case studies](docs/case-studies.md)
-- **Project Notes:** Review [notes/experiments.md](notes/experiments.md)

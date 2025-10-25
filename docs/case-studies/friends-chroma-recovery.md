@@ -1,7 +1,11 @@
 # Friends - Chroma Recovery
 
+Classification: Color Recovery (Reference-Based) • Technique: Telecine Reference
+
+Quick Links: [Chroma Recovery](../chroma-recovery.md) • [All Case Studies](../case-studies.md)
+
 ## Overview
-Chroma recovery for the Friends film project, demonstrating effective color reconstruction using the CopyCat workflow.
+Chroma recovery for the Friends film project, demonstrating effective color reconstruction using the `CopyCat` workflow.
 
 ## Demo Video
 
@@ -11,7 +15,7 @@ Chroma recovery for the Friends film project, demonstrating effective color reco
 
 **Source Material:** Film project
 **Challenge:** Faded/degraded chroma information
-**Workflow Version:** CopyCat based chroma recovery
+**Workflow Version:** `CopyCat` based chroma recovery
 **Results:** Successful color reconstruction with preserved detail
 
 **Workflow Approach:** Sequence level training worked successfully. All shots are correlative with consistent lighting and visual style, allowing effective sequence wide model training. Demonstrates when sequence level processing is appropriate.
@@ -28,10 +32,10 @@ The original scan showing faded chroma information:
 ### 2. Training Dataset Selection
 Representative frames selected for the training dataset:
 
-![Friends Chroma Recovery Contact Sheet](../images/FRIENDS%20CHROMA%20RECOVERY%20CONTACT%20SHEET.jpeg)
+![Friends Chroma Recovery Contact Sheet](../images_kebab/friends-chroma-recovery-contact-sheet.jpeg)
 
 ### 3. ML Training Process
-CopyCat training showing iterative improvement:
+`CopyCat` training showing iterative improvement:
 
 *Note: Add training steps image here*
 
@@ -43,13 +47,13 @@ The ML-driven color reconstruction workflow:
 ### 5. Side by Side Comparison
 Four-way comparison showing the recovery process:
 
-![Friends Chroma Recovery Comparison](../images/FRIENDS%20CHROMA%20RECOVERY%20COMPARISON.png)
+![Friends Chroma Recovery Comparison](../images_kebab/friends-chroma-recovery-comparison.png)
 
 ---
 
 ## Technical Notes
 
-This case study demonstrates the application of CopyCat based chroma recovery to the Friends project, showing successful reconstruction of missing chroma information while preserving the original image characteristics.
+This case study demonstrates the application of `CopyCat` based chroma recovery to the Friends project, showing successful reconstruction of missing chroma information while preserving the original image characteristics.
 
 ---
 
@@ -59,4 +63,4 @@ This case study demonstrates the application of CopyCat based chroma recovery to
 
 ---
 
-[← Back to all case studies](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies.md) | [Main README](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/README.md)
+[← Back to all case studies](../case-studies.md) | [Main README](../../README.md)

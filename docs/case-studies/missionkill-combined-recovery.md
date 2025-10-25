@@ -1,5 +1,9 @@
 # Mission Kill - Combined Spatial & Chroma Recovery
 
+Classification: Combined Recovery (Spatial + Color) • Spatial Techniques: Gauge Recovery + Generation Recovery • Color: Reference-Based
+
+Quick Links: [Spatial Recovery](../spatial-recovery.md) • [Chroma Recovery](../chroma-recovery.md) • [All Case Studies](../case-studies.md)
+
 ## Overview
 Comprehensive recovery for the Mission Kill project, demonstrating both spatial and chroma reconstruction using generation based approaches. This case study shows the complete restoration workflow from severely degraded source material to fully recovered output, utilizing multiple sources for spatial enhancement and color reconstruction.
 
@@ -14,7 +18,7 @@ Comprehensive recovery for the Mission Kill project, demonstrating both spatial 
 ## Project Details
 **Source Material:** Film project with multiple degraded elements (35mm internegative and 16mm positive print)
 **Challenge:** Severe degradation requiring both spatial and chroma recovery approaches
-**Workflow Version:** CopyCat based combined recovery workflow
+**Workflow Version:** `CopyCat` based combined recovery workflow
 **Results:** Successful spatial and chroma reconstruction with comprehensive recovery process
 
 **Workflow Approach:** Sequence level training worked successfully. Correlative shots with consistent visual characteristics throughout the sequence allowed effective sequence wide processing. Example of when sequence level approach is appropriate for complex recovery.
@@ -36,23 +40,23 @@ Overlapping frames selected from multiple sources for combined recovery:
 *Note: Add contact sheet image here*
 
 ### 4. ML Training Process
-CopyCat training showing iterative improvement for both spatial and chroma recovery:
+`CopyCat` training showing iterative improvement for both spatial and chroma recovery:
 *Note: Add training steps image here*
 
 ### 5. Combined Recovery Workflow
 The ML-driven spatial and chroma recovery workflow:
 
-![Mission Kill Spatial and Chroma Recovery Script Overview](../images/MISSION%20KILL%20SPATIAL%20AND%20CHROMA%20RECOVERY%20SCRIPT%20OVERVIEW.jpeg)
+![Mission Kill Spatial and Chroma Recovery Script Overview](../images_kebab/mission-kill-spatial-and-chroma-recovery-script-overview.jpeg)
 
 ### 6. Spatial Recovery Results
 Before and after spatial recovery:
 
-![Mission Kill Spatial Recovery Comparison](../images/MISSION%20KILL%20SPATIAL%20RECOVERY%20COMPARISON.jpeg)
+![Mission Kill Spatial Recovery Comparison](../images_kebab/mission-kill-spatial-recovery-comparison.jpeg)
 
 ### 7. Side by Side Comparison
 Three-way comparison showing the combined recovery process:
 
-![Mission Kill 3 Way Comparison](../images/MISSION%20KILL%203%20WAY%20COMPARISON.png)
+![Mission Kill 3 Way Comparison](../images_kebab/mission-kill-3-way-comparison.png)
 
 ---
 
@@ -70,4 +74,4 @@ This case study demonstrates combined spatial and chroma recovery for severely d
 
 ---
 
-[← Back to all case studies](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies.md) | [Main README](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/README.md)
+[← Back to all case studies](../case-studies.md) | [Main README](../../README.md)

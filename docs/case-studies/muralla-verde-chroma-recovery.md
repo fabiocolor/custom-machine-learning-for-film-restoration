@@ -1,5 +1,9 @@
 # Muralla Verde - Chroma Recovery
 
+Classification: Color Recovery (Reference-Based) • Technique: DCP/Graded Reference
+
+Quick Links: [Chroma Recovery](../chroma-recovery.md) • [All Case Studies](../case-studies.md)
+
 ## Overview
 Chroma recovery for the Muralla Verde trailer project.
 
@@ -21,37 +25,37 @@ Chroma recovery for the Muralla Verde trailer project.
 ### 1. Initial State (Source Material)
 The original scan showing degraded color information:
 
-![Muralla Verde Raw Scan Unbalanced](../images/MURALLA%20RAW%20SCAN%20UNBALANCED.png)
+![Muralla Verde Raw Scan Unbalanced](../images_kebab/muralla-verde-raw-scan-unbalanced.png)
 
 ### 2. Balanced Source Material
 The color-balanced source before chroma recovery:
 
-![Muralla Verde Source](../images/MURALLA%20VERDE%20SOURCE.png)
+![Muralla Verde Source](../images_kebab/muralla-verde-source.png)
 
 ### 3. Color Reference Material
 Reference material for supervised learning:
 
-![Muralla Verde Color Reference](../images/MURALLA%20VERDE%20COLOR%20REFERENCE.png)
+![Muralla Verde Color Reference](../images_kebab/muralla-verde-color-reference.png)
 
 ### 4. Reference Pre-Alignment in Resolve
 Initial alignment of reference material in DaVinci Resolve:
 
-![Muralla Verde Reference Pre Alignment Timeline Resolve](../images/MURALLA%20VERDE%20REFERENCE%20PRE%20ALIGNMENT%20TIMELINE%20RESOLVE%20CROPPED.png)
+![Muralla Verde Reference Pre Alignment Timeline Resolve](../images_kebab/muralla-verde-reference-pre-alignment-timeline-resolve.png)
 
 ### 5. Chroma Recovery Process
 The complete ML-driven color reconstruction workflow:
 
-![Muralla Verde Chroma Recovery Script Full Overview](../images/MURALLA%20VERDE%20CHROMA%20RECOVERY%20SCRIPT%20FULL%20OVERVIEW%20cropped.png)
+![Muralla Verde Chroma Recovery Script Full Overview](../images_kebab/muralla-verde-chroma-recovery-script-full-overview.png)
 
 ### 6. Final Result
 Recovered chroma applied to the full sequence:
 
-![Muralla Verde Chroma Recovery Output](../images/MURALLA%20VERDE%20CHROMA%20RECOVERY%20OUTPUT.png)
+![Muralla Verde Chroma Recovery Output](../images_kebab/muralla-verde-chroma-recovery-output.png)
 
 ### 7. Color Composite Timeline in Resolve
 Final color composite assembled in DaVinci Resolve:
 
-![Muralla Verde Color Composite Timeline Resolve](../images/MURALLA%20VERDE%20COLOR%20COMPOSITE%20TIMELINE%20RESOLVE%20CROPPED.png)
+![Muralla Verde Color Composite Timeline Resolve](../images_kebab/muralla-verde-color-composite-timeline-resolve.png)
 
 ---
 
@@ -61,4 +65,4 @@ This case study demonstrates comprehensive chroma recovery for the Muralla Verde
 
 ---
 
-[← Back to all case studies](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies.md) | [Main README](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/README.md)
+[← Back to all case studies](../case-studies.md) | [Main README](../../README.md)

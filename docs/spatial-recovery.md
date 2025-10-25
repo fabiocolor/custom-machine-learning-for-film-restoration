@@ -43,6 +43,10 @@ Like color recovery has non-reference approaches (paintings, manual references),
 - [El Tinterillo](case-studies/tinterillo-spatial-recovery.md) - Early telecine preservation element (two-step approach)
 - [Mission Kill](case-studies/missionkill-combined-recovery.md) - 35mm internegative + 16mm print (gauge + generation + color recovery)
 
+## Terminology & Conventions
+
+See Terms and definitions (Glossary): [docs/references/terms-and-definitions.md](docs/references/terms-and-definitions.md)
+
 ## Workflow Overview
 
 Spatial recovery uses supervised learning with CNNs to train on frame pairs from different containers of the same film. Use the container with superior spatial detail as ground truth and neutralize color so only spatial features differ.
@@ -125,6 +129,15 @@ Apply the trained model to the full original source for the selected shot, scene
 3. **Overlap Requirements**: Exact frame correspondence
 4. **Diversity**: Include various spatial scenarios (sharp edges, textures, grain patterns)
 
+**Pair counts and coverage (typical):**
+- Shots: begin with 4–9 pairs; scale up to 11+ if generalization is weak.
+- Scenes: 12–24; Sequences: 24–64+, scaled by variability in textures and lighting.
+- Balance across edges, fine textures (fabric, foliage), skin and neutrals; include extremes (deep shadows, speculars) for robustness.
+
+**Nuke build notes:**
+- Create a `FrameHold` per selected index on both branches and assemble training/validation `AppendClip` stacks.
+- Verify each pair using viewer wipe or `Merge (difference)` and judge geometry only; color differences are irrelevant for spatial transfer.
+
 **Optimal Training Data:**
 - **Sharp Edges**: For detail transfer
 - **Textural Areas**: For grain structure learning
@@ -154,6 +167,11 @@ Output: Enhanced source with reference spatial qualities
 - Check for over-sharpening or artifacts
 - Validate on challenging spatial scenarios
 
+**Alignment and crop (practical guidance):**
+- Achieve pixel-accurate alignment (auto path with `F_Align` first; switch to keyed `Transform` if residual edges remain in `Merge (difference)`).
+- Remove overscan/black borders on both branches; animate a shared crop to exclude burned‑in subtitles/logos when present.
+- Keep identical picture areas and bbox on both branches to isolate spatial differences only.
+
 ### Stage 5: Application and Homogenization
 
 **Objective:** Apply trained model and achieve spatial consistency
@@ -163,6 +181,10 @@ Output: Enhanced source with reference spatial qualities
 2. **Spatial Validation**: Check for consistency across frames
 3. **Quality Assessment**: Verify spatial improvement
 4. **Blending**: Combine with existing elements if needed
+
+**Output and limits:**
+- For archival renders use EXR 16‑bit half (DWAA/ZIP) with ACES 2065‑1 as delivery space.
+- NukeX Non‑Commercial is limited to 1920×1080 output; use Nuke Indie/Full for full‑resolution renders.
 
 **Homogenization Techniques:**
 - **Complete Sequence**: Apply to entire film for consistency
@@ -197,6 +219,14 @@ Real world spatial recovery projects demonstrating different source scenarios:
 **Result:** Full-frame recovery despite telecine limitations (cropping, lower resolution)
 
 **Key insight:** Early preservation elements (telecines, safety copies) made closer to original creation can preserve better spatial information even if lower quality. Two-step approach overcomes partial coverage.
+
+---
+
+## Troubleshooting & QC
+- Misalignment shimmer: avoid over‑tuning `F_Align`; prefer keyed `Transform` and evaluate with `Merge (difference)`.
+- Over-sharpening/halos: reduce total steps, patch size, or adjust training data toward more fine textures.
+- Grain mismatch: verify reference grain characteristics; consider adding representative grain textures to the training pairs.
+- Temporal inconsistency: expand pair coverage and include transition frames; confirm crops exclude transient overlays.
 
 ---
 
@@ -419,4 +449,29 @@ For each project, validate:
 
 ---
 
-**Quick Links:** [Case Studies](case-studies.md) • [Chroma Recovery](chroma-recovery.md) • [SOP](copycat_sop.md)
+**Quick Links:** [Case Studies](case-studies.md) • [Chroma Recovery](chroma-recovery.md)
+
+## Annex A (informative) Operator Quick Reference — Spatial
+
+Prerequisites
+- NukeX Indie/Full recommended; Non‑Commercial limited to 1920×1080.
+- GPU enabled for `CopyCat` (Apple Silicon or NVIDIA).
+- Color management: ACES/OCIO; archival plates in ACES 2065‑1 EXR (half).
+
+Pipeline Stages (condensed)
+1) Source & overlap — identify all sources; map overlapping frames; choose high‑quality reference vs low‑quality target.
+2) Dataset curation — select 4–9 overlapping pairs per shot (expand to 11+ as needed); verify identical content via viewer wipe or `Merge (difference)`; hold out 15–25% for validation.
+3) Alignment — `F_Align` first, keyed `Transform` fallback; remove overscan/subtitles with a shared crop; keep identical bbox.
+4) Training — for spatial transfer, use target RGB as Ground Truth (with matched color) or neutralize color to isolate spatial differences; Batch 3, Patch 512/256, 40–80k steps, checkpoints every 10k, contact sheets ~100 steps.
+5) Inference — mirror training transforms; validate on 50–100 frames; render EXR 16‑bit half, ACES 2065‑1.
+6) Validation — check detail/grain transfer and temporal consistency; homogenize sequences as needed.
+
+Nuke CLI Shortcuts
+- Alignment: `nuke --nukex --script pipeline/02_alignment/<shot>.nk`
+- Training (bg): `nuke --nukex --bg --script pipeline/03_copycat_training/<session>.nk`
+- Inference: `nuke --nukex --script pipeline/04_inference_render/<shot>_render.nk`
+
+QC Tips
+- Misalignment shimmer: prefer keyed `Transform` over over‑tuning `F_Align`.
+- Grain/texture mismatch: ensure representative textures in pairs; verify reference grain.
+- Over‑sharpening/halos: reduce steps or patch size; balance dataset toward fine textures.

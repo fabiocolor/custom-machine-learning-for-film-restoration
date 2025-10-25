@@ -1,0 +1,10 @@
+extends: existence
+message: 'Workflow structure: add a "Scope" section near the top.'
+level: warning
+scope: file
+raw: true
+ignorecase: false
+min: 1
+tokens:
+  - (?m)^##\s+Scope\s*$
+

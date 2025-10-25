@@ -55,3 +55,17 @@ ffmpeg2pass-*.log*
 # Agent instruction files (not part of repo deliverables)
 .aiagents/
 .claude/
+/# Root-level agent docs (keep private)
+/AGENTS.md
+/CLAUDE.md
+
+# Local tools (vendored binaries)
+/.tools/
+
+# Use kebab-cased images; ignore legacy images folder (OneDrive-owned)
+/docs/images/
+
+# Generated manifests/reports (contain private filenames)
+/docs/*images*-manifest.yaml
+/docs/*images*-rename-plan.csv
+/docs/images-rename-report.md

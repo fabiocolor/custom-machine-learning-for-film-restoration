@@ -1,5 +1,9 @@
 # El Tinterillo - Spatial Recovery
 
+Classification: Spatial Recovery (Analog Video Reference Recovery)
+
+Quick Links: [Spatial Recovery](../spatial-recovery.md) • [All Case Studies](../case-studies.md)
+
 ## Overview
 Spatial recovery for the El Tinterillo project, demonstrating comprehensive spatial information reconstruction with detailed workflow documentation. This case study showcases the complete process of transferring spatial characteristics between multiple sources.
 
@@ -10,7 +14,7 @@ Spatial recovery for the El Tinterillo project, demonstrating comprehensive spat
 ## Project Details
 **Source Material:** Film project with multiple source elements
 **Challenge:** Inconsistent spatial quality across different film elements
-**Workflow Version:** CopyCat based spatial information transfer
+**Workflow Version:** `CopyCat` based spatial information transfer
 **Results:** Successful spatial reconstruction with comprehensive process documentation
 
 ---
@@ -32,36 +36,36 @@ Overlapping frames between sources selected for spatial transfer:
 ### 4. Training Dataset Selection
 Contact sheet showing representative frames:
 
-![Tinterillo Contact Sheet](../images/TINTERILLO%20CONTACT%20SHEET.jpeg)
+![Tinterillo Contact Sheet](../images_kebab/tinterillo-contact-sheet.jpeg)
 
 ### 5. ML Training Process
-CopyCat training graph showing spatial characteristic transfer:
+`CopyCat` training graph showing spatial characteristic transfer:
 
-![Tinterillo CopyCat Training Graph](../images/TINTERILLO%20COPYCAT%20TRAINING%20GRAPH.png)
+![Tinterillo `CopyCat` Training Graph](../images_kebab/tinterillo-copycat-training-graph.png)
 
 Training diagram showing the workflow:
 
-![Tinterillo Training Diagram](../images/TINTERILLO%20TRAINING%20DIAGRAM.jpeg)
+![Tinterillo Training Diagram](../images_kebab/tinterillo-training-diagram.jpeg)
 
 ### 6. Spatial Recovery Process
 The ML-driven spatial information transfer workflow:
 
-![Tinterillo Spatial Recovery Script Overview](../images/TINTERILLO%20SPATIAL%20RECOVERY%20SCRIPT%20OVERVIEW.jpeg)
+![Tinterillo Spatial Recovery Script Overview](../images_kebab/tinterillo-spatial-recovery-script-overview.jpeg)
 
 ### 7. Side by Side Comparison
 Four-way comparison showing the recovery process:
 
-![Tinterillo 4 Way Comparison](../images/TINTERILLO%204%20WAY%20COMPARISON.png)
+![Tinterillo 4 Way Comparison](../images_kebab/tinterillo-4-way-comparison.png)
 
 ### 8. Spatial Recovery Results
 Before and after spatial recovery:
 
-![Tinterillo Spatial Recovery Comparison](../images/TINTERILLO%20SPATIAL%20RECOVERY%20COMPARISON.jpeg)
+![Tinterillo Spatial Recovery Comparison](../images_kebab/tinterillo-spatial-recovery-comparison.jpeg)
 
 ---
 
 ## Technical Notes
-This case study demonstrates comprehensive spatial information recovery with detailed workflow visualization, showing the step by step process of spatial characteristic transfer between multiple sources using CopyCat based approaches.
+This case study demonstrates comprehensive spatial information recovery with detailed workflow visualization, showing the step by step process of spatial characteristic transfer between multiple sources using `CopyCat` based approaches.
 
 ---
 
@@ -75,4 +79,4 @@ This case study demonstrates comprehensive spatial information recovery with det
 
 ---
 
-[← Back to all case studies](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies.md) | [Main README](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/README.md)
+[← Back to all case studies](../case-studies.md) | [Main README](../../README.md)

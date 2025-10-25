@@ -1,5 +1,9 @@
 # Candy Candy Opening - 16mm Color Recovery
 
+Classification: Color Recovery (Reference-Based) • Technique: DVD/Telecine Reference
+
+Quick Links: [Chroma Recovery](../chroma-recovery.md) • [All Case Studies](../case-studies.md)
+
 ## Overview
 Chroma recovery for the opening sequence of Candy Candy, scanned from 16mm film. This demonstration uses a previous version of the workflow and shows effective color reconstruction results while preserving the distinctive characteristics of 16mm source material.
 
@@ -28,41 +32,41 @@ The original 16mm scan showing faded/degraded chroma information:
 ### 2. Training Dataset Selection
 Representative frames selected for the training dataset:
 
-![Candy Candy Training Contact Sheet](../images/CANDY%20CANDY%20TRAINING%20CONTACT%20SHEET.jpeg)
+![Candy Candy Training Contact Sheet](../images_kebab/candy-candy-training-contact-sheet.jpeg)
 
 ### 3. ML Training Process
-CopyCat training showing iterative improvement:
+`CopyCat` training showing iterative improvement:
 
-![Candy Candy Training Steps](../images/CANDY%20CANDY%20TRAINING%20STEPS.jpeg)
+![Candy Candy Training Steps](../images_kebab/candy-candy-training-steps.jpeg)
 
 Training graph showing loss convergence:
 
-![Candy Candy CopyCat Graph](../images/CANDY%20CANDY%20COPYCAT%20GRAPH.png)
+![Candy Candy `CopyCat` Graph](../images_kebab/candy-candy-copycat-graph.png)
 
 ### 4. Chroma Recovery Process
 The ML-driven color reconstruction workflow for individual shots:
 
-![Candy Candy Individual Shot Chroma Recovery Script](../images/CANDY%20CANDY%20INDIVIDUAL%20SHOT%20CHROMA%20RECOVERY%20SCRIPT.jpeg)
+![Candy Candy Individual Shot Chroma Recovery Script](../images_kebab/candy-candy-individual-shot-chroma-recovery-script.jpeg)
 
 Sequence-level chroma recovery workflow:
 
-![Candy Candy Sequence Chroma Recovery Script](../images/CANDY%20CANDY%20SEQUENCE%20CHROMA%20RECOVERY%20SCRIPT.jpeg)
+![Candy Candy Sequence Chroma Recovery Script](../images_kebab/candy-candy-sequence-chroma-recovery-script.jpeg)
 
 ### 5. Side by Side Comparison
 Four-way comparison showing the recovery process:
 
-![Candy Candy 4 Way Comparison](../images/CANDY%20CANDY%204%20WAY%20COMPARISON.png)
+![Candy Candy 4 Way Comparison](../images_kebab/candy-candy-4-way-comparison.png)
 
 ### 6. Training Collection Overview
 Contact sheet collection showing multiple training sessions:
 
-![CopyCat Contact Sheet Collection](../images/COPYCAT%20CONTACT%20SHEET%20COLLECTION.jpeg)
+![`CopyCat` Contact Sheet Collection](../images_kebab/copycat-contact-sheet-collection.jpeg)
 
 ---
 
 ## Technical Notes
 
-This case study demonstrates several key aspects of the CopyCat based chroma recovery approach:
+This case study demonstrates several key aspects of the `CopyCat` based chroma recovery approach:
 
 1. **16mm Grain Preservation**: The workflow successfully maintains the characteristic grain structure of 16mm film while reconstructing missing chroma information.
 
@@ -70,7 +74,7 @@ This case study demonstrates several key aspects of the CopyCat based chroma rec
 
 3. **Iterative Refinement**: The training steps visualization shows how the model progressively improves its chroma reconstruction accuracy through multiple iterations.
 
-4. **Earlier Workflow Iteration**: While this project used a previous version of the workflow (before the current template standardization), the core principles and effective results demonstrate the robustness of the CopyCat approach.
+4. **Earlier Workflow Iteration**: While this project used a previous version of the workflow (before the current template standardization), the core principles and effective results demonstrate the robustness of the `CopyCat` approach.
 
 ---
 
@@ -82,4 +86,4 @@ This case study demonstrates several key aspects of the CopyCat based chroma rec
 
 ---
 
-[← Back to all case studies](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies.md) | [Main README](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/README.md)
+[← Back to all case studies](../case-studies.md) | [Main README](../../README.md)

@@ -1,5 +1,9 @@
 # Knights of the Trail - Spatial Recovery
 
+Classification: Spatial Recovery (Generation Recovery)
+
+Quick Links: [Spatial Recovery](../spatial-recovery.md) • [All Case Studies](../case-studies.md)
+
 ## Overview
 Spatial recovery for the Knights of the Trail project, enhancing image quality using multiple sources with different spatial characteristics.
 
@@ -17,7 +21,7 @@ Spatial recovery for the Knights of the Trail project, enhancing image quality u
 ## Project Details
 **Source Material:** Film project with multiple source elements
 **Challenge:** Inconsistent spatial quality across different sources
-**Workflow Version:** CopyCat based spatial information transfer
+**Workflow Version:** `CopyCat` based spatial information transfer
 
 ---
 
@@ -36,18 +40,18 @@ Overlapping frames between sources selected for spatial transfer:
 *Note: Add overlap detection image here*
 
 ### 4. ML Training Process
-CopyCat training showing spatial characteristic transfer:
+`CopyCat` training showing spatial characteristic transfer:
 *Note: Add training steps image here*
 
 ### 5. Spatial Recovery Process
 The ML-driven spatial information transfer workflow:
 
-![Knight of a Trail Spatial Recovery Script](../images/KNIGHT%20OF%20A%20TRAIL%20SPATIAL%20RECOVERY%20SCRIPT%20CROPPED.jpeg)
+![Knight of a Trail Spatial Recovery Script](../images_kebab/knight-of-a-trail-spatial-recovery-script.jpeg)
 
 ### 6. Side by Side Comparison
 Four-way comparison showing the recovery process:
 
-![Knight of a Trail 4 Way Comparison](../images/KINGHT%20OF%20A%20TRAIL%204%20WAY%20COMPARISON.jpeg)
+![Knight of a Trail 4 Way Comparison](../images_kebab/knight-of-a-trail-4-way-comparison.jpeg)
 
 ---
 
@@ -65,4 +69,4 @@ This case study demonstrates spatial information recovery using multiple sources
 
 ---
 
-[← Back to all case studies](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies.md) | [Main README](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/README.md)
+[← Back to all case studies](../case-studies.md) | [Main README](../../README.md)

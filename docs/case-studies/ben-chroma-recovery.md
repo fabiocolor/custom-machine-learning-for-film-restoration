@@ -1,5 +1,9 @@
 # Ben - Chroma Recovery
 
+Classification: Color Recovery (Non-Reference) • Technique: Manual Reference Construction
+
+Quick Links: [Chroma Recovery](../chroma-recovery.md) • [All Case Studies](../case-studies.md)
+
 ## Overview
 Chroma recovery for the Ben film project, demonstrating comprehensive color reconstruction including manual reference creation and validation.
 
@@ -11,7 +15,7 @@ Chroma recovery for the Ben film project, demonstrating comprehensive color reco
 
 **Source Material:** Film project
 **Challenge:** Faded/degraded chroma information requiring manual color reference creation
-**Workflow Version:** CopyCat based chroma recovery with manual reference preparation
+**Workflow Version:** `CopyCat` based chroma recovery with manual reference preparation
 **Results:** Successful color reconstruction with custom reference materials
 
 ---
@@ -26,11 +30,11 @@ The original scan showing faded chroma information:
 ### 2. Manual Reference Creation
 Creating custom color reference materials for training:
 
-![Ben Photoshop Chroma Reference Creation](../images/BEN%20PHOTOSHOP%20CHROMA%20REFERENCE%20CREATION.jpeg)
+![Ben Photoshop Chroma Reference Creation](../images_kebab/ben-photoshop-chroma-reference-creation.jpeg)
 
-![Ben Photoshop Chroma Reference Creation 2](../images/BEN%20PHOTOSHOP%20CHROMA%20REFERENCE%20CREATION%202.jpeg)
+![Ben Photoshop Chroma Reference Creation 2](../images_kebab/ben-photoshop-chroma-reference-creation-2.jpeg)
 
-![Ben Photoshop Chroma Reference Creation 3](../images/BEN%20PHOTOSHOP%20CHROMA%20REFERENCE%20CREATION%203.jpeg)
+![Ben Photoshop Chroma Reference Creation 3](../images_kebab/ben-photoshop-chroma-reference-creation-3.jpeg)
 
 ### 3. Training Dataset Selection
 Representative frames selected for the training dataset:
@@ -38,7 +42,7 @@ Representative frames selected for the training dataset:
 *Note: Add contact sheet image here*
 
 ### 4. ML Training Process
-CopyCat training showing iterative improvement:
+`CopyCat` training showing iterative improvement:
 
 *Note: Add training steps image here*
 
@@ -55,7 +59,7 @@ Recovered chroma applied to the full sequence:
 ### 7. Side by Side Comparison
 Four-way comparison showing the recovery process:
 
-![Ben 4 Way Comparison](../images/BEN%204%20WAY%20COMPARISON.jpeg)
+![Ben 4 Way Comparison](../images_kebab/ben-4-way-comparison.jpeg)
 
 ---
 
@@ -74,4 +78,4 @@ This case study demonstrates a more complex chroma recovery workflow that requir
 
 ---
 
-[← Back to all case studies](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies.md) | [Main README](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/README.md)
+[← Back to all case studies](../case-studies.md) | [Main README](../../README.md)

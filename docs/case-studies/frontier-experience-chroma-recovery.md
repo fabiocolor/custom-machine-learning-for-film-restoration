@@ -1,5 +1,9 @@
 # Frontier Experience - Chroma Recovery
 
+Classification: Color Recovery (Reference-Based) • Technique: Video Transfer Reference
+
+Quick Links: [Chroma Recovery](../chroma-recovery.md) • [All Case Studies](../case-studies.md)
+
 ## Overview
 Chroma recovery for the Frontier Experience project.
 
@@ -10,7 +14,7 @@ Chroma recovery for the Frontier Experience project.
 ## Project Details
 **Source Material:** Film project
 **Challenge:** Chroma degradation with severely damaged reference color
-**Workflow Version:** CopyCat based chroma recovery
+**Workflow Version:** `CopyCat` based chroma recovery
 **Results:** Output achieved, reference quality limitations noted
 
 **Workflow Approach:** Processed as sequence level. Reference color quality limitations and different scenes with distinct visual characteristics challenged the model's generalization. Scene level separation would have been appropriate. Demonstrates impact of reference quality and visual diversity on sequence level processing.
@@ -31,4 +35,4 @@ Chroma recovery for the Frontier Experience project.
 
 ---
 
-[← Back to all case studies](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies.md) | [Main README](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/README.md)
+[← Back to all case studies](../case-studies.md) | [Main README](../../README.md)

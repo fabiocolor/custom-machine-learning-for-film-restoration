@@ -1,7 +1,11 @@
 # Rebelión de Tapadas - Chroma Recovery
 
+Classification: Color Recovery (Non-Reference) • Technique: Historical Artwork Reference
+
+Quick Links: [Chroma Recovery](../chroma-recovery.md) • [All Case Studies](../case-studies.md)
+
 ## Overview
-Chroma recovery for the Rebelión de Tapadas film project, demonstrating effective color reconstruction using the CopyCat workflow on historical film material.
+Chroma recovery for the Rebelión de Tapadas film project, demonstrating effective color reconstruction using the `CopyCat` workflow on historical film material.
 
 ## Demo Videos
 
@@ -18,7 +22,7 @@ Chroma recovery for the Rebelión de Tapadas film project, demonstrating effecti
 
 **Source Material:** Historical film project
 **Challenge:** Faded/degraded chroma information in archival material
-**Workflow Version:** CopyCat based chroma recovery
+**Workflow Version:** `CopyCat` based chroma recovery
 **Results:** Successful color reconstruction while preserving historical characteristics
 
 ---
@@ -36,30 +40,30 @@ Representative frames selected for the training dataset:
 *Note: Add contact sheet image here*
 
 ### 3. ML Training Process
-CopyCat training showing iterative improvement:
+`CopyCat` training showing iterative improvement:
 
 *Note: Add training steps image here*
 
 ### 4. Reference Material
 Artwork used as color reference:
 
-![Rebelión de las Tapadas Artwork Reference](../images/REBELION%20DE%20LAS%20TAPADAS%20ARTWORK%20REFERENCE.png)
+![Rebelión de las Tapadas Artwork Reference](../images_kebab/rebeli-n-de-las-tapadas-artwork-reference.png)
 
 ### 5. Chroma Recovery Process
 The ML-driven color reconstruction workflow:
 
-![Rebelión de Tapadas Chroma Recovery Script Overview](../images/REBELION%20DE%20TAPADAS%20CHROMA%20RECOVERY%20SCRIPT%20OVERVIEW.jpeg)
+![Rebelión de Tapadas Chroma Recovery Script Overview](../images_kebab/rebeli-n-de-tapadas-chroma-recovery-script-overview.jpeg)
 
 ### 6. Side by Side Comparison
 Three-way comparison showing the recovery process:
 
-![Rebelión de las Tapadas 3 Way Comparison](../images/REBELION%20DE%20LAS%20TAPADAS%203%20WAY%20COMPARISON.png)
+![Rebelión de las Tapadas 3 Way Comparison](../images_kebab/rebeli-n-de-las-tapadas-3-way-comparison.png)
 
 ---
 
 ## Technical Notes
 
-This case study demonstrates the application of CopyCat based chroma recovery to historical archival material, showing successful reconstruction of missing chroma information while preserving the authentic characteristics of the original film.
+This case study demonstrates the application of `CopyCat` based chroma recovery to historical archival material, showing successful reconstruction of missing chroma information while preserving the authentic characteristics of the original film.
 
 ---
 
@@ -71,4 +75,4 @@ This case study demonstrates the application of CopyCat based chroma recovery to
 
 ---
 
-[← Back to all case studies](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/docs/case-studies.md) | [Main README](https://github.com/fabiocolor/nuke-chroma-recovery-template/blob/main/README.md)
+[← Back to all case studies](../case-studies.md) | [Main README](../../README.md)

@@ -1,5 +1,8 @@
 # Spatial Recovery Workflow
 
+![Spatial recovery overview](images_kebab/mission-kill-spatial-recovery-comparison.jpeg)
+Figure 1 — Spatial recovery overview (Mission Kill comparison).
+
 A comprehensive guide for using CopyCat in Nuke with convolutional neural networks (CNNs) to recover **spatial features** (resolution, sharpness, grain structure, detail) lost to damage or generational degradation. This workflow employs supervised learning to train custom models that transfer spatial characteristics between different sources of the same content, overcoming the limitations of traditional spatial filters that cannot "learn" from external references.
 
 ## Reference-Based Spatial Recovery

@@ -1,5 +1,8 @@
 # Color Recovery Workflow
 
+![Chroma recovery overview](images_kebab/friends-chroma-recovery-comparison-3.jpeg)
+Figure 1 — Chroma recovery overview (Friends comparison).
+
 This guide shows how to use Nuke's `CopyCat` to train a small CNN that restores missing or faded color in chromogenic film affected by dye loss. The model learns from paired frames to rebuild chroma (Cb/Cr) while preserving luma and spatial detail—going beyond traditional grading, which can only adjust existing color.
 
 ## When to Use Color Recovery

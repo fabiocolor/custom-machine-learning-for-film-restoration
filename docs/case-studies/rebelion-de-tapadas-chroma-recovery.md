@@ -45,19 +45,29 @@ Representative frames selected for the training dataset:
 *Note: Add training steps image here*
 
 ### 4. Reference Material
-Artwork used as color reference:
+Artwork used as color reference from colonial-era painters (Pancho Fierro, Johann Moritz Rugendas):
 
-![Rebelión de las Tapadas Artwork Reference](../images_kebab/rebeli-n-de-las-tapadas-artwork-reference.png)
+![Rebelión de las Tapadas Artwork Reference](../images/REBELION%20DE%20LAS%20TAPADAS%20ARTWORK%20REFERENCE.png)
+
+![Rebelión de las Tapadas Artwork Reference 2](../images/REBELION%20DE%20LAS%20TAPADAS%20ARTWORK%20REFERENCE%202.jpeg)
 
 ### 5. Chroma Recovery Process
 The ML-driven color reconstruction workflow:
 
-![Rebelión de Tapadas Chroma Recovery Script Overview](../images_kebab/rebeli-n-de-tapadas-chroma-recovery-script-overview.jpeg)
+![Rebelión de Tapadas Chroma Recovery Script Overview](../images/REBELION%20DE%20TAPADAS%20CHROMA%20RECOVERY%20SCRIPT%20OVERVIEW.jpeg)
+
+![Rebelión de Tapadas Chroma Recovery Script Overview 2](../images/REBELION%20DE%20TAPADAS%20CHROMA%20RECOVERY%20SCRIPT%20OVERVIEW%202.jpeg)
 
 ### 6. Side by Side Comparison
 Three-way comparison showing the recovery process:
 
-![Rebelión de las Tapadas 3 Way Comparison](../images_kebab/rebeli-n-de-las-tapadas-3-way-comparison.png)
+![Rebelión de las Tapadas 3 Way Comparison](../images/REBELION%20DE%20LAS%20TAPADAS%203%20WAY%20COMPARISON.png)
+
+Additional comparison views:
+
+![Rebelión de las Tapadas 3 Way Comparison 3](../images/REBELION%20DE%20LAS%20TAPADAS%203%20WAY%20COMPARISON%203.jpeg)
+
+![Rebelión de las Tapadas 3 Way Comparison 4](../images/REBELION%20DE%20LAS%20TAPADAS%203%20WAY%20COMPARISON%204.jpeg)
 
 ---
 

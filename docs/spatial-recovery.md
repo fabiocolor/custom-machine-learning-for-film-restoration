@@ -51,6 +51,15 @@ Spatial recovery uses supervised learning with CNNs, training on frame pairs fro
 
 ---
 
+## Visual Workflow Overview
+
+The spatial recovery process follows five main stages, with YCbCr channel manipulation to isolate spatial characteristics:
+
+![Node Graph Overview](images_kebab/node-graph-overview-cropped.png)
+Figure 2 — Complete node graph showing all workflow stages.
+
+---
+
 ### 0. Resolve Export + Nuke Setup
 Export in Resolve (Rec.709 ODT), then set up Nuke (OCIO/ACES + Reads).
 
@@ -166,6 +175,9 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 
 **Objective:** Achieve pixel‑accurate alignment with shared crop/bbox so only spatial characteristics differ between branches.
 
+![Alignment process](images_kebab/alignment-cropped.png)
+Figure 3 — Alignment workflow showing F_Align and manual Transform paths.
+
 **Rationale:**
 - Residual misalignment presents as false spatial artifacts during training and inference; tight alignment directly improves fidelity and reduces training steps.
 
@@ -197,6 +209,9 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 
 **Objective:** Train a model that transfers spatial characteristics (resolution, grain, sharpness) while preserving chroma.
 
+![Dataset curation](images_kebab/dataset-curation-cropped.png)
+Figure 4 — Dataset curation and training pair assembly for spatial recovery.
+
 **Rationale:**
 - Stability and fidelity improve when Input and Target share chroma/color; the network focuses on learning the spatial (luma) mapping only.
 
@@ -204,6 +219,10 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 1. Source pre‑filter (optional, use with caution): If the Source has severe compression artifacts, jagged edges, or noise that would confuse training, a very light `Median` (size 3–5) _may_ be applied to the Source only. **CRITICAL**: If you apply any preprocessing to the Source during training, you _shall_ apply identical preprocessing during inference (Stage 4); otherwise the model receives an input distribution it was not trained on. In most cases, avoid filtering entirely and let the model learn from the original Source. **Do not apply median or blur to the Reference**—preserve all spatial detail (grain, sharpness, edge definition) as this is what the model will learn to transfer.
 2. Apply linked Crop to Source only: clone/link the Stage 2 Reference `Crop` onto the Source branch so both paths have identical picture area. Do not add a new Crop to Reference here (it already has it from Stage 2). BBox parity is enforced later in step 8.
 3. Convert both branches to YCbCr: add `Colorspace` on Source and Reference (Working → YCbCr) to separate luma (Y) from chroma (Cb/Cr).
+
+![Colorspace node settings](images_kebab/colorspace-node-linear-to-ycbcr-settings-cropped.png)
+Figure 5 — Colorspace node converting Linear to YCbCr for spatial isolation.
+
 4. Build Ground Truth in YCbCr with `Shuffle`:
    - Goal: Ground Truth = Reference luma (Y) + Source chroma (Cb/Cr) so only luma differs between Input (Source) and Target (Ground Truth).
    - Inputs: A = Reference (YCbCr), B = Source (YCbCr)
@@ -227,6 +246,9 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 - Checkpoints: every 10k; enable contact sheets every ~100 steps for visual progress
 - Learning rate: default is robust; optional cosine decay after warmup
 
+![CopyCat settings](images_kebab/copycat-settings-cropped.png)
+Figure 6 — CopyCat node configuration for spatial recovery training.
+
 **Augmentations (paired on Input and ground truth):**
 - Geometric: small translate/scale; horizontal flip if composition allows; avoid rotation if alignment is tight.
 - Photometric: mild exposure jitter (±0.1). Avoid transforms that alter spatial characteristics (no sharpening, no blurring, no grain synthesis).
@@ -245,6 +267,9 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 ### Stage 4: Inference & Render
 
 **Objective:** Apply the trained model to full sequences and render archival masters.
+
+![Inference render](images_kebab/inference-render-cropped.png)
+Figure 7 — Inference and render workflow applying trained model to full sequence.
 
 **Scope vs Training (train small, infer big):**
 - Training uses curated single‑frame pairs (via `FrameHold` + `AppendClip`) to learn the spatial mapping.

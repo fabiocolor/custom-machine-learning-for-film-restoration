@@ -46,17 +46,27 @@ Overlapping frames selected from multiple sources for combined recovery:
 ### 5. Combined Recovery Workflow
 The ML-driven spatial and chroma recovery workflow:
 
-![Mission Kill Spatial and Chroma Recovery Script Overview](../images_kebab/mission-kill-spatial-and-chroma-recovery-script-overview.jpeg)
+![Mission Kill Spatial and Chroma Recovery Script Overview](../images/MISSION%20KILL%20SPATIAL%20AND%20CHROMA%20RECOVERY%20SCRIPT%20OVERVIEW.jpeg)
+
+![Mission Kill Spatial and Chroma Recovery Script Overview 2](../images/MISSION%20KILL%20SPATIAL%20AND%20CHROMA%20RECOVERY%20SCRIPT%20OVERVIEW%202.jpeg)
 
 ### 6. Spatial Recovery Results
 Before and after spatial recovery:
 
-![Mission Kill Spatial Recovery Comparison](../images_kebab/mission-kill-spatial-recovery-comparison.jpeg)
+![Mission Kill Spatial Recovery Comparison](../images/MISSION%20KILL%20SPATIAL%20RECOVERY%20COMPARISON.jpeg)
+
+![Mission Kill Spatial Recovery Comparison 2](../images/MISSION%20KILL%20SPATIAL%20RECOVERY%20COMPARISON%202.jpeg)
 
 ### 7. Side by Side Comparison
 Three-way comparison showing the combined recovery process:
 
-![Mission Kill 3 Way Comparison](../images_kebab/mission-kill-3-way-comparison.png)
+![Mission Kill 3 Way Comparison](../images/MISSION%20KILL%203%20WAY%20COMPARISON.png)
+
+Additional comparison views:
+
+![Mission Kill 3 Way Comparison 3](../images/MISSION%20KILL%203%20WAY%20COMPARISON%203.jpeg)
+
+![Mission Kill 3 Way Comparison 4](../images/MISSION%20KILL%203%20WAY%20COMPARISON%204.jpeg)
 
 ---
 

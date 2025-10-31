@@ -57,6 +57,15 @@ Color recovery uses supervised learning with CNNs, training on frame pairs from 
 
 ---
 
+## Visual Workflow Overview
+
+The chroma recovery process follows five main stages, each building on the previous to ensure accurate color reconstruction:
+
+![Node Graph Overview](images_kebab/node-graph-overview-cropped.png)
+Figure 2 — Complete node graph showing all workflow stages.
+
+---
+
 ### 0. Resolve Export + Nuke Setup
 Export in Resolve (Rec.709 ODT), then set up Nuke (OCIO/ACES + Reads).
 
@@ -176,6 +185,9 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 
 **Objective:** Achieve pixel‑accurate alignment with shared crop/bbox so only chroma differs between branches.
 
+![Alignment process](images_kebab/alignment-cropped.png)
+Figure 3 — Alignment workflow showing F_Align and manual Transform paths.
+
 **Rationale:**
 - Residual misalignment presents as false color shifts during training and inference; tight alignment directly improves fidelity and reduces training steps.
 
@@ -207,6 +219,9 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 
 **Objective:** Train a model that reconstructs chroma while preserving luma and geometry.
 
+![CopyCat training setup](images_kebab/copycat-training-cropped.png)
+Figure 4 — CopyCat training workflow with YCbCr channel manipulation.
+
 **Rationale:**
 - Stability and fidelity improve when Input and Target share luma/structure; the network focuses on learning the chroma mapping only.
 
@@ -214,6 +229,10 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 1. Reference pre‑filter (optional): `Median` (start size ~10) to suppress dust/compression; for magnetic/video references, consider subtle debanding.
 2. Apply linked Crop to Source only: clone/link the Stage 2 Reference `Crop` onto the Source branch so both paths have identical picture area. Do not add a new Crop to Reference here (it already has it from Stage 2). BBox parity is enforced later in step 8.
 3. Convert both branches to YCbCr: add `Colorspace` on Source and Reference (Working → YCbCr) to separate luma (Y) from chroma (Cb/Cr).
+
+![Colorspace node settings](images_kebab/colorspace-node-linear-to-ycbcr-settings-cropped.png)
+Figure 5 — Colorspace node converting Linear to YCbCr.
+
 4. Build Ground Truth in YCbCr with `Shuffle`:
    - Goal: Ground Truth = Source luma (Y) + Reference chroma (Cb/Cr) so only chroma differs between Input (Source) and Target (Ground Truth).
    - Inputs: A = Source (YCbCr), B = Reference (YCbCr)
@@ -223,6 +242,10 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
      - green ← B.green (Cb from Reference)
      - blue  ← B.blue  (Cr from Reference)
      - alpha ← black
+
+![Shuffle node settings](images_kebab/shuffle-node-settings-cropped.png)
+Figure 6 — Shuffle node for YCbCr channel manipulation (Source.Y + Reference.CbCr).
+
 5. Convert Ground Truth back to Working space: `Colorspace` (YCbCr → Working) on the Ground Truth.
 6. Clamp ranges on both Input and Ground Truth: add `Grade` to both Source (Input) and the Ground Truth; enable black/white clamp to keep values in [0–1].
 7. Remove alpha on both: add `Remove` to drop `alpha` on Source (Input) and the Ground Truth.
@@ -236,6 +259,9 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 - Steps: ~40–80k; if patch = 256, increase steps proportionally
 - Checkpoints: every 10k; enable contact sheets every ~100 steps for visual progress
 - Learning rate: default is robust; optional cosine decay after warmup
+
+![CopyCat settings](images_kebab/copycat-settings-cropped.png)
+Figure 7 — CopyCat node configuration for chroma recovery training.
 
 **Augmentations (paired on Input and ground truth):**
 - Geometric: small translate/scale; horizontal flip if composition allows; avoid rotation if alignment is tight.
@@ -255,6 +281,9 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 ### Stage 4: Inference & Render
 
 **Objective:** Apply the trained model to full sequences and render archival masters.
+
+![Inference render](images_kebab/inference-render-cropped.png)
+Figure 8 — Inference and render workflow applying trained model to full sequence.
 
 **Scope vs Training (train small, infer big):**
 - Training uses curated single‑frame pairs (via `FrameHold` + `AppendClip`) to learn the chroma mapping.

@@ -32,7 +32,9 @@ The original scan showing faded chroma information:
 ### 2. Training Dataset Selection
 Representative frames selected for the training dataset:
 
-![Friends Chroma Recovery Contact Sheet](../images_kebab/friends-chroma-recovery-contact-sheet.jpeg)
+![Friends Chroma Recovery Contact Sheet](../images/FRIENDS%20CHROMA%20RECOVERY%20CONTACT%20SHEET.jpeg)
+
+![Friends Chroma Recovery Contact Sheet 2](../images/FRIENDS%20CHROMA%20RECOVERY%20CONTACT%20SHEET%202.jpeg)
 
 ### 3. ML Training Process
 `CopyCat` training showing iterative improvement:
@@ -47,7 +49,13 @@ The ML-driven color reconstruction workflow:
 ### 5. Side by Side Comparison
 Four-way comparison showing the recovery process:
 
-![Friends Chroma Recovery Comparison](../images_kebab/friends-chroma-recovery-comparison.png)
+![Friends Chroma Recovery Comparison](../images/FRIENDS%20CHROMA%20RECOVERY%20COMPARISON.png)
+
+Additional comparison views:
+
+![Friends Chroma Recovery Comparison 3](../images/FRIENDS%20CHROMA%20RECOVERY%20COMPARISON%203.jpeg)
+
+![Friends Chroma Recovery Comparison 4](../images/FRIENDS%20CHROMA%20RECOVERY%20COMPARISON%204.jpeg)
 
 ---
 
@@ -59,7 +67,10 @@ This case study demonstrates the application of `CopyCat` based chroma recovery 
 
 ## Lessons Learned
 
-*Note: Add lessons learned specific to Friends project*
+- **Sequence-level training effectiveness**: Successfully applied sequence-wide training due to consistent visual characteristics
+- **Correlative shot processing**: Demonstrated when shots with similar lighting and composition can share a single model
+- **Telecine reference quality**: Shows effectiveness of using telecine sources as color reference material
+- **Preservation of detail**: Successfully maintained spatial characteristics while reconstructing color information
 
 ---
 

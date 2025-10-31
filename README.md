@@ -31,6 +31,9 @@ NukeX is the advanced edition of Foundry’s Nuke, an industry‑standard, node�
 
 Custom machine learning-based film restoration using supervised learning with convolutional neural networks (CNNs), addressing two fundamental types of film damage:
 
+![Recovery comparison example](docs/images_kebab/mission-kill-3-way-comparison-3.jpeg)
+Figure 2 — Example recovery results: spatial and color restoration.
+
 **Color Recovery**
 - Restores missing or faded **color information** in chromogenic film stocks affected by dye degradation
 - **Reference-based**: Trains models using DVDs, telecines, or other color-accurate sources
@@ -125,6 +128,12 @@ Note: Colorization is outside this repository's scope. Early `CopyCat` colorizat
 
 **Detailed Guide:** → [docs/chroma-recovery.md](docs/chroma-recovery.md)
 
+**Example Results:**
+
+[![Candy Candy](docs/images_kebab/candy-candy-4-way-comparison-2.jpeg)](docs/case-studies/candy-candy-opening.md)
+[![Friends](docs/images_kebab/friends-chroma-recovery-comparison-3.jpeg)](docs/case-studies/friends-chroma-recovery.md)
+[![Rebelión de Tapadas](docs/images_kebab/rebelion-de-las-tapadas-3-way-comparison-4.jpeg)](docs/case-studies/rebelion-de-tapadas-chroma-recovery.md)
+
 ### Spatial Recovery Workflow
 
 **When to use:** Films with generational loss, multiple sources of same content, gauge related quality differences, damage requiring detail reconstruction
@@ -147,6 +156,12 @@ Transfer spatial characteristics from better quality sources to degraded targets
 5. **Validate** — Check spatial consistency (detail transfer, grain structure) across the target scope
 
 **Detailed Guide:** → [docs/spatial-recovery.md](docs/spatial-recovery.md)
+
+**Example Results:**
+
+[![Mission Kill](docs/images_kebab/mission-kill-spatial-recovery-comparison.jpeg)](docs/case-studies/missionkill-combined-recovery.md)
+[![El Tinterillo](docs/images_kebab/tinterillo-4-way-comparison-2.jpeg)](docs/case-studies/tinterillo-spatial-recovery.md)
+[![Knights of the Trail](docs/images_kebab/knight-of-a-trail-4-way-comparison.jpeg)](docs/case-studies/knights-trail-spatial-recovery.md)
 
 ---
 
@@ -174,21 +189,25 @@ Transfer spatial characteristics from better quality sources to degraded targets
 ```
 nuke-chroma-recovery-template/
 ├── README.md                              # This file - project overview
-├── docs/
-│   ├── chroma-recovery.md                 # Chroma recovery workflow
-│   ├── spatial-recovery.md                # Spatial recovery workflow
-│   ├── (operator quick refs in annexes)   # See chroma/spatial docs Annex A
-│   ├── case-studies.md                    # All case studies index
-│   ├── case-studies/                      # Individual case studies
-│   └── images_kebab/                      # Workflow images (canonical)
-├── notes/                                 # Project notes and QC logs
-├── nuke_base/                             # Store base .nknc templates
-└── pipeline/                              # Stage-based pipeline templates
-    ├── 01_dataset_curation/
-    ├── 02_alignment/
-    ├── 03_copycat_training/
-    ├── 04_inference_render/
-    └── 05_matchgrade_render/
+├── CHANGELOG.md                           # Version history and updates
+└── docs/
+    ├── chroma-recovery.md                 # Color recovery workflow
+    ├── spatial-recovery.md                # Spatial recovery workflow
+    ├── case-studies.md                    # Case studies index
+    ├── provenance-metadata.md             # Metadata guide (work in progress)
+    ├── case-studies/                      # Individual case studies
+    │   ├── candy-candy-opening.md
+    │   ├── friends-chroma-recovery.md
+    │   ├── frontier-experience-chroma-recovery.md
+    │   ├── muralla-verde-chroma-recovery.md
+    │   ├── rebelion-de-tapadas-chroma-recovery.md
+    │   ├── ben-chroma-recovery.md
+    │   ├── missionkill-combined-recovery.md
+    │   ├── knights-trail-spatial-recovery.md
+    │   └── tinterillo-spatial-recovery.md
+    ├── references/
+    │   └── terms-and-definitions.md       # Glossary
+    └── images_kebab/                      # Workflow images and assets
 ```
 
 ---

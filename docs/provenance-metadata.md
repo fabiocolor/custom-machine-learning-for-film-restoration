@@ -1,5 +1,7 @@
 # Provenance & Metadata for ML Restoration
 
+> **Work in Progress:** This document is under active development and subject to revision. Procedures and recommendations may change as best practices evolve.
+
 Practical guide to document ML-based restoration for archival transparency and reproducibility, aligned with IPTC and C2PA concepts, and integrated with DaVinci Resolve delivery.
 
 ## Why It Matters

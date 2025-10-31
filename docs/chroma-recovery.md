@@ -51,39 +51,23 @@ Constructs color references from external sources when direct references are una
 
 ---
 
-## Terminology & Conventions
-
-See Terms and definitions (Glossary): [docs/references/terms-and-definitions.md](docs/references/terms-and-definitions.md)
-
-- Node names appear as code (e.g., `F_Align`, `PostageStamp`, `Shuffle`).
-- Core concepts are capitalized for clarity: Source, Reference, Ground Truth (Target), Input, Target, Working Space.
-- Channel notation: YCbCr where Y = luma, Cb/Cr = chroma.
-- We spell out “Ground Truth” (no GT abbreviation) to keep the guide readable.
-
 ## Workflow Overview
 
 Color recovery uses supervised learning with CNNs, training on frame pairs from different containers of the same film (faded source and color reference or constructed reference). Use the container with superior color as ground truth and normalize non target channels so only color differs.
 
-### Quick Start Recommendations
-- Scope: prioritize shot‑by‑shot projects for highest fidelity; expand to scenes/sequences as the model proves stable.
-- Training pairs: begin with 4–9 representative pairs per shot; hold out 15–25% for validation; escalate to 7, 11+ if generalization stalls.
-- Alignment: start with `F_Align` using a conservative central ROI; if `Merge (difference)` shows residual edges, switch to a keyed `Transform` path.
-- Crop: remove black borders and burned‑in subtitles; apply the same crop to Source and Reference so picture areas match.
-- Color domain: convert to YCbCr so luma (Y) comes from Source and only chroma (Cb/Cr) is learned.
-- Defaults: Batch 3, Patch 512 (256 if crop‑limited), checkpoints every 10k, contact sheets every ~100 steps, plan ~40–80k total steps.
-- Outputs: EXR half, ACES 2065‑1 for archival masters in `pipeline/04_inference_render/`.
+---
 
 ### 0. Resolve Export + Nuke Setup
 Export in Resolve (Rec.709 ODT), then set up Nuke (OCIO/ACES + Reads).
 
 ### 1. Dataset Curation
-Select representative paired frames (source + reference or constructed); hold out some pairs for validation.
+Select representative paired frames (source + reference or constructed).
 
 ### 2. Alignment
 Pixel-perfectly align reference to source and remove overscan.
 
 ### 3. `CopyCat` Training (CNN)
-Train on paired frames (reference as ground truth) to reconstruct chroma while preserving spatial detail; start with few pairs and expand as needed.
+Train on paired frames (reference as ground truth) to reconstruct chroma while preserving spatial detail. Use CopyCat's preview input with a frame not included in the training dataset to monitor generalization in real-time during training.
 
 ### 4. Inference & Render
 Apply the trained model to the shot/scene/sequence and render archival-quality outputs.
@@ -183,12 +167,8 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 - Verify each pair with viewer wipe or `Merge (difference)`; judge only geometry/alignment, not color.
 - Label each pair consistently and maintain a small table of indices/timecodes for traceability.
 
-**Validation Split:**
-- Hold out 15–25% of pairs for validation with the same distribution of lighting/subjects as training.
-- Build a separate `AppendClip` for validation to prevent leakage into training.
-
 **Documentation & QC:**
-- Record shot IDs, pair indices, and rationale; keep QC contact sheets per shot/date.
+- Record shot IDs, pair indices, and rationale.
 - Note whether references are direct (telecine/DVD/print) or constructed, and cite sources where applicable.
 - Flag compromises (compression, residual parallax) for later review during training/validation.
 
@@ -221,7 +201,7 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
  - [ ] After alignment passes, Reference crop removes overscan/mattes without hiding alignment cues
 
 **Troubleshooting Notes:**
-- Gate weave/parallax: do not over‑tune `F_Align`. After the initial ROI/global solve, switch to manual `Transform` and keyframe as needed. Expect manual alignment to be time‑consuming on warped multi‑generation references.
+- Gate weave/parallax on warped multi‑generation references: expect manual `Transform` keyframing to be time‑consuming.
 
 ### Stage 3: `CopyCat` Training
 
@@ -261,9 +241,13 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 - Geometric: small translate/scale; horizontal flip if composition allows; avoid rotation if alignment is tight.
 - Photometric: mild exposure jitter (±0.1). Avoid color transforms that alter chroma relationships.
 
+**Preview Input for Real-Time Validation:**
+- Use CopyCat's preview input feature with a frame NOT included in the training dataset to monitor generalization during training.
+- Select a preview frame with representative lighting/subjects to gauge whether the model is learning transferable characteristics versus memorizing training pairs.
+- Monitor the preview output at checkpoints (every 10k steps) to assess convergence quality before full inference.
+
 **Monitoring & QC:**
-- Track train/validation loss; stop if they diverge.
-- Inspect intermediate results on held‑out pairs.
+- Track training loss progression; observe contact sheets every ~100 steps for visual convergence.
 - Luma identity: convert both to YCbCr and difference Y; expect near‑zero.
 - Range: confirm clamping prevented <0 or >1 values.
 - BBox: confirm identical bbox on both streams.
@@ -282,9 +266,6 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 3. `Inference` node: load the trained model (`.cat`) produced by `CopyCat`; use the same patch/tiling settings as training.
 4. Convert to delivery space as required by the archival pipeline. Reformat/pad as needed; avoid modifying the Source beyond crop/reformat.
 5. Validate on a short range first (e.g., 50–100 frames) before full render.
-
-**Optional preview during training:**
-- Hold on an untrained frame (e.g., if training on 1/4/6/8, preview frame 5) to gauge generalization mid‑training.
 
 **Nuke version limits and output settings:**
 - NukeX Non‑Commercial is limited to 1920×1080 output; reformat for previews only.
@@ -370,9 +351,6 @@ Notes:
 - Whichever option is chosen, both Input and Target must share the exact same domain and transforms. Do not mix linear and display‑referred between branches.
 - If using Option B, convert back to ACEScg after `CopyCat` where needed for compositing or archival conversion.
 
-**YCbCr Domain Choice (matches transcript):**
-- The detailed training recipe assumes a scene‑linear working context then uses Nuke’s `Colorspace → YCbCr` for luma/chroma separation. This is valid so long as both branches undergo the same chain and values are clamped to [0–1] before training.
-
 **Writes (Delivery):**
 - Archival masters: `Write.colorspace = ACES - ACES2065‑1` (AP0), EXR 16‑bit half (ZIP/DWAA).
 - Review/proxy: convert to Rec.709 ODT and render ProRes/H.264 as needed (document viewing intent and ODT).
@@ -383,50 +361,43 @@ Notes:
 - Keep frame size, PAR, and channels identical across Source/Reference.
 
 **Cross‑Reference:**
-- Transcript: `notes/transcripts/COPYCAT_TRAINING.md` (source narrative).
 - Operator quick steps: see Annex A in this document.
 
 ## Troubleshooting & QC
-- Alignment residuals: switch to keyed `Transform` rather than over‑tuning `F_Align`; judge with `Merge (difference)`.
-- Convergence stalls: add representative pairs (skin, foliage, sky, neutrals; extremes/shadows/highlights), extend steps, or reduce photometric jitter.
-- Color artifacts/bleed: verify YCbCr mapping and range clamping; confirm identical crops/bbox on both branches.
-- Temporal inconsistency: expand pair coverage near transitions and difficult textures; re‑evaluate crops for transient overlays (subtitles, burned‑in elements).
 
-### Model Size and Quality
+### Alignment Issues
+
+**Problem:** Residual misalignment visible in `Merge (difference)`
+**Solution:** Switch to keyed `Transform` rather than over‑tuning `F_Align`; keyframe as needed for warped material.
+
+### Training Convergence
+
+**Problem:** Convergence stalls or plateaus
+**Solution:** Add representative pairs covering color families (skin, foliage, sky, neutrals) and extremes (deep shadows, specular highlights, saturated primaries); extend training steps; or reduce photometric jitter.
+
+### Color Artifacts
+
+**Problem:** Color bleeding, desaturation, or incorrect hue mapping
+**Solution:** Verify YCbCr `Shuffle` mapping (Source.Y + Reference.Cb/Cr); confirm [0–1] clamping with `Grade`; check identical crops/bbox on both branches; reduce model size or training iterations if overfitting.
+
+### Temporal Inconsistency
+
+**Problem:** Flickering or inconsistent color across frames
+**Solution:** Expand pair coverage near lighting transitions and difficult textures; re‑evaluate crops for transient overlays (subtitles, burned‑in elements); check alignment consistency.
+
+### Detail Loss
+
+**Problem:** Loss of sharpness or spatial detail
+**Solution:** Ensure Source luma (Y channel) is preserved in Ground Truth build; verify `Shuffle` is correctly mapping Source.red → Ground Truth.red.
+
+### Model Sizing
 
 **Trade-offs:**
-- **Small Models**: Faster training, less detail
-- **Large Models**: Better quality, slower training
-- **Recommendation**: Start small, increase if needed
+- **Small**: Faster training, less detail retention, lower VRAM
+- **Medium**: Balanced quality/speed (recommended starting point)
+- **Large**: Best quality, slower training, higher VRAM requirements
 
-### Common Issues and Solutions
-
-**Problem:** Color bleeding or artifacts
-**Solution:** Reduce model size or training iterations
-
-**Problem:** Inconsistent color across frames
-**Solution:** Check alignment and add more diverse training frames
-
-**Problem:** Loss of detail
-**Solution:** Ensure source luma is preserved in training
-
----
-
-## Case Study Integration
-
-### Related Case Studies
-
-**Chroma Recovery Examples:**
-- [Candy Candy](case-studies/candy-candy-opening.md) - 16mm film with workflow images
-- [Friends](case-studies/friends-chroma-recovery.md) - Contact sheet methodology
-- [Rebelión de Tapadas](case-studies/rebelion-de-tapadas-chroma-recovery.md) - Historical material
-- [Ben](case-studies/ben-chroma-recovery.md) - Manual reference creation
-
-**Learning from Examples:**
-Each case study demonstrates specific aspects of chroma recovery:
-- Different source materials (16mm, archival, contemporary)
-- Various challenges (fading, damage, reference creation)
-- Different validation approaches
+**Recommendation:** Start with Medium; increase to Large only if quality is insufficient after proper dataset curation and alignment.
 
 ---
 
@@ -443,16 +414,11 @@ Color Management (recommended for chroma training)
 - Process in ACEScg; build Y’CbCr Ground Truth/Input with identical chains. Clamp to [0–1].
 
 Pipeline Stages (condensed)
-1) 01_dataset_curation — pick 4–9 pairs per shot; verify identical content; hold out 15–25% for validation.
+1) 01_dataset_curation — pick 4–9 pairs per shot; verify identical content.
 2) 02_alignment — `F_Align` first, fallback to keyed `Transform`; compare with `Merge (difference)`; shared crop to remove overscan/subtitles.
 3) 03_copycat_training — YCbCr split; Ground Truth = Source Y + Reference Cb/Cr; clamp, remove alpha, copy bbox; train (Batch 3, Patch 512/256, 40–80k steps, 10k checkpoints, contact sheets ~100 steps).
 4) 04_inference_render — mirror training transforms; validate on 50–100 frames; render EXR 16‑bit half, ACES 2065‑1.
 5) 05_validation — compare to LUT/MatchGrade baseline; keep QC plates/notes.
-
-Nuke CLI Shortcuts
-- Alignment: `nuke --nukex --script pipeline/02_alignment/<shot>.nk`
-- Training (bg): `nuke --nukex --bg --script pipeline/03_copycat_training/<session>.nk`
-- Inference: `nuke --nukex --script pipeline/04_inference_render/<shot>_render.nk`
 
 QC Tips
 - Monitor contact sheets; watch for chroma ringing/bleed.
@@ -466,69 +432,3 @@ QC Tips
 - Save intermediate results for reference
 
 ---
-
-## Quality Assurance
-
-### Checklist Before Final Render
-
-- [ ] Training converged without artifacts
-- [ ] No color bleeding or halos
-- [ ] Consistent results across test frames
-- [ ] Preserved detail and texture
-- [ ] Natural color reproduction
-- [ ] Match or exceed traditional methods
-
-### Documentation Requirements
-
-For each project, document:
-- Source material details
-- Reference selection criteria
-- Training parameters and iterations
-- Validation results
-- Lessons learned
-
----
-
-## Troubleshooting
-
-### Common Issues
-
-**Training Not Converging:**
-- Check alignment accuracy
-- Increase training frames diversity
-- Adjust learning rate or model size
-
-**Color Artifacts:**
-- Reduce model complexity
-- Check for reference contamination
-- Validate training data quality
-
-**Inconsistent Results:**
-- Ensure consistent alignment
-- Add more diverse training examples
-- Check for temporal consistency
-
-### When to Seek Help
-
-- Training fails to converge after 200 iterations
-- Significant color artifacts appear
-- Results don't match expectations
-- Technical issues with node setup
-
----
-
-## Next Steps
-
-**After completing chroma recovery:**
-1. Document results in experiments log
-2. Consider combined spatial recovery if needed
-3. Archive trained model for future use
-4. Share case study if appropriate
-
-**Related Workflows:**
-- [Spatial Recovery](spatial-recovery.md) - For spatial information reconstruction
-- [Combined Recovery](case-studies/missionkill-combined-recovery.md) - For complex projects
-
----
-
-**Quick Links:** [Case Studies](case-studies.md) • [Spatial Recovery](spatial-recovery.md)

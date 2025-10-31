@@ -11,13 +11,9 @@ Figure 1 — Node graph overview.
 
 1. **Color Recovery** → [docs/chroma-recovery.md](docs/chroma-recovery.md)
 2. **Spatial Recovery** → [docs/spatial-recovery.md](docs/spatial-recovery.md)
-3. **Provenance & Metadata** → [docs/provenance-metadata.md](docs/provenance-metadata.md)
-4. **Glossary — Terms and definitions** → [docs/references/terms-and-definitions.md](docs/references/terms-and-definitions.md)
-
----
-
-**Presentations**
-- Slides and papers: [docs/presentations/README.md](docs/presentations/README.md)
+3. **Case Studies** → [docs/case-studies.md](docs/case-studies.md)
+4. **Provenance & Metadata** → [docs/provenance-metadata.md](docs/provenance-metadata.md) *(work in progress)*
+5. **Glossary — Terms and definitions** → [docs/references/terms-and-definitions.md](docs/references/terms-and-definitions.md)
 
 ---
 
@@ -53,12 +49,12 @@ Custom machine learning-based film restoration using supervised learning with co
 Custom ML complements traditional film restoration methods, addressing challenges previously deemed impossible or prohibitively costly:
 
 **What traditional methods cannot do:**
-- **Spatial and temporal filters**: limited to local neighborhoods and short temporal windows; cannot use external references or distant shots
-  - Operate on small pixel neighborhoods or short temporal windows; reset at cuts; no scene memory
+- **Spatial and temporal filters**: operate only on damaged source material itself; cannot use external references or distant shots
+  - Limited to local neighborhoods and short temporal windows; reset at cuts; no scene memory
   - Cannot ingest higher quality sources as guidance during filtering
   - Sharpen/denoise can amplify artifacts in degraded scans
 - **Traditional color correction** (LUTs, channel balancing): remaps existing channels but cannot reconstruct missing color information
-  - Faded dye layers remove signal; LUTs cannot add absent chroma
+  - Faded dye layers remove signal that grading cannot restore
   - Cross channel contamination and nonlinear fading break simple channel adjustments
   - Global grades are context agnostic; they cannot learn from external references
   - Manual painting is theoretically possible frame by frame but impractical at scale
@@ -67,7 +63,7 @@ Custom ML complements traditional film restoration methods, addressing challenge
 Custom ML gives new purpose to multiple copies or elements of the same film. Different prints, generations, or gauges can each contribute unique information to training, improving model accuracy and making previously "redundant" archive materials valuable for restoration.
 
 **The role of larger models (open-source, commercial):**
-With advancements in open weights, Low‑Rank Adaptation (LoRA) adapters, and fine‑tuning capabilities, larger models could eventually complement custom approaches for scenarios with little or no reference material. However, archival restoration requires careful, guided application to maintain historical authenticity.
+Advancements in open weights, Low‑Rank Adaptation (LoRA) adapters, and fine‑tuning capabilities are expanding possibilities for scenarios with limited or no reference material. These larger models may complement custom training approaches, but archival film restoration demands careful, deliberate application to preserve historical authenticity rather than pursuing technical capability alone.
 
 
 
@@ -86,15 +82,27 @@ With advancements in open weights, Low‑Rank Adaptation (LoRA) adapters, and fi
 See [case studies](docs/case-studies.md) for experimental examples demonstrating these approaches.
 
 ### Process Overview
-1. **Curate dataset** — Select representative frame pairs from different containers; choose the best container per target dimension and hold out frames for validation (for example, 3–4 per shot; ~16 per scene; 33+ per sequence)
+1. **Curate dataset** — Select representative frame pairs from different containers; choose the best container per target dimension (for example, 3–4 per shot; ~16 per scene; 33+ per sequence)
 2. **Align sources** — Register reference to source at pixel level; ensure identical picture area; crop or mask overlays; match resolution and frame rate
-3. **Train model** — Use `CopyCat` supervised learning; isolate the target dimension (color vs spatial); validate on held‑out frames
+3. **Train model** — Use `CopyCat` supervised learning; isolate the target dimension (color vs spatial); monitor generalization using preview input during training
 4. **Infer and render** — Apply the trained model to the full source and render outputs
 
 Optional steps:
 - **Chroma**: MatchGrade baseline render for comparison and QC
 - **Spatial**: Luma matching pass for integration when needed
 
+---
+
+## Terminology & Conventions
+
+See Terms and definitions (Glossary): [docs/references/terms-and-definitions.md](docs/references/terms-and-definitions.md)
+
+- Node names appear as code (e.g., `F_Align`, `PostageStamp`, `Shuffle`).
+- Core concepts are capitalized for clarity: Source, Reference, Ground Truth (Target), Input, Target, Working Space.
+- Channel notation: YCbCr where Y = luma, Cb/Cr = chroma.
+- We spell out "Ground Truth" (no GT abbreviation) to keep the guide readable.
+
+---
 
 ## Recovery Procedures
 
@@ -109,9 +117,9 @@ Note: Colorization is outside this repository's scope. Early `CopyCat` colorizat
 - **Non‑reference recovery** — Infers color from paintings, period photographs, or manually created references when no direct reference exists
 
 **Process Overview:**
-1. **Curate dataset** — Select representative source+reference frame pairs; hold out validation frames (for example, 3–4 per shot; ~16 per scene; 33+ per sequence)
+1. **Curate dataset** — Select representative source+reference frame pairs (for example, 3–4 per shot; ~16 per scene; 33+ per sequence)
 2. **Align sources** — Precisely match reference to source at pixel level
-3. **`CopyCat` training** — Train a CNN with supervised learning to reconstruct chroma while preserving original spatial information
+3. **`CopyCat` training** — Train a CNN with supervised learning to reconstruct chroma while preserving original spatial information; monitor generalization using preview input during training
 4. **Infer and render** — Apply the trained model to the full source for the selected scope and render outputs
 5. **Validate** — Compare against a MatchGrade baseline
 
@@ -132,9 +140,9 @@ Transfer spatial characteristics from better quality sources to degraded targets
 - **Combinations** (e.g., 35mm internegative + 16mm print = gauge + generation differences)
 
 **Process Overview:**
-1. **Curate dataset** — Select overlapping frame pairs from different containers (low‑quality target + higher‑quality spatial reference); hold out validation frames (for example, 3–4 per shot; ~16 per scene; 33+ per sequence)
+1. **Curate dataset** — Select overlapping frame pairs from different containers (low‑quality target + higher‑quality spatial reference) (for example, 3–4 per shot; ~16 per scene; 33+ per sequence)
 2. **Align sources** — Precisely match reference to source at pixel level; ensure identical picture area; crop borders, subtitles, and logos
-3. **`CopyCat` training** — Train a CNN to transfer spatial features (resolution, grain, sharpness); match color so only spatial features differ between source and reference
+3. **`CopyCat` training** — Train a CNN to transfer spatial features (resolution, grain, sharpness); match color so only spatial features differ between source and reference; monitor generalization using preview input during training
 4. **Infer and render** — Apply the trained model to the full source and render outputs
 5. **Validate** — Check spatial consistency (detail transfer, grain structure) across the target scope
 

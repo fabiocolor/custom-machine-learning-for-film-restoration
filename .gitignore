@@ -55,9 +55,9 @@ ffmpeg2pass-*.log*
 # Agent instruction files (not part of repo deliverables)
 .aiagents/
 .claude/
-/# Root-level agent docs (keep private)
-/AGENTS.md
-/CLAUDE.md
+
+# Archive directory (development notes, internal docs, presentations)
+/archive/
 
 # Local tools (vendored binaries)
 /.tools/

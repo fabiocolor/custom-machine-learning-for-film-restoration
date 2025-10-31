@@ -55,20 +55,20 @@ The ML-driven spatial information transfer workflow:
 ### 7. Side by Side Comparison
 Four-way comparison showing the recovery process:
 
-![Tinterillo 4 Way Comparison](../images/TINTERILLO%204%20WAY%20COMPARISON.png)
+![Tinterillo 4 Way Comparison](../images_kebab/tinterillo-4-way-comparison.png)
 
 Additional comparison views:
 
-![Tinterillo 4 Way Comparison 2](../images/TINTERILLO%204%20WAY%20COMPARISON%202.jpeg)
+![Tinterillo 4 Way Comparison 2](../images_kebab/tinterillo-4-way-comparison-2.jpeg)
 
-![Tinterillo 4 Way Comparison 3](../images/TINTERILLO%204%20WAY%20COMPARISON%203.jpeg)
+![Tinterillo 4 Way Comparison 3](../images_kebab/tinterillo-4-way-comparison-3.jpeg)
 
 ### 8. Spatial Recovery Results
 Before and after spatial recovery:
 
-![Tinterillo Spatial Recovery Comparison](../images/TINTERILLO%20SPATIAL%20RECOVERY%20COMPARISON.jpeg)
+![Tinterillo Spatial Recovery Comparison](../images_kebab/tinterillo-spatial-recovery-comparison.jpeg)
 
-![Tinterillo Spatial Recovery Comparison 2](../images/TINTERILLO%20SPATIAL%20RECOVERY%20COMPARISON%202.jpeg)
+![Tinterillo Spatial Recovery Comparison 2](../images_kebab/tinterillo-spatial-recovery-comparison-2.jpeg)
 
 ---
 

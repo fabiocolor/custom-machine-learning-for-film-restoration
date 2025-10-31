@@ -25,9 +25,9 @@ Chroma recovery for the Ben film project, demonstrating comprehensive color reco
 ### 1. Initial State (Source Material)
 The original scan showing faded chroma information:
 
-![Ben source frame](../images_kebab/ben_tlr_00103905.png)
-![Ben source frame](../images_kebab/ben_tlr_00103936.png)
-![Ben source frame](../images_kebab/ben_tlr_00103961.png)
+![Ben source frame](../images_kebab/ben-tlr-00103905.png)
+![Ben source frame](../images_kebab/ben-tlr-00103936.png)
+![Ben source frame](../images_kebab/ben-tlr-00103961.png)
 
 ### 2. Manual Reference Creation
 Creating custom color reference materials for training:
@@ -56,9 +56,9 @@ The ML-driven color reconstruction workflow:
 ### 6. Final Result
 Recovered chroma applied to the full sequence:
 
-![Ben result frame](../images_kebab/ben_tlr_00104608.png)
-![Ben result frame](../images_kebab/ben_tlr_00104625.png)
-![Ben result frame](../images_kebab/ben_tlr_00104648.png)
+![Ben result frame](../images_kebab/ben-tlr-00104608.png)
+![Ben result frame](../images_kebab/ben-tlr-00104625.png)
+![Ben result frame](../images_kebab/ben-tlr-00104648.png)
 
 ### 7. Side by Side Comparison
 Four-way comparison showing the recovery process:

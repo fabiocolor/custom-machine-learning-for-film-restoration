@@ -32,9 +32,9 @@ The original scan showing faded chroma information:
 ### 2. Training Dataset Selection
 Representative frames selected for the training dataset:
 
-![Friends Chroma Recovery Contact Sheet](../images/FRIENDS%20CHROMA%20RECOVERY%20CONTACT%20SHEET.jpeg)
+![Friends Chroma Recovery Contact Sheet](../images_kebab/friends-chroma-recovery-contact-sheet.jpeg)
 
-![Friends Chroma Recovery Contact Sheet 2](../images/FRIENDS%20CHROMA%20RECOVERY%20CONTACT%20SHEET%202.jpeg)
+![Friends Chroma Recovery Contact Sheet 2](../images_kebab/friends-chroma-recovery-contact-sheet-2.jpeg)
 
 ### 3. ML Training Process
 `CopyCat` training showing iterative improvement:
@@ -49,13 +49,13 @@ The ML-driven color reconstruction workflow:
 ### 5. Side by Side Comparison
 Four-way comparison showing the recovery process:
 
-![Friends Chroma Recovery Comparison](../images/FRIENDS%20CHROMA%20RECOVERY%20COMPARISON.png)
+![Friends Chroma Recovery Comparison](../images_kebab/friends-chroma-recovery-comparison.png)
 
 Additional comparison views:
 
-![Friends Chroma Recovery Comparison 3](../images/FRIENDS%20CHROMA%20RECOVERY%20COMPARISON%203.jpeg)
+![Friends Chroma Recovery Comparison 3](../images_kebab/friends-chroma-recovery-comparison-3.jpeg)
 
-![Friends Chroma Recovery Comparison 4](../images/FRIENDS%20CHROMA%20RECOVERY%20COMPARISON%204.jpeg)
+![Friends Chroma Recovery Comparison 4](../images_kebab/friends-chroma-recovery-comparison-4.jpeg)
 
 ---
 

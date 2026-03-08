@@ -3,7 +3,33 @@
 ![Chroma recovery overview](images_kebab/friends-chroma-recovery-comparison-3.jpeg)
 Figure 1 — Chroma recovery overview (Friends comparison).
 
-This guide shows how to use Nuke's `CopyCat` to train a small CNN that restores missing or faded color in chromogenic film affected by dye loss. The model learns from paired frames to rebuild chroma (Cb/Cr) while preserving luma and spatial detail—going beyond traditional grading, which can only adjust existing color.
+If you are landing here from the video, read [start-here.md](start-here.md) first. That page follows the video order and is the fastest way through the repo. This page is the detailed reference version of the workflow.
+
+This guide shows how to use Nuke's `CopyCat` to train a small CNN that restores missing or faded color in chromogenic film affected by dye loss. The model learns from paired frames to rebuild chroma (Cb/Cr) while preserving source luma and spatial detail.
+
+This page is also intended to function as a living research document. Over time it should accumulate targeted inline examples, before/after comparisons, and GIFs that clarify specific steps without forcing readers to jump out to separate case studies.
+
+## Plain-Language Goal
+
+The goal of this workflow is simple: recover believable color from a faded source by using a better reference, while keeping the original source detail as intact as possible.
+
+If you are not technically inclined, read this page as a careful recipe. You do not need to understand every internal detail on the first pass to follow the workflow.
+
+## What This Guide Assumes
+
+Before starting this workflow, you should already have:
+
+- A balanced or partially cleaned Source
+- A usable Reference with more trustworthy color than the Source
+- Matched exports prepared for Nuke
+
+If you do not have those yet, go back to [start-here.md](start-here.md).
+
+## Reading Advice
+
+- Read [start-here.md](start-here.md) first if this is your first time
+- Use this page when you need the detailed steps, settings, or reasoning
+- Use the glossary when a term feels unfamiliar instead of stopping entirely
 
 ## When to Use Color Recovery
 
@@ -31,11 +57,7 @@ Uses reference materials with accurate color information
 - Select best available color-accurate frames (DVD/telecine/prints)
 - Align to the faded source and use as ground truth for supervised training
 - Combine with constructed references where gaps remain
-
-**Examples:**
-- [Candy Candy Opening - 16mm](case-studies/candy-candy-opening.md) - DVD reference-based recovery
-- [Friends](case-studies/friends-chroma-recovery.md) - Telecine reference
-- [Frontier Experience](case-studies/frontier-experience-chroma-recovery.md) - Video transfer reference
+- Current examples are being consolidated into the latest video walkthrough and future inline GIFs instead of standalone case studies
 
 ### 2. Non-Reference Recovery
 Constructs color references from external sources when direct references are unavailable
@@ -44,16 +66,47 @@ Constructs color references from external sources when direct references are una
 - Research period-accurate palettes (paintings, archival photographs, documentation)
 - Synthesize plausible reference frames and align to the source
 - Train and iterate; document assumptions and sources
-
-**Examples:**
-- [Rebelión de Tapadas](case-studies/rebelion-de-tapadas-chroma-recovery.md) - Colonial-era paintings (Pancho Fierro, Johann Moritz Rugendas)
-- [Ben](case-studies/ben-chroma-recovery.md) - Manual reference creation
+- Current examples are being consolidated into the latest video walkthrough and future inline GIFs instead of standalone case studies
 
 ---
 
 ## Workflow Overview
 
 Color recovery uses supervised learning with CNNs, training on frame pairs from different containers of the same film (faded source and color reference or constructed reference). Use the container with superior color as ground truth and normalize non target channels so only color differs.
+
+## Recommended Example Placements
+
+If you are adding GIFs or before/after examples, these are the highest-value spots:
+
+1. Source balancing: raw faded source versus balanced source before training
+2. Reference quality: source versus reference, especially when the reference is lower quality but still carries better chroma
+3. Resolve prep: alignment and shared-container export before entering Nuke
+4. Alignment QC: `Merge (difference)` or wipe view showing good versus bad alignment
+5. YCbCr construction: Source luma, Reference chroma, and the combined Ground Truth
+6. Sequence-wide result: first broad inference over the full sequence
+7. Shot-level rescue: one difficult shot before and after a smaller dedicated retrain
+8. MatchGrade comparison: baseline grade versus ML reconstruction
+9. Failure examples: a short bad-result GIF with a note explaining why the model failed
+
+These examples should stay tightly attached to the relevant stages below rather than living on separate example pages.
+
+## How To Use Older Project Results
+
+Older project results are still valuable, but they should now be used as evidence for one specific point rather than as standalone case studies.
+
+Good uses:
+
+- `Candy Candy`: reference-quality caveats, especially when a PAL DVD is useful but not perfectly stable
+- `Friends` or `Frontier Experience`: straightforward reference-based chroma recovery examples
+- `Rebelion de Tapadas` or `Ben`: non-reference or manually constructed reference examples
+- `Mission Kill`: a boundary case that helps explain where chroma recovery and spatial recovery can overlap
+
+Editorial rule:
+
+- one example, one lesson
+- keep the GIF or before/after short
+- place it directly beside the part of the workflow it clarifies
+- avoid turning it back into a full case-study branch
 
 ---
 
@@ -63,6 +116,8 @@ The chroma recovery process follows five main stages, each building on the previ
 
 ![Node Graph Overview](images_kebab/node-graph-overview-cropped.png)
 Figure 2 — Complete node graph showing all workflow stages.
+
+> Suggested GIF: a short overview pass from faded source to recovered result, so readers understand the full goal before going into the detailed steps.
 
 ---
 
@@ -91,6 +146,8 @@ Compare against a baseline (e.g., MatchGrade) and verify color accuracy and grai
 ### Stage 0: Resolve Export + Nuke Project Setup
 
 **Objective:** Prepare matching sequences that constrain the task to chroma reconstruction.
+
+> Suggested GIF: raw faded source versus balanced source, followed by the source and reference aligned in the same Resolve container.
 
 **Rationale:**
 - Training pairs _should_ differ only in chroma; misalignment or inconsistent transforms introduce nuisance variables that slow or mislead learning.
@@ -145,6 +202,8 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 
 **Objective:** Curate paired frames that isolate chroma differences while holding luma and geometry constant.
 
+> Suggested GIF: a quick scroll through selected training pairs, showing what counts as a good teaching example versus a weak one.
+
 **Rationale:**
 - `CopyCat` _should_ learn a mapping where only chroma differs; mismatched framing or luma variability introduces spurious signals and slows/harms convergence.
 - Diversity across lighting, materials, and color families improves generalization; direct references yield the highest fidelity, while constructed references require explicit documentation of assumptions.
@@ -188,6 +247,8 @@ See Technical Considerations → ACES in Nuke (OCIO) for rationale and alternati
 ![Alignment process](images_kebab/alignment-cropped.png)
 Figure 3 — Alignment workflow showing F_Align and manual Transform paths.
 
+> Suggested GIF: Viewer wipe or `Merge (difference)` showing one well-aligned frame and one failed alignment, so readers can see why this step matters.
+
 **Rationale:**
 - Residual misalignment presents as false color shifts during training and inference; tight alignment directly improves fidelity and reduces training steps.
 
@@ -222,6 +283,8 @@ Figure 3 — Alignment workflow showing F_Align and manual Transform paths.
 ![CopyCat training setup](images_kebab/copycat-training-cropped.png)
 Figure 4 — CopyCat training workflow with YCbCr channel manipulation.
 
+> Suggested GIF: Source luma, Reference chroma, and the combined Ground Truth, shown as a short sequence that makes the YCbCr idea easier to grasp.
+
 **Rationale:**
 - Stability and fidelity improve when Input and Target share luma/structure; the network focuses on learning the chroma mapping only.
 
@@ -245,6 +308,8 @@ Figure 5 — Colorspace node converting Linear to YCbCr.
 
 ![Shuffle node settings](images_kebab/shuffle-node-settings-cropped.png)
 Figure 6 — Shuffle node for YCbCr channel manipulation (Source.Y + Reference.CbCr).
+
+> Suggested before/after: MatchGrade baseline versus the constructed Ground Truth versus final ML output on the same frame.
 
 5. Convert Ground Truth back to Working space: `Colorspace` (YCbCr → Working) on the Ground Truth.
 6. Clamp ranges on both Input and Ground Truth: add `Grade` to both Source (Input) and the Ground Truth; enable black/white clamp to keep values in [0–1].
@@ -281,6 +346,8 @@ Figure 7 — CopyCat node configuration for chroma recovery training.
 ### Stage 4: Inference & Render
 
 **Objective:** Apply the trained model to full sequences and render archival masters.
+
+> Suggested GIF: first sequence-wide inference result, shown next to the balanced source so readers can immediately see what the model changed.
 
 ![Inference render](images_kebab/inference-render-cropped.png)
 Figure 8 — Inference and render workflow applying trained model to full sequence.
@@ -323,6 +390,8 @@ Figure 8 — Inference and render workflow applying trained model to full sequen
 ### Stage 5: Validation
 
 **Objective:** Validate in Resolve by compositing/AB‑comparing Recovered vs Original; optionally generate a Nuke MatchGrade baseline to illustrate LUT limits.
+
+> Suggested GIF: one difficult shot before and after a smaller dedicated retrain, plus a short MatchGrade-versus-ML comparison on the same material.
 
 **Resolve Validation Steps:**
 - Import Original (Source) and Recovered (Inference output) into the same ACES‑managed Resolve project used for exports.

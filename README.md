@@ -1,269 +1,147 @@
-# Custom Machine Learning for Film Restoration in Nuke
+# Nuke Chroma Recovery Template
 
-A comprehensive workflow template for training custom machine learning models using Foundry Nuke's `CopyCat` node and convolutional neural networks (CNNs) for **both spatial recovery and color recovery** in film restoration. This approach addresses limitations of traditional spatial and temporal filters by training small, film‑specific models on data, helping preserve the unique analog characteristics of the original material.
+This repository is a companion to the chroma-recovery workflow shown in the YouTube video. It documents a practical way to recover color from faded film elements in NukeX with `CopyCat`, using a usable reference and a repeatable prep/training/inference pipeline.
 
-![Node Graph Overview](docs/images_kebab/node-graph-overview-cropped.png)
-Figure 1 — Node graph overview.
+It is not a one-click plugin. It is a documented workflow, with decisions, implementation notes, and a direct path through the process. Think of it as a living paper: a public working document for chroma-recovery experiments, examples, failures, refinements, and future directions.
 
----
+[![Watch the YouTube walkthrough](docs/images_kebab/video_previews/color-recovery-video-preview.gif)](https://youtu.be/kXerjFGX9Kg)
+Figure 1 — Click the preview GIF to watch the YouTube walkthrough.
 
-## Quick Start
+![Workflow overview](docs/images_kebab/full-overview-comparison.png)
+Figure 2 — Recovery workflow overview.
 
-1. **Color Recovery** → [docs/chroma-recovery.md](docs/chroma-recovery.md)
-2. **Spatial Recovery** → [docs/spatial-recovery.md](docs/spatial-recovery.md)
-3. **Case Studies** → [docs/case-studies.md](docs/case-studies.md)
-4. **Provenance & Metadata** → [docs/provenance-metadata.md](docs/provenance-metadata.md) *(work in progress)*
-5. **Glossary — Terms and definitions** → [docs/references/terms-and-definitions.md](docs/references/terms-and-definitions.md)
+## Start Here
 
----
+If you are coming from the video, follow these pages in order:
 
-## Overview
+1. [Start Here: Video Companion Workflow](docs/start-here.md)
+2. [Detailed Chroma Recovery Workflow](docs/chroma-recovery.md)
+3. [Watch the Latest Walkthrough](docs/watch-the-video.md)
 
-### Scope
+Secondary material:
 
-This repository covers end‑to‑end workflows, templates, and conventions for training and applying small, film‑specific ML models in Nuke `CopyCat` for chroma and spatial recovery—spanning dataset curation, alignment, training, inference, and validation with links to procedures and case studies—while also capturing research experiments and findings in reference‑based recovery, non‑reference chroma reconstruction, dataset design, and validation methods. It does not prescribe conformance requirements or provide general‑purpose colorization workflows, and it excludes licensed media and learned weights.
+- [Spatial Recovery Workflow](docs/spatial-recovery.md) — experimental research, not yet presented as a finished restoration workflow
+- [Provenance and Metadata](docs/provenance-metadata.md) — work in progress
+- [Glossary](docs/references/terms-and-definitions.md)
 
-### The Foundry NukeX
+## Who This Is For
 
-NukeX is the advanced edition of Foundry’s Nuke, an industry‑standard, node‑based compositing application used in VFX and finishing. It includes integrated machine‑learning nodes (`CopyCat` and `Inference`) alongside mature color management, robust image I/O, and GPU acceleration. In this template, NukeX serves as a single, versioned environment for dataset curation, alignment, supervised training, inference, and deterministic rendering—so the entire process stays visible and reproducible inside one graph.
+- Archivists, preservation teams, and restoration practitioners who want to test chroma recovery on their own material
+- People who are comfortable following a workflow, even if they are not deeply technical
+- Researchers who want to track the current state of the method and its future direction
 
-### What This Template Provides
+You do not need to be a machine-learning specialist to understand the workflow. The main requirement is careful preparation, patience, and a willingness to compare results critically.
 
-Custom machine learning-based film restoration using supervised learning with convolutional neural networks (CNNs), addressing two fundamental types of film damage:
+## What This Repo Covers
 
-![Recovery comparison example](docs/images_kebab/mission-kill-3-way-comparison-3.jpeg)
-Figure 2 — Example recovery results: spatial and color restoration.
+- Recovering faded or missing chroma from damaged film elements
+- Using a direct reference such as telecine, tape, DVD, or another film element
+- Building training pairs in Nuke by combining Source luma with Reference chroma
+- Training sequence-level models first, then fixing weak shots separately when needed
+- Comparing ML output against simpler baselines such as `MatchGrade`
 
-**Color Recovery**
-- Restores missing or faded **color information** in chromogenic film stocks affected by dye degradation
-- **Reference-based**: Trains models using DVDs, telecines, or other color-accurate sources
-- **Non-reference**: Infers color from paintings, photographs, or manually created references
-- Addresses **inter-frame damage**: Color fading across sequences
+## Current Focus
 
-**Spatial Recovery**
-- Restores **spatial features** (resolution, sharpness, grain structure) lost to damage or generational degradation
-- **Reference-based**: Transfers spatial characteristics from actual film sources (different gauges, generations, preservation elements like telecines/safety copies)
-- Real-world projects often combine multiple source differences (e.g., 16mm print + 35mm internegative)
-- Addresses **intra-frame damage**: Detail loss, degradation affecting individual frames
-- **Note**: Non-reference spatial recovery (using commercial/open-source models) is outside the scope of this repository
+- Active track: chroma recovery with Nuke `CopyCat`
+- Presentation style: a living document with focused inline examples, GIFs, and before/after comparisons
+- Near-term future: LoRA-based color recovery experiments
+- On hold: spatial recovery as a finished workflow; it remains in the repo as research context only
 
-### Why Custom ML for Film Restoration?
+## What You Need
 
-Custom ML complements traditional film restoration methods, addressing challenges previously deemed impossible or prohibitively costly:
+- Foundry NukeX with `CopyCat` and `Inference`
+- A faded or damaged source scan
+- A usable reference with better color information
+- Enough prep discipline to balance, clean, align, and export matched sequences before training
 
-**What traditional methods cannot do:**
-- **Spatial and temporal filters**: operate only on damaged source material itself; cannot use external references or distant shots
-  - Limited to local neighborhoods and short temporal windows; reset at cuts; no scene memory
-  - Cannot ingest higher quality sources as guidance during filtering
-  - Sharpen/denoise can amplify artifacts in degraded scans
-- **Traditional color correction** (LUTs, channel balancing): remaps existing channels but cannot reconstruct missing color information
-  - Faded dye layers remove signal that grading cannot restore
-  - Cross channel contamination and nonlinear fading break simple channel adjustments
-  - Global grades are context agnostic; they cannot learn from external references
-  - Manual painting is theoretically possible frame by frame but impractical at scale
+## What You Do Not Need
 
-**New value of multiple film elements:**
-Custom ML gives new purpose to multiple copies or elements of the same film. Different prints, generations, or gauges can each contribute unique information to training, improving model accuracy and making previously "redundant" archive materials valuable for restoration.
+- You do not need to write code
+- You do not need to train large foundation models
+- You do not need to understand every mathematical detail before trying the workflow
+- You do need to keep good notes and judge results carefully
 
-**The role of larger models (open-source, commercial):**
-Advancements in open weights, Low‑Rank Adaptation (LoRA) adapters, and fine‑tuning capabilities are expanding possibilities for scenarios with limited or no reference material. These larger models may complement custom training approaches, but archival film restoration demands careful, deliberate application to preserve historical authenticity rather than pursuing technical capability alone.
+## The Workflow in One Pass
 
+1. Balance or lightly clean the source so the model is not learning severe flicker, dirt, or channel instability.
+2. Find the best available reference. Older video transfers, telecines, DVDs, or other film elements can still be useful if they preserve the original color state better than the damaged scan.
+3. In Resolve, align source and reference, place both in the same container, and export matched EXR sequences.
+4. In Nuke, curate the training dataset, align the reference more precisely, and crop both branches identically.
+5. Convert both branches to YCbCr, keep Source luma, replace chroma with Reference Cb/Cr, and use that result as the `CopyCat` target.
+6. Train a broad sequence-level model first. If certain shots fail, build a smaller shot-level training set and retrain only for those problem shots.
+7. Run inference on the full source, composite the recovered color back over the balanced source, and compare against a simpler baseline.
 
+If that feels too dense, use [docs/start-here.md](docs/start-here.md). It explains the same process in a more practical and less technical way.
 
----
+## Recommended Reading Path
 
-## Practical Workflow Considerations
+### 1. Start with chroma, not spatial
 
-**Granularity principle for chroma/spatial recovery.** Train and infer at the broadest scope that remains compositionally consistent. Correlative shots within a sequence or scene can share a model if framing, lighting, motion, and subject distribution are stable. When visual characteristics or reference quality diverge, compartmentalize and work at a finer granularity (down to shot by shot), mirroring modern generative AI VFX practices.
+The new video and the strongest material in this repo are about chroma recovery. Spatial recovery is still included, but the README now treats it as secondary so new users can get to a working result faster.
 
-**When to pick sequence, scene, or shot:**
-- **Sequence‑level processing** — Correlative shots with similar composition and stable lighting and camera; consistent reference quality
-- **Scene‑level grouping** — Same scene with moderate shifts in composition, lens, grade, or damage; break at scene boundaries
-- **Shot‑by‑shot processing** — Major composition changes, new subjects or angles, fast cuts, heavy damage, or weak/uneven reference
-- **Rule of thumb** — If composition or reference quality changes, step down in granularity
+### 2. Use the video companion guide first
 
-See [case studies](docs/case-studies.md) for experimental examples demonstrating these approaches.
+[docs/start-here.md](docs/start-here.md) is the shortest path through the repo. It mirrors the video structure and calls out the practical decisions that matter most.
 
-### Process Overview
-1. **Curate dataset** — Select representative frame pairs from different containers; choose the best container per target dimension (for example, 3–4 per shot; ~16 per scene; 33+ per sequence)
-2. **Align sources** — Register reference to source at pixel level; ensure identical picture area; crop or mask overlays; match resolution and frame rate
-3. **Train model** — Use `CopyCat` supervised learning; isolate the target dimension (color vs spatial); monitor generalization using preview input during training
-4. **Infer and render** — Apply the trained model to the full source and render outputs
+### 3. Use the detailed workflow as reference
 
-Optional steps:
-- **Chroma**: MatchGrade baseline render for comparison and QC
-- **Spatial**: Luma matching pass for integration when needed
+[docs/chroma-recovery.md](docs/chroma-recovery.md) is the full procedural guide once you are ready to build or troubleshoot a real project.
 
----
+## Examples and Results
 
-## Terminology & Conventions
+The old case-study pages have been removed because they were drifting away from the current workflow and creating confusion.
 
-See Terms and definitions (Glossary): [docs/references/terms-and-definitions.md](docs/references/terms-and-definitions.md)
+For current examples:
 
-- Node names appear as code (e.g., `F_Align`, `PostageStamp`, `Shuffle`).
-- Core concepts are capitalized for clarity: Source, Reference, Ground Truth (Target), Input, Target, Working Space.
-- Channel notation: YCbCr where Y = luma, Cb/Cr = chroma.
-- We spell out "Ground Truth" (no GT abbreviation) to keep the guide readable.
+- Use the new video as the main walkthrough: [docs/watch-the-video.md](docs/watch-the-video.md)
+- Expect short inline GIFs to be added to the workflow docs instead of standalone example pages
+- Treat spatial-recovery examples as experiments until that workflow is revised further
+- Reuse older project results only when they clarify one specific point in the workflow, not as separate mini-destinations
 
----
+## Future Direction
 
-## Recovery Procedures
+- Short-term: tighten the reference-based chroma workflow and make the documentation easier to follow
+- Mid-term: add selective GIF examples directly beside the steps they clarify
+- Research track: document LoRA-based color recovery as a separate future direction, with clear notes on where it overlaps with or diverges from the current `CopyCat` workflow
+- Spatial track: keep it visible, but clearly marked as experimental until it is stable enough to present as a full workflow
 
-### Color Recovery Workflow
+## Current Scope
 
-**When to use:** Chromogenic film stocks with dye fading, color negatives with degraded color layers, films requiring historical color reconstruction
-
-Note: Colorization is outside this repository's scope. Early `CopyCat` colorization experiments suggested that if a model can synthesize color from grayscale, recovering faded color using references is even more tractable.
-
-**Approach:**
-- **Reference‑based recovery** — Uses DVDs, telecines, or other color‑accurate sources to train supervised models
-- **Non‑reference recovery** — Infers color from paintings, period photographs, or manually created references when no direct reference exists
-
-**Process Overview:**
-1. **Curate dataset** — Select representative source+reference frame pairs (for example, 3–4 per shot; ~16 per scene; 33+ per sequence)
-2. **Align sources** — Precisely match reference to source at pixel level
-3. **`CopyCat` training** — Train a CNN with supervised learning to reconstruct chroma while preserving original spatial information; monitor generalization using preview input during training
-4. **Infer and render** — Apply the trained model to the full source for the selected scope and render outputs
-5. **Validate** — Compare against a MatchGrade baseline
-
-**Detailed Guide:** → [docs/chroma-recovery.md](docs/chroma-recovery.md)
-
-**Example Results:**
-
-[![Candy Candy](docs/images_kebab/candy-candy-4-way-comparison-2.jpeg)](docs/case-studies/candy-candy-opening.md)
-[![Friends](docs/images_kebab/friends-chroma-recovery-comparison-3.jpeg)](docs/case-studies/friends-chroma-recovery.md)
-[![Rebelión de Tapadas](docs/images_kebab/rebelion-de-las-tapadas-3-way-comparison-4.jpeg)](docs/case-studies/rebelion-de-tapadas-chroma-recovery.md)
-
-### Spatial Recovery Workflow
-
-**When to use:** Films with generational loss, multiple sources of same content, gauge related quality differences, damage requiring detail reconstruction
-
-**Core Approach:**
-Transfer spatial characteristics from better quality sources to degraded targets using supervised learning with CNNs.
-
-**Common Source Scenarios:**
-- Multiple film gauges (16mm vs 35mm)
-- Different generations (print, internegative, duplicate)
-- Early preservation elements (telecines, safety copies made closer to original)
-- Multiple prints/scans of varying quality
-- **Combinations** (e.g., 35mm internegative + 16mm print = gauge + generation differences)
-
-**Process Overview:**
-1. **Curate dataset** — Select overlapping frame pairs from different containers (low‑quality target + higher‑quality spatial reference) (for example, 3–4 per shot; ~16 per scene; 33+ per sequence)
-2. **Align sources** — Precisely match reference to source at pixel level; ensure identical picture area; crop borders, subtitles, and logos
-3. **`CopyCat` training** — Train a CNN to transfer spatial features (resolution, grain, sharpness); match color so only spatial features differ between source and reference; monitor generalization using preview input during training
-4. **Infer and render** — Apply the trained model to the full source and render outputs
-5. **Validate** — Check spatial consistency (detail transfer, grain structure) across the target scope
-
-**Detailed Guide:** → [docs/spatial-recovery.md](docs/spatial-recovery.md)
-
-**Example Results:**
-
-[![Mission Kill](docs/images_kebab/mission-kill-spatial-recovery-comparison.jpeg)](docs/case-studies/missionkill-combined-recovery.md)
-[![El Tinterillo](docs/images_kebab/tinterillo-4-way-comparison-2.jpeg)](docs/case-studies/tinterillo-spatial-recovery.md)
-[![Knights of the Trail](docs/images_kebab/knight-of-a-trail-4-way-comparison.jpeg)](docs/case-studies/knights-trail-spatial-recovery.md)
-
----
-
-## Case Studies
-
-### Color Recovery Examples
-- **[Candy Candy Opening - 16mm](docs/case-studies/candy-candy-opening.md)** - Reference-based recovery using DVD source
-- **[Friends](docs/case-studies/friends-chroma-recovery.md)** - Reference-based color reconstruction
-- **[Rebelión de Tapadas](docs/case-studies/rebelion-de-tapadas-chroma-recovery.md)** - Non-reference recovery using historical paintings
-- **[Ben](docs/case-studies/ben-chroma-recovery.md)** - Manual reference creation approach
-- **[Muralla Verde](docs/case-studies/muralla-verde-chroma-recovery.md)** - Trailer restoration
-- **[Frontier Experience](docs/case-studies/frontier-experience-chroma-recovery.md)** - Telecine reference-based recovery
-
-### Spatial Recovery Examples
-- **[Mission Kill](docs/case-studies/missionkill-combined-recovery.md)** - 35mm internegative + 16mm print (gauge + generation + color recovery)
-- **[El Tinterillo](docs/case-studies/tinterillo-spatial-recovery.md)** - Early telecine preservation element (two-step approach)
-- **[Knights of the Trail](docs/case-studies/knights-trail-spatial-recovery.md)** - Multiple nitrate print sources with varying quality
-
-**All Case Studies:** → [docs/case-studies.md](docs/case-studies.md)
-
----
+- Included: documentation, process breakdowns, images, and workflow notes
+- Not included: licensed media, trained weights, and a one-size-fits-all restoration preset
+- Included templates:
+  - Nuke Indie: `templates/COLOR_RECOVERY_TEMPLATE_INDIE.nkind`
+  - Nuke Non-Commercial: `templates/COLOR_RECOVERY_TEMPLATE.nknc`
 
 ## Repository Structure
 
-```
+```text
 nuke-chroma-recovery-template/
-├── README.md                              # This file - project overview
-├── CHANGELOG.md                           # Version history and updates
+├── README.md
+├── CHANGELOG.md
+├── templates/
+│   ├── COLOR_RECOVERY_TEMPLATE.nknc
+│   └── COLOR_RECOVERY_TEMPLATE_INDIE.nkind
 └── docs/
-    ├── chroma-recovery.md                 # Color recovery workflow
-    ├── spatial-recovery.md                # Spatial recovery workflow
-    ├── case-studies.md                    # Case studies index
-    ├── provenance-metadata.md             # Metadata guide (work in progress)
-    ├── case-studies/                      # Individual case studies
-    │   ├── candy-candy-opening.md
-    │   ├── friends-chroma-recovery.md
-    │   ├── frontier-experience-chroma-recovery.md
-    │   ├── muralla-verde-chroma-recovery.md
-    │   ├── rebelion-de-tapadas-chroma-recovery.md
-    │   ├── ben-chroma-recovery.md
-    │   ├── missionkill-combined-recovery.md
-    │   ├── knights-trail-spatial-recovery.md
-    │   └── tinterillo-spatial-recovery.md
+    ├── start-here.md
+    ├── chroma-recovery.md
+    ├── spatial-recovery.md
+    ├── watch-the-video.md
+    ├── provenance-metadata.md
     ├── references/
-    │   └── terms-and-definitions.md       # Glossary
-    └── images_kebab/                      # Workflow images and assets
+    └── images_kebab/
 ```
 
----
+## Suggested Next Improvements
 
- 
+These are the most useful follow-up changes if you want the repo to match the video even more closely:
 
-## Getting Started
-
-### Prerequisites
-- Foundry NukeX (Non‑Commercial or commercial) with `CopyCat` node
-- Source film material (scanned)
-- Reference material (same film or compatible)
-- Basic understanding of ML concepts (helpful but not required)
-
-### First Project
-1. Choose your recovery type: **Chroma** (color) or **Spatial** (resolution, grain, detail)
-2. Read the appropriate workflow guide
-3. Review relevant case studies
-4. Follow the stepwise procedure in the selected workflow guide
-5. Start with dataset curation
-
-### For Different Film Types
-
-Examples are summarized in Table 1.
-
-Table 1 — Recovery selection examples.
-
-| Film Type | Recommended Recovery | Examples |
-|-----------|---------------------|----------|
-| Color‑faded prints | Chroma Recovery | Candy Candy, Friends |
-| Multiple sources available | Spatial Recovery | Knights of the Trail, El Tinterillo |
-| Complex degradation | Combined Recovery | Mission Kill |
-| Historical material | Chroma Recovery (careful) | Rebelión de Tapadas |
-
----
-
- 
-
-## Contributing
-
-Contributions are welcome:
-- **Case studies** — representative projects with documentation
-- **Workflow improvements** — optimized techniques
-- **Documentation** — guide and example enhancements
-- **Tools** — utility scripts and templates
-
----
+- Add a commercial `.nk` variant if you want to support the full commercial Nuke line in addition to Indie and Non-Commercial
+- Add one minimal sample project tree showing expected input/output folders
+- Add a small set of optimized GIFs to the workflow docs instead of rebuilding case-study pages
+- Add a short future-work section for LoRA-based chroma recovery once results are stable
+- Add one troubleshooting page for alignment failures, bad references, and training instability
 
 ## License
 
 This workflow template is provided for educational and research purposes in film preservation and restoration.
-
----
-
-## Questions & Support
-
-- **Technical Details:** See annexes in chroma/spatial docs
-- **Quick Reference:** See annexes in chroma/spatial docs
-- **Real Examples:** Browse [case studies](docs/case-studies.md)

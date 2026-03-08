@@ -3,6 +3,12 @@
 ![Spatial recovery overview](images_kebab/mission-kill-spatial-recovery-comparison.jpeg)
 Figure 1 — Spatial recovery overview (Mission Kill comparison).
 
+Status: experimental. This part of the repository is still under development and is not presented as a finished archival-ready workflow. Keep it as research context, not as the primary recommended path.
+
+This page should also be treated as a holding area for future research notes. If examples are added here, they should be short inline GIFs or before/after comparisons with explicit notes about what worked, what failed, and what still needs improvement.
+
+Older results that involved spatial work can still be reused here, but only to support a narrow technical point. For example, a `Mission Kill` excerpt could help explain the overlap between chroma and spatial recovery without turning this page back into a project archive.
+
 A comprehensive guide for using CopyCat in Nuke with convolutional neural networks (CNNs) to recover **spatial features** (resolution, sharpness, grain structure, detail) lost to damage or generational degradation. This workflow employs supervised learning to train custom models that transfer spatial characteristics between different sources of the same content, overcoming the limitations of traditional spatial filters that cannot "learn" from external references.
 
 ## Reference-Based Spatial Recovery
@@ -38,10 +44,10 @@ Like color recovery has non-reference approaches (paintings, manual references),
 - Cannot "learn" spatial features from external references
 - ML models overcome this by training on supervised pairs from different sources, applying that knowledge across entire films
 
-**Real-world examples:**
-- [Knights of the Trail](case-studies/knights-trail-spatial-recovery.md) - Multiple nitrate print sources
-- [El Tinterillo](case-studies/tinterillo-spatial-recovery.md) - Early telecine preservation element (two-step approach)
-- [Mission Kill](case-studies/missionkill-combined-recovery.md) - 35mm internegative + 16mm print (gauge + generation + color recovery)
+**Examples and demonstrations:**
+- Spatial recovery examples are being moved away from standalone case studies
+- Future updates should use short inline GIFs that show what each experiment achieved
+- Until then, treat this document as experimental process notes rather than a finished public workflow
 
 ---
 
@@ -57,6 +63,8 @@ The spatial recovery process follows five main stages, with YCbCr channel manipu
 
 ![Node Graph Overview](images_kebab/node-graph-overview-cropped.png)
 Figure 2 — Complete node graph showing all workflow stages.
+
+> Suggested GIF: a very short experimental before/after, clearly labeled as research output rather than a finished restoration example.
 
 ---
 
@@ -85,6 +93,8 @@ Compare against the original source and verify spatial improvement and grain pre
 ### Stage 0: Resolve Export + Nuke Project Setup
 
 **Objective:** Prepare matching sequences that constrain the task to spatial reconstruction.
+
+> Suggested GIF: one experimental comparison showing why spatial alignment and source matching are even more critical here than in chroma recovery.
 
 **Rationale:**
 - Training pairs _should_ differ only in spatial characteristics; misalignment or inconsistent transforms introduce nuisance variables that slow or mislead learning.

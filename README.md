@@ -4,7 +4,7 @@ This repository documents a reference-based restoration workflow in NukeX using 
 
 It is not a one-click plugin. It is a repeatable workflow for archives, preservation teams, and restoration practitioners who want to train small models against a real source/reference pair and validate the result critically.
 
-[![Watch the YouTube walkthrough](docs/images_kebab/video_previews/color-recovery-video-preview-palette.png)](https://youtu.be/kXerjFGX9Kg)
+[![Watch the YouTube walkthrough](docs/images_kebab/video_previews/color-recovery-video-preview.gif)](https://youtu.be/kXerjFGX9Kg)
 Figure 1 - Click the preview image to watch the YouTube walkthrough.
 
 ![Workflow overview](docs/images_kebab/full-overview-comparison.png)

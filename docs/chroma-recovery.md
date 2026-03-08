@@ -3,6 +3,8 @@
 ![Chroma recovery overview](images_kebab/friends-chroma-recovery-comparison-3.jpeg)
 Figure 1 — Chroma recovery overview (Friends comparison).
 
+If you want the single operational checklist that also explains where chroma and spatial recovery diverge, read [one-step-guide.md](one-step-guide.md) first.
+
 If you are landing here from the video, read [start-here.md](start-here.md) first. That page follows the video order and is the fastest way through the repo. This page is the detailed reference version of the workflow.
 
 This guide shows how to use Nuke's `CopyCat` to train a small CNN that restores missing or faded color in chromogenic film affected by dye loss. The model learns from paired frames to rebuild chroma (Cb/Cr) while preserving source luma and spatial detail.

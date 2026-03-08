@@ -3,6 +3,8 @@
 ![Spatial recovery overview](images_kebab/mission-kill-spatial-recovery-comparison.jpeg)
 Figure 1 — Spatial recovery overview (Mission Kill comparison).
 
+If you want the single operational checklist that also shows how spatial recovery differs from chroma recovery, read [one-step-guide.md](one-step-guide.md) first.
+
 Status: experimental. This part of the repository is still under development and is not presented as a finished archival-ready workflow. Keep it as research context, not as the primary recommended path.
 
 This page should also be treated as a holding area for future research notes. If examples are added here, they should be short inline GIFs or before/after comparisons with explicit notes about what worked, what failed, and what still needs improvement.

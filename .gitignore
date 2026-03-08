@@ -68,4 +68,4 @@ ffmpeg2pass-*.log*
 # Generated manifests/reports (contain private filenames)
 /docs/*images*-manifest.yaml
 /docs/*images*-rename-plan.csv
-/docs/images-rename-report.md
+/docs/*images*-rename-report.md

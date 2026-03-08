@@ -1,24 +1,22 @@
 # Nuke Chroma Recovery Template
 
-This repository documents a reference-based restoration workflow in NukeX using `CopyCat` and `Inference`. It now centers on a single operational path for both chroma recovery and spatial recovery, with separate detailed pages for each branch when you need more depth.
+This repository documents a reference-based restoration workflow in NukeX using `CopyCat` and `Inference`. It is organized as one shared workflow for both chroma recovery and spatial recovery until the target-build stage, then two detailed branch guides.
 
 It is not a one-click plugin. It is a repeatable workflow for archives, preservation teams, and restoration practitioners who want to train small models against a real source/reference pair and validate the result critically.
 
 [![Watch the YouTube walkthrough](docs/images_kebab/video_previews/color-recovery-video-preview.gif)](https://youtu.be/kXerjFGX9Kg)
 Figure 1 - Click the preview image to watch the YouTube walkthrough.
 
-![Workflow overview](docs/images_kebab/full-overview-comparison.png)
+![Workflow overview](docs/images_kebab/node-graph-overview-cropped.png)
 Figure 2 - Recovery workflow overview.
 
 ## Read This First
 
-If you want one page to follow from start to finish, use these in order:
+Use these in order:
 
-1. [One-Step Reference Recovery Guide](docs/one-step-guide.md)
-2. [Start Here: Video Companion Workflow](docs/start-here.md)
-3. [Detailed Chroma Recovery Workflow](docs/chroma-recovery.md)
-4. [Detailed Spatial Recovery Workflow](docs/spatial-recovery.md)
-5. [Watch the Latest Walkthrough](docs/watch-the-video.md)
+1. [Start Here: Shared Reference Workflow](docs/start-here.md)
+2. [Detailed Chroma Recovery Workflow](docs/chroma-recovery.md)
+3. [Detailed Spatial Recovery Workflow](docs/spatial-recovery.md)
 
 Supporting material:
 
@@ -54,20 +52,19 @@ Practical guidance:
 - Resolve or another prep stage that can align both elements into the same container before Nuke
 - Enough discipline to keep notes on references, frame picks, checkpoints, and validation decisions
 
-## The Workflow in One Pass
+## Technical Overview
 
 1. Stabilize and technically balance the source so the model does not learn flicker, dirt, or severe channel instability.
-2. Choose the best available reference and decide whether the task is chroma or spatial recovery.
-3. In Resolve, align source and reference, keep both in the same output container, and export matched image sequences.
-4. In Nuke, open the template, verify project and `Read` node settings, and curate a training dataset.
-5. Align the reference precisely, compare with `Merge (difference)`, and apply a shared crop to remove borders, subtitles, and empty container space.
-6. Build the target in YCbCr:
+2. Choose the best available reference and prepare both elements in the same Resolve container.
+3. Export matched image sequences, open the Nuke template, curate representative frame pairs, and align the reference precisely.
+4. Apply a shared crop so both branches operate on the same live picture area.
+5. Build the target in YCbCr and branch:
    - Chroma recovery: keep Source `Y`, replace `Cb/Cr` with Reference chroma.
    - Spatial recovery: keep Source `Cb/Cr`, replace `Y` with Reference luma.
-7. Train a sequence-level model first, then split to smaller shot-level models only where the wide pass fails.
-8. Run inference on the full source, render EXR outputs, compare against a simpler baseline, and document what worked and what did not.
+6. Train a sequence-level model first, then split to smaller shot-level models only where the wide pass fails.
+7. Run inference on the full source, render EXR outputs, compare against a simpler baseline, and document what worked and what did not.
 
-If you want the step-by-step version of that list, use [docs/one-step-guide.md](docs/one-step-guide.md).
+If you want the step-by-step shared guide, use [docs/start-here.md](docs/start-here.md).
 
 ## Templates Included
 
@@ -86,11 +83,9 @@ nuke-chroma-recovery-template/
 │   ├── COLOR_RECOVERY_TEMPLATE.nknc
 │   └── COLOR_RECOVERY_TEMPLATE_INDIE.nkind
 └── docs/
-    ├── one-step-guide.md
     ├── start-here.md
     ├── chroma-recovery.md
     ├── spatial-recovery.md
-    ├── watch-the-video.md
     ├── provenance-metadata.md
     ├── references/
     └── images_kebab/

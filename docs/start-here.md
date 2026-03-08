@@ -1,52 +1,46 @@
-# Start Here: Video Companion Workflow
+# Start Here: Shared Reference Workflow
 
-If you are arriving from the video and want one page to follow end to end, start with [one-step-guide.md](one-step-guide.md). This page is the shorter, plain-language version of the same workflow.
+This is the shared operational guide for the repository. Follow this page until the branch decision, then continue in the detailed guide for either chroma recovery or spatial recovery.
 
 ![Workflow overview](images_kebab/full-overview-comparison.png)
 Figure 1 - End-to-end overview of the recovery workflow.
 
-## What This Workflow Is
+## How To Use This Repo
 
-This repository is for reference-based recovery in Nuke:
+- [README.md](../README.md) is the project overview.
+- This page covers the shared workflow up to the branch point.
+- [chroma-recovery.md](chroma-recovery.md) is the detailed chroma branch.
+- [spatial-recovery.md](spatial-recovery.md) is the detailed spatial branch.
 
-- Chroma recovery when the source still has usable detail but the color has faded or collapsed
-- Spatial recovery when another source preserves better detail, sharpness, or grain structure
+If you are new to the repo, read this page first, then jump to the branch that matches the actual problem you are trying to solve.
 
-If you are new to the repo, start with chroma. It is the more mature path here.
+## What Stays Shared
 
-## The Core Idea
+Both recovery modes share the same setup until the target-build stage:
 
-The workflow is simple in principle:
+- stabilize the source
+- choose the strongest usable reference
+- export both elements in the same container
+- curate representative frame pairs
+- align precisely and define a shared crop
+- train a sequence-level model before splitting into shot fixes
 
-1. Prepare a stable source.
-2. Secure the best available reference.
-3. Align both in Resolve and Nuke.
-4. Build a training target that isolates the problem you want to solve.
-5. Train `CopyCat`, run inference, and validate the result against the original source and a simpler baseline.
-
-The entire repo is an expansion of those five ideas.
-
-## Before You Open Nuke
-
-You need:
-
-- A technically balanced or partially cleaned source
-- A trustworthy reference
-- Matching exports prepared before training
-
-What matters most is not whether the reference is sharp or modern. What matters most is whether it preserves better color or better spatial information than the damaged source.
-
-![Raw source before balancing](images_kebab/muralla-verde-raw-scan-unbalanced.png)
+![Raw source before balancing](images_kebab/muralla-verde-scan-27-35-preview.gif)
 Figure 2 - Example of a source that should be technically balanced before training.
 
-![Balanced source for training](images_kebab/muralla-verde-balanced.png)
+![Balanced source for training](images_kebab/muralla-verde-source-27-35-preview.gif)
 Figure 3 - Balanced source plate used as a cleaner input to the workflow.
 
-## The Quick Path
+## 1. Prep Source And Reference Before Nuke
 
-### 1. Prep Both Sources in Resolve
+What matters most is not whether the reference is newer, sharper, or higher resolution. What matters most is whether it preserves better information for the problem you are solving.
 
-Put source and reference in the same timeline, align them temporally first, then spatially, and export both inside the same container.
+Prepare both elements before training:
+
+- technically balance the source
+- remove severe flicker, dirt, or instability that would poison training
+- clean the reference only enough to remove transfer artifacts that would mislead the model
+- keep geometry, framing, and timing consistent between both exports
 
 Rules:
 
@@ -57,9 +51,18 @@ Rules:
 ![Resolve reference prep](images_kebab/muralla-verde-reference-pre-alignment-timeline-resolve-cropped.png)
 Figure 4 - Source and reference placed in the same Resolve container before Nuke.
 
-### 2. Open the Template and Curate a Small Dataset
+## 2. Build A Clean Teaching Set In Nuke
 
 Start with the template that matches your Nuke edition. Build a small teaching set from representative frames rather than throwing the whole sequence into training.
+
+At this stage, both branches are still the same:
+
+- verify project and `Read` node settings
+- curate representative frames across the sequence
+- align the reference with `F_Align` first
+- check it with `Merge (difference)`
+- fall back to a keyed `Transform` when auto-alignment fails
+- define a shared crop that removes borders, subtitles, and empty container space
 
 Good pairs are:
 
@@ -70,24 +73,20 @@ Good pairs are:
 ![Dataset curation](images_kebab/dataset-curation-cropped.png)
 Figure 5 - Building paired training examples in Nuke.
 
-### 3. Align and Crop Properly
-
-Try `F_Align` first. Check it with `Merge (difference)`. If it fails, switch to a keyed `Transform`. Once alignment is acceptable, crop out borders, subtitles, and empty container space, then link that crop so both branches always match.
-
 ![Alignment workflow](images_kebab/alignment-cropped.png)
 Figure 6 - Auto and manual alignment paths inside the template.
 
 ![Crop node settings](images_kebab/crop-node-settings-cropped.png)
 Figure 7 - Shared crop used to keep both branches in the same live picture area.
 
-### 4. Build the Right Target
+## 3. Branch At The Target Build
 
-This is the decision point that matters most:
+This is where the workflow diverges:
 
 - Chroma recovery target: Source `Y` + Reference `Cb/Cr`
 - Spatial recovery target: Reference `Y` + Source `Cb/Cr`
 
-That is why the same template can support both branches. The main difference is which channels you borrow from the reference.
+That is why the same template supports both branches. The layout is shared. The branch decision is which channels belong in the ground-truth target.
 
 ![Colorspace node settings](images_kebab/colorspace-node-linear-to-ycbcr-settings-cropped.png)
 Figure 8 - Convert both branches to YCbCr before channel recombination.
@@ -95,44 +94,15 @@ Figure 8 - Convert both branches to YCbCr before channel recombination.
 ![Shuffle node settings](images_kebab/shuffle-node-settings-cropped.png)
 Figure 9 - `Shuffle` node used to build the ground-truth target.
 
-### 5. Train the First Model
+## Shared Rules After The Branch
 
-A solid starting point:
+- Do not combine chroma and spatial recovery in the same target build.
+- If you need both, validate one pass before attempting the second.
+- Train sequence-level first, then split to smaller shot-level retrains only where needed.
+- Run inference on the full source, not just the training subset.
+- Compare against a simpler baseline such as `MatchGrade` so you can prove the model is doing something specific.
 
-- Model: `Medium`
-- Patch size: `512`
-- Batch size: `3`
-- Checkpoints: every `10000` steps
-- Preview input: one held-out frame that is not in the training set
-
-Start broad with a sequence-level model. If only a few shots fail, split those into smaller shot-level retrains.
-
-![CopyCat training setup](images_kebab/copycat-training-cropped.png)
-Figure 10 - Training layout used for `CopyCat`.
-
-![CopyCat settings](images_kebab/copycat-settings-cropped.png)
-Figure 11 - Starting `CopyCat` settings for the first training pass.
-
-### 6. Run Inference on the Full Source
-
-Inference should run on the full source sequence, not just the reduced training set. Keep preprocessing consistent with what the model saw during training.
-
-![Inference render workflow](images_kebab/inference-render-cropped.png)
-Figure 12 - Inference and render stage after model training.
-
-### 7. Compare Against a Simpler Baseline
-
-Use a quick `MatchGrade` or LUT-like control result so you can prove that the trained model is doing more than shifting overall color.
-
-- Good result: stable color, believable separation, preserved source detail
-- Bad result: pulsing hues, unstable skin or fabrics, new artifacts, or obvious drift
-
-If the sequence-wide model works except for a few outlier shots, stop forcing one model to solve everything and train those shots separately.
-
-![MatchGrade baseline](images_kebab/matchgrade-render-optional-cropped.png)
-Figure 13 - Useful baseline for comparing ML output against a simpler grade-driven result.
-
-## What Usually Breaks the Workflow
+## What Usually Breaks Both Branches
 
 - Training on an unstable source with flicker, dirt, or severe imbalance
 - Trusting a bad reference just because it is higher resolution
@@ -140,9 +110,7 @@ Figure 13 - Useful baseline for comparing ML output against a simpler grade-driv
 - Leaving borders, subtitles, or overlays inside the training area
 - Expecting one model to solve every shot in a difficult sequence
 
-## Where To Go Next
+## Continue In The Correct Branch
 
-- Use [one-step-guide.md](one-step-guide.md) for the full reference-based workflow that covers both chroma and spatial recovery.
-- Use [chroma-recovery.md](chroma-recovery.md) when color loss is the main problem.
-- Use [spatial-recovery.md](spatial-recovery.md) when detail loss is the main problem and you have a stronger spatial reference.
-- Use [watch-the-video.md](watch-the-video.md) for the walkthrough link and the repo/video relationship.
+- Use [chroma-recovery.md](chroma-recovery.md) when detail is acceptable but color is faded, collapsed, or shifted.
+- Use [spatial-recovery.md](spatial-recovery.md) when color is acceptable but detail, sharpness, or grain structure are weaker than the reference.

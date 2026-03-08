@@ -3,11 +3,9 @@
 ![Spatial recovery overview](images_kebab/mission-kill-spatial-recovery-comparison.jpeg)
 Figure 1 — Spatial recovery overview (Mission Kill comparison).
 
-If you want the single operational checklist that also shows how spatial recovery differs from chroma recovery, read [one-step-guide.md](one-step-guide.md) first.
+Read [start-here.md](start-here.md) first if you are new to the repo. That page covers the shared workflow through source prep, dataset curation, alignment, and the branch decision. This page picks up at the spatial branch and focuses on spatial-specific target construction, preprocessing constraints, and validation.
 
 Status: experimental. This part of the repository is still under development and is not presented as a finished archival-ready workflow. Keep it as research context, not as the primary recommended path.
-
-This page should also be treated as a holding area for future research notes. If examples are added here, they should be short inline GIFs or before/after comparisons with explicit notes about what worked, what failed, and what still needs improvement.
 
 Older results that involved spatial work can still be reused here, but only to support a narrow technical point. For example, a `Mission Kill` excerpt could help explain the overlap between chroma and spatial recovery without turning this page back into a project archive.
 
@@ -47,9 +45,9 @@ Like color recovery has non-reference approaches (paintings, manual references),
 - ML models overcome this by training on supervised pairs from different sources, applying that knowledge across entire films
 
 **Examples and demonstrations:**
-- Spatial recovery examples are being moved away from standalone case studies
-- Future updates should use short inline GIFs that show what each experiment achieved
-- Until then, treat this document as experimental process notes rather than a finished public workflow
+- Treat examples as technical demonstrations, not final restoration claims.
+- Focus on measurable improvements in spatial detail, alignment stability, and grain behavior.
+- Use this workflow when you can validate results shot by shot against the source.
 
 ---
 
@@ -65,8 +63,6 @@ The spatial recovery process follows five main stages, with YCbCr channel manipu
 
 ![Node Graph Overview](images_kebab/node-graph-overview-cropped.png)
 Figure 2 — Complete node graph showing all workflow stages.
-
-> Suggested GIF: a very short experimental before/after, clearly labeled as research output rather than a finished restoration example.
 
 ---
 
@@ -95,8 +91,6 @@ Compare against the original source and verify spatial improvement and grain pre
 ### Stage 0: Resolve Export + Nuke Project Setup
 
 **Objective:** Prepare matching sequences that constrain the task to spatial reconstruction.
-
-> Suggested GIF: one experimental comparison showing why spatial alignment and source matching are even more critical here than in chroma recovery.
 
 **Rationale:**
 - Training pairs _should_ differ only in spatial characteristics; misalignment or inconsistent transforms introduce nuisance variables that slow or mislead learning.

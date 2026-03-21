@@ -1,31 +1,31 @@
 # Changelog
 
-All notable changes to this repository are documented here. This project uses semantic versioning and follows the Keep a Changelog format.
+All notable changes to this repository are documented here.
 
 ## [Unreleased]
+
 ### Added
-- Repository `.gitignore` tailored for Nuke, `CopyCat` byproducts, caches, and OS files.
-- Initial `CHANGELOG.md` and versioning guidance in README.
+- GIF: contact sheet progression (17 milestones, Step 1 → 360k) showing CopyCat training convergence.
+- GIF: inference output scrub — full-sequence playback demonstrating temporal consistency.
+- GIF: spatial recovery proof of concept (El Tinterillo) — 4-way gauge/generation comparison.
+- GIF: merge difference alignment check (extracted from video walkthrough).
+- GIF: Mission Kill spatial recovery preview (16mm vs. 35mm vs. ML result).
 
 ### Changed
-- Integrated content from the archived workflow guide into `docs/chroma-recovery.md` and `docs/spatial-recovery.md`; removed `notes/archive/WORKFLOW_GUIDE.md`.
-- Adopted EG‑mode style across templates; added `docs/templates/eg-informative-template.md`; updated internal style guidance accordingly.
+- Restructured documentation: consolidated shared stages (0–2) into `start-here.md`, removed duplication from branch docs.
+- Chroma and spatial recovery docs now cover only branch-specific content (Stages 3–5) and link back to shared workflow.
+- Organized images into `cropped/` and `full/` subdirectories for clarity. Updated all doc references.
+- Removed Annex A quick-reference sections (redundant with streamlined docs).
+- Moved ACES/color management reference into `start-here.md` (single source of truth).
+- Trimmed glossary to workflow-specific terms only.
+- Marked provenance-metadata as future work.
 
-### Notes
-- First tag (`v0.1.0`) will be created after QC sign off of the current template.
+## [0.1.0] - 2025-09-24
 
-## [0.1.0] - 2025-09-24 (prepared)
 ### Added
-- Initial end‑to‑end workflow materials (superseded by integrated docs).
-- Supporting reference materials under `docs/` (presentations and images).
-- Repository structure matching the five stage `CopyCat` workflow under `pipeline/`.
-
-### Changed
-- `README.md` aligned to the workflow and repo layout.
+- Initial end-to-end workflow materials.
+- Nuke templates (Indie and Non-Commercial editions).
+- Supporting reference materials under `docs/`.
 
 ### Security
-- Guidance to keep licensed/high resolution scans and `CopyCat` weights out of the repo; use relative mounts.
-
----
-
-Links will be updated to compare tags once releases are published.
+- Guidance to keep licensed scans and CopyCat weights out of the repo.

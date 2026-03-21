@@ -1,17 +1,15 @@
-# Development Roadmap
+# Roadmap
 
-Private roadmap for future improvements and enhancements.
+## Next
 
-## High-Value Next Improvements
+- Add a commercial `.nk` template alongside Indie and Non-Commercial.
+- Add an example project tree showing expected folder structure (source, reference, training pairs, checkpoints, inference renders, validation stills).
+- Export short optimized GIFs for alignment QC, target build, inference, and failure cases.
+- Add annotated UI callouts on screenshots for first-time Nuke users.
+- Implement provenance/metadata workflow (EXR metadata, sidecar files, Resolve integration).
 
-These are the strongest follow-up changes if you want the repository to feel even more like a one-step production guide:
+## Future
 
-- Add a commercial `.nk` variant alongside the Indie and Non-Commercial templates.
-- Add one example project tree that shows expected folders for source, reference, training pairs, checkpoints, inference renders, and validation stills.
-- Export 3-5 short optimized GIFs from the existing still sequences for alignment QC, target build, inference, and failure cases.
-- Add an annotated troubleshooting page for misalignment, unstable references, bad crops, range clipping, and checkpoint selection.
-- Add more UI callouts on the existing screenshots so first-time Nuke users know exactly which node settings matter.
-
-## Future Ideas
-
-Add additional roadmap items here as they come up.
+- Annotated troubleshooting page for misalignment, unstable references, bad crops, range clipping, checkpoint selection.
+- Non-reference chroma recovery examples with constructed palettes.
+- Spatial recovery graduation from experimental to production-ready.

@@ -28,6 +28,9 @@ These are complementary and can be mixed per shot or scene.
 ![Non-reference chroma recovery example](images_kebab/chroma-recovery-non-reference.png)
 *Non-reference recovery: faded scan (left) vs. ML output trained on a constructed reference (right).*
 
+![Photoshop Colorize reference creation](images_kebab/ben-photoshop-chroma-reference-creation-3.jpeg)
+*Constructing a color reference with Photoshop Neural Filters (Colorize) when no direct reference exists. Focal points guide the colorization. Document all assumptions — this is synthesized, not archival.*
+
 ---
 
 ## Stage 3: CopyCat Training — Chroma Target
@@ -161,6 +164,9 @@ Use CopyCat's preview input with a frame **not** in the training dataset to moni
 
 ### Resolve Validation
 
+![Chroma recovery A/B split](images_kebab/mission-kill-chroma-recovery-comparison.png)
+*A/B split (Mission Kill): faded source (left) vs. chroma recovery output (right). Skin tones and color saturation recovered from dye-faded print.*
+
 1. Import Original (Source) and Recovered (Inference output) into the same ACES-managed Resolve project.
 2. Stack on separate tracks. Align timecode/frames. Disable all clip grades/effects.
 3. Viewer wipe or split-screen. Toggle track visibility for A/B.
@@ -182,8 +188,8 @@ Produce a LUT baseline: Log pre/post transforms → `MatchGrade` 3D LUT → back
 ![Training steps progression](images_kebab/candy-candy-training-steps.jpeg)
 *Training progression: Step 1 → 1000 → 30000 → 60000. Color is progressively reconstructed from the faded source using the PAL DVD reference.*
 
-![4-way comparison](images_kebab/candy-candy-4-way-comparison.jpeg)
-*4-way comparison: Original Scan (faded) → Balanced & Cleaned → PAL DVD Color Reference → Machine Learning Output.*
+![4-way comparison](images_kebab/friends-comparison-preview.gif)
+*4-way comparison (Friends): Original Scan (faded) → Balanced & Cleaned → Video Reference → Machine Learning Output.*
 
 ### Acceptance Criteria
 

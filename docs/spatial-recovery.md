@@ -33,8 +33,8 @@ Traditional spatial filters (sharpen, blur, interpolation) operate within same o
 
 ## Stage 3: CopyCat Training — Spatial Target
 
-![Dataset curation](images_kebab/cropped/dataset-curation-cropped.png)
-*Dataset curation and training pair assembly for spatial recovery.*
+![Spatial recovery training diagram](images_kebab/tinterillo-training-diagram.jpeg)
+*Training diagram (El Tinterillo): bidirectional spatial transfer between 16mm and Telecine sources. Source + Reference = ML Result in both directions.*
 
 ### Training Pair Build
 
@@ -54,6 +54,9 @@ Traditional spatial filters (sharpen, blur, interpolation) operate within same o
      - green ← B.green (Cb from Source)
      - blue ← B.blue (Cr from Source)
      - alpha ← black
+
+![Shuffle node — spatial recovery](images_kebab/cropped/shuffle-node-spatial-settings-cropped.png)
+*Shuffle: Reference.Y + Source.CbCr — the inverse of the chroma recovery Shuffle.*
 
 5. **Convert ground truth back:** `Colorspace` (YCbCr → Working).
 
@@ -126,6 +129,9 @@ Same as chroma recovery — see [chroma-recovery.md render settings](chroma-reco
 ## Stage 5: Validation
 
 ### Resolve Validation
+
+![Spatial recovery A/B split](images_kebab/spatial-recovery-viewer-wipe-comparison.png)
+*Nuke viewer wipe (Knights of the Trail): original source (left) vs. spatial recovery output (right). Compare detail, grain structure, and edge definition.*
 
 1. Import Original and Recovered into the same ACES-managed Resolve project.
 2. Stack, align, disable grades.

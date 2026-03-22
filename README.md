@@ -39,6 +39,7 @@ Follow these in order:
 
 Supporting material:
 
+- [Case Studies](docs/case-studies.md) — Real-world results across five films: animation, live action, non-reference, gauge recovery, and analog video reference.
 - [Glossary](docs/references/terms-and-definitions.md)
 - [Provenance and Metadata](docs/provenance-metadata.md) *(future — ethical training data documentation)*
 

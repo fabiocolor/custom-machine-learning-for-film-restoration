@@ -1,13 +1,13 @@
 # Spatial Recovery — Stages 3–5
 
-![Spatial recovery overview](images_kebab/mission-kill-spatial-recovery-preview.gif)
+![Spatial recovery overview](images_kebab/mission-kill/mission-kill-spatial-recovery-preview.gif)
 *Spatial recovery comparison (Mission Kill) — 16mm Positive Print vs. 35mm Internegative vs. Machine Learning Result.*
 
 **Prerequisites:** Complete [Stages 0–2](start-here.md) first (Resolve export, Nuke setup, dataset curation, alignment, shared crop).
 
 **Status: experimental.** This branch is under development and not presented as a finished archival-ready workflow. Treat it as research context.
 
-![Spatial recovery proof of concept](images_kebab/spatial-recovery-proof-of-concept-preview.gif)
+![Spatial recovery proof of concept](images_kebab/general/spatial-recovery-proof-of-concept-preview.gif)
 *Proof of concept (El Tinterillo): 16mm Print vs. Telecine vs. ML spatial transfer in both directions. Results show potential but also typical artifacts — edge inconsistencies, grain structure mismatches, and detail hallucination — illustrating why this branch remains experimental.*
 
 This guide covers spatial-specific target construction, training, inference, and validation. The model learns to transfer spatial characteristics (resolution, grain, sharpness) from the reference while preserving source chroma.
@@ -33,7 +33,7 @@ Traditional spatial filters (sharpen, blur, interpolation) operate within same o
 
 ## Stage 3: CopyCat Training — Spatial Target
 
-![Spatial recovery training diagram](images_kebab/tinterillo-training-diagram.jpeg)
+![Spatial recovery training diagram](images_kebab/tinterillo/tinterillo-training-diagram.jpeg)
 *Training diagram (El Tinterillo): bidirectional spatial transfer between 16mm and Telecine sources. Source + Reference = ML Result in both directions.*
 
 ### Training Pair Build
@@ -130,7 +130,7 @@ Same as chroma recovery — see [chroma-recovery.md render settings](chroma-reco
 
 ### Resolve Validation
 
-![Spatial recovery A/B split](images_kebab/spatial-recovery-viewer-wipe-comparison.png)
+![Spatial recovery A/B split](images_kebab/general/spatial-recovery-viewer-wipe-comparison.png)
 *Nuke viewer wipe (Knights of the Trail): original source (left) vs. spatial recovery output (right). Compare detail, grain structure, and edge definition.*
 
 1. Import Original and Recovered into the same ACES-managed Resolve project.

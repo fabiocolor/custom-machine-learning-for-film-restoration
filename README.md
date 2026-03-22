@@ -74,8 +74,22 @@ nuke-chroma-recovery-template/
     ├── provenance-metadata.md
     ├── references/
     └── images_kebab/
+        ├── ben/
+        ├── beta/
+        ├── candy-candy/
         ├── cropped/
-        └── full/
+        ├── friends/
+        ├── frontier-experience/
+        ├── full/
+        ├── general/
+        ├── knights-of-the-trail/
+        ├── mission-kill/
+        ├── muralla-verde/
+        ├── nuke-ui/
+        ├── rebelion-de-las-tapadas/
+        ├── tinterillo/
+        ├── video_previews/
+        └── workflow/
 ```
 
 ## License

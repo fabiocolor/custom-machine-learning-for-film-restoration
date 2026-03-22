@@ -5,7 +5,7 @@ This page covers everything both recovery modes share: Resolve export, Nuke proj
 - [Chroma Recovery](chroma-recovery.md) — when detail is intact but color is faded, collapsed, or shifted.
 - [Spatial Recovery](spatial-recovery.md) — when color is acceptable but detail, sharpness, or grain are weaker than the reference.
 
-![Workflow overview](images_kebab/full-overview-comparison.png)
+![Workflow overview](images_kebab/general/full-overview-comparison.png)
 *End-to-end overview of the recovery workflow.*
 
 ---
@@ -16,10 +16,10 @@ This page covers everything both recovery modes share: Resolve export, Nuke proj
 
 What matters is whether the reference preserves better information for the problem you are solving — not whether it is newer, sharper, or higher resolution.
 
-![Raw source before balancing](images_kebab/muralla-verde-scan-27-35-preview.gif)
+![Raw source before balancing](images_kebab/muralla-verde/muralla-verde-scan-27-35-preview.gif)
 *Source that should be technically balanced before training.*
 
-![Balanced source for training](images_kebab/muralla-verde-source-27-35-preview.gif)
+![Balanced source for training](images_kebab/muralla-verde/muralla-verde-source-27-35-preview.gif)
 *Balanced source plate used as cleaner input to the workflow.*
 
 **Source preparation:**
@@ -32,7 +32,7 @@ What matters is whether the reference preserves better information for the probl
 
 | Before (raw faded scan) | After (Faded Balancer applied) |
 | --- | --- |
-| ![Raw faded scan](images_kebab/candy-candy-faded-balancer-raw.png) | ![Balanced scan](images_kebab/candy-candy-faded-balancer-finished.png) |
+| ![Raw faded scan](images_kebab/candy-candy/candy-candy-faded-balancer-raw.png) | ![Balanced scan](images_kebab/candy-candy/candy-candy-faded-balancer-finished.png) |
 
 *Faded Balancer DCTL neutralizing magenta dye fade in Resolve before Nuke ingest.*
 
@@ -175,7 +175,7 @@ Pixel-accurate alignment with shared crop so branches differ only in the intende
 2. Evaluate immediately with `Merge (difference)`. If edges/geometry remain, switch to manual `Transform` with keyframes.
 3. Keep a `Dissolve` to compare auto/manual paths quickly.
 
-![Merge (difference) alignment check](images_kebab/merge-difference-alignment-check.gif)
+![Merge (difference) alignment check](images_kebab/general/merge-difference-alignment-check.gif)
 *Merge (difference) in the viewer: geometry/edges should be near-black. Visible color differences are expected — only structural misalignment is a problem.*
 
 ### Crop and Subtitle Handling
@@ -215,7 +215,7 @@ This is where the workflow diverges. The layout is shared; the branch decision i
 ![Shuffle node settings](images_kebab/cropped/shuffle-node-settings-cropped.png)
 *Shuffle node used to build the ground-truth target.*
 
-![CopyBBox node](images_kebab/copybbox-node-settings.png)
+![CopyBBox node](images_kebab/general/copybbox-node-settings.png)
 *CopyBBox ensures identical bbox across Source and Ground Truth before connecting to CopyCat.*
 
 | Branch | Ground truth target | Continue in |

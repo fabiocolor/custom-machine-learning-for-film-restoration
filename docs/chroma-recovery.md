@@ -1,6 +1,6 @@
 # Chroma Recovery — Stages 3–5
 
-![Chroma recovery overview](images_kebab/candy-candy-comparison-preview.gif)
+![Chroma recovery overview](images_kebab/candy-candy/candy-candy-comparison-preview.gif)
 *Chroma recovery comparison (Candy Candy).*
 
 **Prerequisites:** Complete [Stages 0–2](start-here.md) first (Resolve export, Nuke setup, dataset curation, alignment, shared crop).
@@ -25,10 +25,10 @@ Traditional grading manipulates existing channels — it cannot learn color from
 
 These are complementary and can be mixed per shot or scene.
 
-![Non-reference chroma recovery example](images_kebab/chroma-recovery-non-reference.png)
+![Non-reference chroma recovery example](images_kebab/general/chroma-recovery-non-reference.png)
 *Non-reference recovery: faded scan (left) vs. ML output trained on a constructed reference (right).*
 
-![Photoshop Colorize reference creation](images_kebab/ben-photoshop-chroma-reference-creation-3.jpeg)
+![Photoshop Colorize reference creation](images_kebab/ben/ben-photoshop-chroma-reference-creation-3.jpeg)
 *Constructing a color reference with Photoshop Neural Filters (Colorize) when no direct reference exists. Focal points guide the colorization. Document all assumptions — this is synthesized, not archival.*
 
 ---
@@ -102,7 +102,7 @@ Use CopyCat's preview input with a frame **not** in the training dataset to moni
 - **Range:** confirm clamping prevented <0 or >1 values.
 - **BBox:** confirm identical bbox on both streams.
 
-![Contact sheet progression](images_kebab/copycat-contact-sheet-progression.gif)
+![Contact sheet progression](images_kebab/workflow/copycat-contact-sheet-progression.gif)
 *Contact sheet progression from Step 1 → 360,000 (Candy Candy chroma recovery). Each row shows input (left) / ground truth (center) / output (right) for a different crop. Output starts as noise and progressively converges to match ground truth color. 17 milestones shown: 1, 100, 300, 500, 1k, 2k, 3k, 5k, 7.5k, 10k, 15k, 20k, 30k, 60k, 100k, 200k, 360k steps.*
 
 ![CopyCat Progress — contact sheet](images_kebab/cropped/copycat-settings-contact-sheet-cropped.png)
@@ -120,7 +120,7 @@ Use CopyCat's preview input with a frame **not** in the training dataset to moni
 
 **Train small, infer big.** Training uses curated single-frame pairs. Inference runs on the full shot/scene/sequence.
 
-![Inference output scrub](images_kebab/inference-output-scrub-preview.gif)
+![Inference output scrub](images_kebab/general/inference-output-scrub-preview.gif)
 *Inference output playing back on the full sequence — model generalizes beyond training pairs, maintaining temporal consistency across frames.*
 
 ### Steps
@@ -164,7 +164,7 @@ Use CopyCat's preview input with a frame **not** in the training dataset to moni
 
 ### Resolve Validation
 
-![Chroma recovery A/B split](images_kebab/mission-kill-chroma-recovery-comparison.png)
+![Chroma recovery A/B split](images_kebab/mission-kill/mission-kill-chroma-recovery-comparison.png)
 *A/B split (Mission Kill): faded source (left) vs. chroma recovery output (right). Skin tones and color saturation recovered from dye-faded print.*
 
 1. Import Original (Source) and Recovered (Inference output) into the same ACES-managed Resolve project.
@@ -185,10 +185,10 @@ Integrate only new chroma while preserving original luma detail and grain:
 
 Produce a LUT baseline: Log pre/post transforms → `MatchGrade` 3D LUT → back to Linear. Compare vs. Recovered to visualize the difference between LUT mapping and learned chroma reconstruction.
 
-![Training steps progression](images_kebab/candy-candy-training-steps.jpeg)
+![Training steps progression](images_kebab/candy-candy/candy-candy-training-steps.jpeg)
 *Training progression: Step 1 → 1000 → 30000 → 60000. Color is progressively reconstructed from the faded source using the PAL DVD reference.*
 
-![4-way comparison](images_kebab/friends-comparison-preview.gif)
+![4-way comparison](images_kebab/friends/friends-comparison-preview.gif)
 *4-way comparison (Friends): Original Scan (faded) → Balanced & Cleaned → Video Reference → Machine Learning Output.*
 
 ### Acceptance Criteria

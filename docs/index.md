@@ -10,6 +10,11 @@ Reference-based restoration workflow for NukeX using `CopyCat` and `Inference`. 
 
 Not a plugin. A repeatable, documented workflow for archives, preservation teams, and restoration practitioners.
 
+<div class="hero-buttons">
+  <a href="{{ '/start-here/' | relative_url }}" class="btn btn-primary">Get Started</a>
+  <a href="https://youtu.be/kXerjFGX9Kg" class="btn btn-outline" target="_blank">Watch YouTube Walkthrough</a>
+</div>
+
 [![Watch the YouTube walkthrough](images_kebab/video_previews/color-recovery-video-preview.gif)](https://youtu.be/kXerjFGX9Kg)
 *Video walkthrough — a visual companion to this repository.*
 

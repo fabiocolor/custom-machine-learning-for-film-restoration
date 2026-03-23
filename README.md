@@ -26,6 +26,14 @@ Reference-based restoration workflow for NukeX using `CopyCat` and `Inference`. 
 
 Not a plugin. A repeatable, documented workflow for archives, preservation teams, and restoration practitioners.
 
+## 💾 Download the Nuke Templates
+
+This workflow is entirely based on pre-built templates provided in this repository. 
+You can directly download the ones you need for your Nuke version below:
+
+- [⬇️ Download `Nuke Non-Commercial` Template](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/raw/main/templates/COLOR_RECOVERY_TEMPLATE.nknc)
+- [⬇️ Download `Nuke Indie` Template](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/raw/main/templates/COLOR_RECOVERY_TEMPLATE_INDIE.nkind)
+
 [![Watch the YouTube walkthrough](docs/images_kebab/video_previews/color-recovery-video-preview.gif)](https://youtu.be/kXerjFGX9Kg)
 *Video walkthrough — a visual companion to this repository.*
 

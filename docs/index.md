@@ -12,11 +12,9 @@ Not a plugin. A repeatable, documented workflow for archives, preservation teams
 
 <div class="hero-buttons">
   <a href="{{ '/start-here/' | relative_url }}" class="btn btn-primary">Get Started</a>
-  <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/raw/main/templates/COLOR_RECOVERY_TEMPLATE.nknc" class="btn btn-primary" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">📥 Download Nuke Template</a>
+  <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest" class="btn btn-primary" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);" target="_blank">📥 Download Nuke Templates</a>
   <a href="https://youtu.be/kXerjFGX9Kg" class="btn btn-outline" target="_blank">Watch YouTube Walkthrough</a>
 </div>
-
-**Using Nuke Indie?** [Download the Indie Template here.](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/raw/main/templates/COLOR_RECOVERY_TEMPLATE_INDIE.nkind)
 
 [![Watch the YouTube walkthrough](images_kebab/video_previews/color-recovery-video-preview.gif)](https://youtu.be/kXerjFGX9Kg)
 *Video walkthrough — a visual companion to this repository.*

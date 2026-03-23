@@ -1,3 +1,9 @@
+---
+layout: default
+title: Spatial Recovery
+nav_order: 3
+---
+
 # Spatial Recovery — Stages 3–5
 
 ![Spatial recovery overview](images_kebab/mission-kill/mission-kill-spatial-recovery-preview.gif)

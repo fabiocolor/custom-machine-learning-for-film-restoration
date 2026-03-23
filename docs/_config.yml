@@ -1,0 +1,30 @@
+title: Nuke Chroma Recovery Template
+description: Reference-based restoration workflow for NukeX using CopyCat and Inference
+remote_theme: just-the-docs/just-the-docs@v0.10.0
+
+url: ""
+baseurl: "/custom-machine-learning-for-film-restoration"
+
+color_scheme: dark
+
+aux_links:
+  "GitHub":
+    - "https://github.com/fabiocolor/custom-machine-learning-for-film-restoration"
+  "YouTube Walkthrough":
+    - "https://youtu.be/kXerjFGX9Kg"
+
+nav_enabled: true
+search_enabled: true
+heading_anchors: true
+
+back_to_top: true
+back_to_top_text: "Back to top"
+
+footer_content: "Workflow template for film preservation and restoration research."
+
+permalink: pretty
+
+exclude:
+  - images_kebab/full/
+  - images_kebab/IMAGE_CATALOG.md
+  - Gemfile.lock

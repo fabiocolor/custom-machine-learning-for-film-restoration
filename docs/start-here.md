@@ -1,3 +1,9 @@
+---
+layout: default
+title: Shared Workflow
+nav_order: 1
+---
+
 # Shared Workflow — Stages 0–2
 
 This page covers everything both recovery modes share: Resolve export, Nuke project setup, dataset curation, alignment, shared crop, and the branch decision. Follow this page first, then continue in the guide for your chosen branch.

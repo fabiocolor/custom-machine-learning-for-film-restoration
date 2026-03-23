@@ -1,3 +1,9 @@
+---
+layout: default
+title: Chroma Recovery
+nav_order: 2
+---
+
 # Chroma Recovery — Stages 3–5
 
 ![Chroma recovery overview](images_kebab/candy-candy/candy-candy-comparison-preview.gif)

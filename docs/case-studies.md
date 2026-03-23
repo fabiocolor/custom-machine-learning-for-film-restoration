@@ -1,3 +1,9 @@
+---
+layout: default
+title: Case Studies
+nav_order: 4
+---
+
 # Case Studies
 
 Real-world applications of the CopyCat workflow across different film stocks, gauges, degradation types, and reference sources. Each case demonstrates a different challenge and strategy within the same core pipeline documented in this repository.

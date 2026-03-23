@@ -4,6 +4,8 @@ Reference-based restoration workflow for NukeX using `CopyCat` and `Inference`. 
 
 Not a plugin. A repeatable, documented workflow for archives, preservation teams, and restoration practitioners.
 
+**[Read the full documentation](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/)**
+
 [![Watch the YouTube walkthrough](docs/images_kebab/video_previews/color-recovery-video-preview.gif)](https://youtu.be/kXerjFGX9Kg)
 *Video walkthrough — a visual companion to this repository.*
 
@@ -39,7 +41,7 @@ Follow these in order:
 
 Supporting material:
 
-- [Case Studies](docs/case-studies.md) — Real-world results across five films: animation, live action, non-reference, gauge recovery, and analog video reference.
+- [Case Studies](docs/case-studies.md) — Real-world results across eleven projects: animation, live action, non-reference, gauge recovery, and analog video reference.
 - [Glossary](docs/references/terms-and-definitions.md)
 - [Provenance and Metadata](docs/provenance-metadata.md) *(future — ethical training data documentation)*
 

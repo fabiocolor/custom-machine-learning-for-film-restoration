@@ -4,7 +4,7 @@ title: Home
 nav_order: 0
 ---
 
-# Nuke Chroma Recovery Template
+# Custom Machine Learning for Film Restoration
 
 Reference-based restoration workflow for NukeX using `CopyCat` and `Inference`. Trains small CNNs against real source/reference pairs to recover lost chroma or spatial detail in degraded film elements.
 

@@ -1,4 +1,4 @@
-# Nuke Chroma Recovery Template
+# Custom Machine Learning for Film Restoration
 
 <p align="center">
   <a href="https://github.com/sponsors/fabiocolor"><img src="https://img.shields.io/badge/Sponsor-❤️-red?style=for-the-badge" alt="Sponsor"></a>

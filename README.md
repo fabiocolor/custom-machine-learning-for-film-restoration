@@ -1,10 +1,30 @@
 # Nuke Chroma Recovery Template
 
+<p align="center">
+  <a href="https://github.com/sponsors/fabiocolor"><img src="https://img.shields.io/badge/Sponsor-❤️-red?style=for-the-badge" alt="Sponsor"></a>
+  <a href="https://paypal.me/fabiocolor"><img src="https://img.shields.io/badge/Donate-PayPal-blue?style=for-the-badge" alt="Donate"></a>
+</p>
+
+<p align="center">
+  <a href="https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/">
+    <img src="https://img.shields.io/badge/Read-Documentation-green?style=for-the-badge" alt="Documentation">
+  </a>
+  <a href="https://library.imaging.org/archiving/articles/22/1/35">
+    <img src="https://img.shields.io/badge/Read-Research%20Paper-orange?style=for-the-badge" alt="Research Paper">
+  </a>
+</p>
+
+<p align="center">
+  <a href="docs/start-here.md">Shared Workflow</a> •
+  <a href="docs/chroma-recovery.md">Chroma Recovery</a> •
+  <a href="docs/spatial-recovery.md">Spatial Recovery</a> •
+  <a href="docs/case-studies.md">Case Studies</a> •
+  <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/discussions">Discussions</a>
+</p>
+
 Reference-based restoration workflow for NukeX using `CopyCat` and `Inference`. Trains small CNNs against real source/reference pairs to recover lost chroma or spatial detail in degraded film elements.
 
 Not a plugin. A repeatable, documented workflow for archives, preservation teams, and restoration practitioners.
-
-**[Read the full documentation](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/)**
 
 [![Watch the YouTube walkthrough](docs/images_kebab/video_previews/color-recovery-video-preview.gif)](https://youtu.be/kXerjFGX9Kg)
 *Video walkthrough — a visual companion to this repository.*

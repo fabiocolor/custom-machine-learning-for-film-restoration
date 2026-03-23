@@ -88,7 +88,7 @@ Real-world applications of the CopyCat workflow across different film stocks, ga
 
 **Branch:** Chroma Recovery | **Reference:** DVD and DCP material
 
-![Muralla Verde chroma recovery output](images_kebab/muralla-verde/muralla-verde-chroma-recovery-output.png)
+![Muralla Verde chroma recovery finished](images_kebab/muralla-verde/muralla-verde-chroma-recovery-finished.png)
 *Machine learning chroma recovery output.*
 
 | Field | Details |
@@ -98,7 +98,7 @@ Real-world applications of the CopyCat workflow across different film stocks, ga
 | **Approach** | Full pipeline: raw scan → Faded Balancer DCTL for initial rebalancing → reference preparation and alignment in Resolve → CopyCat training → inference rendering. Custom balancing tools tested before and alongside the ML stage. |
 | **Result** | Mature project with exported script overviews, contact sheets, comparisons, and output frames. Demonstrates the complete Resolve → Nuke → Resolve validation loop. |
 
-![Muralla Verde comparison](images_kebab/muralla-verde/muralla-verde-chroma-recovery-comparison.png)
+![Muralla Verde comparison preview](images_kebab/muralla-verde/muralla-verde-comparison-preview.gif)
 *Before/after chroma recovery comparison.*
 
 ---
@@ -107,7 +107,7 @@ Real-world applications of the CopyCat workflow across different film stocks, ga
 
 **Branch:** Chroma Recovery | **Gauge:** Film print | **Reference:** Telecine (archival secondary source)
 
-![Frontier Experience chroma recovery finished](images_kebab/frontier-experience/frontier-experience-chroma-recovery-finished.png)
+![Frontier Experience chroma recovery output](images_kebab/frontier-experience/frontier-experience-chroma-recovery-output.png)
 *Machine learning chroma recovery output.*
 
 | Field | Details |
@@ -119,7 +119,7 @@ Real-world applications of the CopyCat workflow across different film stocks, ga
 | **Key challenge** | Difficult sky and shadow areas may need either more training frames or segmentation by scene groups (interiors vs. exteriors). |
 | **Result** | Structurally convincing result. Some skies and shadows do not fully resolve, pointing to the limits of sequence-level models on varied lighting conditions. |
 
-![Frontier Experience 3-way comparison](images_kebab/frontier-experience/frontier-experience-3-way-comparison.png)
+![Frontier Experience comparison preview](images_kebab/frontier-experience/frontier-experience-comparison-preview.gif)
 *Original Scan vs. Telecine Reference vs. Machine Learning Output.*
 
 ---
@@ -141,7 +141,7 @@ Real-world applications of the CopyCat workflow across different film stocks, ga
 ![Ben Photoshop reference creation](images_kebab/ben/ben-photoshop-chroma-reference-creation-3.jpeg)
 *Reference construction in Adobe Photoshop using Neural Filters (Colorize).*
 
-![Ben 4-way comparison](images_kebab/ben/ben-4-way-comparison.jpeg)
+![Ben comparison preview](images_kebab/ben/ben-comparison-preview.gif)
 *4-way comparison.*
 
 ---
@@ -150,8 +150,8 @@ Real-world applications of the CopyCat workflow across different film stocks, ga
 
 **Branch:** Chroma Recovery (Non-Reference) | **Gauge:** 35mm positive | **Reference:** Colonial-era watercolor paintings
 
-![Rebelion de las Tapadas artwork reference](images_kebab/rebelion-de-las-tapadas/rebelion-de-las-tapadas-artwork-reference.png)
-*Reference source: "Encuentro en la Alameda Nueva" by Johann Moritz Rugendas (1843). Watercolor, Lima, Peru. Source: Wikimedia Commons. Additional references from Pancho Fierro.*
+![Rebelion de las Tapadas chroma recovery output](images_kebab/rebelion-de-las-tapadas/rebeli-n-de-tapadas-chroma-recovery-script-overview.jpeg)
+*Machine learning chroma recovery output — colors recovered from historical painting references.*
 
 | Field | Details |
 |---|---|
@@ -182,11 +182,11 @@ Real-world applications of the CopyCat workflow across different film stocks, ga
 | **Key decisions** | Best results came from splitting work shot by shot — complex movement introduces noise when too much is trained at once. Spatial recovery is harder than chroma because it carries higher-frequency structure and usually needs finer segmentation. |
 | **Result** | 16mm enhanced to visually approach 35mm internegative quality. Demonstrates how mixed gauges or generations can be homogenized toward the strongest surviving element. Supports the argument that multiple copies of the same film should be preserved rather than collapsing to a single preferred element. |
 
-![Mission Kill comparison preview](images_kebab/mission-kill/mission-kill-spatial-recovery-preview.gif)
-*16mm Positive Print vs. 35mm Internegative vs. Machine Learning Result.*
-
 ![Mission Kill chroma recovery A/B](images_kebab/mission-kill/mission-kill-chroma-recovery-comparison.png)
 *A/B split: faded source (left) vs. ML chroma-recovered output (right).*
+
+![Mission Kill comparison preview](images_kebab/mission-kill/mission-kill-spatial-recovery-preview.gif)
+*16mm Positive Print vs. 35mm Internegative vs. Machine Learning Result.*
 
 ---
 
@@ -194,8 +194,8 @@ Real-world applications of the CopyCat workflow across different film stocks, ga
 
 **Branch:** Spatial Recovery (Multi-Element Composite) | **Gauge:** Nitrate | **Reference:** Composite of nitrate elements
 
-![Knights of the Trail 4-way comparison](images_kebab/knights-of-the-trail/kott-4way-comparison-reel-a-b-ml-composite-result.png)
-*Reel A vs. Reel B vs. ML Composite vs. ML Result — reconstructing spatial detail from multiple partial nitrate sources.*
+![Knights of the Trail spatial recovery result](images_kebab/knights-of-the-trail/kott-nuke-viewer-wipe-copycat-result.png)
+*Machine learning spatial recovery — reconstructing detail from multiple partial nitrate sources.*
 
 | Field | Details |
 |---|---|
@@ -214,6 +214,9 @@ Real-world applications of the CopyCat workflow across different film stocks, ga
 
 **Branch:** Spatial Recovery (Analog Video Reference) | **Gauge:** 16mm | **Reference:** Analog telecine
 
+![Tinterillo spatial recovery comparison](images_kebab/tinterillo/tinterillo-spatial-recovery-comparison-2.jpeg)
+*Machine learning spatial recovery output.*
+
 ![Tinterillo training diagram](images_kebab/tinterillo/tinterillo-training-diagram.jpeg)
 *Two-direction spatial recovery: 16mm Source + Telecine → ML Result, and Telecine Source + 16mm → ML Result.*
 
@@ -224,9 +227,6 @@ Real-world applications of the CopyCat workflow across different film stocks, ga
 | **Approach** | Two-step analog video reference recovery. First model trained on least-damaged sections where both sources overlap, learning the spatial relationship. Second model uses those results to restore the full film frame. Telecine treated as a guide rather than a direct replacement — direct telecine-to-film recovery is too cropped and too soft. |
 | **Key decision** | Tested in both directions: telecine-to-16mm and 16mm-to-telecine. Both produced results, demonstrating the bidirectional nature of the concept. |
 | **Status** | Proof of concept. Two-step approach produced more convincing full-frame results than direct transfer. Damage and haze reduced while keeping the full 16mm frame instead of collapsing to telecine bounds. Typical spatial recovery artifacts remain. |
-
-![Tinterillo 4-way comparison](images_kebab/tinterillo/tinterillo-4-way-comparison.png)
-*16mm Print vs. Telecine vs. ML results in both directions.*
 
 ![Tinterillo proof of concept](images_kebab/general/spatial-recovery-proof-of-concept-preview.gif)
 *Animated comparison showing spatial recovery results across multiple frames.*

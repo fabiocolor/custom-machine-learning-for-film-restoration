@@ -62,11 +62,13 @@ All images organized by subject folder. Use this to quickly find available asset
 | `friends/friends-chroma-recovery-contact-sheet-2.jpeg` | Contact sheet variant |
 | `friends/friends-contact-sheet-{1-3}.png` | 3 individual contact sheets |
 
-## La Muralla Verde (20 files) — `muralla-verde/`
+## La Muralla Verde (22 files) — `muralla-verde/`
 
 | File | Type |
 |---|---|
-| `muralla-verde/muralla-verde-chroma-recovery-output.png` | **Hero** — ML chroma recovery output |
+| `muralla-verde/muralla-verde-chroma-recovery-finished.png` | **Hero** — ML output, close-up portrait |
+| `muralla-verde/muralla-verde-chroma-recovery-output.png` | ML chroma recovery output |
+| `muralla-verde/muralla-verde-comparison-preview.gif` | **Comparison GIF** — before/after |
 | `muralla-verde/muralla-verde-scan-27-35-preview.gif` | Source scan GIF preview |
 | `muralla-verde/muralla-verde-source-27-35-preview.gif` | Source preview GIF |
 | `muralla-verde/muralla-verde-chroma-recovery-comparison.png` | Comparison: source vs. ML |
@@ -85,11 +87,13 @@ All images organized by subject folder. Use this to quickly find available asset
 | `muralla-verde/muralla-verde-inference-render-script-overview.png` | Nuke script overview — inference |
 | `muralla-verde/muralla-verde-contact-sheet-{1-3}.png` | 3 contact sheets |
 
-## Frontier Experience (11 files) — `frontier-experience/`
+## Frontier Experience (12 files) — `frontier-experience/`
 
 | File | Type |
 |---|---|
-| `frontier-experience/frontier-experience-chroma-recovery-finished.png` | **Hero** — ML output |
+| `frontier-experience/frontier-experience-chroma-recovery-output.png` | **Hero** — ML output |
+| `frontier-experience/frontier-experience-chroma-recovery-finished.png` | ML output (alternate) |
+| `frontier-experience/frontier-experience-comparison-preview.gif` | **Comparison GIF** — before/after |
 | `frontier-experience/frontier-experience-3-way-comparison.png` | 3-way: Scan → Telecine → ML |
 | `frontier-experience/frontier-experience-chroma-recovery-comparison.png` | Chroma recovery comparison |
 | `frontier-experience/frontier-experience-chroma-recovery-output.png` | Output frame |
@@ -101,11 +105,12 @@ All images organized by subject folder. Use this to quickly find available asset
 | `frontier-experience/frontier-experience-contact-sheet-3.png` | Contact sheet |
 | `frontier-experience/frontier-experience-contact-sheey.png` | Contact sheet (typo in name) |
 
-## Ben (35 files) — `ben/`
+## Ben (36 files) — `ben/`
 
 | File | Type |
 |---|---|
 | `ben/ben-chroma-recovery-finished-1.png` | **Hero** — ML output from Photoshop reference |
+| `ben/ben-comparison-preview.gif` | **Comparison GIF** — 4-way before/after |
 | `ben/ben-4-way-comparison.jpeg` | 4-way comparison |
 | `ben/ben-photoshop-chroma-reference-creation.jpeg` | Photoshop reference creation |
 | `ben/ben-photoshop-chroma-reference-creation-2.jpeg` | Photoshop reference variant |

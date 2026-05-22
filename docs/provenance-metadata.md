@@ -4,6 +4,8 @@ title: Provenance & Metadata
 nav_order: 6
 ---
 
+<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/provenance-metadata/' | relative_url }}">Español</a></div>
+
 # Provenance and Metadata for ML Restoration
 
 > **Future work.** This document outlines an approach to ethical training data documentation for ML-based film restoration. Implementation details are still being developed.

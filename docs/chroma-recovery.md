@@ -4,6 +4,8 @@ title: Chroma Recovery
 nav_order: 2
 ---
 
+<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/chroma-recovery/' | relative_url }}">Español</a></div>
+
 # Chroma Recovery — Stages 3–5
 
 ![Chroma recovery overview](images_kebab/candy-candy/candy-candy-comparison-preview.gif)
@@ -21,6 +23,8 @@ This guide covers chroma-specific target construction, training, inference, and 
 - Films with inconsistent color across scenes due to degradation
 
 Traditional grading manipulates existing channels — it cannot learn color from external references. `CopyCat` overcomes this with supervised pairs.
+
+For a visual explanation of why these sources turn pink/magenta and why a technical neutralization pass helps before training, see [Why Faded Scans Turn Magenta](start-here.md#why-faded-scans-turn-magenta).
 
 ## Reference Approaches
 

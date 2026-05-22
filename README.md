@@ -15,10 +15,12 @@
 </p>
 
 <p align="center">
+  <a href="README.es.md">Español</a> •
   <a href="docs/start-here.md">Shared Workflow</a> •
   <a href="docs/chroma-recovery.md">Chroma Recovery</a> •
   <a href="docs/spatial-recovery.md">Spatial Recovery</a> •
   <a href="docs/case-studies.md">Case Studies</a> •
+  <a href="docs/es/index.md">Spanish Docs</a> •
   <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/discussions">Discussions</a>
 </p>
 

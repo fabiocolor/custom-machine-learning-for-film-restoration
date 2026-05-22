@@ -4,6 +4,8 @@ title: Case Studies
 nav_order: 4
 ---
 
+<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/case-studies/' | relative_url }}">Español</a></div>
+
 # Case Studies
 
 Real-world applications of the CopyCat workflow across different film stocks, gauges, degradation types, and reference sources. Each case demonstrates a different challenge and strategy within the same core pipeline documented in this repository.

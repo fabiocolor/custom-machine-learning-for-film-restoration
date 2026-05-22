@@ -4,6 +4,8 @@ title: Home
 nav_order: 0
 ---
 
+<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/' | relative_url }}">Español</a></div>
+
 # Custom Machine Learning for Film Restoration
 
 Reference-based restoration workflow for NukeX using `CopyCat` and `Inference`. Trains small CNNs against real source/reference pairs to recover lost chroma or spatial detail in degraded film elements.

@@ -4,6 +4,8 @@ title: Spatial Recovery
 nav_order: 3
 ---
 
+<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/spatial-recovery/' | relative_url }}">Español</a></div>
+
 # Spatial Recovery — Stages 3–5
 
 ![Spatial recovery overview](images_kebab/mission-kill/mission-kill-spatial-recovery-preview.gif)

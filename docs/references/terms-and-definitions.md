@@ -4,6 +4,8 @@ title: Glossary
 nav_order: 5
 ---
 
+<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/references/terms-and-definitions/' | relative_url }}">Español</a></div>
+
 # Glossary
 
 Terms specific to the chroma and spatial recovery workflows in this repository. Standard Nuke node names (`Read`, `Write`, `Merge`, `Transform`, `Crop`, etc.) are not redefined here — consult Foundry documentation for those.

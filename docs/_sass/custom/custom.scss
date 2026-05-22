@@ -23,6 +23,18 @@ body {
   line-height: 1.6;
 }
 
+.language-switch {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  margin: 0 0 1.25rem;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgba($border-color, 0.9);
+  border-radius: 6px;
+  background-color: rgba($sidebar-color, 0.55);
+  font-size: 0.9rem;
+}
+
 // Sidebar modifications
 .side-bar {
   background-color: rgba($sidebar-color, 0.6) !important;
@@ -210,6 +222,40 @@ body {
     
     &:hover {
       transform: scale(1.01);
+    }
+  }
+
+  .media-grid {
+    display: grid;
+    gap: 1.25rem;
+    margin: 2rem 0;
+
+    figure {
+      margin: 0;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0;
+    }
+
+    figcaption {
+      color: #94a3b8;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      margin-top: 0.65rem;
+    }
+  }
+
+  .media-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 720px) {
+    .media-grid-2 {
+      grid-template-columns: 1fr;
     }
   }
 

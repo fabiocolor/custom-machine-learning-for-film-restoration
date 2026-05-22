@@ -12,6 +12,8 @@ aux_links:
     - "https://github.com/fabiocolor/custom-machine-learning-for-film-restoration"
   "YouTube Walkthrough":
     - "https://youtu.be/kXerjFGX9Kg"
+  "Español":
+    - "/custom-machine-learning-for-film-restoration/es/"
 
 nav_enabled: true
 search_enabled: true

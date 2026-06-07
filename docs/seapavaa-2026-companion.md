@@ -120,6 +120,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <a href="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" alt="Fanji split hero image">
       </a>
+      <p>A full-frame split view of the faded scan and the recovered composite used as the opening before-and-after example.</p>
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
@@ -143,6 +144,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <video controls preload="metadata" poster="{{ '/images_kebab/mission-kill/mission-kill-chroma-recovery-comparison.png' | relative_url }}">
         <source src="{{ '/media/seapavaa2026/mission_kill_color_comparison_web.mp4' | relative_url }}" type="video/mp4">
       </video>
+      <p>The earlier CopyCat result shows the starting point for chroma recovery before moving into open-weight image-edit models.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
@@ -164,6 +166,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <a href="{{ '/images_kebab/seapavaa2026/recovery_pair_reptilicus_beach_fullframe.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/recovery_pair_reptilicus_beach_fullframe.png' | relative_url }}" alt="Reptilicus recovery pair">
       </a>
+      <p>A full-frame comparison between a faded source and an accepted composite, separating image correction from generated chroma recovery.</p>
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
@@ -187,6 +190,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <a href="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}" alt="ComfyUI workflow screenshot">
       </a>
+      <p>The workflow view shows the practical test setup: source, reference, control image, prompt, model, and output in one runnable graph.</p>
       <details class="seapavaa-files">
         <summary>Open the workflow and its parts</summary>
         <div class="seapavaa-filelist">
@@ -211,6 +215,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <a href="{{ '/images_kebab/seapavaa2026/interior_woman_balanced_vs_unbalanced_paths_2x2.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/interior_woman_balanced_vs_unbalanced_paths_2x2.png' | relative_url }}" alt="Balanced versus unbalanced comparison">
       </a>
+      <p>The same subject behaves differently depending on whether the source is used raw or manually balanced before inference.</p>
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
@@ -233,6 +238,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <a href="{{ '/images_kebab/seapavaa2026/leader_lady_semantic_contamination_gar01_triptych.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/leader_lady_semantic_contamination_gar01_triptych.png' | relative_url }}" alt="Leader lady semantic contamination">
       </a>
+      <p>This example shows why reference images can contaminate the subject when the model borrows identity or scene content instead of only color.</p>
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
@@ -254,6 +260,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <a href="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" alt="Source versus bad semantic inference">
       </a>
+      <p>A semantic failure case where the model produces a plausible image but misses what the original frame is actually showing.</p>
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
@@ -274,6 +281,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <a href="{{ '/images_kebab/seapavaa2026/jug_auditorium_full_lineage_5stage.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/jug_auditorium_full_lineage_5stage.png' | relative_url }}" alt="Full lineage board">
       </a>
+      <p>The lineage board makes the contract explicit: source, control, reference, raw inference, and final composite are separate things.</p>
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
@@ -297,6 +305,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <a href="{{ '/images_kebab/seapavaa2026/fanji_round4_row9_top3_raw_generations.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/fanji_round4_row9_top3_raw_generations.png' | relative_url }}" alt="Fanji row-9 top three raw generations">
       </a>
+      <p>Three prompt variants from the same source show how the still route became more reliable through repeated prompt testing.</p>
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
@@ -319,6 +328,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <video controls preload="metadata">
         <source src="{{ '/media/seapavaa2026/obsession_interior_woman24_source_raw_inference_final_composite.mp4' | relative_url }}" type="video/mp4">
       </video>
+      <p>A low-motion shot where source, raw inference, and final composite hold together well enough to demonstrate temporal potential.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
@@ -350,6 +360,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <video controls preload="metadata">
         <source src="{{ '/media/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" type="video/mp4">
       </video>
+      <p>This Wan/VACE test shows a second bounded temporal success with the same three-way source, inference, and composite structure.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
@@ -381,6 +392,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <video controls preload="metadata">
         <source src="{{ '/media/seapavaa2026/shot0011_fourchunk_vace_stitched_source_raw_inference_composite.mp4' | relative_url }}" type="video/mp4">
       </video>
+      <p>A hard-motion example where stitching and temporal generation still break down, even when the individual parts are available.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
@@ -409,6 +421,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <video controls preload="metadata">
         <source src="{{ '/media/seapavaa2026/shot0001_t091_source_raw_inference_final_composite_fullrun_with_context_board.mp4' | relative_url }}" type="video/mp4">
       </video>
+      <p>The context board gives the model stable visual anchors while the video comparison shows how those anchors affect the shot.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
@@ -448,9 +461,6 @@ Each section gives you the exact element shown in the talk, and when useful, the
           <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/03_source_canny_control.png' | relative_url }}" target="_blank">Canny control</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/04_generated_atlas_reference.png' | relative_url }}" target="_blank">Generated Atlas reference</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/prompt.txt' | relative_url }}" target="_blank">Prompt</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/provenance.json' | relative_url }}" target="_blank">Provenance</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/experiment_manifest.json' | relative_url }}" target="_blank">Experiment manifest</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/run_manifest.json' | relative_url }}" target="_blank">Run manifest</a>
         </div>
       </details>
     </div>
@@ -466,6 +476,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <a href="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" alt="Tiled versus full-frame raw inference">
       </a>
+      <p>The comparison tests whether adding spatial context through tiling changes the raw inference before any final composite step.</p>
       <details class="seapavaa-files">
         <summary>Open the full-size images behind this comparison</summary>
         <div class="seapavaa-filelist">
@@ -486,6 +497,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <video controls preload="metadata">
         <source src="{{ '/media/seapavaa2026/fanji_600_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" type="video/mp4">
       </video>
+      <p>The full Fanji run shows what the method looks like when it is applied frame by frame across a longer sequence.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
@@ -515,13 +527,6 @@ Each section gives you the exact element shown in the talk, and when useful, the
           <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/03_source_canny_control.png' | relative_url }}" target="_blank">Canny control</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/04_raw_inference.png' | relative_url }}" target="_blank">Raw inference</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png' | relative_url }}" target="_blank">Final composite</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/06_source_raw_composite_contact_sheet.png' | relative_url }}" target="_blank">Source / raw / composite sheet</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/prompt.txt' | relative_url }}" target="_blank">Prompt</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/provenance.json' | relative_url }}" target="_blank">Provenance</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/subject.json' | relative_url }}" target="_blank">Subject manifest</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/experiment_manifest.json' | relative_url }}" target="_blank">Experiment manifest</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/run_manifest.json' | relative_url }}" target="_blank">Run manifest</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/chroma_luma_composite_manifest.json' | relative_url }}" target="_blank">Composite manifest</a>
         </div>
       </details>
     </div>

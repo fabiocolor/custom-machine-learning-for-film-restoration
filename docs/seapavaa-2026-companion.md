@@ -455,9 +455,8 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <details class="seapavaa-files">
         <summary>Open the full-size images behind this comparison</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_source_four_tile_layout.png' | relative_url }}" target="_blank">Four-tile source</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_stitched_tile_raw_rgb.png' | relative_url }}" target="_blank">Four-tile raw result</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_fullframe_clara_baseline_frame_000000_test.png' | relative_url }}" target="_blank">Single full-frame raw result</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_four_tile_raw_inference_hard_stitch.png' | relative_url }}" target="_blank">Tiled raw inference</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_fullframe_clara_baseline_frame_000000_test.png' | relative_url }}" target="_blank">Full-frame raw inference</a>
         </div>
       </details>
     </div>

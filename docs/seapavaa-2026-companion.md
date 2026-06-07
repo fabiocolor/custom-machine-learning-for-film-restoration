@@ -140,13 +140,13 @@ Each section gives you the exact element shown in the talk, and when useful, the
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
       <h3>Mission: Kill comparison</h3>
-      <a href="{{ '/images_kebab/mission-kill/mission-kill-comparison-preview.gif' | relative_url }}" target="_blank">
-        <img src="{{ '/images_kebab/mission-kill/mission-kill-comparison-preview.gif' | relative_url }}" alt="Mission Kill comparison">
-      </a>
+      <video controls preload="metadata" poster="{{ '/images_kebab/mission-kill/mission-kill-chroma-recovery-comparison.png' | relative_url }}">
+        <source src="{{ '/media/seapavaa2026/mission_kill_color_comparison_web.mp4' | relative_url }}" type="video/mp4">
+      </video>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/images_kebab/mission-kill/mission-kill-comparison-preview.gif' | relative_url }}" target="_blank">Animated comparison</a>
+          <a href="{{ '/media/seapavaa2026/mission_kill_color_comparison_web.mp4' | relative_url }}" target="_blank">Video comparison</a>
           <a href="{{ '/images_kebab/mission-kill/mission-kill-chroma-recovery-comparison.png' | relative_url }}" target="_blank">Still comparison</a>
         </div>
       </details>

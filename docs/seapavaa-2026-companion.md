@@ -188,10 +188,14 @@ Each section gives you the exact element shown in the talk, and when useful, the
         <img src="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}" alt="ComfyUI workflow screenshot">
       </a>
       <details class="seapavaa-files">
-        <summary>Open the workflow</summary>
+        <summary>Open the workflow and its parts</summary>
         <div class="seapavaa-filelist">
           <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow_for_jiminc.json' | relative_url }}" target="_blank">Workflow JSON</a>
           <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_runnable_prompt_for_jiminc.json' | relative_url }}" target="_blank">Runnable prompt JSON</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/01_source.png' | relative_url }}" target="_blank">Source image</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/02_reference_chart.png' | relative_url }}" target="_blank">Reference chart</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/03_control.png' | relative_url }}" target="_blank">Control image</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/04_output.png' | relative_url }}" target="_blank">Output image</a>
         </div>
       </details>
     </div>

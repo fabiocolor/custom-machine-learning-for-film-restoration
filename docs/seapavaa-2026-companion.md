@@ -300,10 +300,10 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3/01_source.png' | relative_url }}" target="_blank">Source</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3/02_iris_spectrum.png' | relative_url }}" target="_blank">Iris Spectrum</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3/03_celeste_redguard.png' | relative_url }}" target="_blank">Celeste Redguard</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3/04_clara_anchor.png' | relative_url }}" target="_blank">Clara Anchor</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_stills/01_source.png' | relative_url }}" target="_blank">Source</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_stills/02_iris_spectrum.png' | relative_url }}" target="_blank">Iris Spectrum</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_stills/03_celeste_redguard.png' | relative_url }}" target="_blank">Celeste Redguard</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_stills/04_clara_anchor.png' | relative_url }}" target="_blank">Clara Anchor</a>
         </div>
       </details>
     </div>

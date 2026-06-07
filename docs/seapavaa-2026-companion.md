@@ -207,6 +207,15 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <a href="{{ '/images_kebab/seapavaa2026/interior_woman_balanced_vs_unbalanced_paths_2x2.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/interior_woman_balanced_vs_unbalanced_paths_2x2.png' | relative_url }}" alt="Balanced versus unbalanced comparison">
       </a>
+      <details class="seapavaa-files">
+        <summary>Open the parts of this example</summary>
+        <div class="seapavaa-filelist">
+          <a href="{{ '/images_kebab/seapavaa2026/originals/interior_woman_paths/01_unbalanced_source.png' | relative_url }}" target="_blank">Unbalanced source</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/interior_woman_paths/02_unbalanced_final_composite.png' | relative_url }}" target="_blank">Unbalanced final composite</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/interior_woman_paths/03_balanced_source.png' | relative_url }}" target="_blank">Balanced source</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/interior_woman_paths/04_balanced_final_composite.png' | relative_url }}" target="_blank">Balanced final composite</a>
+        </div>
+      </details>
     </div>
   </div>
 </section>

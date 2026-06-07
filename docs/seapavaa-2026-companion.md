@@ -107,7 +107,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   <a href="#slide-14">Atlas: Useful, But Not Yet Reliable</a>
   <a href="#slide-15">Tiling and the Spatial-Context Hypothesis</a>
   <a href="#slide-16">What We Can Claim Now</a>
-  <a href="#slide-17">Thank You / Resources</a>
+  <a href="#slide-17">Thank You</a>
 </div>
 
 <section id="slide-1" class="seapavaa-slide">
@@ -498,17 +498,32 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-17" class="seapavaa-slide">
-  <h2>Thank You / Resources</h2>
+  <h2>Thank You</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Public repository QR</h3>
-      <a href="{{ '/images_kebab/seapavaa2026/custom_machine_learning_for_film_restoration_qr.png' | relative_url }}" target="_blank">
-        <img src="{{ '/images_kebab/seapavaa2026/custom_machine_learning_for_film_restoration_qr.png' | relative_url }}" alt="Public repository QR code">
+      <h3>Candy Ending matched-reference recovery</h3>
+      <a href="{{ '/images_kebab/seapavaa2026/candy_ending_frame_1619_seed1_powerpoint_safe.png' | relative_url }}" target="_blank">
+        <img src="{{ '/images_kebab/seapavaa2026/candy_ending_frame_1619_seed1_powerpoint_safe.png' | relative_url }}" alt="Candy Ending matched-reference recovery">
       </a>
-      <div class="seapavaa-filelist">
-        <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration" target="_blank">Open repository</a>
-      </div>
+      <p>This final example uses a matched non-generated reference frame for color evidence while the faded source frame remains the geometry and luma authority.</p>
+      <details class="seapavaa-files">
+        <summary>Open the full-size images behind this example</summary>
+        <div class="seapavaa-filelist">
+          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.png' | relative_url }}" target="_blank">Source frame</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/02_matched_reference_frame_2030.png' | relative_url }}" target="_blank">Matched reference frame</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/03_source_canny_control.png' | relative_url }}" target="_blank">Canny control</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/04_raw_inference.png' | relative_url }}" target="_blank">Raw inference</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png' | relative_url }}" target="_blank">Final composite</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/06_source_raw_composite_contact_sheet.png' | relative_url }}" target="_blank">Source / raw / composite sheet</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/prompt.txt' | relative_url }}" target="_blank">Prompt</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/provenance.json' | relative_url }}" target="_blank">Provenance</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/subject.json' | relative_url }}" target="_blank">Subject manifest</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/experiment_manifest.json' | relative_url }}" target="_blank">Experiment manifest</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/run_manifest.json' | relative_url }}" target="_blank">Run manifest</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/chroma_luma_composite_manifest.json' | relative_url }}" target="_blank">Composite manifest</a>
+        </div>
+      </details>
     </div>
   </div>
 </section>

@@ -84,34 +84,34 @@ nav_order: 7
 
 # SEAPAVAA 2026 Companion
 
-This page follows the presentation slide by slide.
+This page follows the presentation by slide title.
 
 Each section gives you the exact element shown in the talk, and when useful, the separate parts behind that same element so you can inspect them individually.
 
-## Jump by Slide
+## Jump by Title
 
 <div class="seapavaa-jump">
-  <a href="#slide-1">1 Hero</a>
-  <a href="#slide-2">2 CopyCat</a>
-  <a href="#slide-3">3 Recovery</a>
-  <a href="#slide-4">4 Workflow</a>
-  <a href="#slide-5">5 Source Paths</a>
-  <a href="#slide-6">6 Reference Problem</a>
-  <a href="#slide-7">7 Semantics</a>
-  <a href="#slide-8">8 Contract</a>
-  <a href="#slide-9">9 Still Route</a>
-  <a href="#slide-10">10 Interior Woman</a>
-  <a href="#slide-11">11 Shot0006</a>
-  <a href="#slide-12">12 Hard Motion</a>
-  <a href="#slide-13">13 Context Boards</a>
-  <a href="#slide-14">14 Atlas</a>
-  <a href="#slide-15">15 Tiling</a>
-  <a href="#slide-16">16 Current Claim</a>
-  <a href="#slide-17">17 Resources</a>
+  <a href="#slide-1">Title / Hero Frame</a>
+  <a href="#slide-2">From CopyCat to Open-Weight Chroma Recovery</a>
+  <a href="#slide-3">Correction Versus Recovery</a>
+  <a href="#slide-4">Why Open-Weight Models, and How I Tested Them</a>
+  <a href="#slide-5">Two Source Paths, Two Different Problems</a>
+  <a href="#slide-6">The Reference Problem</a>
+  <a href="#slide-7">The Semantic Boundary</a>
+  <a href="#slide-8">The Product Contract</a>
+  <a href="#slide-9">The Still Route Finally Generalized</a>
+  <a href="#slide-10">First Temporal Success: Interior Woman</a>
+  <a href="#slide-11">Temporal Success 2: Shot0006 Wan/VACE</a>
+  <a href="#slide-12">What Still Fails: Hard Motion</a>
+  <a href="#slide-13">Balanced Route: Context Boards</a>
+  <a href="#slide-14">Atlas: Useful, But Not Yet Reliable</a>
+  <a href="#slide-15">Tiling and the Spatial-Context Hypothesis</a>
+  <a href="#slide-16">What We Can Claim Now</a>
+  <a href="#slide-17">Thank You / Resources</a>
 </div>
 
 <section id="slide-1" class="seapavaa-slide">
-  <h2>Slide 1 — Title / Hero Frame</h2>
+  <h2>Title / Hero Frame</h2>
   <p class="seapavaa-slide-intro">This is the exact image from the presentation, followed by the separate parts behind the same example.</p>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -135,7 +135,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-2" class="seapavaa-slide">
-  <h2>Slide 2 — From CopyCat to Open-Weight Chroma Recovery</h2>
+  <h2>From CopyCat to Open-Weight Chroma Recovery</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -155,7 +155,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-3" class="seapavaa-slide">
-  <h2>Slide 3 — Correction Versus Recovery</h2>
+  <h2>Correction Versus Recovery</h2>
   <p class="seapavaa-slide-intro">This is the exact comparison shown in the presentation, with the individual files behind it.</p>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -179,7 +179,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-4" class="seapavaa-slide">
-  <h2>Slide 4 — Why Open-Weight Models, and How I Tested Them</h2>
+  <h2>Why Open-Weight Models, and How I Tested Them</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -199,7 +199,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-5" class="seapavaa-slide">
-  <h2>Slide 5 — Two Source Paths, Two Different Problems</h2>
+  <h2>Two Source Paths, Two Different Problems</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -221,7 +221,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-6" class="seapavaa-slide">
-  <h2>Slide 6 — The Reference Problem</h2>
+  <h2>The Reference Problem</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -231,7 +231,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
       </a>
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
-        <div class="seapavaa-file-list">
+        <div class="seapavaa-filelist">
           <a href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/01_raw_source.png' | relative_url }}" target="_blank">Raw source</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/02_early_marcie_contamination.png' | relative_url }}" target="_blank">Early Marcie contamination</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/03_belak_chart_corrected.png' | relative_url }}" target="_blank">Belak chart corrected</a>
@@ -242,7 +242,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-7" class="seapavaa-slide">
-  <h2>Slide 7 — The Semantic Boundary</h2>
+  <h2>The Semantic Boundary</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -262,7 +262,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-8" class="seapavaa-slide">
-  <h2>Slide 8 — The Product Contract</h2>
+  <h2>The Product Contract</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -285,20 +285,29 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-9" class="seapavaa-slide">
-  <h2>Slide 9 — The Still Route Finally Generalized</h2>
+  <h2>The Still Route Finally Generalized</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Varied still benchmark contact sheet</h3>
-      <a href="{{ '/images_kebab/seapavaa2026/raw_scan_vs_raw_inference_contact_sheet_4x2.png' | relative_url }}" target="_blank">
-        <img src="{{ '/images_kebab/seapavaa2026/raw_scan_vs_raw_inference_contact_sheet_4x2.png' | relative_url }}" alt="Still benchmark contact sheet">
+      <h3>Fanji row-9 top three raw generations</h3>
+      <a href="{{ '/images_kebab/seapavaa2026/fanji_round4_row9_top3_raw_generations.png' | relative_url }}" target="_blank">
+        <img src="{{ '/images_kebab/seapavaa2026/fanji_round4_row9_top3_raw_generations.png' | relative_url }}" alt="Fanji row-9 top three raw generations">
       </a>
+      <details class="seapavaa-files">
+        <summary>Open the parts of this example</summary>
+        <div class="seapavaa-filelist">
+          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_row9_top3/01_source.png' | relative_url }}" target="_blank">Source</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_row9_top3/02_iris_spectrum.png' | relative_url }}" target="_blank">Iris Spectrum</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_row9_top3/03_celeste_redguard.png' | relative_url }}" target="_blank">Celeste Redguard</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_row9_top3/04_clara_anchor.png' | relative_url }}" target="_blank">Clara Anchor</a>
+        </div>
+      </details>
     </div>
   </div>
 </section>
 
 <section id="slide-10" class="seapavaa-slide">
-  <h2>Slide 10 — First Temporal Success: Interior Woman</h2>
+  <h2>First Temporal Success: Interior Woman</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -319,7 +328,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-11" class="seapavaa-slide">
-  <h2>Slide 11 — Temporal Success 2: Shot0006 Wan/VACE</h2>
+  <h2>Temporal Success 2: Shot0006 Wan/VACE</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -340,7 +349,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-12" class="seapavaa-slide">
-  <h2>Slide 12 — What Still Fails: Hard Motion</h2>
+  <h2>What Still Fails: Hard Motion</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -360,7 +369,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-13" class="seapavaa-slide">
-  <h2>Slide 13 — Balanced Route: Context Boards</h2>
+  <h2>Balanced Route: Context Boards</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -381,7 +390,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-14" class="seapavaa-slide">
-  <h2>Slide 14 — Atlas: Useful, But Not Yet Reliable</h2>
+  <h2>Atlas: Useful, But Not Yet Reliable</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -394,7 +403,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-15" class="seapavaa-slide">
-  <h2>Slide 15 — Tiling and the Spatial-Context Hypothesis</h2>
+  <h2>Tiling and the Spatial-Context Hypothesis</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -407,7 +416,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-16" class="seapavaa-slide">
-  <h2>Slide 16 — What We Can Claim Now</h2>
+  <h2>What We Can Claim Now</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -427,7 +436,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-17" class="seapavaa-slide">
-  <h2>Slide 17 — Thank You / Resources</h2>
+  <h2>Thank You / Resources</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>

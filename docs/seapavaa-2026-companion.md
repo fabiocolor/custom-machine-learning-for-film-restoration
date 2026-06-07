@@ -204,8 +204,8 @@ Each section gives you the exact element shown in the talk, and when useful, the
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
       <h3>Balanced versus unbalanced path comparison</h3>
-      <a href="{{ '/images_kebab/seapavaa2026/shot0006_balanced_vs_unbalanced_paths_2x2.png' | relative_url }}" target="_blank">
-        <img src="{{ '/images_kebab/seapavaa2026/shot0006_balanced_vs_unbalanced_paths_2x2.png' | relative_url }}" alt="Balanced versus unbalanced comparison">
+      <a href="{{ '/images_kebab/seapavaa2026/interior_woman_balanced_vs_unbalanced_paths_2x2.png' | relative_url }}" target="_blank">
+        <img src="{{ '/images_kebab/seapavaa2026/interior_woman_balanced_vs_unbalanced_paths_2x2.png' | relative_url }}" alt="Balanced versus unbalanced comparison">
       </a>
     </div>
   </div>

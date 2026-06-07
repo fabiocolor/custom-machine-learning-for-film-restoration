@@ -455,7 +455,8 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_stitched_tile_raw_rgb.png' | relative_url }}" target="_blank">Tiled raw inference</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_tiled_raw_inference_panel_exact.png' | relative_url }}" target="_blank">Exact tiled panel seen in the talk</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_stitched_tile_raw_rgb.png' | relative_url }}" target="_blank">Tiled raw inference original</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_fullframe_clara_baseline_frame_000000_test.png' | relative_url }}" target="_blank">Full-frame raw inference</a>
         </div>
       </details>

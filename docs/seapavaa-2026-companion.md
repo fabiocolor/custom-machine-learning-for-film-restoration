@@ -453,12 +453,11 @@ Each section gives you the exact element shown in the talk, and when useful, the
         <img src="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" alt="Tiled versus full-frame raw inference">
       </a>
       <details class="seapavaa-files">
-        <summary>Open the parts of this example</summary>
+        <summary>Open the full-size images behind this comparison</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_stitched_source_rgb.png' | relative_url }}" target="_blank">Stitched source from four tiles</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_stitched_tile_raw_rgb.png' | relative_url }}" target="_blank">Stitched tiled raw inference</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_fullframe_clara_baseline_frame_000000_test.png' | relative_url }}" target="_blank">Full-frame raw inference</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_tile4_review_sheet.png' | relative_url }}" target="_blank">Tile review sheet</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_source_four_tile_layout.png' | relative_url }}" target="_blank">Four-tile source</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_stitched_tile_raw_rgb.png' | relative_url }}" target="_blank">Four-tile raw result</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_fullframe_clara_baseline_frame_000000_test.png' | relative_url }}" target="_blank">Single full-frame raw result</a>
         </div>
       </details>
     </div>

@@ -417,6 +417,15 @@ Each section gives you the exact element shown in the talk, and when useful, the
           <a href="{{ '/images_kebab/seapavaa2026/02_overview_t091_generated_anchor_contact_sheet_t073_unl-55294673.png' | relative_url }}" target="_blank">Context board</a>
         </div>
       </details>
+      <details class="seapavaa-files">
+        <summary>Open the parts of this example</summary>
+        <div class="seapavaa-filelist">
+          <a href="{{ '/media/seapavaa2026/originals/shot0001_source.mp4' | relative_url }}" target="_blank">Source video</a>
+          <a href="{{ '/media/seapavaa2026/originals/shot0001_raw_inference.mp4' | relative_url }}" target="_blank">Raw inference video</a>
+          <a href="{{ '/media/seapavaa2026/originals/shot0001_final_composite.mp4' | relative_url }}" target="_blank">Final composite video</a>
+          <a href="{{ '/media/seapavaa2026/originals/shot0001_context_board.png' | relative_url }}" target="_blank">Context board</a>
+        </div>
+      </details>
     </div>
   </div>
 </section>

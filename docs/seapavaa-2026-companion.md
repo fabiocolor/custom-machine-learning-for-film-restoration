@@ -348,12 +348,12 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <span class="seapavaa-role">Seen in the talk</span>
       <h3>Shot0006 native three-way comparison</h3>
       <video controls preload="metadata">
-        <source src="{{ '/media/seapavaa2026/shot0006_source_raw_composite_native.mp4' | relative_url }}" type="video/mp4">
+        <source src="{{ '/media/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" type="video/mp4">
       </video>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/shot0006_source_raw_composite_native.mp4' | relative_url }}" target="_blank">Full comparison video</a>
+          <a href="{{ '/media/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" target="_blank">Full comparison video</a>
           <a href="{{ '/images_kebab/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun_preview.png' | relative_url }}" target="_blank">Preview still</a>
           <a href="{{ '/images_kebab/seapavaa2026/shot0006_source_raw_inference_final_composite.png' | relative_url }}" target="_blank">Three-panel still</a>
         </div>

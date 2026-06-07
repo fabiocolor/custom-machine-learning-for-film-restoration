@@ -327,6 +327,16 @@ Each section gives you the exact element shown in the talk, and when useful, the
           <a href="{{ '/images_kebab/seapavaa2026/obsession_interior_woman24_source_raw_inference_final_composite_with_prompt_side.png' | relative_url }}" target="_blank">Prompt-side still</a>
         </div>
       </details>
+      <details class="seapavaa-files">
+        <summary>Open the parts of this example</summary>
+        <div class="seapavaa-filelist">
+          <a href="{{ '/media/seapavaa2026/originals/obsession_interior_woman24_source.mp4' | relative_url }}" target="_blank">Source video</a>
+          <a href="{{ '/media/seapavaa2026/originals/obsession_interior_woman24_raw_inference.mp4' | relative_url }}" target="_blank">Raw inference video</a>
+          <a href="{{ '/media/seapavaa2026/originals/obsession_interior_woman24_final_composite.mp4' | relative_url }}" target="_blank">Final composite video</a>
+          <a href="{{ '/media/seapavaa2026/originals/obsession_interior_woman24_full_prompt.txt' | relative_url }}" target="_blank">Full prompt</a>
+          <a href="{{ '/media/seapavaa2026/originals/obsession_interior_woman24_full_prompt.json' | relative_url }}" target="_blank">Prompt JSON</a>
+        </div>
+      </details>
     </div>
   </div>
 </section>

@@ -439,6 +439,20 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <a href="{{ '/images_kebab/seapavaa2026/liked_t085_target_resized_to_t092.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/liked_t085_target_resized_to_t092.png' | relative_url }}" alt="Liked atlas target">
       </a>
+      <p>This Atlas was built from source-owned crops of the shot, a soft color-chart reference, and source-derived Canny control. It was kept as a generated color reference, not as a final composite.</p>
+      <details class="seapavaa-files">
+        <summary>Open how this Atlas was made</summary>
+        <div class="seapavaa-filelist">
+          <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/01_source_atlas.png' | relative_url }}" target="_blank">Source atlas</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/02_color_chart_reference.png' | relative_url }}" target="_blank">Color chart reference</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/03_source_canny_control.png' | relative_url }}" target="_blank">Canny control</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/04_generated_atlas_reference.png' | relative_url }}" target="_blank">Generated Atlas reference</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/prompt.txt' | relative_url }}" target="_blank">Prompt</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/provenance.json' | relative_url }}" target="_blank">Provenance</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/experiment_manifest.json' | relative_url }}" target="_blank">Experiment manifest</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/run_manifest.json' | relative_url }}" target="_blank">Run manifest</a>
+        </div>
+      </details>
     </div>
   </div>
 </section>

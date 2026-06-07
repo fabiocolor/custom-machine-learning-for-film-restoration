@@ -250,6 +250,13 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <a href="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" alt="Source versus bad semantic inference">
       </a>
+      <details class="seapavaa-files">
+        <summary>Open the parts of this example</summary>
+        <div class="seapavaa-filelist">
+          <a href="{{ '/images_kebab/seapavaa2026/originals/ben_row2/01_source.png' | relative_url }}" target="_blank">Source</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/ben_row2/02_bad_semantic_inference.png' | relative_url }}" target="_blank">Bad semantic inference</a>
+        </div>
+      </details>
     </div>
   </div>
 </section>

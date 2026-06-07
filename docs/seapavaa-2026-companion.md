@@ -358,6 +358,16 @@ Each section gives you the exact element shown in the talk, and when useful, the
           <a href="{{ '/images_kebab/seapavaa2026/shot0006_source_raw_inference_final_composite.png' | relative_url }}" target="_blank">Three-panel still</a>
         </div>
       </details>
+      <details class="seapavaa-files">
+        <summary>Open the parts of this example</summary>
+        <div class="seapavaa-filelist">
+          <a href="{{ '/media/seapavaa2026/originals/shot0006_source.mp4' | relative_url }}" target="_blank">Source video</a>
+          <a href="{{ '/media/seapavaa2026/originals/shot0006_raw_inference.mp4' | relative_url }}" target="_blank">Raw inference video</a>
+          <a href="{{ '/media/seapavaa2026/originals/shot0006_final_composite.mp4' | relative_url }}" target="_blank">Final composite video</a>
+          <a href="{{ '/media/seapavaa2026/originals/shot0006_full_prompt.txt' | relative_url }}" target="_blank">Full prompt</a>
+          <a href="{{ '/media/seapavaa2026/originals/shot0006_full_prompt.json' | relative_url }}" target="_blank">Prompt JSON</a>
+        </div>
+      </details>
     </div>
   </div>
 </section>

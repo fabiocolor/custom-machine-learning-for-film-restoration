@@ -139,13 +139,17 @@ Each section gives you the exact element shown in the talk, and when useful, the
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Public custom-machine-learning repo QR</h3>
-      <a href="{{ '/images_kebab/seapavaa2026/custom_machine_learning_for_film_restoration_qr.png' | relative_url }}" target="_blank">
-        <img src="{{ '/images_kebab/seapavaa2026/custom_machine_learning_for_film_restoration_qr.png' | relative_url }}" alt="Public repository QR">
+      <h3>Mission: Kill comparison</h3>
+      <a href="{{ '/images_kebab/mission-kill/mission-kill-comparison-preview.gif' | relative_url }}" target="_blank">
+        <img src="{{ '/images_kebab/mission-kill/mission-kill-comparison-preview.gif' | relative_url }}" alt="Mission Kill comparison">
       </a>
-      <div class="seapavaa-filelist">
-        <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration" target="_blank">Open repository</a>
-      </div>
+      <details class="seapavaa-files">
+        <summary>Open this example</summary>
+        <div class="seapavaa-filelist">
+          <a href="{{ '/images_kebab/mission-kill/mission-kill-comparison-preview.gif' | relative_url }}" target="_blank">Animated comparison</a>
+          <a href="{{ '/images_kebab/mission-kill/mission-kill-chroma-recovery-comparison.png' | relative_url }}" target="_blank">Still comparison</a>
+        </div>
+      </details>
     </div>
   </div>
 </section>

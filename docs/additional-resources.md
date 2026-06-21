@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Additional Resources
-nav_order: 5
+nav_order: 6
 ---
 
 <div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/additional-resources/' | relative_url }}">Español</a></div>

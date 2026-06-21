@@ -14,7 +14,8 @@ Not a plugin. A repeatable, documented workflow for archives, preservation teams
 
 <div class="hero-buttons">
   <a href="{{ '/start-here/' | relative_url }}" class="btn btn-primary">Get Started</a>
-  <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest" class="btn btn-primary" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);" target="_blank">📥 Download Nuke Templates</a>
+  <a href="{{ '/qwen-color-recovery-app/' | relative_url }}" class="btn btn-primary" style="background: linear-gradient(135deg, #0f766e 0%, #2563eb 100%);">Run Qwen Color Recovery App</a>
+  <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest" class="btn btn-primary" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);" target="_blank">Download Nuke Templates</a>
   <a href="https://youtu.be/kXerjFGX9Kg" class="btn btn-outline" target="_blank">Watch YouTube Walkthrough</a>
 </div>
 
@@ -40,6 +41,7 @@ Follow these in order:
 1. **[Shared Workflow](start-here.md)** — Stages 0-2: Resolve export, Nuke setup, dataset curation, alignment, shared crop, and the branch decision.
 2. **[Chroma Recovery](chroma-recovery.md)** — Stage 3 onward: chroma target build, training, inference, validation.
 3. **[Spatial Recovery](spatial-recovery.md)** — Stage 3 onward: spatial target build, training, inference, validation.
+4. **[Qwen Color Recovery App](qwen-color-recovery-app.md)** — ComfyUI workflow package for still images, video frame selection, Cloud import, and local App Mode use.
 
 ## Supporting Material
 

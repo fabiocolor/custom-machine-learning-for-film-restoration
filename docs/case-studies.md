@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Case Studies
-nav_order: 4
+nav_order: 5
 ---
 
 <div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/case-studies/' | relative_url }}">Español</a></div>

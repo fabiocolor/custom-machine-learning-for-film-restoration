@@ -1,6 +1,6 @@
 ---
 title: SEAPAVAA 2026 Companion
-nav_order: 7
+nav_order: 8
 ---
 
 <style>

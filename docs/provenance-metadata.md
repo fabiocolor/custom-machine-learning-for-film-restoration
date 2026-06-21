@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Provenance & Metadata
-nav_order: 6
+nav_order: 7
 ---
 
 <div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/provenance-metadata/' | relative_url }}">Español</a></div>

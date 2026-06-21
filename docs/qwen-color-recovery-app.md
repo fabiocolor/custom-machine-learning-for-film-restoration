@@ -6,9 +6,9 @@ nav_order: 4
 
 # Qwen Color Recovery Image App
 
-Single-frame color recovery for the current `unbalanced_raw` route, packaged as a ComfyUI workflow preset. Upload one unbalanced faded source frame, run the workflow, and use the final composite as the restoration result.
+Recover color from one faded, unbalanced film frame. Upload a source frame, run the app, and use the final composite as the restoration result.
 
-This is the public path. It does not use private machines, private worker queues, or hidden credentials.
+This public version runs in ComfyUI Cloud or on your own ComfyUI setup. It does not send work to Fabio's private machines.
 
 <div class="app-hero-strip" aria-label="Color recovery example">
   <figure>
@@ -20,30 +20,28 @@ This is the public path. It does not use private machines, private worker queues
     <figcaption>Raw inference</figcaption>
   </figure>
   <figure>
-    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png' | relative_url }}" alt="Final source-luma generated-chroma composite">
+    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png' | relative_url }}" alt="Final color recovery composite">
     <figcaption>Final composite</figcaption>
   </figure>
 </div>
 
 <div class="app-download-panel">
-  <a class="btn btn-primary" href="{{ '/downloads/faded-qwen-color-recovery-app.zip' | relative_url }}">Download app package</a>
+  <a class="btn btn-primary" href="{{ '/downloads/faded-qwen-color-recovery-app.zip' | relative_url }}">Download the app</a>
   <a class="btn btn-outline" href="https://cloud.comfy.org/?template=image_qwen_image_edit_2511&utm_source=fabiocolor" target="_blank" rel="noopener">Open ComfyUI Cloud</a>
-  <a class="btn btn-outline" href="{{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json' | relative_url }}">Image workflow</a>
+  <a class="btn btn-outline" href="{{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json' | relative_url }}">Download workflow</a>
 </div>
 
-## What You Get
+## Downloads
 
-| File | Purpose |
+| Download | What it is for |
 | --- | --- |
-| [`faded-qwen-color-recovery-app.zip`]({{ '/downloads/faded-qwen-color-recovery-app.zip' | relative_url }}) | Full image-workflow package: workflow, unbalanced demo source, calibration asset, and custom composite node. |
-| [`faded-qwen-2511-still-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json' | relative_url }}) | Upload one unbalanced source image and recover color for that frame. |
-| [`demo_unbalanced_source_frame.jpg`]({{ '/downloads/qwen-color-recovery/assets/demo_unbalanced_source_frame.jpg' | relative_url }}) | Unbalanced example source frame used by the workflow package. |
-| [`faded_color_recovery`]({{ '/downloads/qwen-color-recovery/custom_nodes/faded_color_recovery/README.md' | relative_url }}) | Custom ComfyUI node that builds the final source-luma/generated-chroma composite. |
-| [`Belak_Color_Patch_Chart_softblur_32.png`]({{ '/downloads/qwen-color-recovery/assets/Belak_Color_Patch_Chart_softblur_32.png' | relative_url }}) | Hidden calibration reference used by the workflow. |
+| [`faded-qwen-color-recovery-app.zip`]({{ '/downloads/faded-qwen-color-recovery-app.zip' | relative_url }}) | Everything needed to open the app in ComfyUI. |
+| [`faded-qwen-2511-still-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json' | relative_url }}) | The image workflow by itself. |
+| [`demo_unbalanced_source_frame.jpg`]({{ '/downloads/qwen-color-recovery/assets/demo_unbalanced_source_frame.jpg' | relative_url }}) | A faded source frame you can use for a quick test. |
 
 ## Extract A Frame From Video
 
-Use this before ComfyUI Cloud when your source is a video. The video stays in your browser; this page does not upload it. Choose a frame, download it as an image, then use that image in the ComfyUI workflow.
+Use this when your source is a video. The video stays in your browser; this page does not upload it. Choose a frame, download it as an image, then use that image in ComfyUI.
 
 <div class="frame-extractor" id="frame-extractor">
   <label class="frame-extractor-file">
@@ -64,51 +62,31 @@ Use this before ComfyUI Cloud when your source is a video. The video stays in yo
   <img id="frame-preview" alt="Selected frame preview" hidden>
 </div>
 
-Browser video support depends on the device and codec. If a preservation master does not open, make a temporary H.264 or HEVC proxy, extract the frame here, and run the image workflow from that frame.
+If your browser cannot open the original video, make a temporary H.264 or HEVC copy and extract the frame from that.
 
-## Run On ComfyUI Cloud
+## Use In ComfyUI Cloud
 
 1. Open [ComfyUI Cloud](https://cloud.comfy.org/).
-2. Import the image workflow JSON from this page.
-3. If Cloud asks for missing files, upload `Belak_Color_Patch_Chart_softblur_32.png` from the package.
-4. If Cloud reports `FadedSourceLumaChromaComposite` as missing, install or import the included `faded_color_recovery` custom node, then restart the Cloud session.
-5. Enter App Mode, expose only the unbalanced source image, seed, and final composite output.
-6. Save and share the app from ComfyUI Cloud.
+2. Import the image workflow from this page.
+3. Upload your faded source frame.
+4. Run the workflow.
+5. Save the final composite.
 
-ComfyUI App Mode is designed for simplified user-facing workflow controls and supports mobile/narrow layouts. ComfyUI currently documents App Mode as officially supported from frontend version `1.41.13`; use a current Cloud session before creating a public share link.
+If ComfyUI asks for an included file, download the full app package and upload the requested file from there.
 
-Comfy Cloud can open official templates directly, but this custom workflow needs a Cloud share link created from a verified Cloud session. Once the image workflow, custom node, calibration asset, and model stack are confirmed in Cloud, replace the generic Cloud button above with that share link.
-
-## Run Locally
+## Use On Your Computer
 
 1. Install or update ComfyUI.
-2. Copy `qwen-color-recovery/custom_nodes/faded_color_recovery` into `ComfyUI/custom_nodes/`.
-3. Restart ComfyUI.
-4. Copy `Belak_Color_Patch_Chart_softblur_32.png` into `ComfyUI/input/`.
-5. Import the image workflow JSON from `qwen-color-recovery/workflows/`.
-6. Install the Qwen Image Edit 2511 model stack if ComfyUI reports missing models.
-7. Enter App Mode and expose only the controls users need.
+2. Download and unzip the app package.
+3. Copy `qwen-color-recovery/custom_nodes/faded_color_recovery` into `ComfyUI/custom_nodes/`.
+4. Restart ComfyUI.
+5. Copy `Belak_Color_Patch_Chart_softblur_32.png` into `ComfyUI/input/`.
+6. Import the image workflow JSON from `qwen-color-recovery/workflows/`.
+7. If ComfyUI asks for Qwen Image Edit 2511 model files, download them through ComfyUI Manager or place them in the folders ComfyUI requests.
 
-Expected model files:
+## Result
 
-```text
-ComfyUI/models/diffusion_models/qwen_image_edit_2511_bf16.safetensors
-ComfyUI/models/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors
-ComfyUI/models/vae/qwen_image_vae.safetensors
-ComfyUI/models/loras/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors
-```
-
-## What The Workflow Does
-
-The workflow uses Qwen Image Edit to generate a recovered color candidate from an unbalanced raw faded source frame, then builds the final restoration image by preserving the original source luminance and taking chroma from the generated result.
-
-That final composite is the product result. The raw Qwen output is useful for inspection, but it is not the final restoration frame.
-
-## Current Release Boundary
-
-This page publishes the image workflow package and the self-hosted install path for the `unbalanced_raw` route. A permanent one-click ComfyUI Cloud share link should be created from a verified Cloud session after confirming that the workflow, custom node, calibration asset, and model stack all load correctly in Cloud.
-
-For the underlying ComfyUI behavior, see the official [App Mode guide](https://docs.comfy.org/interface/app-mode), [Qwen Image Edit 2511 workflow guide](https://docs.comfy.org/tutorials/image/qwen/qwen-image-edit-2511), [custom node installation guide](https://docs.comfy.org/installation/install_custom_node), and [Comfy Cloud model import notes](https://docs.comfy.org/cloud/import-models).
+The app generates a recovered color candidate, then combines the original frame detail with the recovered color. Use the final composite as the restoration image.
 
 <script>
 (() => {

@@ -2,6 +2,9 @@ title: Custom Machine Learning for Film Restoration
 description: Reference-based restoration workflow for NukeX using CopyCat and Inference
 remote_theme: just-the-docs/just-the-docs@v0.10.0
 
+plugins:
+  - jekyll-remote-theme
+
 url: ""
 baseurl: "/custom-machine-learning-for-film-restoration"
 

@@ -43,6 +43,7 @@ Follow these in order:
 
 ## Supporting Material
 
+- [Additional Resources](additional-resources.md) — Video walkthrough, digitization principles, faded-scan background, and technical references.
 - [Case Studies](case-studies.md) — Real-world results across eleven projects.
 - [Glossary](references/terms-and-definitions.md)
 - [Provenance and Metadata](provenance-metadata.md) *(future — ethical training data documentation)*

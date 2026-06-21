@@ -45,6 +45,7 @@ Sigue estas paginas en orden:
 
 ## Material de Apoyo
 
+- [Recursos adicionales](additional-resources.md): Recorrido en video, principios de digitalizacion, contexto de escaneos desvanecidos y referencias tecnicas.
 - [Estudios de caso](case-studies.md): Resultados reales en once proyectos.
 - [Glosario](references/terms-and-definitions.md)
 - [Procedencia y metadatos](provenance-metadata.md) *(futuro: documentacion etica de datos de entrenamiento)*

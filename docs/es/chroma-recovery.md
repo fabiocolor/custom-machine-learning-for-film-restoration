@@ -26,7 +26,7 @@ Esta guia cubre la construccion del objetivo especifico de croma, el entrenamien
 
 El grading tradicional manipula canales existentes; no puede aprender color desde referencias externas. `CopyCat` supera esa limitacion con pares supervisados.
 
-Para una explicacion visual de por que estas fuentes se vuelven rosadas/magenta y por que conviene neutralizarlas tecnicamente antes del entrenamiento, revisa [Por que los escaneos desvanecidos se vuelven magenta](start-here.md#why-faded-scans-turn-magenta).
+Para una explicacion visual de por que estas fuentes se vuelven rosadas/magenta y por que conviene neutralizarlas tecnicamente antes del entrenamiento, revisa [Por que los escaneos desvanecidos se vuelven magenta](additional-resources.md#why-faded-scans-turn-magenta).
 
 ## Enfoques de Referencia
 

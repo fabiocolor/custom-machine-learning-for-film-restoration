@@ -24,7 +24,7 @@ This guide covers chroma-specific target construction, training, inference, and 
 
 Traditional grading manipulates existing channels — it cannot learn color from external references. `CopyCat` overcomes this with supervised pairs.
 
-For a visual explanation of why these sources turn pink/magenta and why a technical neutralization pass helps before training, see [Why Faded Scans Turn Magenta](start-here.md#why-faded-scans-turn-magenta).
+For a visual explanation of why these sources turn pink/magenta and why a technical neutralization pass helps before training, see [Why Faded Scans Turn Magenta](additional-resources.md#why-faded-scans-turn-magenta).
 
 ## Reference Approaches
 

@@ -62,6 +62,11 @@ ffmpeg2pass-*.log*
 # Local tools (vendored binaries)
 /.tools/
 
+# Local docs build artifacts
+docs/.bundle/
+docs/_site/
+docs/vendor/bundle/
+
 # Use kebab-cased images; ignore legacy images folder (OneDrive-owned)
 /docs/images/
 
@@ -183,10 +188,8 @@ docs/images_kebab/frontier-experience/frontier-experience-3x3-contact-sheet.png
 docs/images_kebab/frontier-experience/frontier-experience-chroma-recovery-finished.png
 docs/images_kebab/frontier-experience/frontier-experience-3-way-comparison.png
 docs/images_kebab/resolve-dctl/faded-film-resolve-dctl-neutral-mid-tweaks-exterior.png
-docs/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-after.png
 docs/images_kebab/resolve-dctl/faded-film-resolve-dctl-neutral-mid-tweaks-corrected.png
 docs/images_kebab/resolve-dctl/resolve-dctl-faded-balance-ofx-panel-detail.png
-docs/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-before.png
 docs/images_kebab/lolo/lolo-black-and-white-colorization.png
 docs/images_kebab/lolo/lolo-contact-sheet-2.png
 docs/images_kebab/lolo/lolo-contact-sheet.png
@@ -292,7 +295,6 @@ docs/images_kebab/candy-candy/candy-candy-contact-sheet-16.png
 docs/images_kebab/candy-candy/candy-candy-contact-sheet-14.png
 docs/images_kebab/candy-candy/candy-candy-copycat-training-settings.png
 docs/images_kebab/candy-candy/candy-candy-film-frame-source-scan.png
-docs/images_kebab/candy-candy/candy-candy-resolve-dctl-parade-scope-faded-film.png
 docs/images_kebab/candy-candy/candy-candy-contact-sheet-15.png
 docs/images_kebab/candy-candy/candy-candy-4-way-comparison-2.jpeg
 docs/images_kebab/candy-candy/candy-candy-contact-sheet-11.png
@@ -308,12 +310,10 @@ docs/images_kebab/candy-candy/candy-candy-contact-sheet-8.png
 docs/images_kebab/candy-candy/candy-candy-film-frame-chroma-recovered.png
 docs/images_kebab/candy-candy/candy-candy-contact-sheet-2.png
 docs/images_kebab/candy-candy/candy-candy-4-way-comparison-2.png
-docs/images_kebab/candy-candy/candy-candy-resolve-dctl-before-correction-faded.png
 docs/images_kebab/candy-candy/candy-candy-contact-sheet-1.png
 docs/images_kebab/candy-candy/candy-candy-copycat-graph.png
 docs/images_kebab/candy-candy/candy-candy-contact-sheet-5.png
 docs/images_kebab/candy-candy/candy-candy-contact-sheet-4.png
-docs/images_kebab/candy-candy/candy-candy-resolve-dctl-after-correction-red-channel.png
 docs/images_kebab/candy-candy/candy-candy-contact-sheet-6.png
 docs/images_kebab/candy-candy/candy-candy-contact-sheet-7.png
 docs/images_kebab/candy-candy/candy-candy-4-way-comparison.jpeg

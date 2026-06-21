@@ -100,54 +100,7 @@
         "demo_unbalanced_source_frame.jpg",
         "image"
       ],
-      "title": "unbalanced source frame"
-    },
-    {
-      "id": 83,
-      "type": "LoadImage",
-      "pos": [
-        -640,
-        50
-      ],
-      "size": [
-        274.07552083333337,
-        438.9322916666667
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            377
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.5.1",
-        "Node name for S&R": "LoadImage",
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65
-      },
-      "widgets_values": [
-        "Belak_Color_Patch_Chart_softblur_32.png",
-        "image"
-      ],
-      "title": "hidden Belak softblur calibration reference"
+      "title": "source frame"
     },
     {
       "id": 170,
@@ -238,7 +191,7 @@
         "ver": "0.16.4"
       },
       "widgets_values": [
-        "Recover stable RGB chroma for this unbalanced raw faded film frame. Use image1 as the source shot and preserve its exact content, geometry, people, clothing, objects, framing, silhouettes, foreground/background layout, and spatial boundaries. Use image2 only as a soft color calibration field for period film hue relationships, natural skin color, believable foliage, sky, materials, clean neutrals, and restrained saturation. Use image3 as a hard source-derived edge map in the same geometry space as image1: follow those edges and boundaries closely so the recovered chroma stays aligned to the original luma after inverse mapping. Prioritize boundary alignment and composite usability over reconstructing texture or sharpness. Do not move faces, bodies, objects, buildings, sky lines, vehicles, or foreground/background borders. Do not redesign faces, add new objects, change the location, replace the scene, invent detail in blank skies, or copy visible chart content.",
+        "Recover stable RGB chroma for this unbalanced raw faded film frame. Use image1 as the source shot and preserve its exact content, geometry, people, clothing, objects, framing, silhouettes, foreground/background layout, and spatial boundaries. Use image2 only as a soft color calibration field for period film hue relationships, natural skin color, believable foliage, sky, materials, clean neutrals, and restrained saturation. Use image3 as a hard Canny edge map generated from image1 inside this workflow: follow those edges and boundaries closely so the recovered chroma stays aligned to the original frame. Prioritize boundary alignment and composite usability over reconstructing texture or sharpness. Do not move faces, bodies, objects, buildings, sky lines, vehicles, or foreground/background borders. Do not redesign faces, add new objects, change the location, replace the scene, invent detail in blank skies, or copy visible chart content.",
         false,
         null,
         null,
@@ -347,7 +300,8 @@
       "widgets_values": [
         0.4,
         0.8
-      ]
+      ],
+      "title": "hard Canny edges from source"
     },
     {
       "id": 173,
@@ -547,6 +501,53 @@
       },
       "widgets_values": [],
       "title": "final composite"
+    },
+    {
+      "id": 83,
+      "type": "LoadImage",
+      "pos": [
+        -640,
+        50
+      ],
+      "size": [
+        274.07552083333337,
+        438.9322916666667
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            377
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "LoadImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "Belak_Color_Patch_Chart_softblur_32.png",
+        "image"
+      ],
+      "title": "color reference"
     }
   ],
   "links": [
@@ -556,14 +557,6 @@
       0,
       170,
       0,
-      "IMAGE"
-    ],
-    [
-      377,
-      83,
-      0,
-      170,
-      1,
       "IMAGE"
     ],
     [
@@ -644,6 +637,14 @@
       0,
       9,
       0,
+      "IMAGE"
+    ],
+    [
+      377,
+      83,
+      0,
+      170,
+      1,
       "IMAGE"
     ]
   ],
@@ -1204,7 +1205,7 @@
               "secondTabWidth": 65
             },
             "widgets_values": [
-              "Change the furniture leather difference in image 1 to the fur material in image 2."
+              "Recover stable RGB chroma for this unbalanced raw faded film frame. Use image1 as the source shot and preserve its exact content, geometry, people, clothing, objects, framing, silhouettes, foreground/background layout, and spatial boundaries. Use image2 only as a soft color calibration field for period film hue relationships, natural skin color, believable foliage, sky, materials, clean neutrals, and restrained saturation. Use image3 as a hard Canny edge map generated from image1 inside this workflow: follow those edges and boundaries closely so the recovered chroma stays aligned to the original frame. Prioritize boundary alignment and composite usability over reconstructing texture or sharpness. Do not move faces, bodies, objects, buildings, sky lines, vehicles, or foreground/background borders. Do not redesign faces, add new objects, change the location, replace the scene, invent detail in blank skies, or copy visible chart content."
             ],
             "color": "#232",
             "bgcolor": "#353"
@@ -2560,9 +2561,9 @@
       "app_mode_demo": true,
       "primary_output": "source_luma_generated_chroma_composite",
       "composite_node": "ComfyUI built-in ImageRGBToYUV + ImageYUVToRGB",
-      "control_source": "internal Canny from uploaded source image",
+      "control_source": "hard Canny edge map generated from source frame inside workflow",
       "default_prompt_manifest": "benchmarks/unbalanced/controlnet_chroma_canny_2511_scaled_control_prompt.json",
-      "default_reference_source": "benchmarks/unbalanced/references/Belak_Color_Patch_Chart_softblur_32.png",
+      "default_reference_source": "docs/downloads/qwen-color-recovery/assets/Belak_Color_Patch_Chart_softblur_32.png",
       "public_demo_controls": [
         "source image",
         "seed"
@@ -2571,7 +2572,11 @@
       "inference_route": "frame_by_frame",
       "source_input": "still_image",
       "cloud_safe": true,
-      "custom_nodes_required": false
+      "custom_nodes_required": false,
+      "cloud_required_uploads": [
+        "source frame",
+        "included color reference if Cloud does not carry packaged assets"
+      ]
     }
   },
   "version": 0.4

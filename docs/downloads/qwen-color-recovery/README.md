@@ -21,11 +21,12 @@ Use the final composite as the restoration image.
 
 1. Open ComfyUI Cloud.
 2. Import `workflows/faded-qwen-2511-cloud-composite-app.json`.
-3. Upload your faded source frame.
-4. Run the workflow.
-5. Save the final composite.
+3. Upload your faded source frame in the `source frame` input.
+4. If Cloud asks for the color reference, upload `assets/Belak_Color_Patch_Chart_softblur_32.png`.
+5. Run the workflow.
+6. Save the final composite.
 
-The Cloud workflow uses included ComfyUI image nodes for the final composite.
+The hard Canny guide is created inside the workflow from the source frame.
 
 ## Your Own ComfyUI
 

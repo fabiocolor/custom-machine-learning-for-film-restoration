@@ -396,7 +396,8 @@
       "widgets_values": [
         0.4,
         0.8
-      ]
+      ],
+      "title": "hard Canny edges from source"
     }
   ],
   "links": [
@@ -1014,7 +1015,7 @@
               "secondTabWidth": 65
             },
             "widgets_values": [
-              "Change the furniture leather difference in image 1 to the fur material in image 2."
+              "Recover stable RGB chroma for this unbalanced raw faded film frame. Use image1 as the source shot and preserve its exact content, geometry, people, clothing, objects, framing, silhouettes, foreground/background layout, and spatial boundaries. Use image2 only as a soft color calibration field for period film hue relationships, natural skin color, believable foliage, sky, materials, clean neutrals, and restrained saturation. Use image3 as a hard Canny edge map generated from image1 inside this workflow: follow those edges and boundaries closely so the recovered chroma stays aligned to the original frame. Prioritize boundary alignment and composite usability over reconstructing texture or sharpness. Do not move faces, bodies, objects, buildings, sky lines, vehicles, or foreground/background borders. Do not redesign faces, add new objects, change the location, replace the scene, invent detail in blank skies, or copy visible chart content."
             ],
             "color": "#232",
             "bgcolor": "#353"

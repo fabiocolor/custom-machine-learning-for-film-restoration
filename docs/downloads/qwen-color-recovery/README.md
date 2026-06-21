@@ -19,6 +19,8 @@ Use the final composite as the restoration image.
 
 ## ComfyUI Cloud
 
+ComfyUI Cloud may require an active plan and available credits before it can queue the workflow.
+
 1. Open ComfyUI Cloud.
 2. Import `workflows/faded-qwen-2511-cloud-composite-app.json`.
 3. Upload your faded source frame in the `source frame` input.

@@ -67,6 +67,8 @@ If your browser cannot open the original video, make a temporary H.264 or HEVC c
 
 ## Use In ComfyUI Cloud
 
+ComfyUI Cloud may require an active plan and available credits before it can queue the workflow. You can still open and inspect the workflow without using Fabio's machines.
+
 1. Open [ComfyUI Cloud](https://cloud.comfy.org/).
 2. Import `faded-qwen-2511-cloud-composite-app.json`.
 3. Upload your faded source frame in the `source frame` input.

@@ -27,8 +27,8 @@ This public version runs in ComfyUI Cloud or on your own ComfyUI setup. It does 
 
 <div class="app-download-panel">
   <a class="btn btn-primary" href="{{ '/downloads/faded-qwen-color-recovery-app.zip' | relative_url }}">Download the app</a>
-  <a class="btn btn-outline" href="https://cloud.comfy.org/?template=image_qwen_image_edit_2511&utm_source=fabiocolor" target="_blank" rel="noopener">Open ComfyUI Cloud</a>
-  <a class="btn btn-outline" href="{{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json' | relative_url }}">Download workflow</a>
+  <a class="btn btn-outline" href="{{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-cloud-composite-app.json' | relative_url }}">Download Cloud workflow</a>
+  <a class="btn btn-outline" href="https://cloud.comfy.org/" target="_blank" rel="noopener">Open ComfyUI Cloud</a>
 </div>
 
 ## Downloads
@@ -36,7 +36,8 @@ This public version runs in ComfyUI Cloud or on your own ComfyUI setup. It does 
 | Download | What it is for |
 | --- | --- |
 | [`faded-qwen-color-recovery-app.zip`]({{ '/downloads/faded-qwen-color-recovery-app.zip' | relative_url }}) | Everything needed to open the app in ComfyUI. |
-| [`faded-qwen-2511-still-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json' | relative_url }}) | The image workflow by itself. |
+| [`faded-qwen-2511-cloud-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-cloud-composite-app.json' | relative_url }}) | The Cloud workflow. Use this first in ComfyUI Cloud. |
+| [`faded-qwen-2511-still-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json' | relative_url }}) | The full local workflow for your own ComfyUI setup. |
 | [`demo_unbalanced_source_frame.jpg`]({{ '/downloads/qwen-color-recovery/assets/demo_unbalanced_source_frame.jpg' | relative_url }}) | A faded source frame you can use for a quick test. |
 
 ## Extract A Frame From Video
@@ -67,12 +68,12 @@ If your browser cannot open the original video, make a temporary H.264 or HEVC c
 ## Use In ComfyUI Cloud
 
 1. Open [ComfyUI Cloud](https://cloud.comfy.org/).
-2. Import the image workflow from this page.
+2. Import `faded-qwen-2511-cloud-composite-app.json`.
 3. Upload your faded source frame.
 4. Run the workflow.
 5. Save the final composite.
 
-If ComfyUI asks for an included file, download the full app package and upload the requested file from there.
+This Cloud workflow uses ComfyUI's included image tools for the final composite. No extra add-ons are needed for that step.
 
 ## Use On Your Computer
 
@@ -81,7 +82,7 @@ If ComfyUI asks for an included file, download the full app package and upload t
 3. Copy `qwen-color-recovery/custom_nodes/faded_color_recovery` into `ComfyUI/custom_nodes/`.
 4. Restart ComfyUI.
 5. Copy `Belak_Color_Patch_Chart_softblur_32.png` into `ComfyUI/input/`.
-6. Import the image workflow JSON from `qwen-color-recovery/workflows/`.
+6. Import either workflow JSON from `qwen-color-recovery/workflows/`.
 7. If ComfyUI asks for Qwen Image Edit 2511 model files, download them through ComfyUI Manager or place them in the folders ComfyUI requests.
 
 ## Result

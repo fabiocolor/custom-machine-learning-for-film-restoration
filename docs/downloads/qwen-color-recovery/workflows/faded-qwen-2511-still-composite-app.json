@@ -1,5 +1,5 @@
 {
-  "id": "ad18abd3-bdee-4f80-8fae-d15d4f845b9d",
+  "id": "faded-qwen-2511-unbalanced-still-composite-app",
   "revision": 0,
   "last_node_id": 172,
   "last_link_id": 382,
@@ -96,9 +96,10 @@
         "secondTabWidth": 65
       },
       "widgets_values": [
-        "leather_sofa.png",
+        "demo_unbalanced_source_frame.jpg",
         "image"
-      ]
+      ],
+      "title": "unbalanced source frame"
     },
     {
       "id": 83,
@@ -236,7 +237,7 @@
         "ver": "0.16.4"
       },
       "widgets_values": [
-        "Recover stable RGB chroma for this faded film frame. Use image1 as the source shot and preserve its exact content, geometry, people, clothing, objects, framing, silhouettes, foreground/background layout, and spatial boundaries. Use image2 only as a soft color calibration field for period film hue relationships, natural skin color, believable foliage, sky, materials, clean neutrals, and restrained saturation. Use image3 as a hard source-derived edge map in the same geometry space as image1: follow those edges and boundaries closely so the recovered chroma stays aligned to the original luma after inverse mapping. Prioritize boundary alignment and composite usability over reconstructing texture or sharpness. Do not move faces, bodies, objects, buildings, sky lines, vehicles, or foreground/background borders. Do not redesign faces, add new objects, change the location, replace the scene, invent detail in blank skies, or copy visible chart content.",
+        "Recover stable RGB chroma for this unbalanced raw faded film frame. Use image1 as the source shot and preserve its exact content, geometry, people, clothing, objects, framing, silhouettes, foreground/background layout, and spatial boundaries. Use image2 only as a soft color calibration field for period film hue relationships, natural skin color, believable foliage, sky, materials, clean neutrals, and restrained saturation. Use image3 as a hard source-derived edge map in the same geometry space as image1: follow those edges and boundaries closely so the recovered chroma stays aligned to the original luma after inverse mapping. Prioritize boundary alignment and composite usability over reconstructing texture or sharpness. Do not move faces, bodies, objects, buildings, sky lines, vehicles, or foreground/background borders. Do not redesign faces, add new objects, change the location, replace the scene, invent detail in blank skies, or copy visible chart content.",
         false,
         null,
         null,
@@ -2369,15 +2370,16 @@
       "app_mode_demo": true,
       "primary_output": "source_luma_generated_chroma_composite",
       "composite_node": "FadedSourceLumaChromaComposite",
-      "video_input_path": "LoadVideo -> GetVideoComponents -> ImageFromBatch can replace LoadImage 41 for App Mode frame picking.",
       "control_source": "internal Canny from uploaded source image",
       "default_prompt_manifest": "benchmarks/unbalanced/controlnet_chroma_canny_2511_scaled_control_prompt.json",
       "default_reference_source": "benchmarks/unbalanced/references/Belak_Color_Patch_Chart_softblur_32.png",
       "public_demo_controls": [
-        "source image/video",
-        "frame index for video",
+        "unbalanced source image",
         "seed"
-      ]
+      ],
+      "source_condition": "unbalanced_raw",
+      "inference_route": "frame_by_frame",
+      "source_input": "still_image"
     }
   },
   "version": 0.4

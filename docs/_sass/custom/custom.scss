@@ -393,6 +393,67 @@ html {
   border-bottom: 1px solid rgba($border-color, 0.55);
 }
 
+.frame-extractor {
+  margin: 1.5rem 0 2rem;
+  padding: 1rem;
+  border: 1px solid rgba($border-color, 0.65);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.28);
+
+  video,
+  img {
+    display: block;
+    width: 100%;
+    max-height: 70vh;
+    margin: 1rem 0 0;
+    background: #050505;
+    object-fit: contain;
+  }
+}
+
+.frame-extractor-file {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba($border-color, 0.75);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+
+  input {
+    max-width: 100%;
+    margin-left: 1rem;
+  }
+}
+
+.frame-controls,
+.frame-actions {
+  display: grid;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.9rem;
+}
+
+.frame-controls {
+  grid-template-columns: auto minmax(8rem, 1fr) auto;
+
+  input[type="range"] {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+.frame-actions {
+  grid-template-columns: minmax(9rem, 1fr) auto;
+
+  span {
+    color: #cbd5e1;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+  }
+}
+
 @media (max-width: 720px) {
   .app-hero-strip {
     grid-template-columns: 1fr;
@@ -405,5 +466,29 @@ html {
   .app-download-panel .btn {
     width: 100%;
     text-align: center;
+  }
+
+  .frame-extractor {
+    padding: 0.75rem;
+  }
+
+  .frame-extractor-file,
+  .frame-controls,
+  .frame-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .frame-extractor-file {
+    display: grid;
+    gap: 0.5rem;
+
+    input {
+      margin-left: 0;
+    }
+  }
+
+  .frame-controls .btn,
+  .frame-actions .btn {
+    width: 100%;
   }
 }

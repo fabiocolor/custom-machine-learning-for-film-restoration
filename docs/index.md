@@ -41,7 +41,7 @@ Follow these in order:
 1. **[Shared Workflow](start-here.md)** — Stages 0-2: Resolve export, Nuke setup, dataset curation, alignment, shared crop, and the branch decision.
 2. **[Chroma Recovery](chroma-recovery.md)** — Stage 3 onward: chroma target build, training, inference, validation.
 3. **[Spatial Recovery](spatial-recovery.md)** — Stage 3 onward: spatial target build, training, inference, validation.
-4. **[Qwen Color Recovery App](qwen-color-recovery-app.md)** — ComfyUI workflow package for still images, video frame selection, Cloud import, and local App Mode use.
+4. **[Qwen Color Recovery App](qwen-color-recovery-app.md)** — ComfyUI image workflow package for the `unbalanced_raw` route, Cloud import, and local App Mode use.
 
 ## Supporting Material
 

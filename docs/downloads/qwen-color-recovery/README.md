@@ -1,15 +1,15 @@
-# Faded Qwen Color Recovery App
+# Faded Qwen Color Recovery Image App
 
-This package contains ComfyUI workflow presets for single-frame faded-film color recovery.
+This package contains a ComfyUI workflow preset for single-frame faded-film color recovery on the `unbalanced_raw` route.
 
 The output is the restoration composite: original source luminance plus generated Qwen chroma.
 
 ## Files
 
 - `workflows/faded-qwen-2511-still-composite-app.json`
-  - Still-image workflow preset.
-- `workflows/faded-qwen-2511-video-frame-composite-app.json`
-  - Video input workflow preset with a frame-index selector.
+  - Still-image workflow preset for an unbalanced source frame.
+- `assets/demo_unbalanced_source_frame.jpg`
+  - Example unbalanced source frame.
 - `assets/Belak_Color_Patch_Chart_softblur_32.png`
   - Calibration reference image expected by the workflows.
 - `custom_nodes/faded_color_recovery/`
@@ -18,17 +18,17 @@ The output is the restoration composite: original source luminance plus generate
 ## ComfyUI Cloud
 
 1. Open ComfyUI Cloud.
-2. Import one workflow from `workflows/`.
+2. Import `workflows/faded-qwen-2511-still-composite-app.json`.
 3. Upload `assets/Belak_Color_Patch_Chart_softblur_32.png` if the workflow asks for the missing reference image.
 4. Install or import the `faded_color_recovery` custom node if the workflow reports `FadedSourceLumaChromaComposite` as missing.
-5. Enter App Mode, expose only source image or source video, frame index for video, seed, and final composite output, then save/share the app.
+5. Enter App Mode, expose only the unbalanced source image, seed, and final composite output, then save/share the app.
 
 ## Self-hosted ComfyUI
 
 1. Copy `custom_nodes/faded_color_recovery` into `ComfyUI/custom_nodes/`.
 2. Restart ComfyUI.
 3. Place `Belak_Color_Patch_Chart_softblur_32.png` into `ComfyUI/input/`.
-4. Import one workflow from `workflows/`.
+4. Import `workflows/faded-qwen-2511-still-composite-app.json`.
 5. Install the Qwen Image Edit 2511 model stack if ComfyUI reports missing models.
 
 ## Expected Models

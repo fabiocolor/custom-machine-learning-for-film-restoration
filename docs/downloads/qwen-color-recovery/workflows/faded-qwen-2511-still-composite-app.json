@@ -193,7 +193,8 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            380
+            380,
+            390
           ]
         }
       ],
@@ -237,7 +238,7 @@
         "ver": "0.16.4"
       },
       "widgets_values": [
-        "Recover stable RGB chroma for this unbalanced raw faded film frame. Use image1 as the source shot and preserve its exact content, geometry, people, clothing, objects, framing, silhouettes, foreground/background layout, and spatial boundaries. Use image2 only as a soft color calibration field for period film hue relationships, natural skin color, believable foliage, sky, materials, clean neutrals, and restrained saturation. Use image3 as a hard source-derived edge map in the same geometry space as image1: follow those edges and boundaries closely so the recovered chroma stays aligned to the original luma after inverse mapping. Prioritize boundary alignment and composite usability over reconstructing texture or sharpness. Do not move faces, bodies, objects, buildings, sky lines, vehicles, or foreground/background borders. Do not redesign faces, add new objects, change the location, replace the scene, invent detail in blank skies, or copy visible chart content.",
+        "Recover stable RGB chroma for this faded film frame. Use image1 as the source shot and preserve its exact content, geometry, people, clothing, objects, framing, silhouettes, foreground/background layout, and spatial boundaries. Use image2 only as a soft color calibration field for period film hue relationships, natural skin color, believable foliage, sky, materials, clean neutrals, and restrained saturation. Use image3 as a hard source-derived edge map in the same geometry space as image1: follow those edges and boundaries closely so the recovered chroma stays aligned to the original luma after inverse mapping. Prioritize boundary alignment and composite usability over reconstructing texture or sharpness. Do not move faces, bodies, objects, buildings, sky lines, vehicles, or foreground/background borders. Do not redesign faces, add new objects, change the location, replace the scene, invent detail in blank skies, or copy visible chart content.",
         false,
         null,
         null,
@@ -398,6 +399,45 @@
         0.8
       ],
       "title": "hard Canny edges from source"
+    },
+    {
+      "id": 177,
+      "type": "SaveImage",
+      "pos": [
+        150,
+        -590
+      ],
+      "size": [
+        580,
+        405
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 390
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.5.1",
+        "Node name for S&R": "SaveImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "Faded_Color_Recovery_Raw_Inference"
+      ],
+      "title": "recovered color candidate"
     }
   ],
   "links": [
@@ -454,6 +494,14 @@
       41,
       0,
       171,
+      0,
+      "IMAGE"
+    ],
+    [
+      390,
+      170,
+      0,
+      177,
       0,
       "IMAGE"
     ]
@@ -1015,7 +1063,7 @@
               "secondTabWidth": 65
             },
             "widgets_values": [
-              "Recover stable RGB chroma for this unbalanced raw faded film frame. Use image1 as the source shot and preserve its exact content, geometry, people, clothing, objects, framing, silhouettes, foreground/background layout, and spatial boundaries. Use image2 only as a soft color calibration field for period film hue relationships, natural skin color, believable foliage, sky, materials, clean neutrals, and restrained saturation. Use image3 as a hard Canny edge map generated from image1 inside this workflow: follow those edges and boundaries closely so the recovered chroma stays aligned to the original frame. Prioritize boundary alignment and composite usability over reconstructing texture or sharpness. Do not move faces, bodies, objects, buildings, sky lines, vehicles, or foreground/background borders. Do not redesign faces, add new objects, change the location, replace the scene, invent detail in blank skies, or copy visible chart content."
+              "Recover stable RGB chroma for this faded film frame. Use image1 as the source shot and preserve its exact content, geometry, people, clothing, objects, framing, silhouettes, foreground/background layout, and spatial boundaries. Use image2 only as a soft color calibration field for period film hue relationships, natural skin color, believable foliage, sky, materials, clean neutrals, and restrained saturation. Use image3 as a hard source-derived edge map in the same geometry space as image1: follow those edges and boundaries closely so the recovered chroma stays aligned to the original luma after inverse mapping. Prioritize boundary alignment and composite usability over reconstructing texture or sharpness. Do not move faces, bodies, objects, buildings, sky lines, vehicles, or foreground/background borders. Do not redesign faces, add new objects, change the location, replace the scene, invent detail in blank skies, or copy visible chart content."
             ],
             "color": "#232",
             "bgcolor": "#353"
@@ -2380,7 +2428,11 @@
       ],
       "source_condition": "unbalanced_raw",
       "inference_route": "frame_by_frame",
-      "source_input": "still_image"
+      "source_input": "still_image",
+      "outputs": [
+        "recovered_color_candidate",
+        "final_composite"
+      ]
     }
   },
   "version": 0.4

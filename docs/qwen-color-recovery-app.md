@@ -6,7 +6,7 @@ nav_order: 4
 
 # Qwen Color Recovery Image App
 
-Recover color from one faded, unbalanced film frame. Upload a source frame, run the app, and use the final composite as the restoration result.
+Recover color from one faded, unbalanced film frame. Upload a source frame, run the app, and save the final composite as the restoration result.
 
 This public version runs in ComfyUI Cloud or on your own ComfyUI setup. It does not send work to Fabio's private machines.
 
@@ -72,7 +72,8 @@ If your browser cannot open the original video, make a temporary H.264 or HEVC c
 3. Upload your faded source frame in the `source frame` input.
 4. If Cloud asks for the color reference, upload `Belak_Color_Patch_Chart_softblur_32.png` from the app package.
 5. Run the workflow.
-6. Save the final composite.
+6. Save `Recovered color` if you want to inspect the direct model result.
+7. Save `Final composite` as the restoration result.
 
 The hard Canny guide is created inside the workflow from the source frame. You do not need to make it separately.
 
@@ -88,7 +89,7 @@ The hard Canny guide is created inside the workflow from the source frame. You d
 
 ## Result
 
-The app generates a recovered color candidate, then combines the original frame detail with the recovered color. Use the final composite as the restoration image.
+The app creates two images: a recovered color candidate and a final composite. The final composite keeps the original frame detail and uses the recovered color as the color layer.
 
 <script>
 (() => {

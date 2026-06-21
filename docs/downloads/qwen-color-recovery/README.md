@@ -15,7 +15,7 @@ Use the final composite as the restoration image.
 - `assets/Belak_Color_Patch_Chart_softblur_32.png`
   - Included color reference used by the app.
 - `custom_nodes/faded_color_recovery/`
-  - Included helper that creates the final composite.
+  - Included helper for the local workflow.
 
 ## ComfyUI Cloud
 
@@ -24,7 +24,8 @@ Use the final composite as the restoration image.
 3. Upload your faded source frame in the `source frame` input.
 4. If Cloud asks for the color reference, upload `assets/Belak_Color_Patch_Chart_softblur_32.png`.
 5. Run the workflow.
-6. Save the final composite.
+6. Save `Recovered color` if you want to inspect the direct model result.
+7. Save `Final composite` as the restoration result.
 
 The hard Canny guide is created inside the workflow from the source frame.
 

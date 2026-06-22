@@ -175,29 +175,6 @@ Real-world applications of the CopyCat workflow across different film stocks, ga
 
 ---
 
-## Mission Kill (1990)
-
-**Branch:** Mixed (Spatial + Chroma) | **Gauge:** 16mm positive print | **Reference:** 35mm internegative
-
-![Mission Kill spatial recovery finished](images_kebab/mission-kill/mission-kill-spatial-recovery-finished.png)
-*Machine learning spatial recovery output — 16mm enhanced toward 35mm internegative quality.*
-
-| Field | Details |
-|---|---|
-| **Problem** | 16mm positive print has less definition than the 35mm internegative. The 35mm also shows magenta drift, so both spatial and chroma work are needed. |
-| **Reference** | 35mm internegative — higher gauge, earlier generation, more spatial information. |
-| **Approach** | Mixed workflow. Gauge recovery via spatial branch: model trained on overlapping frames from both gauges to learn the spatial mapping (16mm → 35mm quality). Chroma recovery performed as a separate pass. The 35mm internegative becomes the ground truth for spatial detail, while the 16mm print acts as the input — the inverse of a chroma case like Candy Candy. |
-| **Key decisions** | Best results came from splitting work shot by shot — complex movement introduces noise when too much is trained at once. Spatial recovery is harder than chroma because it carries higher-frequency structure and usually needs finer segmentation. |
-| **Result** | 16mm enhanced to visually approach 35mm internegative quality. Demonstrates how mixed gauges or generations can be homogenized toward the strongest surviving element. Supports the argument that multiple copies of the same film should be preserved rather than collapsing to a single preferred element. |
-
-![Mission Kill chroma recovery A/B](images_kebab/mission-kill/mission-kill-chroma-recovery-comparison.png)
-*A/B split: faded source (left) vs. ML chroma-recovered output (right).*
-
-![Mission Kill comparison preview](images_kebab/mission-kill/mission-kill-spatial-recovery-preview.gif)
-*16mm Positive Print vs. 35mm Internegative vs. Machine Learning Result.*
-
----
-
 ## Knights of the Trail (1920s)
 
 **Branch:** Spatial Recovery (Multi-Element Composite) | **Gauge:** Nitrate | **Reference:** Composite of nitrate elements
@@ -249,7 +226,7 @@ These case studies illustrate four distinct recovery strategies, all using the s
 |---|---|---|---|
 | **Direct reference** | DVD, telecine, beta tape, alternate print | Candy Candy, PSM, Beta, Friends, Frontier Experience, La Muralla Verde | Chroma |
 | **Non-reference / constructed** | Paintings, Photoshop colorization, historical sources | Rebelion de las Tapadas, Ben | Chroma |
-| **Gauge / generation** | Higher-gauge print, earlier-generation element | Mission Kill | Spatial |
+| **Gauge / generation** | Higher-gauge print, earlier-generation element | Documented in workflow guidance rather than a public case study | Spatial |
 | **Multi-element / analog video** | Composite of partial elements, telecine guide | Knights of the Trail, El Tinterillo | Spatial |
 
 The workflow documented in this repository handles all four — the only difference is how you construct the training target in Stage 3.

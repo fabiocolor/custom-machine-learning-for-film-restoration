@@ -8,9 +8,6 @@ nav_order: 3
 
 # Spatial Recovery — Stages 3–5
 
-![Spatial recovery overview](images_kebab/mission-kill/mission-kill-spatial-recovery-preview.gif)
-*Spatial recovery comparison (Mission Kill) — 16mm Positive Print vs. 35mm Internegative vs. Machine Learning Result.*
-
 **Prerequisites:** Complete [Stages 0–2](start-here.md) first (Resolve export, Nuke setup, dataset curation, alignment, shared crop).
 
 **Status: experimental.** This branch is under development and not presented as a finished archival-ready workflow. Treat it as research context.

@@ -176,9 +176,6 @@ Usa el preview input de CopyCat con un fotograma que **no** este en el dataset d
 
 ### Validacion en Resolve
 
-![A/B split de recuperacion de croma](../images_kebab/mission-kill/mission-kill-chroma-recovery-comparison.png)
-*A/B split (Mission Kill): fuente desvanecida (izquierda) vs. salida de recuperacion de croma (derecha). Tonos de piel y saturacion de color recuperados desde una copia con tinte desvanecido.*
-
 1. Importa Original (Fuente) y Recovered (salida de Inference) en el mismo proyecto Resolve gestionado con ACES.
 2. Apila en pistas separadas. Alinea timecode/fotogramas. Desactiva todos los grades/efectos de clip.
 3. Viewer wipe o split-screen. Alterna visibilidad de pistas para A/B.

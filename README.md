@@ -114,7 +114,6 @@ nuke-chroma-recovery-template/
         ├── full/
         ├── general/
         ├── knights-of-the-trail/
-        ├── mission-kill/
         ├── muralla-verde/
         ├── nuke-ui/
         ├── rebelion-de-las-tapadas/

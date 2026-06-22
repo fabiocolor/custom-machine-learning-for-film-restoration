@@ -177,29 +177,6 @@ Aplicaciones reales del flujo CopyCat en distintos stocks filmicos, formatos, ti
 
 ---
 
-## Mission Kill (1990)
-
-**Rama:** Mixta (espacial + croma) | **Formato:** copia positiva 16mm | **Referencia:** internegativo 35mm
-
-![Recuperacion espacial terminada de Mission Kill](../images_kebab/mission-kill/mission-kill-spatial-recovery-finished.png)
-*Salida de recuperacion espacial con machine learning: 16mm mejorado hacia calidad de internegativo 35mm.*
-
-| Campo | Detalles |
-|---|---|
-| **Problema** | La copia positiva 16mm tiene menos definicion que el internegativo 35mm. El 35mm tambien muestra deriva magenta, por lo que se necesita trabajo tanto espacial como de croma. |
-| **Referencia** | Internegativo 35mm: mayor formato, generacion mas temprana, mas informacion espacial. |
-| **Enfoque** | Flujo mixto. Recuperacion de formato via rama espacial: modelo entrenado con fotogramas solapados de ambos formatos para aprender el mapeo espacial (16mm -> calidad 35mm). Recuperacion de croma realizada como pasada separada. El internegativo 35mm se convierte en la verdad de referencia para detalle espacial, mientras la copia 16mm actua como input: el inverso de un caso de croma como Candy Candy. |
-| **Decisiones clave** | Los mejores resultados vinieron de dividir el trabajo plano por plano: el movimiento complejo introduce ruido cuando se entrena demasiado de una vez. La recuperacion espacial es mas dificil que la de croma porque porta estructura de mayor frecuencia y suele necesitar segmentacion mas fina. |
-| **Resultado** | 16mm mejorado para aproximarse visualmente a la calidad del internegativo 35mm. Demuestra como formatos o generaciones mezclados pueden homogeneizarse hacia el elemento sobreviviente mas fuerte. Apoya el argumento de preservar multiples copias de la misma pelicula en vez de colapsar todo a un unico elemento preferido. |
-
-![A/B de recuperacion de croma Mission Kill](../images_kebab/mission-kill/mission-kill-chroma-recovery-comparison.png)
-*A/B split: fuente desvanecida (izquierda) vs. salida recuperada de croma con ML (derecha).*
-
-![Preview de comparacion Mission Kill](../images_kebab/mission-kill/mission-kill-spatial-recovery-preview.gif)
-*Copia positiva 16mm vs. internegativo 35mm vs. resultado de Machine Learning.*
-
----
-
 ## Knights of the Trail (1920s)
 
 **Rama:** Recuperacion espacial (composite multi-elemento) | **Formato:** nitrato | **Referencia:** composite de elementos de nitrato
@@ -251,7 +228,7 @@ Estos estudios de caso ilustran cuatro estrategias de recuperacion distintas, to
 |---|---|---|---|
 | **Referencia directa** | DVD, telecine, cinta beta, copia alternativa | Candy Candy, PSM, Beta, Friends, Frontier Experience, La Muralla Verde | Croma |
 | **Sin referencia / construida** | Pinturas, colorizacion en Photoshop, fuentes historicas | Rebelion de las Tapadas, Ben | Croma |
-| **Formato / generacion** | Copia de mayor formato, elemento de generacion anterior | Mission Kill | Espacial |
+| **Formato / generacion** | Copia de mayor formato, elemento de generacion anterior | Documentado en la guia de flujo, no como estudio de caso publico | Espacial |
 | **Multi-elemento / video analogico** | Composite de elementos parciales, guia de telecine | Knights of the Trail, El Tinterillo | Espacial |
 
 El flujo documentado en este repositorio maneja las cuatro: la unica diferencia es como construyes el objetivo de entrenamiento en la Etapa 3.

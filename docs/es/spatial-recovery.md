@@ -10,9 +10,6 @@ permalink: /es/spatial-recovery/
 
 # Recuperacion Espacial - Etapas 3-5
 
-![Resumen de recuperacion espacial](../images_kebab/mission-kill/mission-kill-spatial-recovery-preview.gif)
-*Comparacion de recuperacion espacial (Mission Kill): copia positiva 16mm vs. internegativo 35mm vs. resultado de Machine Learning.*
-
 **Prerequisitos:** Completa primero [Etapas 0-2](start-here.md) (exportacion desde Resolve, configuracion de Nuke, curacion del dataset, alineacion, recorte compartido).
 
 **Estado: experimental.** Esta rama esta en desarrollo y no se presenta como un flujo terminado listo para archivo. Tratala como contexto de investigacion.

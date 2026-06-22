@@ -174,9 +174,6 @@ Use CopyCat's preview input with a frame **not** in the training dataset to moni
 
 ### Resolve Validation
 
-![Chroma recovery A/B split](images_kebab/mission-kill/mission-kill-chroma-recovery-comparison.png)
-*A/B split (Mission Kill): faded source (left) vs. chroma recovery output (right). Skin tones and color saturation recovered from dye-faded print.*
-
 1. Import Original (Source) and Recovered (Inference output) into the same ACES-managed Resolve project.
 2. Stack on separate tracks. Align timecode/frames. Disable all clip grades/effects.
 3. Viewer wipe or split-screen. Toggle track visibility for A/B.

@@ -140,16 +140,16 @@ Each section gives you the exact element shown in the talk, and when useful, the
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Mission: Kill comparison</h3>
-      <video controls preload="metadata" poster="{{ '/images_kebab/mission-kill/mission-kill-chroma-recovery-comparison.png' | relative_url }}">
-        <source src="{{ '/media/seapavaa2026/mission_kill_color_comparison_web.mp4' | relative_url }}" type="video/mp4">
+      <h3>Open-weight composite comparison</h3>
+      <video controls preload="metadata" poster="{{ '/images_kebab/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun_preview.png' | relative_url }}">
+        <source src="{{ '/media/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" type="video/mp4">
       </video>
       <p>The earlier CopyCat result shows the starting point for chroma recovery before moving into open-weight image-edit models.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/mission_kill_color_comparison_web.mp4' | relative_url }}" target="_blank">Video comparison</a>
-          <a href="{{ '/images_kebab/mission-kill/mission-kill-chroma-recovery-comparison.png' | relative_url }}" target="_blank">Still comparison</a>
+          <a href="{{ '/media/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" target="_blank">Video comparison</a>
+          <a href="{{ '/images_kebab/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun_preview.png' | relative_url }}" target="_blank">Still comparison</a>
         </div>
       </details>
     </div>

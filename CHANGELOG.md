@@ -26,7 +26,7 @@ All notable changes to this repository are documented here.
 
 ### Added
 - Initial end-to-end workflow materials.
-- Nuke templates (Indie and Non-Commercial editions).
+- Nuke Indie template.
 - Supporting reference materials under `docs/`.
 
 ### Security

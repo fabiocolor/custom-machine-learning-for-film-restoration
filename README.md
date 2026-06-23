@@ -33,7 +33,7 @@ Not a plugin. A repeatable, documented workflow for archives, preservation teams
 This workflow is entirely based on pre-built templates provided in this repository. 
 You can download the latest versions of the templates for your Nuke version from the releases page:
 
-- [⬇️ Download Latest Nuke Templates (`.nknc` and `.nkind`)](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest)
+- [⬇️ Download Latest Nuke Template (`.nkind`)](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest)
 
 [![Watch the YouTube walkthrough](docs/images_kebab/video_previews/color-recovery-video-preview.gif)](https://youtu.be/kXerjFGX9Kg)
 *Video walkthrough — a visual companion to this repository.*
@@ -87,7 +87,6 @@ Supporting material:
 | Edition | File |
 | --- | --- |
 | Nuke Indie | `templates/COLOR_RECOVERY_TEMPLATE_INDIE.nkind` |
-| Nuke Non-Commercial | `templates/COLOR_RECOVERY_TEMPLATE.nknc` |
 
 ## Repository Structure
 
@@ -96,7 +95,6 @@ nuke-chroma-recovery-template/
 ├── README.md
 ├── CHANGELOG.md
 ├── templates/
-│   ├── COLOR_RECOVERY_TEMPLATE.nknc
 │   └── COLOR_RECOVERY_TEMPLATE_INDIE.nkind
 └── docs/
     ├── start-here.md

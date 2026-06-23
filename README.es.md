@@ -14,7 +14,7 @@ No es un plugin. Es un flujo de trabajo repetible y documentado para archivos, e
 
 Este flujo se basa en plantillas preconstruidas incluidas en este repositorio. Descarga la version mas reciente para tu version de Nuke desde la pagina de releases:
 
-- [Descargar las ultimas plantillas de Nuke (`.nknc` y `.nkind`)](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest)
+- [Descargar la ultima plantilla de Nuke (`.nkind`)](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest)
 
 ## Modos de Recuperacion
 
@@ -52,7 +52,6 @@ Material de apoyo:
 | Edicion | Archivo |
 | --- | --- |
 | Nuke Indie | `templates/COLOR_RECOVERY_TEMPLATE_INDIE.nkind` |
-| Nuke Non-Commercial | `templates/COLOR_RECOVERY_TEMPLATE.nknc` |
 
 ## Licencia
 

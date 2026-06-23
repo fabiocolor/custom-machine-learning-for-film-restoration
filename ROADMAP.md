@@ -2,7 +2,7 @@
 
 ## Next
 
-- Add a commercial `.nk` template alongside Indie and Non-Commercial.
+- Add a commercial `.nk` template alongside Indie.
 - Add an example project tree showing expected folder structure (source, reference, training pairs, checkpoints, inference renders, validation stills).
 - Export short optimized GIFs for alignment QC, target build, inference, and failure cases.
 - Add annotated UI callouts on screenshots for first-time Nuke users.

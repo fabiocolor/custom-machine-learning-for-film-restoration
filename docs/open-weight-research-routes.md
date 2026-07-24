@@ -22,15 +22,6 @@ This map is a dated research snapshot rather than a permanent ranking. Routes ma
   <span class="status status-open">Open question</span><span>A necessary route whose general solution has not been shown.</span>
 </div>
 
-## What we can say with confidence
-
-- Qwen Image Edit can produce useful colour proposals for individual faded frames when the source and its control image remain geometrically aligned.
-- Recombining generated chroma with untouched source luminance is more faithful to the surviving film than presenting raw generated RGB as the restoration.
-- A carefully approved same-shot colour anchor can guide a complete shot more coherently than a generic prompt alone.
-- Video models can produce stable colour on favourable low- or moderate-motion shots, but stability does not guarantee source fidelity.
-- Hard motion, occlusion, changing faces, and long shots remain unsolved as a general problem.
-- Human review is still the acceptance gate. Automated measures can expose alignment and flicker problems, but cannot establish historical truth or aesthetic correctness.
-
 ## Selected experiments, with context
 
 The images below are not a gallery of finished restorations. Each one answers a narrower question. The notes explain what went into the test, what the comparison can support, and what it cannot prove. Film, model, software, and source information is collected on the [Credits & Attribution]({{ '/credits/' | relative_url }}) page; entries that still need source confirmation are clearly marked there.
@@ -131,25 +122,13 @@ These are selected public examples. The [SEAPAVAA 2026 companion]({{ '/seapavaa-
 
 <span class="status status-demonstrated">Demonstrated foundation</span>
 
-The strongest common principle across the research is to keep the original frame responsible for luminance, geometry, texture, grain, softness, and damage. The generated result contributes chroma, which is mapped back over the source.
-
-This does not prevent every colour error, but it sharply limits the model’s authority. It also makes failures easier to see: an invented colour can be reviewed as colour, without quietly replacing the complete photographic image.
-
-**What is established:** this is the delivery and review format for the current public Qwen workflow and for the successful temporal experiments.
-
-**What it does not solve:** colour can still attach to the wrong region, cross an edge, or change meaning between frames.
+The current public workflow and successful temporal tests keep the source responsible for luminance, geometry, texture, and damage. The model contributes chroma. This limits the model’s authority and makes colour errors easier to review, but it does not prevent colour from crossing an edge or attaching to the wrong region.
 
 ## Route 2 · Still-frame recovery without a matched reference
 
 <span class="status status-demonstrated">Demonstrated, bounded</span>
 
-For films with no surviving colour reference, Qwen Image Edit can work from the faded source, source-derived edge control, a softened colour chart, and a restrained restoration prompt.
-
-Tests across several raw faded subjects produced useful first-pass chroma without visible chart patterns or the strongest forms of reference takeover. This is enough to justify continued research and a public test workflow.
-
-**What is established:** the route can create plausible candidates worth human review.
-
-**What is not established:** it is not historically authoritative, not consistently correct across subjects, and not yet a dependable one-click default.
+Tests using a faded source, source-derived edge control, a softened colour chart, and a restrained prompt have produced useful first-pass candidates without a matched colour frame. These candidates are worth human review, but they are not historically authoritative or consistently correct across subjects.
 
 ## Route 3 · One approved same-shot colour anchor
 
@@ -185,11 +164,7 @@ On the Frontier comparison, the retained full-resolution model used original sou
 
 Wan/VACE-style video models can see a short sequence as a temporal object rather than as unrelated stills. The most successful setup used the source video, hard source-derived edge control, and one recovered middle-frame reference, then returned generated chroma to source luminance.
 
-Two experiments are retained as archive-restoration-quality temporal successes. They show that the idea works on favourable low- or moderate-motion material.
-
-**What is established:** video-aware generation can give coherent shot-level chroma under suitable conditions.
-
-**What failed elsewhere:** a smooth video can still alter faces, clothing, objects, or geometry. On harder motion, temporal coherence sometimes stabilised the wrong interpretation.
+Two experiments show coherent shot-level chroma on favourable low- or moderate-motion material. Other tests altered faces, clothing, objects, or geometry. On harder motion, temporal coherence sometimes stabilised the wrong interpretation.
 
 ## Route 6 · Approved keyframes plus temporal propagation
 
@@ -202,7 +177,7 @@ A likely bridge between strong Qwen stills and a stable shot is:
 3. use them as art-directed supervision for a temporal chroma model or feature-based propagation method;
 4. infer the complete shot while retaining source luminance and geometry.
 
-Early work has tested Qwen anchors and learned temporal adapters. Generated anchors are treated as **pseudo-targets**—approved interpretations, not historical ground truth.
+Early work has tested Qwen anchors and learned temporal adapters. Generated anchors are treated as **pseudo-targets**: approved interpretations, not historical ground truth.
 
 **Why this route matters:** it could combine the visual quality of carefully reviewed stills with the speed and temporal calmness of a smaller shot model.
 
@@ -218,21 +193,6 @@ Some tiled tests were useful; others produced reference-content takeover or a sc
 
 The important next step is not simply “more pixels.” It is shared evidence across overlaps, source-bound registration, and a review method that catches tile-to-tile semantic drift.
 
-## The unresolved centre of the problem
-
-The working target is:
-
-> original source luminance and geometry + temporally coherent, evidence-aware recovered chroma
-
-Still-frame colour quality is no longer the only question. The harder problem is making one colour interpretation remain attached to the same face, garment, wall, tree, or object through motion, occlusion, and changing scale—without averaging the shot into lifeless colour and without allowing the model to redesign the film.
-
-## What the project will not claim
-
-- that generated colour is original colour when no historical evidence survives;
-- that two favourable temporal shots solve general video consistency;
-- that a high technical score replaces human viewing;
-- that raw generated RGB is the preferred restoration result;
-- that Qwen outputs become ground truth simply because they are visually strong;
-- that one model or one reference strategy is appropriate for every film.
+The central open problem is temporal colour ownership: keeping an evidence-aware interpretation attached to the same face, garment, wall, tree, or object through motion and occlusion without allowing the model to redesign the film. Generated colour remains an interpretation unless historical evidence supports it, and human viewing remains the final acceptance gate.
 
 For the underlying examples, prompts, intermediate files, and presentation media, continue to the [SEAPAVAA 2026 companion]({{ '/seapavaa-2026-companion/' | relative_url }}).

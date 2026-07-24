@@ -15,9 +15,7 @@ nav_order: 0
 </div>
 
 <div class="research-intro">
-  <p>This project began with small, production-trained neural networks in Nuke. It now also investigates open-weight image models—especially Qwen Image Edit—as tools for recovering colour when a clean frame-for-frame reference does not exist.</p>
-  <p>The open-weight work is not yet a universal restoration system. The aim is to identify defensible routes: preserve the source image, make uncertainty visible, compare alternatives, and leave enough evidence for another person to understand the result.</p>
-  <p>This is a living research record. Qwen workflows, settings, and conclusions will change as experiments continue and stronger evidence becomes available.</p>
+  <p>The project combines an established, reference-trained Nuke workflow with active research into Qwen Image Edit and other open-weight models. The work is documented through source material, intermediate results, failures, and bounded claims rather than presented as a finished restoration product.</p>
 </div>
 
 ## Current research
@@ -77,25 +75,13 @@ nav_order: 0
   <a href="{{ '/qwen-color-recovery-app/' | relative_url }}" class="btn btn-primary">Open the workflow guide</a>
 </div>
 
-## Where the research stands
-
-The current evidence supports several routes, not one final answer:
-
-- **Demonstrated:** useful Qwen still-frame proposals and source-luminance/generated-chroma compositing.
-- **Strong but bounded:** one approved same-shot anchor across a `338`-frame sequence.
-- **Demonstrated on paired material:** a small learned chroma model tested against CopyCat on held-out Frontier shots.
-- **Demonstrated on favourable shots:** two video-aware temporal recoveries.
-- **Still open:** reliable colour ownership through difficult motion, occlusion, long sequences, and high-resolution tiling.
-
-[Read the full research route map]({{ '/open-weight-color-recovery/research-routes/' | relative_url }}).
-
 ## Publications and presentations
 
 The research is accompanied by working files, comparisons, and talks rather than presented as a finished “one-click” restoration product.
 
-- [SEAPAVAA 2026 presentation companion](seapavaa-2026-companion.md) — open-weight colour recovery examples, prompts, workflows, and source media.
-- [Exploring Experimental Machine Learning in Film Restoration](https://library.imaging.org/archiving/articles/22/1/35) — the peer-reviewed paper behind the CopyCat research.
-- [Case studies](case-studies.md) — practical results across animation, live action, nitrate, video references, and constructed references.
-- [Video walkthrough](https://youtu.be/kXerjFGX9Kg) — an introduction to the earlier Nuke-based chroma-recovery workflow.
+- [SEAPAVAA 2026 presentation companion](seapavaa-2026-companion.md): open-weight colour recovery examples, prompts, workflows, and source media.
+- [Exploring Experimental Machine Learning in Film Restoration](https://library.imaging.org/archiving/articles/22/1/35): the peer-reviewed paper behind the CopyCat research.
+- [Case studies](case-studies.md): practical results across animation, live action, nitrate, video references, and constructed references.
+- [Video walkthrough](https://youtu.be/kXerjFGX9Kg): an introduction to the earlier Nuke-based chroma-recovery workflow.
 
 > These methods are experimental. A generated result is a restoration proposal, not historical proof. Decisions should be reviewed by people who understand the film, its production context, and the archive’s ethical responsibilities.

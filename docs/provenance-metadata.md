@@ -15,10 +15,10 @@ ML restoration should be transparent and reproducible. Declaring what was traine
 
 ## Core Principles
 
-- **Declare ML processing** — tag outputs with tool, method, and processing date.
-- **Track provenance** — record source/reference element types, scan details, and authorization.
-- **Record training metadata** — dataset shots/frames, steps, model size, checkpoint.
-- **Classify recovery type** — Color (Reference/Non-Reference), Spatial, or Combined.
+- **Declare ML processing:** tag outputs with tool, method, and processing date.
+- **Track provenance:** record source/reference element types, scan details, and authorization.
+- **Record training metadata:** dataset shots/frames, steps, model size, checkpoint.
+- **Classify recovery type:** Color (Reference/Non-Reference), Spatial, or Combined.
 
 ## Proposed Approach
 

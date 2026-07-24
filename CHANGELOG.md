@@ -4,7 +4,21 @@ All notable changes to this repository are documented here.
 
 ## [Unreleased]
 
+### Website and research direction
+- Reframed the project around two public research tracks: open-weight colour recovery and reference-trained CopyCat recovery.
+- Made Qwen Image Edit the primary current research area, with a dedicated overview, workflow guide, downloads, and links to the SEAPAVAA 2026 evidence.
+- Added a confidence-labelled route map separating demonstrated results, promising bounded routes, and unresolved temporal and high-resolution problems.
+- Reorganised the website navigation so public research, practical workflows, case studies, and reference material have clear roles.
+- Rewrote the automated training-pair page as a clear explanation of the method, evidence, and limits.
+- Replaced the blue-purple visual treatment with a restrained warm research-publication design.
+- Simplified the website navigation around current research, practical workflows, case studies, and resources.
+- Rebuilt and revalidated the downloadable Qwen package with public-facing review guidance.
+- Replaced the separate hand-maintained Spanish pages with automatically generated Spanish, French, German, Italian, Portuguese, Simplified Chinese, Japanese, and Hindi editions.
+- Added a visible warning that generated translations are provided for accessibility, may contain errors, and do not replace the English edition.
+- Clarified throughout the Qwen material that it is an ongoing research record whose workflows and conclusions will change as evidence develops.
+
 ### Added
+- Public guide to preparing reliable training pairs from direct film matches and drifting video references, illustrated by the Frontier research.
 - Case studies page (`docs/case-studies.md`) covering ten projects: Candy Candy, Beta, PSM, Friends, La Muralla Verde, Frontier Experience, Ben, Rebelion de las Tapadas, Knights of the Trail, and El Gran Tinterillo.
 - IMAGE_CATALOG.md with descriptions for all image assets, organized by subject folder.
 - Comparison GIFs for: Candy Candy, Beta, PSM, Friends, Frontier Experience, Ben, Rebelion de las Tapadas, Knights of the Trail, and El Tinterillo.
@@ -30,4 +44,4 @@ All notable changes to this repository are documented here.
 - Supporting reference materials under `docs/`.
 
 ### Security
-- Guidance to keep licensed scans and CopyCat weights out of the repo.
+- Guidance to keep licensed scans and CopyCat weights out of public downloads and version control.

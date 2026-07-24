@@ -1,6 +1,7 @@
 ---
 title: SEAPAVAA 2026 Companion
-nav_order: 8
+parent: Open-Weight Color Recovery
+nav_order: 3
 ---
 
 <style>
@@ -91,27 +92,28 @@ Each section gives you the exact element shown in the talk, and when useful, the
 ## Jump by Title
 
 <div class="seapavaa-jump">
-  <a href="#slide-1">Title / Hero Frame</a>
-  <a href="#slide-2">From CopyCat to Open-Weight Chroma Recovery</a>
-  <a href="#slide-3">Correction Versus Recovery</a>
-  <a href="#slide-4">Why Open-Weight Models, and How I Tested Them</a>
-  <a href="#slide-5">Two Source Paths, Two Different Problems</a>
-  <a href="#slide-6">The Reference Problem</a>
-  <a href="#slide-7">The Semantic Boundary</a>
-  <a href="#slide-8">The Product Contract</a>
-  <a href="#slide-9">The Still Route Finally Generalized</a>
-  <a href="#slide-10">First Temporal Success: Interior Woman</a>
-  <a href="#slide-11">Temporal Success 2: Shot0006 Wan/VACE</a>
-  <a href="#slide-12">What Still Fails: Hard Motion</a>
-  <a href="#slide-13">Balanced Route: Context Boards</a>
-  <a href="#slide-14">Atlas: Useful, But Not Yet Reliable</a>
-  <a href="#slide-15">Tiling and the Spatial-Context Hypothesis</a>
-  <a href="#slide-16">What We Can Claim Now</a>
-  <a href="#slide-17">Thank You</a>
+  <a href="#slide-1">Advancing Open-Weight AI Models for Color Recovery in Faded Film</a>
+  <a href="#slide-2">Presentation Companion</a>
+  <a href="#slide-3">From CopyCat to Open-Weight Chroma Recovery</a>
+  <a href="#slide-4">Correction Versus Recovery</a>
+  <a href="#slide-5">Why Open-Weight Models, and How I Tested Them</a>
+  <a href="#slide-6">Two Source Paths, Two Different Problems</a>
+  <a href="#slide-7">The Reference Problem</a>
+  <a href="#slide-8">The Semantic Boundary</a>
+  <a href="#slide-9">The Product Contract</a>
+  <a href="#slide-10">The Still Route Finally Generalized</a>
+  <a href="#slide-11">First temporal success: Interior Woman</a>
+  <a href="#slide-12">Temporal Success 2: Shot0006 Wan/VACE</a>
+  <a href="#slide-13">What Still Fails: Hard Motion</a>
+  <a href="#slide-14">Balanced Route: Context Boards</a>
+  <a href="#slide-15">Atlas: Useful, But Not Yet Reliable</a>
+  <a href="#slide-16">Tiling and the Spatial-Context Hypothesis</a>
+  <a href="#slide-17">What We Can Claim Now</a>
+  <a href="#slide-18">Thank you!</a>
 </div>
 
 <section id="slide-1" class="seapavaa-slide">
-  <h2>Title / Hero Frame</h2>
+  <h2>Advancing Open-Weight AI Models for Color Recovery in Faded Film</h2>
   <p class="seapavaa-slide-intro">This is the exact image from the presentation, followed by the separate parts behind the same example.</p>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -136,20 +138,21 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-2" class="seapavaa-slide">
-  <h2>From CopyCat to Open-Weight Chroma Recovery</h2>
+  <h2>Presentation Companion</h2>
+  <p class="seapavaa-slide-intro">This is the companion-page call shown before the case-study sequence begins.</p>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Open-weight composite comparison</h3>
-      <video controls preload="metadata" poster="{{ '/images_kebab/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun_preview.png' | relative_url }}">
-        <source src="{{ '/media/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" type="video/mp4">
-      </video>
-      <p>The earlier CopyCat result shows the starting point for chroma recovery before moving into open-weight image-edit models.</p>
+      <h3>SEAPAVAA 2026 companion</h3>
+      <a href="{{ '/seapavaa-2026-companion/' | relative_url }}" target="_blank">
+        <img src="{{ '/images_kebab/seapavaa2026/custom_machine_learning_for_film_restoration_qr.png' | relative_url }}" alt="QR code for the SEAPAVAA 2026 companion page">
+      </a>
+      <p>The QR/link slide sends viewers to this companion page so the examples can be opened during or after the talk.</p>
       <details class="seapavaa-files">
-        <summary>Open this example</summary>
+        <summary>Open the companion link</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" target="_blank">Video comparison</a>
-          <a href="{{ '/images_kebab/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun_preview.png' | relative_url }}" target="_blank">Still comparison</a>
+          <a href="{{ '/seapavaa-2026-companion/' | relative_url }}" target="_blank">Companion page</a>
+          <a href="{{ '/images_kebab/seapavaa2026/custom_machine_learning_for_film_restoration_qr.png' | relative_url }}" target="_blank">QR image</a>
         </div>
       </details>
     </div>
@@ -157,8 +160,30 @@ Each section gives you the exact element shown in the talk, and when useful, the
 </section>
 
 <section id="slide-3" class="seapavaa-slide">
+  <h2>From CopyCat to Open-Weight Chroma Recovery</h2>
+  <p class="seapavaa-slide-intro">This is the Muralla Verde comparison now used for the CopyCat-to-open-weight transition.</p>
+  <div class="seapavaa-grid">
+    <div class="seapavaa-card">
+      <span class="seapavaa-role">Seen in the talk</span>
+      <h3>Muralla Verde comparison</h3>
+      <video controls preload="metadata" poster="{{ '/images_kebab/muralla-verde/muralla-verde-comparison-preview.gif' | relative_url }}">
+        <source src="{{ '/media/seapavaa2026/muralla-verde-comparison-1080p.mp4' | relative_url }}" type="video/mp4">
+      </video>
+      <p>A source-to-recovery comparison showing the practical difference between source correction and chroma recovery.</p>
+      <details class="seapavaa-files">
+        <summary>Open this example</summary>
+        <div class="seapavaa-filelist">
+          <a href="{{ '/media/seapavaa2026/muralla-verde-comparison-1080p.mp4' | relative_url }}" target="_blank">Video comparison</a>
+          <a href="{{ '/images_kebab/muralla-verde/muralla-verde-comparison-preview.gif' | relative_url }}" target="_blank">Preview GIF</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="slide-4" class="seapavaa-slide">
   <h2>Correction Versus Recovery</h2>
-  <p class="seapavaa-slide-intro">This is the exact comparison shown in the presentation, with the individual files behind it.</p>
+  <p class="seapavaa-slide-intro">This is the exact still comparison used to define the boundary between correction and recovery.</p>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -181,7 +206,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   </div>
 </section>
 
-<section id="slide-4" class="seapavaa-slide">
+<section id="slide-5" class="seapavaa-slide">
   <h2>Why Open-Weight Models, and How I Tested Them</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -206,7 +231,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   </div>
 </section>
 
-<section id="slide-5" class="seapavaa-slide">
+<section id="slide-6" class="seapavaa-slide">
   <h2>Two Source Paths, Two Different Problems</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -229,7 +254,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   </div>
 </section>
 
-<section id="slide-6" class="seapavaa-slide">
+<section id="slide-7" class="seapavaa-slide">
   <h2>The Reference Problem</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -251,7 +276,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   </div>
 </section>
 
-<section id="slide-7" class="seapavaa-slide">
+<section id="slide-8" class="seapavaa-slide">
   <h2>The Semantic Boundary</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -272,7 +297,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   </div>
 </section>
 
-<section id="slide-8" class="seapavaa-slide">
+<section id="slide-9" class="seapavaa-slide">
   <h2>The Product Contract</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -296,7 +321,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   </div>
 </section>
 
-<section id="slide-9" class="seapavaa-slide">
+<section id="slide-10" class="seapavaa-slide">
   <h2>The Still Route Finally Generalized</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -319,8 +344,8 @@ Each section gives you the exact element shown in the talk, and when useful, the
   </div>
 </section>
 
-<section id="slide-10" class="seapavaa-slide">
-  <h2>First Temporal Success: Interior Woman</h2>
+<section id="slide-11" class="seapavaa-slide">
+  <h2>First temporal success: Interior Woman</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -351,7 +376,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   </div>
 </section>
 
-<section id="slide-11" class="seapavaa-slide">
+<section id="slide-12" class="seapavaa-slide">
   <h2>Temporal Success 2: Shot0006 Wan/VACE</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -366,7 +391,6 @@ Each section gives you the exact element shown in the talk, and when useful, the
         <div class="seapavaa-filelist">
           <a href="{{ '/media/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" target="_blank">Full comparison video</a>
           <a href="{{ '/images_kebab/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun_preview.png' | relative_url }}" target="_blank">Preview still</a>
-          <a href="{{ '/images_kebab/seapavaa2026/shot0006_source_raw_inference_final_composite.png' | relative_url }}" target="_blank">Three-panel still</a>
         </div>
       </details>
       <details class="seapavaa-files">
@@ -383,7 +407,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   </div>
 </section>
 
-<section id="slide-12" class="seapavaa-slide">
+<section id="slide-13" class="seapavaa-slide">
   <h2>What Still Fails: Hard Motion</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -412,7 +436,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   </div>
 </section>
 
-<section id="slide-13" class="seapavaa-slide">
+<section id="slide-14" class="seapavaa-slide">
   <h2>Balanced Route: Context Boards</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -443,7 +467,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   </div>
 </section>
 
-<section id="slide-14" class="seapavaa-slide">
+<section id="slide-15" class="seapavaa-slide">
   <h2>Atlas: Useful, But Not Yet Reliable</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -467,7 +491,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   </div>
 </section>
 
-<section id="slide-15" class="seapavaa-slide">
+<section id="slide-16" class="seapavaa-slide">
   <h2>Tiling and the Spatial-Context Hypothesis</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -488,7 +512,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   </div>
 </section>
 
-<section id="slide-16" class="seapavaa-slide">
+<section id="slide-17" class="seapavaa-slide">
   <h2>What We Can Claim Now</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
@@ -517,8 +541,8 @@ Each section gives you the exact element shown in the talk, and when useful, the
   </div>
 </section>
 
-<section id="slide-17" class="seapavaa-slide">
-  <h2>Thank You</h2>
+<section id="slide-18" class="seapavaa-slide">
+  <h2>Thank you!</h2>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>

@@ -1,5 +1,5 @@
-title: Custom Machine Learning for Film Restoration
-description: Reference-based restoration workflow for NukeX using CopyCat and Inference
+title: Machine Learning for Film Restoration
+description: Open research on Qwen Image Edit, open-weight colour recovery, and reference-trained film restoration
 remote_theme: just-the-docs/just-the-docs@v0.10.0
 
 plugins:
@@ -13,10 +13,8 @@ color_scheme: dark
 aux_links:
   "GitHub":
     - "https://github.com/fabiocolor/custom-machine-learning-for-film-restoration"
-  "YouTube Walkthrough":
-    - "https://youtu.be/kXerjFGX9Kg"
-  "Español":
-    - "/custom-machine-learning-for-film-restoration/es/"
+  "Research Paper":
+    - "https://library.imaging.org/archiving/articles/22/1/35"
 
 nav_enabled: true
 search_enabled: true
@@ -25,11 +23,15 @@ heading_anchors: true
 back_to_top: true
 back_to_top_text: "Back to top"
 
-footer_content: "Workflow template for film preservation and restoration research."
+footer_content: "Independent research in machine learning for film preservation and restoration."
 
 permalink: pretty
 
 exclude:
   - images_kebab/full/
   - images_kebab/IMAGE_CATALOG.md
+  - PRIVATE_FRONTIER_COPYCAT_SHOT_AUTOMATION.md
+  - PRIVATE_NUKE_SHOT_PROJECT_AUTOMATION.md
+  - downloads/qwen-color-recovery/README.md
+  - downloads/qwen-color-recovery/custom_nodes/faded_color_recovery/README.md
   - Gemfile.lock

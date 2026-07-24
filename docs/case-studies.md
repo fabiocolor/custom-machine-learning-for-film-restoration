@@ -1,14 +1,12 @@
 ---
 layout: default
 title: Case Studies
-nav_order: 5
+nav_order: 3
 ---
-
-<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/case-studies/' | relative_url }}">Español</a></div>
 
 # Case Studies
 
-Real-world applications of the CopyCat workflow across different film stocks, gauges, degradation types, and reference sources. Each case demonstrates a different challenge and strategy within the same core pipeline documented in this repository.
+Real-world applications of the CopyCat workflow across different film stocks, gauges, degradation types, and reference sources. Each case demonstrates a different challenge and strategy within the same core method.
 
 > For a peer-reviewed discussion of these experiments, see: Bedoya Huerta, F.P. (2025). [Exploring Experimental Machine Learning in Film Restoration](https://library.imaging.org/archiving/articles/22/1/35). *Archiving Conference*, 22(1), 35.
 
@@ -65,9 +63,9 @@ Real-world applications of the CopyCat workflow across different film stocks, ga
 |---|---|
 | **Problem** | Faded Indian film with color degradation. Source at 720x576, placed into a 2048x858 container for alignment. |
 | **Reference** | Betacam tape — earlier video state preserving color information. |
-| **Approach** | Mixed chroma and luma experimentation. Multiple dedicated training runs across different pipeline branches: color recovery, chroma+luma, luma extension, and reference luma. Training checkpoints ranging from 40k to 160k steps across branches. The earliest experimental case in this series — preceded Beta and established the iterative training methodology. |
+| **Approach** | Mixed chroma and luma experimentation. Multiple dedicated training runs explored color recovery, chroma plus luma, luma extension, and reference luma. Training checkpoints ranged from 40,000 to 160,000 steps. This was the earliest experimental case in the series and established the iterative training method later used for Beta. |
 | **Key decisions** | Tested both chroma-only and combined chroma+luma output stages. Multiple branch structures (`COLOR_RECOVERY`, `CHROMA_LUMA`, `LUMA_EXTEND`, `REF_LUMA`) confirm this was not a single-pass experiment but an iterative exploration of different recovery strategies. |
-| **Result** | Produced real output media (~70 seconds of test segment) in both chroma-only and combined modes. Demonstrates that the same CopyCat pipeline can explore multiple recovery strategies on the same source material. |
+| **Result** | Produced about 70 seconds of test material in both chroma-only and combined modes. This showed that the same CopyCat workflow could explore several recovery strategies on one source. |
 
 ![PSM comparison preview](images_kebab/psm/psm-comparison-preview.gif)
 *4-way comparison: Original Scan → Balanced & Cleaned → Betacam Reference → Chroma Recovery.*
@@ -103,7 +101,7 @@ Real-world applications of the CopyCat workflow across different film stocks, ga
 |---|---|
 | **Problem** | Faded source with magenta shift requiring both traditional balancing and ML-assisted recovery. |
 | **Reference** | DVD and recent DCP material used as color references. |
-| **Approach** | Full pipeline: raw scan → Faded Balancer DCTL for initial rebalancing → reference preparation and alignment in Resolve → CopyCat training → inference rendering. Custom balancing tools tested before and alongside the ML stage. |
+| **Approach** | Full workflow: raw scan → Faded Balancer DCTL for initial rebalancing → reference preparation and alignment in Resolve → CopyCat training → inference rendering. Custom balancing tools were tested before and alongside the machine-learning stage. |
 | **Result** | Mature project with exported script overviews, contact sheets, comparisons, and output frames. Demonstrates the complete Resolve → Nuke → Resolve validation loop. |
 
 ![Muralla Verde comparison preview](images_kebab/muralla-verde/muralla-verde-comparison-preview.gif)

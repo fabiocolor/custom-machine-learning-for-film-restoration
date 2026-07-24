@@ -601,10 +601,11 @@ body[data-site-locale]:not([data-site-locale='en']) {
 
 .experiment-facts {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) !important;
   margin: 0;
 
   dt {
+    grid-column: 1;
     float: none;
     width: auto;
     margin-top: 0.8rem;
@@ -616,6 +617,7 @@ body[data-site-locale]:not([data-site-locale='en']) {
   }
 
   dd {
+    grid-column: 1;
     width: auto;
     margin: 0.18rem 0 0;
     color: $ink-soft;

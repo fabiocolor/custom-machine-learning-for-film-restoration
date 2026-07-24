@@ -600,9 +600,13 @@ body[data-site-locale]:not([data-site-locale='en']) {
 }
 
 .experiment-facts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   margin: 0;
 
   dt {
+    float: none;
+    width: auto;
     margin-top: 0.8rem;
     color: $forest;
     font-size: 0.74rem;
@@ -612,6 +616,7 @@ body[data-site-locale]:not([data-site-locale='en']) {
   }
 
   dd {
+    width: auto;
     margin: 0.18rem 0 0;
     color: $ink-soft;
     font-size: 0.92rem;

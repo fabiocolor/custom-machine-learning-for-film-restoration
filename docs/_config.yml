@@ -27,6 +27,12 @@ footer_content: "Independent research in machine learning for film preservation 
 
 permalink: pretty
 
+defaults:
+  - scope:
+      path: "downloads/qwen-color-recovery/THIRD_PARTY_NOTICES.md"
+    values:
+      nav_exclude: true
+
 exclude:
   - images_kebab/full/
   - images_kebab/IMAGE_CATALOG.md

@@ -5,6 +5,9 @@ on:
     branches: ["main"]
   pull_request:
     branches: ["main"]
+  schedule:
+    # Retry deferred automatic translations without requiring a new commit.
+    - cron: "17 4 * * *"
   workflow_dispatch:
 
 permissions:
@@ -59,10 +62,16 @@ jobs:
             site-translations-v1-
 
       - name: Generate translated editions
+        id: translations
         if: github.event_name != 'pull_request'
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: npm run translate --prefix tools/site-i18n -- --site "$GITHUB_WORKSPACE/_site"
+
+      - name: Report deferred translations
+        if: github.event_name != 'pull_request' && steps.translations.outcome == 'failure'
+        run: echo "::warning::Automatic translations are temporarily unavailable. Publishing the English site and any completed cached editions; a scheduled workflow will retry."
 
       - name: Upload artifact
         if: github.event_name != 'pull_request'

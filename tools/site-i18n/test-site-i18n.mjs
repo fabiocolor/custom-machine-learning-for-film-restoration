@@ -79,6 +79,25 @@ try {
   assert.match(spanish, /data-language="es" selected/);
   assert.match(chinese, /<html lang="zh-Hans">/);
 
+  await run(process.execPath, [
+    path.join(toolDirectory, "translate-site.mjs"),
+    "--site",
+    siteDirectory,
+    "--english-only",
+  ]);
+  const englishOnly = await readFile(
+    path.join(siteDirectory, "index.html"),
+    "utf8",
+  );
+  assert.match(englishOnly, /<html lang="en">/);
+  assert.doesNotMatch(englishOnly, /site-language-select/);
+  assert.doesNotMatch(englishOnly, /translation-notice/);
+  assert.doesNotMatch(englishOnly, /hreflang=/);
+  assert.doesNotMatch(
+    englishOnly,
+    /\/custom-machine-learning-for-film-restoration\/es\//,
+  );
+
   console.log("Multilingual routing, metadata, translation, and asset tests passed.");
 } finally {
   await rm(temporaryDirectory, { recursive: true, force: true });

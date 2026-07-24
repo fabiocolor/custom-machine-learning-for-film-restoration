@@ -56,6 +56,14 @@ if (htmlFiles.length === 0) {
   throw new Error(`No HTML pages were found in ${siteDirectory}`);
 }
 
+if (options.englishOnly) {
+  await prepareEnglishOnlySite();
+  console.log(
+    `Prepared ${htmlFiles.length} canonical English page(s) without unavailable language links.`,
+  );
+  process.exit(0);
+}
+
 if (options.validateOnly) {
   const validationPages = await loadEnglishPages();
   const validationText = collectUniqueText(validationPages);
@@ -121,6 +129,7 @@ console.log(
 
 function parseArguments(argumentsList) {
   const parsed = {
+    englishOnly: false,
     mockTranslations: false,
     site: "_site",
     validateOnly: false,
@@ -133,6 +142,8 @@ function parseArguments(argumentsList) {
       index += 1;
     } else if (argument === "--validate-only") {
       parsed.validateOnly = true;
+    } else if (argument === "--english-only") {
+      parsed.englishOnly = true;
     } else if (argument === "--mock-translations") {
       parsed.mockTranslations = true;
     } else {
@@ -144,6 +155,20 @@ function parseArguments(argumentsList) {
     throw new Error("--site requires a directory.");
   }
   return parsed;
+}
+
+async function prepareEnglishOnlySite() {
+  for (const file of htmlFiles) {
+    const document = cheerio.load(await readFile(file, "utf8"), {
+      decodeEntities: false,
+    });
+    document(".language-switch, .site-language, .translation-notice").remove();
+    document('link[rel="alternate"][hreflang]').remove();
+    document('script[data-site-language-routing="true"]').remove();
+    document("html").attr("lang", sourceLanguage.htmlLang);
+    document("body").removeAttr("data-site-locale");
+    await writeFile(file, document.html(), "utf8");
+  }
 }
 
 function validateConfiguration() {

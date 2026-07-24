@@ -1,10 +1,9 @@
 ---
 layout: default
 title: Provenance & Metadata
-nav_order: 7
+parent: Resources
+nav_order: 3
 ---
-
-<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/provenance-metadata/' | relative_url }}">Español</a></div>
 
 # Provenance and Metadata for ML Restoration
 
@@ -45,7 +44,7 @@ metadata['metadata'].fromScript("""
 
 ### Sidecar Files
 
-Machine-readable JSON and human-readable text alongside renders. See the previous version of this document for example templates.
+Keep a small machine-readable record and a plain-language note beside the renders. At minimum, name the source and reference elements, the model and checkpoint, the frames used for training, the processing date, and the person or institution responsible for the restoration decisions.
 
 ### Resolve Integration
 

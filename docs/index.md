@@ -4,56 +4,97 @@ title: Home
 nav_order: 0
 ---
 
-<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/' | relative_url }}">Español</a></div>
-
-# Custom Machine Learning for Film Restoration
-
-Reference-based restoration workflow for NukeX using `CopyCat` and `Inference`. Trains small CNNs against real source/reference pairs to recover lost chroma or spatial detail in degraded film elements.
-
-Not a plugin. A repeatable, documented workflow for archives, preservation teams, and restoration practitioners.
-
-<div class="hero-buttons">
-  <a href="{{ '/start-here/' | relative_url }}" class="btn btn-primary">Get Started</a>
-  <a href="{{ '/qwen-color-recovery-app/' | relative_url }}" class="btn btn-primary" style="background: linear-gradient(135deg, #0f766e 0%, #2563eb 100%);">Run Qwen Color Recovery App</a>
-  <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest" class="btn btn-primary" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);" target="_blank">Download Nuke Templates</a>
-  <a href="https://youtu.be/kXerjFGX9Kg" class="btn btn-outline" target="_blank">Watch YouTube Walkthrough</a>
+<div class="research-hero">
+  <p class="eyebrow">Independent research in film preservation</p>
+  <h1>Machine learning for recovering colour and detail in moving images</h1>
+  <p class="hero-lede">Practical, openly documented experiments for restoring faded and damaged film while keeping the surviving photographic record in control.</p>
+  <div class="hero-buttons">
+    <a href="{{ '/open-weight-color-recovery/' | relative_url }}" class="btn btn-primary">Explore open-weight colour recovery</a>
+    <a href="{{ '/copycat-workflow/' | relative_url }}" class="btn btn-outline">Explore the CopyCat workflow</a>
+  </div>
 </div>
 
-[![Watch the YouTube walkthrough](images_kebab/video_previews/color-recovery-video-preview.gif)](https://youtu.be/kXerjFGX9Kg)
-*Video walkthrough — a visual companion to this repository.*
+<div class="research-intro">
+  <p>This project began with small, production-trained neural networks in Nuke. It now also investigates open-weight image models—especially Qwen Image Edit—as tools for recovering colour when a clean frame-for-frame reference does not exist.</p>
+  <p>The open-weight work is not yet a universal restoration system. The aim is to identify defensible routes: preserve the source image, make uncertainty visible, compare alternatives, and leave enough evidence for another person to understand the result.</p>
+</div>
 
-![Workflow overview](images_kebab/cropped/node-graph-overview-cropped.png)
-*Recovery workflow overview.*
+## Current research
 
-## Recovery Modes
+<div class="track-grid">
+  <article class="research-card research-card-featured">
+    <p class="card-kicker">Primary research track</p>
+    <h3>Open-weight colour recovery</h3>
+    <p>Using Qwen Image Edit and related open models to propose colour while the original frame remains the authority for composition, texture, damage, light, and detail.</p>
+    <ul class="plain-list">
+      <li>Source-preserving colour reconstruction</li>
+      <li>Reference images and palette guidance</li>
+      <li>Temporal consistency across shots</li>
+      <li>Transparent comparisons and downloadable workflows</li>
+    </ul>
+    <a class="card-link" href="{{ '/open-weight-color-recovery/' | relative_url }}">Read the research overview <span aria-hidden="true">→</span></a><br>
+    <a class="card-link card-link-secondary" href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}">See the evidence and open questions <span aria-hidden="true">→</span></a>
+  </article>
 
-| Mode | Use when | Ground truth target |
-| --- | --- | --- |
-| **Chroma recovery** | Luma/detail intact, chroma faded, shifted, or collapsed | Source `Y` + Reference `Cb/Cr` |
-| **Spatial recovery** | Color acceptable, detail/sharpness/grain degraded vs. reference | Reference `Y` + Source `Cb/Cr` |
+  <article class="research-card">
+    <p class="card-kicker">Established research track</p>
+    <h3>Reference-trained recovery in Nuke</h3>
+    <p>Training compact CopyCat models on carefully aligned source and reference frames to recover chroma or spatial detail in a controlled production workflow.</p>
+    <ul class="plain-list">
+      <li>Chroma and spatial recovery</li>
+      <li>Training-pair preparation</li>
+      <li>Shot and sequence workflows</li>
+      <li>Eleven documented case studies</li>
+    </ul>
+    <a class="card-link" href="{{ '/copycat-workflow/' | relative_url }}">Read the CopyCat overview <span aria-hidden="true">→</span></a>
+  </article>
+</div>
 
-Start with chroma recovery unless your problem is clearly spatial. Do not combine both in the same target build — treat them as separate passes.
+## Qwen Image Edit: source, proposal, composite
 
-## Getting Started
+<div class="app-hero-strip" aria-label="Qwen Image Edit colour recovery example">
+  <figure>
+    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.png' | relative_url }}" alt="Faded source film frame">
+    <figcaption><strong>1 · Source</strong><br>The surviving film image remains the record.</figcaption>
+  </figure>
+  <figure>
+    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/04_raw_inference.png' | relative_url }}" alt="Colour proposal produced with Qwen Image Edit">
+    <figcaption><strong>2 · Colour proposal</strong><br>Qwen supplies a candidate interpretation.</figcaption>
+  </figure>
+  <figure>
+    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png' | relative_url }}" alt="Final colour recovery composite">
+    <figcaption><strong>3 · Source-preserving composite</strong><br>Recovered colour is combined with original luminance and detail.</figcaption>
+  </figure>
+</div>
 
-Follow these in order:
+<div class="quiet-panel">
+  <div>
+    <p class="card-kicker">Try the current workflow</p>
+    <h3>Qwen Image Edit colour recovery</h3>
+    <p>Download the public ComfyUI workflow, test it with the supplied frame, or use a frame from your own material.</p>
+  </div>
+  <a href="{{ '/qwen-color-recovery-app/' | relative_url }}" class="btn btn-primary">Open the workflow guide</a>
+</div>
 
-1. **[Shared Workflow](start-here.md)** — Stages 0-2: Resolve export, Nuke setup, dataset curation, alignment, shared crop, and the branch decision.
-2. **[Chroma Recovery](chroma-recovery.md)** — Stage 3 onward: chroma target build, training, inference, validation.
-3. **[Spatial Recovery](spatial-recovery.md)** — Stage 3 onward: spatial target build, training, inference, validation.
-4. **[Qwen Color Recovery App](qwen-color-recovery-app.md)** — Recover color from one faded source frame in ComfyUI Cloud or on your own computer.
+## Where the research stands
 
-## Supporting Material
+The current evidence supports several routes, not one final answer:
 
-- [Additional Resources](additional-resources.md) — Video walkthrough, digitization principles, faded-scan background, and technical references.
-- [Case Studies](case-studies.md) — Real-world results across eleven projects.
-- [Glossary](references/terms-and-definitions.md)
-- [Provenance and Metadata](provenance-metadata.md) *(future — ethical training data documentation)*
+- **Demonstrated:** useful Qwen still-frame proposals and source-luminance/generated-chroma compositing.
+- **Strong but bounded:** one approved same-shot anchor across a `338`-frame sequence.
+- **Demonstrated on paired material:** a small learned chroma model tested against CopyCat on held-out Frontier shots.
+- **Demonstrated on favourable shots:** two video-aware temporal recoveries.
+- **Still open:** reliable colour ownership through difficult motion, occlusion, long sequences, and high-resolution tiling.
 
-## Requirements
+[Read the full research route map]({{ '/open-weight-color-recovery/research-routes/' | relative_url }}).
 
-- Foundry NukeX with `CopyCat` and `Inference` (GPU: Apple Silicon or NVIDIA)
-- A source scan with surviving image information
-- A reference with stronger color or spatial detail
-- Resolve (or equivalent) for pre-alignment and container prep
-- ACES/OCIO color management
+## Publications and presentations
+
+The research is accompanied by working files, comparisons, and talks rather than presented as a finished “one-click” restoration product.
+
+- [SEAPAVAA 2026 presentation companion](seapavaa-2026-companion.md) — open-weight colour recovery examples, prompts, workflows, and source media.
+- [Exploring Experimental Machine Learning in Film Restoration](https://library.imaging.org/archiving/articles/22/1/35) — the peer-reviewed paper behind the CopyCat research.
+- [Case studies](case-studies.md) — practical results across animation, live action, nitrate, video references, and constructed references.
+- [Video walkthrough](https://youtu.be/kXerjFGX9Kg) — an introduction to the earlier Nuke-based chroma-recovery workflow.
+
+> These methods are experimental. A generated result is a restoration proposal, not historical proof. Decisions should be reviewed by people who understand the film, its production context, and the archive’s ethical responsibilities.

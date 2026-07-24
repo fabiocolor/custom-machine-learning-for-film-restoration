@@ -1,10 +1,9 @@
 ---
 layout: default
 title: Chroma Recovery
+parent: CopyCat Workflow
 nav_order: 2
 ---
-
-<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/chroma-recovery/' | relative_url }}">Español</a></div>
 
 # Chroma Recovery — Stages 3–5
 

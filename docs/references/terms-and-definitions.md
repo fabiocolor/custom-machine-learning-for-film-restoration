@@ -1,10 +1,9 @@
 ---
 layout: default
 title: Glossary
-nav_order: 5
+parent: Resources
+nav_order: 2
 ---
-
-<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/references/terms-and-definitions/' | relative_url }}">Español</a></div>
 
 # Glossary
 

@@ -1,10 +1,9 @@
 ---
 layout: default
 title: Spatial Recovery
+parent: CopyCat Workflow
 nav_order: 3
 ---
-
-<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/spatial-recovery/' | relative_url }}">Español</a></div>
 
 # Spatial Recovery — Stages 3–5
 

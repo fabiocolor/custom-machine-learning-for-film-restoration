@@ -186,7 +186,8 @@ def validate_zip(repo: Path, files: list[Path]) -> None:
         if missing:
             raise AssertionError(f"zip missing entries: {missing}")
         for file_path in files:
-            archive_name = "qwen-color-recovery/" + str(file_path.relative_to(repo / "docs/downloads/qwen-color-recovery"))
+            relative_name = file_path.relative_to(repo / "docs/downloads/qwen-color-recovery").as_posix()
+            archive_name = "qwen-color-recovery/" + relative_name
             if archive.read(archive_name) != file_path.read_bytes():
                 raise AssertionError(f"zip entry is stale: {archive_name}")
 

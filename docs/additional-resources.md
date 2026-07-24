@@ -1,10 +1,9 @@
 ---
 layout: default
 title: Additional Resources
-nav_order: 6
+parent: Resources
+nav_order: 1
 ---
-
-<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/additional-resources/' | relative_url }}">Español</a></div>
 
 # Additional Resources
 
@@ -66,7 +65,7 @@ The goal is to capture the maximum recoverable information in RGB and luminance.
 | Baked creative grade | Narrows the evidence available for future restoration or alternate interpretation. |
 | Low bit depth / compressed delivery format | Reduces subtle density and chroma information needed for restoration, especially in faded material. |
 
-For historical or deteriorated material, prefer a conservative high-bit-depth scan that keeps the system's captured information intact, then make restoration choices in a controlled post pipeline. ADX, Cineon, linear, ACES, and display-referred workflows can all be useful in the right context, but they should be tested against the specific film element rather than assumed correct. For the chroma-recovery workflow in this repo, the key rule is continuity: whatever scan and transform path is chosen, Source and Reference must be carried into training with matching, documented transforms.
+For historical or deteriorated material, prefer a conservative high-bit-depth scan that keeps the system's captured information intact, then make restoration choices in a controlled post-production workflow. ADX, Cineon, linear, ACES, and display-referred workflows can all be useful in the right context, but they should be tested against the specific film element rather than assumed correct. For this chroma-recovery method, the key rule is continuity: whatever scan and transform path is chosen, Source and Reference must be carried into training with matching, documented transforms.
 
 Digitization, restoration, and remastering are related but distinct. Digitization captures the analog film as data. Restoration addresses damage or loss introduced by the physical container. Remastering may adapt the work for a new display, release, or audience. Keep those boundaries visible in metadata so future users know which decisions came from the object, the restoration process, or the delivery master.
 

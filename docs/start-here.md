@@ -1,14 +1,15 @@
 ---
 layout: default
 title: Shared Workflow
+parent: CopyCat Workflow
 nav_order: 1
 ---
-
-<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/start-here/' | relative_url }}">Español</a></div>
 
 # Shared Workflow — Stages 0–2
 
 This page covers everything both recovery modes share: Resolve export, Nuke project setup, dataset curation, alignment, shared crop, and the branch decision. Follow this page first, then continue in the guide for your chosen branch.
+
+For automatic reel, shot, and frame-level alignment with strict training-pair rejection, use the [Automated Dataset Preparation](automated-dataset-preparation.md) runbook.
 
 - [Chroma Recovery](chroma-recovery.md) — when detail is intact but color is faded, collapsed, or shifted.
 - [Spatial Recovery](spatial-recovery.md) — when color is acceptable but detail, sharpness, or grain are weaker than the reference.

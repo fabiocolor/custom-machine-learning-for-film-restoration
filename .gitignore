@@ -66,6 +66,8 @@ ffmpeg2pass-*.log*
 docs/.bundle/
 docs/_site/
 docs/vendor/bundle/
+.translation-cache/
+tools/site-i18n/node_modules/
 
 # Use kebab-cased images; ignore legacy images folder (OneDrive-owned)
 /docs/images/

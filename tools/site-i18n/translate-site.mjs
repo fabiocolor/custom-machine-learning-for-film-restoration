@@ -40,6 +40,8 @@ const endpoint =
 const minimumRequestInterval = Number(
   process.env.TRANSLATION_MIN_INTERVAL_MS || 4500,
 );
+const maximumBatchCharacters = 12_000;
+const maximumBatchItems = 90;
 
 validateConfiguration();
 
@@ -55,8 +57,18 @@ if (htmlFiles.length === 0) {
 }
 
 if (options.validateOnly) {
+  const validationPages = await loadEnglishPages();
+  const validationText = collectUniqueText(validationPages);
+  const batchesPerLanguage = makeBatches(
+    validationText,
+    maximumBatchCharacters,
+    maximumBatchItems,
+  ).length;
   console.log(
-    `Validated ${htmlFiles.length} English page(s) and ${targetLanguages.length} target language(s).`,
+    `Validated ${htmlFiles.length} English page(s), ${validationText.length} unique text strings, and ${targetLanguages.length} target language(s).`,
+  );
+  console.log(
+    `A cold translation build is expected to use ${batchesPerLanguage * targetLanguages.length} model request(s); cached builds use only requests for changed text.`,
   );
   process.exit(0);
 }
@@ -280,7 +292,11 @@ async function translateTextSet(values, language, cache, tokenValue) {
     }
   }
 
-  const batches = makeBatches(missing, 12_000, 90);
+  const batches = makeBatches(
+    missing,
+    maximumBatchCharacters,
+    maximumBatchItems,
+  );
   let lastRequestAt = 0;
   for (let index = 0; index < batches.length; index += 1) {
     const elapsed = Date.now() - lastRequestAt;

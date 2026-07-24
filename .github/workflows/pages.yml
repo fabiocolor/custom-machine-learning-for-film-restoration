@@ -78,6 +78,7 @@ jobs:
         run: |
           mv "$GITHUB_WORKSPACE/_site" "$RUNNER_TEMP/site-partial"
           mv "$RUNNER_TEMP/site-english" "$GITHUB_WORKSPACE/_site"
+          npm run translate --prefix tools/site-i18n -- --site "$GITHUB_WORKSPACE/_site" --english-only
           echo "::warning::Automatic translations are temporarily unavailable. Publishing the canonical English site without unavailable language links; a scheduled workflow will retry."
 
       - name: Upload artifact

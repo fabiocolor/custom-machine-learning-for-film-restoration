@@ -41,7 +41,7 @@ const minimumRequestInterval = Number(
   process.env.TRANSLATION_MIN_INTERVAL_MS || 4500,
 );
 const maximumBatchCharacters = 12_000;
-const maximumBatchItems = 90;
+const maximumBatchItems = 140;
 
 validateConfiguration();
 

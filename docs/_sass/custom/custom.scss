@@ -565,6 +565,119 @@ body[data-site-locale]:not([data-site-locale='en']) {
   border-color: #aaa39b;
 }
 
+.experiment-evidence {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.9fr) minmax(0, 1.35fr);
+  gap: 1.35rem;
+  align-items: start;
+  margin: 1.6rem 0;
+  padding: 1.25rem;
+  background: $paper-raised;
+  border: 1px solid $line;
+  border-top: 3px solid $brass;
+
+  h3 {
+    margin: 0 0 1rem;
+    font-size: 1.55rem;
+  }
+}
+
+.experiment-evidence-reverse {
+  grid-template-columns: minmax(0, 1.35fr) minmax(17rem, 0.9fr);
+
+  .experiment-evidence-copy {
+    grid-column: 2;
+  }
+
+  .experiment-figure {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+.experiment-evidence-wide {
+  grid-template-columns: 1fr;
+}
+
+.experiment-facts {
+  margin: 0;
+
+  dt {
+    margin-top: 0.8rem;
+    color: $forest;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  dd {
+    margin: 0.18rem 0 0;
+    color: $ink-soft;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+}
+
+.experiment-figure {
+  min-width: 0;
+  margin: 0;
+
+  img,
+  video {
+    display: block;
+    width: 100%;
+    margin: 0;
+    background: #0c100e;
+    border: 1px solid $line;
+  }
+
+  figcaption {
+    padding: 0.65rem 0.1rem 0;
+    color: $ink-soft;
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+}
+
+.experiment-video-grid,
+.experiment-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.experiment-note {
+  min-width: 0;
+  padding: 1.15rem;
+  background: $paper-raised;
+  border: 1px solid $line;
+  border-top: 3px solid $teal;
+
+  h3 {
+    margin: 0 0 0.8rem;
+    font-size: 1.4rem;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    margin: 0 0 0.85rem;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+    color: $ink-soft;
+    font-size: 0.92rem;
+  }
+}
+
+.experiment-credit {
+  color: $muted;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
 .app-hero-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -864,8 +977,20 @@ body[data-site-locale]:not([data-site-locale='en']) {
   .link-grid,
   .app-hero-strip,
   .media-grid-2,
+  .experiment-evidence,
+  .experiment-evidence-reverse,
+  .experiment-video-grid,
+  .experiment-pair,
   .quiet-panel {
     grid-template-columns: 1fr;
+  }
+
+  .experiment-evidence-reverse {
+    .experiment-evidence-copy,
+    .experiment-figure {
+      grid-column: 1;
+      grid-row: auto;
+    }
   }
 
   .status-legend {

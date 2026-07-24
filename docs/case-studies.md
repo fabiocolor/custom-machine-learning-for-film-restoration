@@ -10,6 +10,8 @@ Real-world applications of the CopyCat workflow across different film stocks, ga
 
 > For a peer-reviewed discussion of these experiments, see: Bedoya Huerta, F.P. (2025). [Exploring Experimental Machine Learning in Film Restoration](https://library.imaging.org/archiving/articles/22/1/35). *Archiving Conference*, 22(1), 35.
 
+Footage, source-provider, software, and contributor information is collected on the [Credits & Attribution]({{ '/credits/' | relative_url }}) page. Incomplete source records are identified there rather than silently omitted.
+
 ---
 
 ## Candy Candy (1976)

@@ -176,6 +176,7 @@ def validate_zip(repo: Path, files: list[Path]) -> None:
         names = set(archive.namelist())
         required_entries = [
             "qwen-color-recovery/README.md",
+            "qwen-color-recovery/THIRD_PARTY_NOTICES.md",
             "qwen-color-recovery/assets/Belak_Color_Patch_Chart_softblur_32.png",
             "qwen-color-recovery/assets/demo_unbalanced_source_frame.jpg",
             "qwen-color-recovery/workflows/faded-qwen-2511-cloud-composite-app.json",
@@ -206,7 +207,11 @@ def main() -> int:
         package_root / "assets/Belak_Color_Patch_Chart_softblur_32.png",
         package_root / "assets/demo_unbalanced_source_frame.jpg",
     ]
-    for path in [cloud_path, local_path, *assets, package_root / "README.md"]:
+    package_docs = [
+        package_root / "README.md",
+        package_root / "THIRD_PARTY_NOTICES.md",
+    ]
+    for path in [cloud_path, local_path, *assets, *package_docs]:
         if not path.exists():
             raise AssertionError(f"missing package file: {path}")
 
@@ -226,7 +231,7 @@ def main() -> int:
         validate_private_reference(cloud, args.private_reference)
         validate_private_reference(local, args.private_reference)
         print("OK private reference: public workflows match private inference contract")
-    validate_zip(repo, [cloud_path, local_path, package_root / "README.md"])
+    validate_zip(repo, [cloud_path, local_path, *package_docs])
     print("OK package zip: required files present and workflow entries are current")
     return 0
 

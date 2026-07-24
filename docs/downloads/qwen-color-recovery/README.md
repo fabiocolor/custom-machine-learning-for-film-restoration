@@ -20,6 +20,8 @@ This package is a dated snapshot of ongoing research, not a finished restoration
   - Included colour reference used by the workflow.
 - `custom_nodes/faded_color_recovery/`
   - Included helper for the local workflow.
+- `THIRD_PARTY_NOTICES.md`
+  - Model, software, and included-asset attribution that should remain with this package.
 
 ## ComfyUI Cloud
 
@@ -46,3 +48,9 @@ The hard Canny guide is created inside the workflow from the source frame.
 ## Review
 
 Check for altered faces or objects, colour crossing edges, invented detail, implausible global casts, and changes in meaning between the source and the proposal. Do not use one successful frame as evidence that a complete shot will remain temporally consistent.
+
+## Credits and rights
+
+This workflow depends on Qwen-Image-Edit-2511, the LightX2V acceleration LoRA, Qwen components packaged for ComfyUI, and ComfyUI. Read `THIRD_PARTY_NOTICES.md` before downloading models or redistributing the package.
+
+Credit does not grant reuse permission. The included demonstration frame and colour-chart reference remain subject to their respective source rights. The colour chart's creator and original publication source are not yet established in the public repository, so it should not be redistributed separately as an independently cleared asset.

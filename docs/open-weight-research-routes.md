@@ -31,6 +31,102 @@ This map is a dated research snapshot rather than a permanent ranking. Routes ma
 - Hard motion, occlusion, changing faces, and long shots remain unsolved as a general problem.
 - Human review is still the acceptance gate. Automated measures can expose alignment and flicker problems, but cannot establish historical truth or aesthetic correctness.
 
+## Selected experiments, with context
+
+The images below are not a gallery of finished restorations. Each one answers a narrower question. The notes explain what went into the test, what the comparison can support, and what it cannot prove. Film, model, software, and source information is collected on the [Credits & Attribution]({{ '/credits/' | relative_url }}) page; entries that still need source confirmation are clearly marked there.
+
+<article class="experiment-evidence">
+  <div class="experiment-evidence-copy">
+    <p class="card-kicker">Experiment 01 · Source preservation</p>
+    <h3>Can a model contribute colour without replacing the surviving image?</h3>
+    <dl class="experiment-facts">
+      <dt>Test</dt>
+      <dd>A faded source frame, a soft colour-chart reference, and source-derived edge control were passed to Qwen Image Edit. The model’s direct RGB proposal was then separated from the final source-preserving composite.</dd>
+      <dt>What to look for</dt>
+      <dd>Read the board from left to right. The source, reference, control, raw proposal, and final composite remain visibly separate, so the generated image cannot be mistaken for the source or for historical evidence.</dd>
+      <dt>What it supports</dt>
+      <dd>The workflow can return proposed chroma to the source image while retaining the source as the record of luminance, framing, texture, and damage.</dd>
+      <dt>Limit</dt>
+      <dd>This structure limits the model’s authority; it does not prove that every proposed colour is correct.</dd>
+    </dl>
+  </div>
+  <figure class="experiment-figure">
+    <a href="{{ '/images_kebab/seapavaa2026/jug_auditorium_full_lineage_5stage.png' | relative_url }}" target="_blank">
+      <img src="{{ '/images_kebab/seapavaa2026/jug_auditorium_full_lineage_5stage.png' | relative_url }}" alt="Five-stage Qwen experiment showing the faded source, soft colour reference, source edge control, raw generated proposal, and final source-preserving composite">
+    </a>
+    <figcaption><em>Juggernaut</em> (1974), directed by Richard Lester. Five-stage lineage from surviving frame to final composite. Exact research-source edition still requires confirmation; see <a href="{{ '/credits/' | relative_url }}">credits</a>.</figcaption>
+  </figure>
+</article>
+
+<article class="experiment-evidence experiment-evidence-reverse">
+  <div class="experiment-evidence-copy">
+    <p class="card-kicker">Experiment 02 · No matched reference</p>
+    <h3>Can Qwen produce a useful colour candidate when no matching colour frame survives?</h3>
+    <dl class="experiment-facts">
+      <dt>Test</dt>
+      <dd>The FANJI garden frame used the faded source, a source-derived edge guide, a soft colour chart, and a restrained restoration prompt. It did not use a matched colour frame from the scene.</dd>
+      <dt>What to look for</dt>
+      <dd>The split moves from the faded source on the left to the source-luminance composite on the right. Building, trees, crowd, and framing remain tied to the source while the colour interpretation changes.</dd>
+      <dt>What it supports</dt>
+      <dd>A reference-free still can become a plausible candidate for human review.</dd>
+      <dt>Limit</dt>
+      <dd>Plausible is not the same as historically verified. The blue sky, green foliage, clothing, and architecture are interpretations unless other evidence confirms them.</dd>
+    </dl>
+  </div>
+  <figure class="experiment-figure">
+    <a href="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" target="_blank">
+      <img src="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" alt="Split comparison with the faded FANJI garden source on the left and the source-preserving colour composite on the right">
+    </a>
+    <figcaption><code>FANJI</code> working research title. Faded source at left; reviewed colour proposal recombined with source luminance at right. Full filmographic and source credit still requires confirmation; see <a href="{{ '/credits/' | relative_url }}">credits</a>.</figcaption>
+  </figure>
+</article>
+
+<article class="experiment-evidence experiment-evidence-wide">
+  <div class="experiment-evidence-copy">
+    <p class="card-kicker">Experiment 03 · Temporal colour</p>
+    <h3>When does a colour interpretation hold together through time?</h3>
+    <p>The same basic idea was tested on two very different shots: use the source sequence and source-derived structure to guide a video-aware colour proposal, then return the proposed chroma to source luminance.</p>
+    <p>The comparison matters because a favourable result and a failure can look equally convincing in a single still. Motion exposes whether colour remains attached to the same face, garment, wall, or object.</p>
+  </div>
+  <div class="experiment-video-grid">
+    <figure class="experiment-figure">
+      <video controls preload="metadata" poster="{{ '/images_kebab/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun_preview.png' | relative_url }}">
+        <source src="{{ '/media/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" type="video/mp4">
+      </video>
+      <figcaption><strong>Favourable shot.</strong> Low-to-moderate motion remains coherent enough to demonstrate that video-aware chroma can work under bounded conditions. Footage source: see <a href="{{ '/credits/' | relative_url }}">credits and open confirmation items</a>.</figcaption>
+    </figure>
+    <figure class="experiment-figure">
+      <video controls preload="metadata" poster="{{ '/images_kebab/seapavaa2026/shot0011_fourchunk_vace_stitched_source_raw_inference_composite_preview.png' | relative_url }}">
+        <source src="{{ '/media/seapavaa2026/shot0011_fourchunk_vace_stitched_source_raw_inference_composite.mp4' | relative_url }}" type="video/mp4">
+      </video>
+      <figcaption><strong>Hard-motion failure.</strong> Faster movement and chunked processing expose inconsistent interpretation and temporal breakdown. This is why the method is not presented as a general video solution. Footage source: see <a href="{{ '/credits/' | relative_url }}">credits and open confirmation items</a>.</figcaption>
+    </figure>
+  </div>
+</article>
+
+<div class="experiment-pair">
+  <article class="experiment-note">
+    <p class="card-kicker">Experiment 04 · Semantic failure</p>
+    <h3>A plausible image can still be the wrong image</h3>
+    <a href="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" target="_blank">
+      <img src="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" alt="Faded source compared with a visually polished but semantically incorrect generated image">
+    </a>
+    <p class="experiment-credit"><em>Ben</em> (1972), directed by Phil Karlson. Exact research-source edition still requires confirmation; see <a href="{{ '/credits/' | relative_url }}">credits</a>.</p>
+    <p>The source is difficult to read, and the model invents a polished wooden structure and a face. The output is visually coherent but no longer describes the photographed scene. This is direct evidence for keeping the source visible and requiring human acceptance.</p>
+  </article>
+  <article class="experiment-note">
+    <p class="card-kicker">Experiment 05 · High-resolution tiling</p>
+    <h3>More local resolution can create a less coherent frame</h3>
+    <a href="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" target="_blank">
+      <img src="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" alt="Tiled raw Qwen inference with visible colour discontinuities compared with a coherent full-frame inference">
+    </a>
+    <p class="experiment-credit"><em>Reptilicus</em> (US release 1962), directed by Sidney Pink and Poul Bang. Exact research-source edition still requires confirmation; see <a href="{{ '/credits/' | relative_url }}">credits</a>.</p>
+    <p>The four-tile result at left contains visible boundaries and conflicting local colour decisions. The full-frame result at right is more coherent, although it still remains a generated interpretation. This experiment is evidence against treating tiling as a solved route.</p>
+  </article>
+</div>
+
+These are selected public examples. The [SEAPAVAA 2026 companion]({{ '/seapavaa-2026-companion/' | relative_url }}) contains the larger comparison set, individual source files, prompts, and presentation media.
+
 ## Route 1 · Source-owned luminance, generated chroma
 
 <span class="status status-demonstrated">Demonstrated foundation</span>
@@ -67,6 +163,8 @@ The guarded TeleStyle V2 experiment completed all `338` frames of the FANJI wate
 
 **Why confidence is still limited:** this is strong evidence from a defined shot, not proof of general success across films, motion types, or restoration aesthetics.
 
+**Public evidence note:** the exact `338`-frame review package is not reproduced on this page. The conference companion shows an earlier [context-board experiment]({{ '/seapavaa-2026-companion/' | relative_url }}#slide-14) that explains the anchor idea, but it should not be read as evidence for the newer run.
+
 ## Route 4 · True paired data and a learned chroma model
 
 <span class="status status-demonstrated">Demonstrated on paired material</span>
@@ -78,6 +176,8 @@ On the Frontier comparison, the retained full-resolution model used original sou
 **What is established:** open, production-specific chroma learning is a credible route when genuine aligned pairs exist.
 
 **What remains:** the result must be repeated on additional paired films before it can be described as a general replacement for the established CopyCat workflow.
+
+**Public evidence note:** the published Frontier material currently documents how the paired frames were prepared and checked. A clearly labelled visual comparison for the newer open model will be added only after the held-out outputs have been cleared for publication.
 
 ## Route 5 · Video-aware chroma generation
 

@@ -30,6 +30,8 @@ You can run the workflow in ComfyUI Cloud or on a local ComfyUI installation. St
   </figure>
 </div>
 
+<p class="experiment-credit"><em>Candy Candy</em> (1976), directed by Hiroshi Shidara. These frames illustrate the workflow; source and rights notes are recorded in <a href="{{ '/credits/' | relative_url }}">Credits &amp; Attribution</a>.</p>
+
 <div class="app-download-panel">
   <a class="btn btn-primary" href="{{ '/downloads/faded-qwen-color-recovery-app.zip' | relative_url }}">Download the complete package</a>
   <a class="btn btn-outline" href="{{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-cloud-composite-app.json' | relative_url }}">Download Cloud workflow</a>
@@ -54,6 +56,7 @@ This separation makes comparison easier. You can inspect the source, the raw mod
 | [`faded-qwen-2511-cloud-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-cloud-composite-app.json' | relative_url }}) | The simplest version to try in ComfyUI Cloud. |
 | [`faded-qwen-2511-still-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json' | relative_url }}) | The complete workflow for a local ComfyUI installation. |
 | [`demo_unbalanced_source_frame.jpg`]({{ '/downloads/qwen-color-recovery/assets/demo_unbalanced_source_frame.jpg' | relative_url }}) | A faded source frame you can use for a quick test. |
+| [`THIRD_PARTY_NOTICES.md`]({{ '/downloads/qwen-color-recovery/THIRD_PARTY_NOTICES.md' | relative_url }}) | Model, software, and included-asset attribution. A copy is also inside the complete package. |
 
 ## Extract a frame from video
 
@@ -109,6 +112,8 @@ The hard Canny guide is created inside the workflow from the source frame. You d
 The workflow creates two useful images: the direct colour proposal and the source-preserving composite. Compare both with the original at full resolution. Look especially for altered faces, shifted edges, invented objects, clipped highlights, colour bleeding, and changes in grain or damage.
 
 For more examples—including matched references, visual atlases, tiled generation, sequence tests, and failure cases—visit the [SEAPAVAA 2026 companion](seapavaa-2026-companion.md).
+
+Before redistributing the workflow or its examples, read [Credits & Attribution]({{ '/credits/' | relative_url }}) and the package's [Third-Party Notices]({{ '/downloads/qwen-color-recovery/THIRD_PARTY_NOTICES.md' | relative_url }}). Credit identifies a source; it does not grant permission to reuse third-party footage, models, or software.
 
 <script>
 (() => {

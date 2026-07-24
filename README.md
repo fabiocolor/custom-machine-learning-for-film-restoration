@@ -39,6 +39,7 @@ Start with:
 - [Research routes, evidence, and unresolved questions](docs/open-weight-research-routes.md)
 - [Qwen Image Edit workflow and downloads](docs/qwen-color-recovery-app.md)
 - [SEAPAVAA 2026 presentation companion](docs/seapavaa-2026-companion.md)
+- [Credits and attribution](docs/credits.md)
 
 | Faded source | Qwen colour proposal | Source-preserving composite |
 | --- | --- | --- |
@@ -87,6 +88,8 @@ Generated colour is an interpretation unless supported by a known reference. Kee
 
 If this research is useful to your work, you can [sponsor it on GitHub](https://github.com/sponsors/fabiocolor) or [support it through PayPal](https://paypal.me/fabiocolor).
 
-## Licence
+## Rights, licences, and attribution
 
-The workflow material is provided for education and research in film preservation and restoration. Check the repository licence and the licences of any third-party models or applications before production use.
+No single licence covers everything referenced in this repository. Original research material, third-party film footage, visual references, model files, and software may each have different owners and terms.
+
+See [Credits & Attribution](docs/credits.md) for the public source record and [Third-Party Notices](THIRD_PARTY_NOTICES.md) for the principal model and software projects. Credit is not permission to reuse third-party material, and this repository does not relicense it.

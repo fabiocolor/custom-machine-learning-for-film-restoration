@@ -33,6 +33,9 @@ jobs:
           source: ./docs
           destination: ./_site
 
+      - name: Prepare built site for post-processing
+        run: sudo chown -R "$(id -u):$(id -g)" "$GITHUB_WORKSPACE/_site"
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:

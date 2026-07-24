@@ -17,11 +17,13 @@ The project is written for film archives, restoration practitioners, colourists,
   <a href="docs/seapavaa-2026-companion.md">SEAPAVAA 2026 companion</a>
 </p>
 
-The [research website](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/) is also available in Spanish, French, German, Italian, Portuguese, Simplified Chinese, Japanese, and Hindi. Use the language menu on any page; translations are generated from the current English edition when the site is published.
+The [research website](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/) is also available in Spanish, French, German, Italian, Portuguese, Simplified Chinese, Japanese, and Hindi. These editions are generated automatically to improve accessibility and may contain errors. The English edition remains the authoritative version.
 
 ## Open-weight colour recovery
 
 Qwen Image Edit can use a faded source frame, visual references, and written direction to create a colour proposal. The workflow in this repository then recombines that proposal with the original source luminance so that fine detail and photographic structure do not come solely from the generated image.
+
+> **Ongoing research:** the Qwen material records the current state of the experiments, not a fixed final method. Workflows, prompts, recommended settings, and conclusions will change as the research develops and new evidence is reviewed.
 
 The research asks questions that matter for moving-image preservation:
 

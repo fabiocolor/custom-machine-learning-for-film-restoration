@@ -14,6 +14,8 @@ This work is not yet a general-purpose colour-recovery system. It is a set of co
 
 The most useful public account is therefore not a list of features. It is a map of what has been demonstrated, what looks promising, and what remains unresolved.
 
+This map is a dated research snapshot rather than a permanent ranking. Routes may be revised, combined, downgraded, or replaced as new experiments are completed and reviewed.
+
 <div class="status-legend" aria-label="Research status key">
   <span class="status status-demonstrated">Demonstrated</span><span>Repeated or completed on a defined test.</span>
   <span class="status status-promising">Promising</span><span>Strong evidence, but still narrow or awaiting broader review.</span>

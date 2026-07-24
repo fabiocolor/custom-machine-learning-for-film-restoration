@@ -13,7 +13,7 @@ This ComfyUI workflow uses Qwen Image Edit to propose colour for a faded film fr
 
 You can run the workflow in ComfyUI Cloud or on a local ComfyUI installation. Start with the supplied example before using preservation material.
 
-> This is an experimental still-frame workflow. Review every result against the source and any historical evidence. A visually convincing image is not proof of original colour.
+> **Ongoing research:** this page and its downloads describe the current working version, not a final specification. Workflows, prompts, recommended settings, and conclusions will change as experiments continue. Review every result against the source and any historical evidence; a visually convincing image is not proof of original colour.
 
 <div class="app-hero-strip" aria-label="Color recovery example">
   <figure>

@@ -19,7 +19,7 @@ Qwen Image Edit is the current focus because it can respond to the source frame,
   <a href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}" class="btn btn-outline">See what works and what remains open</a>
 </div>
 
-> **Current status:** this is active research, not a finished archival system. Individual-frame colour recovery is useful enough for controlled testing. One approved-anchor route and two favourable-shot video routes have succeeded under bounded conditions. General temporal consistency—especially through difficult motion and occlusion—remains unresolved.
+> **Current status:** this is active, changing research—not a finished archival system or a fixed recipe. Workflows, prompts, settings, and conclusions will be revised as experiments continue. Individual-frame colour recovery is useful enough for controlled testing. One approved-anchor route and two favourable-shot video routes have succeeded under bounded conditions. General temporal consistency—especially through difficult motion and occlusion—remains unresolved.
 
 ## The central idea
 

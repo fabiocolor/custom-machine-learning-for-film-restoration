@@ -4,6 +4,10 @@ This package contains an experimental ComfyUI workflow for proposing colour for 
 
 The workflow saves the direct Qwen proposal and a source-preserving composite. Review both against the original. The composite keeps the source luminance and uses Qwen for colour, but it is still an interpretation rather than proof of historical colour.
 
+## Research status
+
+This package is a dated snapshot of ongoing research, not a finished restoration product or a fixed recipe. Its workflows, prompts, model requirements, and recommended settings may change as experiments continue. Check the research website for the current version and the latest evidence before beginning a new test.
+
 ## Files
 
 - `workflows/faded-qwen-2511-cloud-composite-app.json`

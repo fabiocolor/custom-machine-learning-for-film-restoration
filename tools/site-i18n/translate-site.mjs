@@ -185,7 +185,7 @@ async function loadEnglishPages() {
       decodeEntities: false,
     });
 
-    document(".language-switch, .site-language").remove();
+    document(".language-switch, .site-language, .translation-notice").remove();
     preparePageChrome(document, route, sourceLanguage);
     const englishHtml = document.html();
     await writeFile(file, englishHtml, "utf8");
@@ -480,9 +480,37 @@ function preparePageChrome(document, route, language) {
   } else {
     document("body").prepend(selector);
   }
+  prepareTranslationNotice(document, route, language);
 
   document('script[data-site-language-routing="true"]').remove();
   document("body").append(buildLanguageScript());
+}
+
+function prepareTranslationNotice(document, route, language) {
+  let notice = document(".translation-notice").first();
+  if (!notice.length) {
+    document(".site-language").first().after(buildTranslationNotice(route));
+    notice = document(".translation-notice").first();
+  }
+
+  notice
+    .find("a")
+    .attr("href", localizedPath("en", route));
+  if (language.code === "en") {
+    notice.attr("hidden", "");
+  } else {
+    notice.removeAttr("hidden");
+  }
+}
+
+function buildTranslationNotice(route) {
+  return [
+    '<aside class="translation-notice" data-no-localize hidden>',
+    "<strong>Automatic translation</strong>",
+    "<p>This page was translated automatically to improve accessibility and may contain errors. The English page is the authoritative version.</p>",
+    `<a href="${escapeAttribute(localizedPath("en", route))}">Read the English original</a>`,
+    "</aside>",
+  ].join("");
 }
 
 function buildLanguageSelector(selectedCode, route) {
@@ -534,7 +562,11 @@ function buildLanguageScript() {
 function rewriteInternalLinks(document, locale) {
   document("a[href]").each((_, anchor) => {
     const selection = document(anchor);
-    if (selection.closest("[data-no-translate]").length) return;
+    if (
+      selection.closest("[data-no-translate], [data-no-localize]").length
+    ) {
+      return;
+    }
     const href = selection.attr("href");
     if (!href || !href.startsWith(basePath)) return;
 

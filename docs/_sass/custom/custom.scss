@@ -334,6 +334,30 @@ body {
   }
 }
 
+.translation-notice {
+  margin: -0.8rem 0 2rem;
+  padding: 0.9rem 1rem;
+  color: $ink;
+  background: #ebe5d8;
+  border-left: 3px solid $brass;
+  font-size: 0.92rem;
+
+  strong {
+    color: $forest;
+    font-size: 0.78rem;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0.25rem 0 0.15rem;
+  }
+
+  a {
+    font-weight: 600;
+  }
+}
+
 body[data-site-locale]:not([data-site-locale='en']) {
   .search,
   .search-button {

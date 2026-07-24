@@ -14,6 +14,8 @@ All notable changes to this repository are documented here.
 - Simplified the website navigation around current research, practical workflows, case studies, and resources.
 - Rebuilt and revalidated the downloadable Qwen package with public-facing review guidance.
 - Replaced the separate hand-maintained Spanish pages with automatically generated Spanish, French, German, Italian, Portuguese, Simplified Chinese, Japanese, and Hindi editions.
+- Added a visible warning that generated translations are provided for accessibility, may contain errors, and do not replace the English edition.
+- Clarified throughout the Qwen material that it is an ongoing research record whose workflows and conclusions will change as evidence develops.
 
 ### Added
 - Public guide to preparing reliable training pairs from direct film matches and drifting video references, illustrated by the Frontier research.

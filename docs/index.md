@@ -17,6 +17,7 @@ nav_order: 0
 <div class="research-intro">
   <p>This project began with small, production-trained neural networks in Nuke. It now also investigates open-weight image models—especially Qwen Image Edit—as tools for recovering colour when a clean frame-for-frame reference does not exist.</p>
   <p>The open-weight work is not yet a universal restoration system. The aim is to identify defensible routes: preserve the source image, make uncertainty visible, compare alternatives, and leave enough evidence for another person to understand the result.</p>
+  <p>This is a living research record. Qwen workflows, settings, and conclusions will change as experiments continue and stronger evidence becomes available.</p>
 </div>
 
 ## Current research

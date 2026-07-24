@@ -54,9 +54,19 @@ try {
   assert.match(english, /data-site-locale="en"/);
   assert.match(english, /hreflang="zh-Hans"/);
   assert.match(english, /data-language="hi"/);
+  assert.match(english, /class="translation-notice"[^>]*hidden/);
   assert.match(spanish, /<html lang="es">/);
   assert.match(spanish, /<title>\[es\] Film research<\/title>/);
   assert.match(spanish, /\[es\] Open research/);
+  assert.match(spanish, /<strong>\[es\] Automatic translation<\/strong>/);
+  assert.doesNotMatch(
+    spanish,
+    /class="translation-notice"[^>]*hidden/,
+  );
+  assert.match(
+    spanish,
+    /class="translation-notice"[\s\S]*href="\/custom-machine-learning-for-film-restoration\/"/,
+  );
   assert.match(
     spanish,
     /href="\/custom-machine-learning-for-film-restoration\/es\/start-here\/"/,

@@ -4,18 +4,18 @@ This experimental package was assembled by Fabio P. Bedoya Huerta. It does not i
 
 ## Models
 
-- Qwen-Image-Edit-2511 — Qwen team — Apache 2.0 repository:
+- Qwen-Image-Edit-2511 | Qwen team | Apache 2.0 repository:
   https://huggingface.co/Qwen/Qwen-Image-Edit-2511
-- Qwen-Image-Edit-2511-Lightning — LightX2V team — Apache 2.0 repository:
+- Qwen-Image-Edit-2511-Lightning | LightX2V team | Apache 2.0 repository:
   https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning
-- Qwen 2.5 VL encoder and Qwen image VAE — Qwen components packaged for ComfyUI:
+- Qwen 2.5 VL encoder and Qwen image VAE | Qwen components packaged for ComfyUI:
   https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI
 
 Review each model card and upstream licence before downloading or using the model files.
 
 ## Software
 
-- ComfyUI — ComfyUI contributors — GPL-3.0:
+- ComfyUI | ComfyUI contributors | GPL-3.0:
   https://github.com/Comfy-Org/ComfyUI
 - The included local helper uses NumPy, PyTorch, and Pillow. Those packages are not bundled here and retain their respective licences.
 

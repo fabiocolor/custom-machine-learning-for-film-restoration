@@ -19,15 +19,15 @@ Before reusing or distributing any part of the research:
 
 ## Principal model and software dependencies
 
-- Qwen-Image-Edit-2511 — Qwen team — Apache 2.0 repository:
+- Qwen-Image-Edit-2511 | Qwen team | Apache 2.0 repository:
   https://huggingface.co/Qwen/Qwen-Image-Edit-2511
-- Qwen-Image-Edit-2511-Lightning — LightX2V team — Apache 2.0 repository:
+- Qwen-Image-Edit-2511-Lightning | LightX2V team | Apache 2.0 repository:
   https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning
-- Wan2.1 — Wan team — Apache 2.0 repository:
+- Wan2.1 | Wan team | Apache 2.0 repository:
   https://github.com/Wan-Video/Wan2.1
-- VACE — Tongyi Lab researchers — Apache 2.0 repository:
+- VACE | Tongyi Lab researchers | Apache 2.0 repository:
   https://github.com/ali-vilab/VACE
-- ComfyUI — ComfyUI contributors — GPL-3.0:
+- ComfyUI | ComfyUI contributors | GPL-3.0:
   https://github.com/Comfy-Org/ComfyUI
 - Foundry Nuke and CopyCat:
   https://www.foundry.com/products/nuke-family

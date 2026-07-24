@@ -4,8 +4,8 @@ Open research and practical workflows for recovering colour and detail in faded 
 
 This repository follows two connected lines of work:
 
-1. **Open-weight colour recovery** — the main current research area, using Qwen Image Edit and related open models to propose colour while preserving the source frame’s luminance, texture, geometry, and damage.
-2. **Reference-trained recovery** — the established Nuke CopyCat workflow, using aligned source/reference pairs to recover chroma or spatial detail with a model trained for one film project.
+1. **Open-weight colour recovery:** the main current research area, using Qwen Image Edit and related open models to propose colour while preserving the source frame’s luminance, texture, geometry, and damage.
+2. **Reference-trained recovery:** the established Nuke CopyCat workflow, using aligned source/reference pairs to recover chroma or spatial detail with a model trained for one film project.
 
 The project is written for film archives, restoration practitioners, colourists, researchers, and students. It is research material rather than a finished commercial product.
 
@@ -21,17 +21,9 @@ The [research website](https://fabiocolor.github.io/custom-machine-learning-for-
 
 ## Open-weight colour recovery
 
-Qwen Image Edit can use a faded source frame, visual references, and written direction to create a colour proposal. The workflow in this repository then recombines that proposal with the original source luminance so that fine detail and photographic structure do not come solely from the generated image.
+Qwen Image Edit can use a faded source frame, visual references, and written direction to create a colour proposal. The public workflow recombines that proposal with the original source luminance so fine detail and photographic structure do not come solely from the generated image.
 
 > **Ongoing research:** the Qwen material records the current state of the experiments, not a fixed final method. Workflows, prompts, recommended settings, and conclusions will change as the research develops and new evidence is reviewed.
-
-The research asks questions that matter for moving-image preservation:
-
-- How can a model add colour without redesigning faces, objects, or lighting?
-- Which references guide colour reliably without taking over the image?
-- How can colour remain stable through a complete shot?
-- How should uncertain or interpretive results be presented?
-- What evidence should accompany a generated restoration proposal?
 
 Start with:
 
@@ -60,6 +52,7 @@ Start with:
 - [Shared preparation and project setup](docs/start-here.md)
 - [Chroma recovery](docs/chroma-recovery.md)
 - [Spatial recovery](docs/spatial-recovery.md)
+- [Training, inference, and review](docs/training-inference-review.md)
 - [Preparing reliable training pairs](docs/automated-dataset-preparation.md)
 - [Case studies](docs/case-studies.md)
 
@@ -73,10 +66,10 @@ The current Nuke Indie template is available from the [latest release](https://g
 
 ## Repository guide
 
-- `docs/` — the public research website and downloadable Qwen material
-- `templates/` — the Nuke Indie workflow template
-- `scripts/` — checks for the downloadable Qwen material
-- `tools/site-i18n/` — the automatic website translation and language-routing build
+- `docs/`: the public research website and downloadable Qwen material
+- `templates/`: the Nuke Indie workflow template
+- `scripts/`: checks for the downloadable Qwen material
+- `tools/site-i18n/`: the automatic website translation and language-routing build
 
 Production-specific utilities are documented only when they are ready for safe, responsible reuse.
 

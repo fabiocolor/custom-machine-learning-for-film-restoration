@@ -38,16 +38,6 @@ You can run the workflow in ComfyUI Cloud or on a local ComfyUI installation. St
   <a class="btn btn-outline" href="https://cloud.comfy.org/" target="_blank" rel="noopener">Open ComfyUI Cloud</a>
 </div>
 
-## What the workflow is testing
-
-The experiment separates two roles that generative image tools often blur together:
-
-- **The source frame controls identity.** Its composition, edges, luminance, texture, and visible damage should survive.
-- **Qwen proposes colour.** A colour reference and written instruction guide the model toward a plausible palette.
-- **The composite returns to the source.** The generated image contributes colour rather than replacing the complete frame.
-
-This separation makes comparison easier. You can inspect the source, the raw model proposal, and the composite independently.
-
 ## Download options
 
 | Download | What it is for |
@@ -111,7 +101,7 @@ The hard Canny guide is created inside the workflow from the source frame. You d
 
 The workflow creates two useful images: the direct colour proposal and the source-preserving composite. Compare both with the original at full resolution. Look especially for altered faces, shifted edges, invented objects, clipped highlights, colour bleeding, and changes in grain or damage.
 
-For more examples—including matched references, visual atlases, tiled generation, sequence tests, and failure cases—visit the [SEAPAVAA 2026 companion](seapavaa-2026-companion.md).
+For more examples, including matched references, visual atlases, tiled generation, sequence tests, and failure cases, visit the [SEAPAVAA 2026 companion](seapavaa-2026-companion.md).
 
 Before redistributing the workflow or its examples, read [Credits & Attribution]({{ '/credits/' | relative_url }}) and the package's [Third-Party Notices]({{ '/downloads/qwen-color-recovery/THIRD_PARTY_NOTICES.md' | relative_url }}). Credit identifies a source; it does not grant permission to reuse third-party footage, models, or software.
 

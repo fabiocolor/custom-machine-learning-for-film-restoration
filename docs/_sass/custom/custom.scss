@@ -273,9 +273,18 @@ body {
 
     td {
       padding: 0.78rem 0.85rem;
-      color: $ink;
+      color: $ink !important;
+      background: $paper-raised !important;
       border-bottom: 1px solid #ddd7cb;
       vertical-align: top;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #f0ece2 !important;
+    }
+
+    tbody tr:hover td {
+      background: #eae4d8 !important;
     }
 
     tr:last-child td {

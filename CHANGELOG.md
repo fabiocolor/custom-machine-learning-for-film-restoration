@@ -23,7 +23,7 @@ All notable changes to this repository are documented here.
 - IMAGE_CATALOG.md with descriptions for all image assets, organized by subject folder.
 - Comparison GIFs for: Candy Candy, Beta, PSM, Friends, Frontier Experience, Ben, Rebelion de las Tapadas, Knights of the Trail, and El Tinterillo.
 - GIF: contact sheet progression (17 milestones, Step 1 → 360k) showing CopyCat training convergence.
-- GIF: inference output scrub — full-sequence playback demonstrating temporal consistency.
+- GIF: inference output scrub, with full-sequence playback demonstrating temporal consistency.
 - GIF: merge difference alignment check (extracted from video walkthrough).
 
 ### Changed

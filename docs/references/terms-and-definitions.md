@@ -7,7 +7,7 @@ nav_order: 2
 
 # Glossary
 
-Terms specific to the chroma and spatial recovery workflows in this repository. Standard Nuke node names (`Read`, `Write`, `Merge`, `Transform`, `Crop`, etc.) are not redefined here — consult Foundry documentation for those.
+Terms specific to the chroma and spatial recovery workflows in this repository. Standard Nuke node names (`Read`, `Write`, `Merge`, `Transform`, `Crop`, etc.) are not redefined here; consult Foundry documentation for those.
 
 ### ACES 2065-1
 Linear AP0 scene-referred color space for archival/exchange masters. Recommended delivery space with EXR half.

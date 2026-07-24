@@ -5,14 +5,14 @@ parent: CopyCat Workflow
 nav_order: 1
 ---
 
-# Shared Workflow — Stages 0–2
+# Shared Workflow: Stages 0–2
 
 This page covers everything both recovery modes share: Resolve export, Nuke project setup, dataset curation, alignment, shared crop, and the branch decision. Follow this page first, then continue in the guide for your chosen branch.
 
 For automatic reel, shot, and frame-level alignment with strict training-pair rejection, use the [Automated Dataset Preparation](automated-dataset-preparation.md) runbook.
 
-- [Chroma Recovery](chroma-recovery.md) — when detail is intact but color is faded, collapsed, or shifted.
-- [Spatial Recovery](spatial-recovery.md) — when color is acceptable but detail, sharpness, or grain are weaker than the reference.
+- [Chroma Recovery](chroma-recovery.md): when detail is intact but colour is faded, collapsed, or shifted.
+- [Spatial Recovery](spatial-recovery.md): when colour is acceptable but detail, sharpness, or grain are weaker than the reference.
 
 ![Workflow overview](images_kebab/general/full-overview-comparison.png)
 *End-to-end overview of the recovery workflow.*
@@ -25,7 +25,7 @@ Before starting the workflow, make sure the scan preserves as much recoverable i
 
 ### Source and Reference Preparation
 
-What matters is whether the reference preserves better information for the problem you are solving — not whether it is newer, sharper, or higher resolution.
+What matters is whether the reference preserves better information for the problem you are solving, not whether it is newer, sharper, or higher resolution.
 
 ![Raw source before balancing](images_kebab/muralla-verde/muralla-verde-scan-27-35-preview.gif)
 *Source that should be technically balanced before training.*
@@ -38,7 +38,7 @@ What matters is whether the reference preserves better information for the probl
 - Technically balance the source (neutral, not creative).
 - Remove severe flicker, dirt, splice flashes, and instability that would poison training.
 - For chroma recovery: degrain the source for training if grain interferes with chroma learning. Document settings and keep the original plate.
-- For spatial recovery: preserve original grain structure — do not degrain unless the reference is also degrained.
+- For spatial recovery: preserve original grain structure. Do not degrain unless the reference is also degrained.
 - Global cast neutralization: if the source has a strong bias from dye fade or scanning, apply a neutral pre-balance. Recommended: [Faded Balancer DCTL/OFX](https://github.com/fabiocolor/Faded-Balancer-DCTL). For background on magenta dye fade and channel imbalance, see [Why Faded Scans Turn Magenta](additional-resources.md#why-faded-scans-turn-magenta).
 
 | Before (raw faded scan) | After (Faded Balancer applied) |
@@ -51,7 +51,7 @@ What matters is whether the reference preserves better information for the probl
 
 - Clean enough to remove transfer artifacts that would mislead the model.
 - For chroma recovery: suppress dust, compression noise, banding (light denoise/deband/median). Geometry changes and temporal warping are not recommended.
-- For spatial recovery: remove dust/dirt/scratches only. **Do not** median filter or blur the reference — preserve all spatial detail (grain, sharpness, edge definition). For magnetic/video references, target only obvious compression artifacts using tools that preserve spatial frequency content.
+- For spatial recovery: remove dust, dirt, and scratches only. **Do not** median filter or blur the reference. Preserve all spatial detail, including grain, sharpness, and edge definition. For magnetic or video references, target only obvious compression artefacts using tools that preserve spatial frequency content.
 
 **Geometry/stabilization:** prefer cleanup that does not alter geometry. If you must stabilize or reframe, apply identical transforms to both exports.
 
@@ -62,7 +62,7 @@ What matters is whether the reference preserves better information for the probl
 
 1. Conform both sources in a single timeline. Disable retimes, effects, and per-clip grades.
 2. Align the reference to the source in Edit/Inspector (Translate/Scale/Rotate). Allow letterbox/pillarbox; keep stable framing.
-3. Use ACES project settings. Export both with **Rec.709 2.4 ODT** to EXR — keeps values bounded in [0–1], which `CopyCat` expects.
+3. Use ACES project settings. Export both with **Rec.709 2.4 ODT** to EXR. This keeps values bounded in [0–1], which `CopyCat` expects.
 4. Verify parity: resolution, pixel aspect, frame range/rate, channel set (RGB only; omit alpha).
 5. Note any global offsets (scale/translate/rotate) for later reference.
 
@@ -98,11 +98,11 @@ What matters is whether the reference preserves better information for the probl
 
 ### ACES and Color Management Reference
 
-**Training domain (recommended):** Display-referred — export Rec.709 2.4 ODT, ingest via `Utility - sRGB - Color Picking`, process in ACEScg, build YCbCr ground truth with identical chains. Values are naturally bounded; only light safety clamping needed.
+**Training domain (recommended):** Display-referred. Export Rec.709 2.4 ODT, ingest via `Utility - sRGB - Color Picking`, process in ACEScg, and build YCbCr ground truth with identical chains. Values are naturally bounded; only light safety clamping is needed.
 
-**Alternative — Log domain:** Viable in theory but significantly slower and, in testing, inferior for chroma recovery fidelity. Use only if footage demands it.
+**Alternative, log domain:** Viable in theory but significantly slower and, in testing, inferior for chroma recovery fidelity. Use only if the footage demands it.
 
-**Not recommended — Naive linear ACES clamp:** Ingesting ACES 2065-1 and clamping to [0–1] crushes highlights and harms both chroma and spatial mapping. If starting from ACES masters, transform to display-referred first.
+**Not recommended, naive linear ACES clamp:** Ingesting ACES 2065-1 and clamping to [0–1] crushes highlights and harms both chroma and spatial mapping. If starting from ACES masters, transform to display-referred first.
 
 **Both Input and Target must share the exact same domain and transforms.** Do not mix linear and display-referred between branches.
 
@@ -121,7 +121,7 @@ What matters is whether the reference preserves better information for the probl
 
 ## Stage 1: Dataset Curation
 
-Build a small teaching set from representative frames — do not throw the whole sequence into training.
+Build a small teaching set from representative frames. Do not put the whole sequence into training.
 
 ![Dataset curation](images_kebab/cropped/dataset-curation-cropped.png)
 *Building paired training examples in Nuke.*
@@ -162,7 +162,7 @@ Ensure diversity across:
 1. Create a `FrameHold` per selected index on both Source and Reference branches.
 2. Assemble ordered stacks with `AppendClip`: one for Source (Input), one for Reference (Target).
 3. Keep a staging `AppendClip` upstream of the one referenced by downstream `PostageStamp` nodes for safe reordering.
-4. Verify each pair with viewer wipe or `Merge (difference)` — judge geometry/alignment only, not color.
+4. Verify each pair with viewer wipe or `Merge (difference)`; judge geometry and alignment only, not colour.
 5. Label pairs consistently. Maintain a table of indices/timecodes for traceability.
 
 ### Documentation
@@ -187,11 +187,11 @@ Pixel-accurate alignment with shared crop so branches differ only in the intende
 3. Keep a `Dissolve` to compare auto/manual paths quickly.
 
 ![Merge (difference) alignment check](images_kebab/general/merge-difference-alignment-check.gif)
-*Merge (difference) in the viewer: geometry/edges should be near-black. Visible color differences are expected — only structural misalignment is a problem.*
+*Merge (difference) in the viewer: geometry and edges should be near-black. Visible colour differences are expected; only structural misalignment is a problem.*
 
 ### Crop and Subtitle Handling
 
-- Remove black borders/overscan on both branches — do not train on non-image content.
+- Remove black borders and overscan on both branches; do not train on non-image content.
 - Exclude burned-in subtitles/logos. Where unavoidable, animate a shared crop.
 - Apply the **exact same crop** to Source and Reference (clone/link) so pixel areas correspond.
 
@@ -212,11 +212,11 @@ Pixel-accurate alignment with shared crop so branches differ only in the intende
 - [ ] No edge shimmer at borders/corners when toggling Source/Reference.
 - [ ] Reference crop removes overscan/mattes without hiding alignment cues.
 
-**Troubleshooting:** Gate weave/parallax on warped multi-generation references — expect manual `Transform` keyframing to be time-consuming.
+**Troubleshooting:** Gate weave and parallax on warped multi-generation references can require time-consuming manual `Transform` keyframing.
 
 ---
 
-## Branch Decision — Stage 3
+## Branch Decision: Stage 3
 
 This is where the workflow diverges. The layout is shared; the branch decision is which channels go into the ground-truth target.
 
@@ -234,13 +234,7 @@ This is where the workflow diverges. The layout is shared; the branch decision i
 | **Chroma recovery** | Source `Y` + Reference `Cb/Cr` | [chroma-recovery.md](chroma-recovery.md) |
 | **Spatial recovery** | Reference `Y` + Source `Cb/Cr` | [spatial-recovery.md](spatial-recovery.md) |
 
-### Rules After the Branch
-
-- Do not combine chroma and spatial recovery in the same target build.
-- Validate one pass before attempting the second.
-- Train sequence-level first; split to shot-level only where the wide pass fails.
-- Run inference on the full source, not just training frames.
-- Compare against a baseline (`MatchGrade`) to prove the model is doing something specific.
+Do not combine chroma and spatial recovery in one target. After the target is built, both branches continue through the same [training, inference, and review stages](training-inference-review.md).
 
 ### Common Failure Modes
 

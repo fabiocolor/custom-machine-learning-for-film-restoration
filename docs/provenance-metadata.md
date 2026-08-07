@@ -1,14 +1,11 @@
 ---
 layout: default
 title: Provenance & Metadata
-nav_order: 7
+parent: Resources
+nav_order: 3
 ---
 
-<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/provenance-metadata/' | relative_url }}">Español</a></div>
-
 # Provenance and Metadata for ML Restoration
-
-> **Future work.** This document outlines an approach to ethical training data documentation for ML-based film restoration. Implementation details are still being developed.
 
 ## Motivation
 
@@ -16,12 +13,24 @@ ML restoration should be transparent and reproducible. Declaring what was traine
 
 ## Core Principles
 
-- **Declare ML processing** — tag outputs with tool, method, and processing date.
-- **Track provenance** — record source/reference element types, scan details, and authorization.
-- **Record training metadata** — dataset shots/frames, steps, model size, checkpoint.
-- **Classify recovery type** — Color (Reference/Non-Reference), Spatial, or Combined.
+- **Declare ML processing:** tag outputs with tool, method, and processing date.
+- **Track provenance:** record source/reference element types, scan details, and authorization.
+- **Record training metadata:** dataset shots/frames, steps, model size, checkpoint.
+- **Classify recovery type:** Color (Reference/Non-Reference), Spatial, or Combined.
 
-## Proposed Approach
+## Minimum public record
+
+For every published result, record:
+
+- the source element and scan used;
+- every visual reference and the right to use it;
+- the model, workflow, prompt, seed, and relevant settings;
+- whether the output is reference-based, reference-free, spatial, chroma-only, or combined;
+- the training frames and checkpoint when a project-specific model was trained;
+- the processing date and the person or institution responsible for acceptance;
+- a plain statement distinguishing generated interpretation from verified historical evidence.
+
+Keep this record with the output even when the same fields are also embedded in the image file.
 
 ### IPTC Digital Source Type
 
@@ -43,15 +52,15 @@ metadata['metadata'].fromScript("""
 """)
 ```
 
-### Sidecar Files
+### Sidecar files
 
-Machine-readable JSON and human-readable text alongside renders. See the previous version of this document for example templates.
+Keep a small machine-readable record and a plain-language note beside the renders. At minimum, name the source and reference elements, the model and checkpoint, the frames used for training, the processing date, and the person or institution responsible for the restoration decisions.
 
-### Resolve Integration
+### Resolve integration
 
 Import EXR metadata via Resolve's Metadata panel. Map to Description, Scene/Shot/Take, Keywords, Creator, Rights, Dates. Use Batch Change for common fields.
 
-## Standards Context
+## Standards context
 
 - IPTC fields communicate AI/ML classification. Pair with institutional policy text.
-- C2PA / Content Credentials can be layered later for cryptographic provenance.
+- C2PA Content Credentials can supplement the project record with signed provenance assertions where the production system supports them.

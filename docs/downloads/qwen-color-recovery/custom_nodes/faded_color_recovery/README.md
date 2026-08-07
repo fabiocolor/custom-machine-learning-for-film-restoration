@@ -1,33 +1,22 @@
-# Faded Color Recovery ComfyUI Nodes
+# Faded Colour Recovery ComfyUI Node
 
-This package contains ComfyUI nodes used by the phone/App Mode demo workflows.
+This folder contains the helper node used by the local Qwen Image Edit colour-recovery workflow.
 
-## Nodes
+## What it does
 
-- `FadedSourceLumaChromaComposite`: builds the product-facing restoration image from original source `Y` plus generated `Cb/Cr`.
+`FadedSourceLumaChromaComposite` combines the original source luminance with colour from the Qwen proposal. This keeps the source responsible for fine structure, texture, and light.
 
-Default settings match the current production composite policy:
+The included workflow already supplies the tested settings. Change them only after comparing the result with the source at full resolution.
 
-- geometry mode: `flux-kontext-inverse`
-- Flux/Kontext border fill: `edge`
-- shadow chroma mode: `neutral`
-- shadow luma range: `32` to `96`
-- deepest-shadow generated chroma weight: `0.05`
+## Install
 
-## Install Locally
+1. Copy the `faded_color_recovery` folder into `ComfyUI/custom_nodes/`.
+2. Restart ComfyUI.
+3. Confirm that `FadedSourceLumaChromaComposite` appears when the supplied workflow opens.
 
-Copy or symlink this folder into a ComfyUI checkout:
+## Output
 
-```bash
-ln -s /path/to/FADED\ COLOR\ LORA\ RECOVERY/comfyui_custom_nodes/faded_color_recovery \
-  /path/to/ComfyUI/custom_nodes/faded_color_recovery
-```
-
-Then restart ComfyUI and confirm `FadedSourceLumaChromaComposite` appears in the node list.
-
-## App Mode Shape
-
-The demo output should be the composite node, not the raw Qwen image.
+The workflow saves both the direct model proposal and the final composite. Review both. The final composite is usually the more source-faithful result.
 
 For still input:
 
@@ -50,4 +39,4 @@ Expose these controls in ComfyUI App Mode:
 - optional seed
 - optional conservative/vivid prompt preset later
 
-Keep reference/model/workflow internals hidden for the public demo.
+Share only media, settings, and workflow material that you have reviewed and are permitted to distribute.

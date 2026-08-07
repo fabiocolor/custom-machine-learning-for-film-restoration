@@ -1,10 +1,9 @@
 ---
 layout: default
 title: Additional Resources
-nav_order: 6
+parent: Resources
+nav_order: 1
 ---
-
-<div class="language-switch"><strong>Language:</strong> English | <a href="{{ '/es/additional-resources/' | relative_url }}">Español</a></div>
 
 # Additional Resources
 
@@ -66,7 +65,7 @@ The goal is to capture the maximum recoverable information in RGB and luminance.
 | Baked creative grade | Narrows the evidence available for future restoration or alternate interpretation. |
 | Low bit depth / compressed delivery format | Reduces subtle density and chroma information needed for restoration, especially in faded material. |
 
-For historical or deteriorated material, prefer a conservative high-bit-depth scan that keeps the system's captured information intact, then make restoration choices in a controlled post pipeline. ADX, Cineon, linear, ACES, and display-referred workflows can all be useful in the right context, but they should be tested against the specific film element rather than assumed correct. For the chroma-recovery workflow in this repo, the key rule is continuity: whatever scan and transform path is chosen, Source and Reference must be carried into training with matching, documented transforms.
+For historical or deteriorated material, prefer a conservative high-bit-depth scan that keeps the system's captured information intact, then make restoration choices in a controlled post-production workflow. ADX, Cineon, linear, ACES, and display-referred workflows can all be useful in the right context, but they should be tested against the specific film element rather than assumed correct. For this chroma-recovery method, the key rule is continuity: whatever scan and transform path is chosen, Source and Reference must be carried into training with matching, documented transforms.
 
 Digitization, restoration, and remastering are related but distinct. Digitization captures the analog film as data. Restoration addresses damage or loss introduced by the physical container. Remastering may adapt the work for a new display, release, or audience. Keep those boundaries visible in metadata so future users know which decisions came from the object, the restoration process, or the delivery master.
 
@@ -96,11 +95,11 @@ For this workflow, the point is practical more than aesthetic: the magenta image
 
 <div class="media-grid media-grid-2">
   <figure>
-    <img src="{{ '/images_kebab/candy-candy/candy-candy-resolve-dctl-before-correction-faded.png' | relative_url }}" alt="Faded Candy Candy scan before DCTL correction">
+    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}" alt="Faded Candy Candy scan before DCTL correction">
     <figcaption>Faded animation scan before channel-specific correction.</figcaption>
   </figure>
   <figure>
-    <img src="{{ '/images_kebab/candy-candy/candy-candy-resolve-dctl-after-correction-red-channel.png' | relative_url }}" alt="Diagnostic red-channel correction view in Candy Candy">
+    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}" alt="Balanced Candy Candy scan after DCTL correction">
     <figcaption>Diagnostic red-channel correction view used to isolate and control a dominant channel component.</figcaption>
   </figure>
 </div>

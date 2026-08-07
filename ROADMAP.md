@@ -1,15 +1,29 @@
-# Roadmap
+# Research Roadmap
 
-## Next
+This roadmap sets out the research questions and practical materials planned for the project.
 
-- Add a commercial `.nk` template alongside Indie.
-- Add an example project tree showing expected folder structure (source, reference, training pairs, checkpoints, inference renders, validation stills).
-- Export short optimized GIFs for alignment QC, target build, inference, and failure cases.
-- Add annotated UI callouts on screenshots for first-time Nuke users.
-- Implement provenance/metadata workflow (EXR metadata, sidecar files, Resolve integration).
+## Primary track: open-weight colour recovery
 
-## Future
+- Expand the Qwen Image Edit workflow from still-frame tests to controlled shot-level experiments.
+- Repeat the approved same-shot anchor route across films with different motion, faces, materials, and reference quality.
+- Compare true paired-data chroma learning with Qwen-guided pseudo-target training while keeping the two evidence classes clearly separated.
+- Compare matched references, visual atlases, palette boards, period references, and reference-free prompts.
+- Develop clearer safeguards against altered identity, geometry, texture, and lighting.
+- Measure colour stability across neighbouring frames and complete shots.
+- Publish failures and uncertain results alongside successful examples.
+- Add repeatable comparisons with other open-weight image models as they become suitable for preservation work.
+- Improve provenance records for prompts, references, model versions, settings, and human decisions.
 
-- Annotated troubleshooting page for misalignment, unstable references, bad crops, range clipping, checkpoint selection.
-- Non-reference chroma recovery examples with constructed palettes.
-- Spatial recovery graduation from experimental to production-ready.
+## Continuing track: reference-trained recovery
+
+- Turn the Frontier training-pair research into a production-neutral guide.
+- Add a clear example project showing source, reference, accepted pairs, training, inference, and review material.
+- Add visual troubleshooting for alignment, unstable references, weak crops, clipping, and checkpoint selection.
+- Continue evaluating when a sequence-wide CopyCat model should give way to shot-level models.
+- Extend spatial recovery beyond its current experimental status.
+
+## Communication and access
+
+- Keep the website readable for a broad preservation audience while retaining the technical detail needed to understand the methods.
+- Add translated editions only after they have been reviewed for technical and cultural accuracy.
+- Publish compact downloadable examples that can be studied without access to restricted preservation material.

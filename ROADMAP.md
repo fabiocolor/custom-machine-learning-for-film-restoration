@@ -24,6 +24,6 @@ This roadmap sets out the research questions and practical materials planned for
 
 ## Communication and access
 
-- Keep the website readable for non-developers while preserving deeper reproducibility material in the repository.
-- Maintain Spanish, French, German, Italian, Portuguese, Simplified Chinese, Japanese, and Hindi editions from the current English website.
+- Keep the website readable for a broad preservation audience while retaining the technical detail needed to understand the methods.
+- Add translated editions only after they have been reviewed for technical and cultural accuracy.
 - Publish compact downloadable examples that can be studied without access to restricted preservation material.

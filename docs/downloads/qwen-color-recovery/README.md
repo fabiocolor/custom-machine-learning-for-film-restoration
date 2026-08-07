@@ -16,7 +16,7 @@ This package is a dated snapshot of ongoing research, not a finished restoration
   - Full workflow for your own ComfyUI setup.
 - `assets/demo_unbalanced_source_frame.jpg`
   - Example faded source frame for a quick test.
-- `assets/Belak_Color_Patch_Chart_softblur_32.png`
+- `assets/faded-color-reference-palette.png`
   - Included colour reference used by the workflow.
 - `custom_nodes/faded_color_recovery/`
   - Included helper for the local workflow.
@@ -30,7 +30,7 @@ ComfyUI Cloud may require an active plan and available credits before it can que
 1. Open ComfyUI Cloud.
 2. Import `workflows/faded-qwen-2511-cloud-composite-app.json`.
 3. Upload your faded source frame in the `source frame` input.
-4. If Cloud asks for the color reference, upload `assets/Belak_Color_Patch_Chart_softblur_32.png`.
+4. If Cloud asks for the colour reference, upload `assets/faded-color-reference-palette.png`.
 5. Run the workflow.
 6. Save `Recovered color` to inspect the direct model proposal.
 7. Save `Final composite` to inspect the source-luminance version.
@@ -41,7 +41,7 @@ The hard Canny guide is created inside the workflow from the source frame.
 
 1. Copy `custom_nodes/faded_color_recovery` into `ComfyUI/custom_nodes/`.
 2. Restart ComfyUI.
-3. Place `Belak_Color_Patch_Chart_softblur_32.png` into `ComfyUI/input/`.
+3. Place `faded-color-reference-palette.png` into `ComfyUI/input/`.
 4. Import either workflow from `workflows/`.
 5. If ComfyUI asks for Qwen Image Edit 2511 model files, download them through ComfyUI Manager or place them in the folders ComfyUI requests.
 
@@ -53,4 +53,4 @@ Check for altered faces or objects, colour crossing edges, invented detail, impl
 
 This workflow depends on Qwen-Image-Edit-2511, the LightX2V acceleration LoRA, Qwen components packaged for ComfyUI, and ComfyUI. Read `THIRD_PARTY_NOTICES.md` before downloading models or redistributing the package.
 
-Credit does not grant reuse permission. The included demonstration frame and colour-chart reference remain subject to their respective source rights. The colour chart's creator and original publication source are not yet established in the public repository, so it should not be redistributed separately as an independently cleared asset.
+Credit does not grant reuse permission for the demonstration film frame. The included colour palette was created for this project and may be reused with the package.

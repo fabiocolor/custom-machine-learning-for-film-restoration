@@ -1,4 +1,5 @@
 ---
+layout: default
 title: SEAPAVAA 2026 Companion
 parent: Open-Weight Color Recovery
 nav_order: 3
@@ -124,11 +125,10 @@ Each section gives you the exact element shown in the talk, and when useful, the
       </a>
       <p>A full-frame split view of the faded scan and the recovered composite used as the opening before-and-after example.</p>
       <details class="seapavaa-files">
-        <summary>Open the parts of this example</summary>
+        <summary>Open the prompt</summary>
         <div class="seapavaa-filelist">
           <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/01_source_fanji_film_copy_000015-db56f6f7.png' | relative_url }}" target="_blank">Source</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/02_control_fanji_film_copy_r4_v1_03_garden_buil-dd5a1638.png' | relative_url }}" target="_blank">Control</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/03_reference_Belak_Color_Patch_Chart_softblur_32-9142a789.png' | relative_url }}" target="_blank">Reference</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/04_inference_frame_000000_test-7b87dbc0.png' | relative_url }}" target="_blank">Raw inference</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/05_final_composite_fanji_film_copy_r4_v1_03_garden_buil-1622230d.png' | relative_url }}" target="_blank">Final composite</a>
         </div>
@@ -166,15 +166,14 @@ Each section gives you the exact element shown in the talk, and when useful, the
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
       <h3>Muralla Verde comparison</h3>
-      <video controls preload="metadata" poster="{{ '/images_kebab/muralla-verde/muralla-verde-comparison-preview.gif' | relative_url }}">
-        <source src="{{ '/media/seapavaa2026/muralla-verde-comparison-1080p.mp4' | relative_url }}" type="video/mp4">
-      </video>
+      <a href="{{ '/images_kebab/muralla-verde/muralla-verde-comparison-preview.gif' | relative_url }}" target="_blank">
+        <img src="{{ '/images_kebab/muralla-verde/muralla-verde-comparison-preview.gif' | relative_url }}" alt="Animated Muralla Verde source-to-recovery comparison">
+      </a>
       <p>A source-to-recovery comparison showing the practical difference between source correction and chroma recovery.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/muralla-verde-comparison-1080p.mp4' | relative_url }}" target="_blank">Video comparison</a>
-          <a href="{{ '/images_kebab/muralla-verde/muralla-verde-comparison-preview.gif' | relative_url }}" target="_blank">Preview GIF</a>
+          <a href="{{ '/images_kebab/muralla-verde/muralla-verde-comparison-preview.gif' | relative_url }}" target="_blank">Animated comparison</a>
         </div>
       </details>
     </div>
@@ -193,11 +192,10 @@ Each section gives you the exact element shown in the talk, and when useful, the
       </a>
       <p>A full-frame comparison between a faded source and an accepted composite, separating image correction from generated chroma recovery.</p>
       <details class="seapavaa-files">
-        <summary>Open the parts of this example</summary>
+        <summary>Open the prompt</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/01_source_reptilicus_tlr_000025-40689881.png' | relative_url }}" target="_blank">Source</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/01_source_reptilicus_tlr_000025-40689881.jpg' | relative_url }}" target="_blank">Source</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/02_control_reptilicus_tlr_05_beach_woman_canny-73d21cd9.png' | relative_url }}" target="_blank">Control</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/03_reference_Belak_Color_Patch_Chart_softblur_32-9142a789.png' | relative_url }}" target="_blank">Reference</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/04_inference_frame_000000_seed_0_cfg_1.000_Belak-0c1f0329.png' | relative_url }}" target="_blank">Raw inference</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/05_final_composite_reptilicus_tlr_05_beach_woman_source-38de94d1.png' | relative_url }}" target="_blank">Final composite</a>
         </div>
@@ -219,10 +217,9 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <details class="seapavaa-files">
         <summary>Open the workflow and its parts</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow_for_jiminc.json' | relative_url }}" target="_blank">Workflow JSON</a>
-          <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_runnable_prompt_for_jiminc.json' | relative_url }}" target="_blank">Runnable prompt JSON</a>
+          <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}" target="_blank">Workflow JSON</a>
+          <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_api_prompt.json' | relative_url }}" target="_blank">API prompt JSON</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/01_source.png' | relative_url }}" target="_blank">Source image</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/02_reference_chart.png' | relative_url }}" target="_blank">Reference chart</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/03_control.png' | relative_url }}" target="_blank">Control image</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/04_output.png' | relative_url }}" target="_blank">Output image</a>
         </div>
@@ -246,7 +243,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
         <div class="seapavaa-filelist">
           <a href="{{ '/images_kebab/seapavaa2026/originals/interior_woman_paths/01_unbalanced_source.png' | relative_url }}" target="_blank">Unbalanced source</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/interior_woman_paths/02_unbalanced_final_composite.png' | relative_url }}" target="_blank">Unbalanced final composite</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/interior_woman_paths/03_balanced_source.png' | relative_url }}" target="_blank">Balanced source</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/interior_woman_paths/03_balanced_source.jpg' | relative_url }}" target="_blank">Balanced source</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/interior_woman_paths/04_balanced_final_composite.png' | relative_url }}" target="_blank">Balanced final composite</a>
         </div>
       </details>
@@ -310,9 +307,8 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/images_kebab/seapavaa2026/originals/jug_auditorium/01_source_juggernaut_tlr_000066-ed2dda29.png' | relative_url }}" target="_blank">Source</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/jug_auditorium/01_source_juggernaut_tlr_000066-ed2dda29.jpg' | relative_url }}" target="_blank">Source</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/jug_auditorium/02_control_juggernaut_tlr_r5_v1_10_auditorium_c-16fdc330.png' | relative_url }}" target="_blank">Control</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/jug_auditorium/03_reference_Belak_Color_Patch_Chart_softblur_32-9142a789.png' | relative_url }}" target="_blank">Reference</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/jug_auditorium/04_inference_frame_000000_test-feb2c14f.png' | relative_url }}" target="_blank">Raw inference</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/jug_auditorium/05_final_composite_juggernaut_tlr_r5_v1_10_auditorium_c-9d2f7cbe.png' | relative_url }}" target="_blank">Final composite</a>
         </div>
@@ -350,14 +346,12 @@ Each section gives you the exact element shown in the talk, and when useful, the
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
       <h3>Interior Woman temporal comparison</h3>
-      <video controls preload="metadata">
-        <source src="{{ '/media/seapavaa2026/obsession_interior_woman24_source_raw_inference_final_composite.mp4' | relative_url }}" type="video/mp4">
-      </video>
+      <img src="{{ '/media/seapavaa2026/interior-woman-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for the Interior Woman shot">
       <p>A low-motion shot where source, raw inference, and final composite hold together well enough to demonstrate temporal potential.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/obsession_interior_woman24_source_raw_inference_final_composite.mp4' | relative_url }}" target="_blank">Full comparison video</a>
+          <a href="{{ '/media/seapavaa2026/interior-woman-source-proposal-composite.gif' | relative_url }}" target="_blank">Animated comparison</a>
           <a href="{{ '/images_kebab/seapavaa2026/obsession_interior_woman24_source_raw_inference_final_composite_preview.png' | relative_url }}" target="_blank">Preview still</a>
           <a href="{{ '/images_kebab/seapavaa2026/obsession_interior_woman24_source_raw_inference_final_composite_with_prompt_side.png' | relative_url }}" target="_blank">Prompt-side still</a>
         </div>
@@ -365,9 +359,6 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/originals/obsession_interior_woman24_source.mp4' | relative_url }}" target="_blank">Source video</a>
-          <a href="{{ '/media/seapavaa2026/originals/obsession_interior_woman24_raw_inference.mp4' | relative_url }}" target="_blank">Raw inference video</a>
-          <a href="{{ '/media/seapavaa2026/originals/obsession_interior_woman24_final_composite.mp4' | relative_url }}" target="_blank">Final composite video</a>
           <a href="{{ '/media/seapavaa2026/originals/obsession_interior_woman24_full_prompt.txt' | relative_url }}" target="_blank">Full prompt</a>
           <a href="{{ '/media/seapavaa2026/originals/obsession_interior_woman24_full_prompt.json' | relative_url }}" target="_blank">Prompt JSON</a>
         </div>
@@ -382,23 +373,18 @@ Each section gives you the exact element shown in the talk, and when useful, the
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
       <h3>Shot0006 native three-way comparison</h3>
-      <video controls preload="metadata">
-        <source src="{{ '/media/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" type="video/mp4">
-      </video>
+      <img src="{{ '/media/seapavaa2026/shot0006-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for shot 0006">
       <p>This Wan/VACE test shows a second bounded temporal success with the same three-way source, inference, and composite structure.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" target="_blank">Full comparison video</a>
+          <a href="{{ '/media/seapavaa2026/shot0006-source-proposal-composite.gif' | relative_url }}" target="_blank">Animated comparison</a>
           <a href="{{ '/images_kebab/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun_preview.png' | relative_url }}" target="_blank">Preview still</a>
         </div>
       </details>
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/originals/shot0006_source.mp4' | relative_url }}" target="_blank">Source video</a>
-          <a href="{{ '/media/seapavaa2026/originals/shot0006_raw_inference.mp4' | relative_url }}" target="_blank">Raw inference video</a>
-          <a href="{{ '/media/seapavaa2026/originals/shot0006_final_composite.mp4' | relative_url }}" target="_blank">Final composite video</a>
           <a href="{{ '/media/seapavaa2026/originals/shot0006_full_prompt.txt' | relative_url }}" target="_blank">Full prompt</a>
           <a href="{{ '/media/seapavaa2026/originals/shot0006_full_prompt.json' | relative_url }}" target="_blank">Prompt JSON</a>
         </div>
@@ -413,23 +399,13 @@ Each section gives you the exact element shown in the talk, and when useful, the
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
       <h3>Shot0011 native failure comparison</h3>
-      <video controls preload="metadata">
-        <source src="{{ '/media/seapavaa2026/shot0011_fourchunk_vace_stitched_source_raw_inference_composite.mp4' | relative_url }}" type="video/mp4">
-      </video>
+      <img src="{{ '/media/seapavaa2026/shot0011-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for shot 0011">
       <p>A hard-motion example where stitching and temporal generation still break down, even when the individual parts are available.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/shot0011_fourchunk_vace_stitched_source_raw_inference_composite.mp4' | relative_url }}" target="_blank">Full comparison video</a>
+          <a href="{{ '/media/seapavaa2026/shot0011-source-proposal-composite.gif' | relative_url }}" target="_blank">Animated comparison</a>
           <a href="{{ '/images_kebab/seapavaa2026/shot0011_fourchunk_vace_stitched_source_raw_inference_composite_preview.png' | relative_url }}" target="_blank">Preview still</a>
-        </div>
-      </details>
-      <details class="seapavaa-files">
-        <summary>Open the parts of this example</summary>
-        <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/originals/shot0011_source.mp4' | relative_url }}" target="_blank">Source video</a>
-          <a href="{{ '/media/seapavaa2026/originals/shot0011_raw_inference.mp4' | relative_url }}" target="_blank">Raw inference video</a>
-          <a href="{{ '/media/seapavaa2026/originals/shot0011_final_composite.mp4' | relative_url }}" target="_blank">Final composite video</a>
         </div>
       </details>
     </div>
@@ -442,25 +418,14 @@ Each section gives you the exact element shown in the talk, and when useful, the
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
       <h3>Shot0001 with context board</h3>
-      <video controls preload="metadata">
-        <source src="{{ '/media/seapavaa2026/shot0001_t091_source_raw_inference_final_composite_fullrun_with_context_board.mp4' | relative_url }}" type="video/mp4">
-      </video>
+      <img src="{{ '/media/seapavaa2026/shot0001-context-source-proposal-composite.gif' | relative_url }}" alt="Animated context-board, source, raw inference, and source-preserving composite comparison for shot 0001">
       <p>The context board gives the model stable visual anchors while the video comparison shows how those anchors affect the shot.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/shot0001_t091_source_raw_inference_final_composite_fullrun_with_context_board.mp4' | relative_url }}" target="_blank">Full comparison video</a>
+          <a href="{{ '/media/seapavaa2026/shot0001-context-source-proposal-composite.gif' | relative_url }}" target="_blank">Animated comparison</a>
           <a href="{{ '/images_kebab/seapavaa2026/shot0001_t091_source_raw_inference_final_composite_fullrun_with_context_board.png' | relative_url }}" target="_blank">Preview still</a>
           <a href="{{ '/images_kebab/seapavaa2026/02_overview_t091_generated_anchor_contact_sheet_t073_unl-55294673.png' | relative_url }}" target="_blank">Context board</a>
-        </div>
-      </details>
-      <details class="seapavaa-files">
-        <summary>Open the parts of this example</summary>
-        <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/originals/shot0001_source.mp4' | relative_url }}" target="_blank">Source video</a>
-          <a href="{{ '/media/seapavaa2026/originals/shot0001_raw_inference.mp4' | relative_url }}" target="_blank">Raw inference video</a>
-          <a href="{{ '/media/seapavaa2026/originals/shot0001_final_composite.mp4' | relative_url }}" target="_blank">Final composite video</a>
-          <a href="{{ '/media/seapavaa2026/originals/shot0001_context_board.png' | relative_url }}" target="_blank">Context board</a>
         </div>
       </details>
     </div>
@@ -481,7 +446,6 @@ Each section gives you the exact element shown in the talk, and when useful, the
         <summary>Open how this Atlas was made</summary>
         <div class="seapavaa-filelist">
           <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/01_source_atlas.png' | relative_url }}" target="_blank">Source atlas</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/02_color_chart_reference.png' | relative_url }}" target="_blank">Color chart reference</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/03_source_canny_control.png' | relative_url }}" target="_blank">Canny control</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/04_generated_atlas_reference.png' | relative_url }}" target="_blank">Generated Atlas reference</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/prompt.txt' | relative_url }}" target="_blank">Prompt</a>
@@ -518,23 +482,13 @@ Each section gives you the exact element shown in the talk, and when useful, the
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
       <h3>Fanji 600-frame full run</h3>
-      <video controls preload="metadata">
-        <source src="{{ '/media/seapavaa2026/fanji_600_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" type="video/mp4">
-      </video>
+      <img src="{{ '/media/seapavaa2026/fanji-600-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for the FANJI sequence">
       <p>The full Fanji run shows what the method looks like when it is applied frame by frame across a longer sequence.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/fanji_600_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" target="_blank">Full comparison video</a>
+          <a href="{{ '/media/seapavaa2026/fanji-600-source-proposal-composite.gif' | relative_url }}" target="_blank">Animated comparison</a>
           <a href="{{ '/images_kebab/seapavaa2026/fanji_600_source_raw_inference_final_composite_fullrun_preview.png' | relative_url }}" target="_blank">Preview still</a>
-        </div>
-      </details>
-      <details class="seapavaa-files">
-        <summary>Open the parts of this example</summary>
-        <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/originals/fanji_600_source.mp4' | relative_url }}" target="_blank">Source video</a>
-          <a href="{{ '/media/seapavaa2026/originals/fanji_600_raw_inference.mp4' | relative_url }}" target="_blank">Raw inference video</a>
-          <a href="{{ '/media/seapavaa2026/originals/fanji_600_final_composite.mp4' | relative_url }}" target="_blank">Final composite video</a>
         </div>
       </details>
     </div>
@@ -547,14 +501,14 @@ Each section gives you the exact element shown in the talk, and when useful, the
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
       <h3>Candy Ending matched-reference recovery</h3>
-      <a href="{{ '/images_kebab/seapavaa2026/candy_ending_frame_1619_seed1_powerpoint_safe.png' | relative_url }}" target="_blank">
-        <img src="{{ '/images_kebab/seapavaa2026/candy_ending_frame_1619_seed1_powerpoint_safe.png' | relative_url }}" alt="Candy Ending matched-reference recovery">
+      <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png' | relative_url }}" target="_blank">
+        <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png' | relative_url }}" alt="Candy Ending matched-reference recovery">
       </a>
       <p>This final example uses a matched non-generated reference frame for color evidence while the faded source frame remains the geometry and luma authority.</p>
       <details class="seapavaa-files">
         <summary>Open the full-size images behind this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.png' | relative_url }}" target="_blank">Source frame</a>
+          <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.jpg' | relative_url }}" target="_blank">Source frame</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/02_matched_reference_frame_2030.png' | relative_url }}" target="_blank">Matched reference frame</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/03_source_canny_control.png' | relative_url }}" target="_blank">Canny control</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/04_raw_inference.png' | relative_url }}" target="_blank">Raw inference</a>

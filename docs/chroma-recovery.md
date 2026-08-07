@@ -7,10 +7,10 @@ nav_order: 2
 
 # Chroma Recovery: Building the Colour Target
 
-![Chroma recovery overview](images_kebab/candy-candy/candy-candy-comparison-preview.gif)
+![Chroma recovery overview]({{ '/images_kebab/candy-candy/candy-candy-comparison-preview.gif' | relative_url }})
 *Chroma recovery comparison from Candy Candy.*
 
-Use this branch when picture detail survives but colour has faded, shifted, or collapsed. Complete the [shared preparation and alignment stages](start-here.md) first. This page covers only the branch-specific target. Training, inference, and delivery are documented once in [Training, Inference, and Review](training-inference-review.md).
+Use this branch when picture detail survives but colour has faded, shifted, or collapsed. Complete the [shared preparation and alignment stages]({{ '/start-here/' | relative_url }}) first. This page covers only the branch-specific target. Training, inference, and delivery are documented once in [Training, Inference, and Review]({{ '/training-inference-review/' | relative_url }}).
 
 ## Choose the evidence
 
@@ -19,12 +19,12 @@ Use this branch when picture detail survives but colour has faded, shifted, or c
 | **Matched reference** | A DVD, telecine, alternate print, or other colour record shows the same frame | Edition, owner or provider, transforms, compression, crop, and alignment limits |
 | **Constructed reference** | No direct colour record survives | Historical sources, creative decisions, assumptions, and the people who approved them |
 
-A constructed reference can support a plausible interpretation, but it is not historical proof. The [case studies](case-studies.md) show both approaches.
+A constructed reference can support a plausible interpretation, but it is not historical proof. The [case studies]({{ '/case-studies/' | relative_url }}) show both approaches.
 
-![Non-reference chroma recovery example](images_kebab/general/chroma-recovery-non-reference.png)
+![Non-reference chroma recovery example]({{ '/images_kebab/general/chroma-recovery-non-reference.png' | relative_url }})
 *Faded scan at left and an output trained from a constructed colour reference at right.*
 
-![Photoshop Colorize reference creation](images_kebab/ben/ben-photoshop-chroma-reference-creation-3.jpeg)
+![Photoshop Colorize reference creation]({{ '/images_kebab/ben/ben-photoshop-chroma-reference-creation-3.jpeg' | relative_url }})
 *A constructed reference for Ben. Focal points guide the colour proposal; the result remains interpretive.*
 
 ## Build the target
@@ -43,10 +43,10 @@ The training target combines **source luminance** with **reference chroma**. Thi
 6. Clamp input and target to the expected range, remove alpha, and copy the same bounding box to both.
 7. Connect the prepared source as CopyCat input and the combined image as target.
 
-![CopyCat training setup](images_kebab/cropped/copycat-training-cropped.png)
+![CopyCat training setup]({{ '/images_kebab/cropped/copycat-training-cropped.png' | relative_url }})
 *CopyCat training layout with YCbCr channel separation.*
 
-![Shuffle node settings](images_kebab/cropped/shuffle-node-settings-cropped.png)
+![Shuffle node settings]({{ '/images_kebab/cropped/shuffle-node-settings-cropped.png' | relative_url }})
 *The chroma target uses Source Y with Reference Cb and Cr.*
 
 ## Branch-specific checks
@@ -57,7 +57,7 @@ The training target combines **source luminance** with **reference chroma**. Thi
 - During review, watch for hue drift, colour bleeding, unstable skin tones, and flicker.
 - In Resolve, use the recovered render above the original with Composite Mode set to `Color` when the delivery needs explicit source-luminance protection.
 
-![Training steps progression](images_kebab/candy-candy/candy-candy-training-steps.jpeg)
+![Training steps progression]({{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }})
 *Candy Candy training checkpoints. The PAL DVD provided the colour reference.*
 
 ## Chroma troubleshooting
@@ -69,4 +69,4 @@ The training target combines **source luminance** with **reference chroma**. Thi
 | Flicker between frames | Add representative pairs around the transition and inspect reference consistency |
 | Model misses a colour family | Add well-aligned examples containing that family rather than simply extending training |
 
-Continue with [Training, Inference, and Review](training-inference-review.md).
+Continue with [Training, Inference, and Review]({{ '/training-inference-review/' | relative_url }}).

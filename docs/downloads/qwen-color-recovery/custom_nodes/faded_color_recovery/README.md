@@ -39,4 +39,4 @@ Expose these controls in ComfyUI App Mode:
 - optional seed
 - optional conservative/vivid prompt preset later
 
-Keep reference/model/workflow internals hidden for the public demo.
+Share only media, settings, and workflow material that you have reviewed and are permitted to distribute.

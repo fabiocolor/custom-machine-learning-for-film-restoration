@@ -17,8 +17,6 @@ The project is written for film archives, restoration practitioners, colourists,
   <a href="docs/seapavaa-2026-companion.md">SEAPAVAA 2026 companion</a>
 </p>
 
-The [research website](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/) is also available in Spanish, French, German, Italian, Portuguese, Simplified Chinese, Japanese, and Hindi. These editions are generated automatically to improve accessibility and may contain errors. The English edition remains the authoritative version.
-
 ## Open-weight colour recovery
 
 Qwen Image Edit can use a faded source frame, visual references, and written direction to create a colour proposal. The public workflow recombines that proposal with the original source luminance so fine detail and photographic structure do not come solely from the generated image.
@@ -35,7 +33,7 @@ Start with:
 
 | Faded source | Qwen colour proposal | Source-preserving composite |
 | --- | --- | --- |
-| ![Faded source frame](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.png) | ![Qwen Image Edit colour proposal](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/04_raw_inference.png) | ![Final source-preserving composite](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png) |
+| ![Faded source frame](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.jpg) | ![Qwen Image Edit colour proposal](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/04_raw_inference.png) | ![Final source-preserving composite](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png) |
 
 ## Reference-trained recovery in Nuke
 
@@ -69,9 +67,6 @@ The current Nuke Indie template is available from the [latest release](https://g
 - `docs/`: the public research website and downloadable Qwen material
 - `templates/`: the Nuke Indie workflow template
 - `scripts/`: checks for the downloadable Qwen material
-- `tools/site-i18n/`: the automatic website translation and language-routing build
-
-Production-specific utilities are documented only when they are ready for safe, responsible reuse.
 
 ## Responsible use
 

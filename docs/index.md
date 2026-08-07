@@ -43,7 +43,7 @@ nav_order: 0
       <li>Chroma and spatial recovery</li>
       <li>Training-pair preparation</li>
       <li>Shot and sequence workflows</li>
-      <li>Eleven documented case studies</li>
+      <li>Ten documented case studies</li>
     </ul>
     <a class="card-link" href="{{ '/copycat-workflow/' | relative_url }}">Read the CopyCat overview <span aria-hidden="true">→</span></a>
   </article>
@@ -53,7 +53,7 @@ nav_order: 0
 
 <div class="app-hero-strip" aria-label="Qwen Image Edit colour recovery example">
   <figure>
-    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.png' | relative_url }}" alt="Faded source film frame">
+    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.jpg' | relative_url }}" alt="Faded source film frame">
     <figcaption><strong>1 · Source</strong><br>The surviving film image remains the record.</figcaption>
   </figure>
   <figure>
@@ -79,9 +79,9 @@ nav_order: 0
 
 The research is accompanied by working files, comparisons, and talks rather than presented as a finished “one-click” restoration product.
 
-- [SEAPAVAA 2026 presentation companion](seapavaa-2026-companion.md): open-weight colour recovery examples, prompts, workflows, and source media.
+- [SEAPAVAA 2026 presentation companion]({{ '/seapavaa-2026-companion/' | relative_url }}): open-weight colour recovery examples, prompts, workflows, and source media.
 - [Exploring Experimental Machine Learning in Film Restoration](https://library.imaging.org/archiving/articles/22/1/35): the peer-reviewed paper behind the CopyCat research.
-- [Case studies](case-studies.md): practical results across animation, live action, nitrate, video references, and constructed references.
+- [Case studies]({{ '/case-studies/' | relative_url }}): practical results across animation, live action, nitrate, video references, and constructed references.
 - [Video walkthrough](https://youtu.be/kXerjFGX9Kg): an introduction to the earlier Nuke-based chroma-recovery workflow.
 
 > These methods are experimental. A generated result is a restoration proposal, not historical proof. Decisions should be reviewed by people who understand the film, its production context, and the archive’s ethical responsibilities.

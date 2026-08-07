@@ -61,9 +61,7 @@ These records are not administrative decoration. They are what allows another pe
 
 The Frontier Experience project tested this method on a long reference with timing drift, shot changes, and difficult foreground motion. The preparation process began with conservative whole-sequence alignment, then expanded under-represented shots without lowering the acceptance standard.
 
-The retained training selection contains `1,493` accepted pairs covering all `163` detected shots. Each accepted image was checked against its packaged copy, and each shot project was reopened in Nuke to confirm that the intended media and frame ranges survived the preparation step.
-
-These numbers describe one research case, not a universal target. Another film may need fewer pairs, more pairs, or a different balance between sequence-wide and shot-specific models.
+The example demonstrates why accepted-pair counts alone are not enough: coverage, source identity, rendered-file integrity, and review of moving subjects all have to agree before a dataset is treated as ready. Another film may need fewer pairs, more pairs, or a different balance between sequence-wide and shot-specific models.
 
 ## When to train by shot
 

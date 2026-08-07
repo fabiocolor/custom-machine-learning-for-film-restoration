@@ -1,4 +1,4 @@
-# OS metadata
+# Operating-system metadata
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -8,335 +8,71 @@ Desktop.ini
 .Spotlight-V100
 .Trashes
 
-# Editors / IDE
+# Editors and local assistants
 .idea/
 .vscode/
 *.code-workspace
 *.swp
 *.swo
+.agents/
+.aiagents/
+.claude/
+.codex/
 
-# Python cache (for embedded scripts/knobs)
+# Python environments and caches
+.env
+.venv/
+.venv-*/
+venv/
 __pycache__/
 *.pyc
 
-# Nuke artifacts
+# Nuke working files
 *.autosave
 *.nk~
+*.nkind~
 *.backup
 *.bak
 
-# Logs and caches
+# Local working data and private research material
+/archive/
+/internal/
+/outputs/
+/config/
+/packaging/
+/tests/
+/.tmp_*
+/global_shot_matches_contact_sheet.jpg
+/docs/film-element-pair-alignment-runbook.md
+/scripts/frontier_*
+/scripts/muralla_*
+/scripts/jimin*
+/scripts/recover_jiminx_*
+/tools/
+
+# Logs, caches, and generated reports
 *.log
 *.tmp
 logs/
 **/logs/**
 **/cache/**
+/docs/*images*-manifest.yaml
+/docs/*images*-rename-plan.csv
+/docs/*images*-rename-report.md
 
-# CopyCat training byproducts (keep weights out unless explicitly archived)
+# CopyCat training by-products
 pipeline/03_copycat_training/**/weights/**
 pipeline/03_copycat_training/**/checkpoints/**
 pipeline/03_copycat_training/**/artifacts/**
 pipeline/03_copycat_training/**/logs/**
 
-# Local environments
-.env
-.venv/
-venv/
-
-# NOTE: QC renders are intentionally tracked to support reviews
-# QC/**
-
-# Demo media: only track web proxies, ignore originals
-/DEMOS - Exploración del Aprendizaje Automático Experimental en la Restauración de Películas/**/*.mp4
-!/DEMOS - Exploración del Aprendizaje Automático Experimental en la Restauración de Películas/**/*_web.mp4
-
-# ffmpeg 2-pass temp logs
-ffmpeg2pass-*.log*
-# Agent instruction files (not part of repo deliverables)
-.aiagents/
-.claude/
-
-# Archive directory (development notes, internal docs, presentations)
-/archive/
-
-# Local tools (vendored binaries)
-/.tools/
-
-# Local docs build artifacts
+# Local website builds
 docs/.bundle/
 docs/_site/
 docs/vendor/bundle/
 .translation-cache/
-tools/site-i18n/node_modules/
 
-# Use kebab-cased images; ignore legacy images folder (OneDrive-owned)
-/docs/images/
-
-# Generated manifests/reports (contain private filenames)
-/docs/*images*-manifest.yaml
-/docs/*images*-rename-plan.csv
-/docs/*images*-rename-report.md
-
-# Unused docs images
-docs/images_kebab/IMAGE_CATALOG.md
-docs/images_kebab/muralla-verde/muralla-verde-chroma-recovery-output.png
-docs/images_kebab/muralla-verde/muralla-verde-color-composite-timeline-resolve-2.png
-docs/images_kebab/muralla-verde/muralla-verde-color-reference.png
-docs/images_kebab/muralla-verde/muralla-verde-faded-balancer-raw.png
-docs/images_kebab/muralla-verde/muralla-verde-chroma-recovery-comparison-3.png
-docs/images_kebab/muralla-verde/muralla-verde-chroma-recovery-comparison-2.png
-docs/images_kebab/muralla-verde/muralla-verde-color-correction.png
-docs/images_kebab/muralla-verde/muralla-verde-reference-pre-alignment-timeline-resolve-2.png
-docs/images_kebab/muralla-verde/muralla-verde-contact-sheet-3.png
-docs/images_kebab/muralla-verde/muralla-verde-balanced.png
-docs/images_kebab/muralla-verde/muralla-verde-contact-sheet-2.png
-docs/images_kebab/muralla-verde/muralla-verde-raw-scan-unbalanced.png
-docs/images_kebab/muralla-verde/muralla-verde-chroma-recovery-comparison.png
-docs/images_kebab/muralla-verde/muralla-verde-chroma-recovery-script-overview-training-phase.png
-docs/images_kebab/muralla-verde/muralla-raw-scan-unbalanced.png
-docs/images_kebab/muralla-verde/muralla-verde-inference-render-script-overview.png
-docs/images_kebab/muralla-verde/muralla-verde-contact-sheet.png
-docs/images_kebab/muralla-verde/muralla-verde-faded-balancer-finished.png
-docs/images_kebab/knights-of-the-trail/knight-of-the-trail-contact-sheet-1.png
-docs/images_kebab/knights-of-the-trail/knight-of-the-trail-contact-sheet-3.png
-docs/images_kebab/knights-of-the-trail/knight-of-the-trail-contact-sheet-2.png
-docs/images_kebab/knights-of-the-trail/knight-of-a-trail-4-way-comparison.jpeg
-docs/images_kebab/knights-of-the-trail/kott-4way-comparison-reel-a-b-ml-composite-result.png
-docs/images_kebab/knights-of-the-trail/knights-of-the-trail-4-way-comparison.png
-docs/images_kebab/knights-of-the-trail/kinght-of-a-trail-4-way-comparison.jpeg
-docs/images_kebab/knights-of-the-trail/knight-of-the-trail-4-way-comparison.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000003.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000017.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000016.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000002.png
-docs/images_kebab/general/bw-film-chroma-patch-contact-sheet.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000014.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000000.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000001.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000015.png
-docs/images_kebab/general/film-still-woman-dining-chroma-recovered-tight.png
-docs/images_kebab/general/forest-jacket-3x3-contact-sheet.png
-docs/images_kebab/general/red-channel-clip-3x3-contact-sheet.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000011.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000005.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000004.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000010.png
-docs/images_kebab/general/woman-portrait-3x3-contact-sheet.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000006.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000012.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000013.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000007.png
-docs/images_kebab/general/outdoor-scenes-3x3-contact-sheet.png
-docs/images_kebab/general/vfx-steps2-000001-000014-00000028.png
-docs/images_kebab/general/live-action-film-frame-woman-closeup-color.png
-docs/images_kebab/general/mountain-scan-vs-ml-result-side-by-side.png
-docs/images_kebab/general/vfx-steps2-000001-000014-00000029.png
-docs/images_kebab/general/anime-rarity-3x3-contact-sheet.png
-docs/images_kebab/general/vfx-steps2-000001-000010-00000023.png
-docs/images_kebab/general/vfx-steps2-000001-000010-00000022.png
-docs/images_kebab/general/vfx-steps2-000001-000010-00000026.png
-docs/images_kebab/general/jungle-face-3x3-contact-sheet.png
-docs/images_kebab/general/vfx-steps2-000001-000010-00000027.png
-docs/images_kebab/general/vfx-steps2-000001-000010-00000031.png
-docs/images_kebab/general/vfx-steps2-000001-000010-00000025.png
-docs/images_kebab/general/bw-film-chroma-patch-contact-sheet-b.png
-docs/images_kebab/general/vfx-steps2-000001-000010-00000024.png
-docs/images_kebab/general/vfx-steps2-000001-000010-00000030.png
-docs/images_kebab/general/vfx-steps2-000001-000014-00000035.png
-docs/images_kebab/general/vfx-steps2-000001-000010-00000029.png
-docs/images_kebab/general/bw-film-four-way-comparison-print-vs-telecine-ml.png
-docs/images_kebab/general/anime-raccoon-3x3-contact-sheet.png
-docs/images_kebab/general/chroma-recovery-face-foliage-3x3-contact-sheet.png
-docs/images_kebab/general/vfx-steps2-000001-000010-00000028.png
-docs/images_kebab/general/vfx-steps2-000001-000014-00000034.png
-docs/images_kebab/general/vfx-steps2-000001-000014-00000022.png
-docs/images_kebab/general/vfx-steps2-000001-000014-00000023.png
-docs/images_kebab/general/vfx-steps2-000001-000014-00000027.png
-docs/images_kebab/general/vfx-steps2-000001-000014-00000033.png
-docs/images_kebab/general/indian-film-two-shot-chroma-recovered.png
-docs/images_kebab/general/film-still-woman-dining-teal-cast-raw-scan.png
-docs/images_kebab/general/vfx-steps2-000001-000014-00000032.png
-docs/images_kebab/general/vfx-steps2-000001-000014-00000026.png
-docs/images_kebab/general/vfx-steps2-000001-000014-00000030.png
-docs/images_kebab/general/vfx-steps2-000001-000014-00000024.png
-docs/images_kebab/general/hong-kong-film-exit-scene-chroma-recovered.png
-docs/images_kebab/general/silent-film-four-way-comparison-reel-ab-ml.png
-docs/images_kebab/general/el-librero-un-libro-spatial-recovery-comparison.jpeg
-docs/images_kebab/general/vfx-steps2-000001-000014-00000025.png
-docs/images_kebab/general/vfx-steps2-000001-000014-00000031.png
-docs/images_kebab/general/wagon-scene-chroma-recovered-frame.png
-docs/images_kebab/general/three-way-comparison-original-balanced-ml.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000021.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000009.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000008.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000020.png
-docs/images_kebab/general/wagon-scene-chroma-recovered-frame-c.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000018.png
-docs/images_kebab/general/vfx-steps-000001-000022-00000019.png
-docs/images_kebab/general/wagon-3way-comparison-scan-ml-result-reference.png
-docs/images_kebab/general/wagon-scene-chroma-recovered-frame-b.png
-docs/images_kebab/general/film-still-man-reading-book-color-recovered.png
-docs/images_kebab/general/chroma-recovery-wipe-comparison-face.png
-docs/images_kebab/general/sepia-film-3x3-contact-sheet.png
-docs/images_kebab/general/repo-qr-code.png
-docs/images_kebab/frontier-experience/frontier-experience-faded-balancer-finished.png
-docs/images_kebab/frontier-experience/frontier-experience-contact-sheet-2.png
-docs/images_kebab/frontier-experience/frontier-experience-contact-sheet-3.png
-docs/images_kebab/frontier-experience/frontier-experience-chroma-recovery-comparison.png
-docs/images_kebab/frontier-experience/frontier-experience-title-card-raw-scan.png
-docs/images_kebab/frontier-experience/frontier-experience-contact-sheey.png
-docs/images_kebab/frontier-experience/frontier-experience-faded-balancer-raw.png
-docs/images_kebab/frontier-experience/frontier-experience-3x3-contact-sheet.png
-docs/images_kebab/frontier-experience/frontier-experience-chroma-recovery-finished.png
-docs/images_kebab/frontier-experience/frontier-experience-3-way-comparison.png
-docs/images_kebab/resolve-dctl/faded-film-resolve-dctl-neutral-mid-tweaks-exterior.png
-docs/images_kebab/resolve-dctl/faded-film-resolve-dctl-neutral-mid-tweaks-corrected.png
-docs/images_kebab/resolve-dctl/resolve-dctl-faded-balance-ofx-panel-detail.png
-docs/images_kebab/lolo/lolo-black-and-white-colorization.png
-docs/images_kebab/lolo/lolo-contact-sheet-2.png
-docs/images_kebab/lolo/lolo-contact-sheet.png
-docs/images_kebab/lolo/guarango-lolo-scan-vs-color-side-by-side-resolve.png
-docs/images_kebab/tinterillo/tinterillo-4-way-comparison.png
-docs/images_kebab/tinterillo/tinterillo-contact-sheet.png
-docs/images_kebab/tinterillo/tinterillo-copycat-training-graph-3.jpeg
-docs/images_kebab/tinterillo/tinterillo-spatial-recovery-comparison.jpeg
-docs/images_kebab/tinterillo/tinterillo-copycat-training-graph-4.jpeg
-docs/images_kebab/tinterillo/tinterillo-spatial-recovery-script-overview.jpeg
-docs/images_kebab/tinterillo/tinterillo-4-way-comparison-2.png
-docs/images_kebab/tinterillo/tinterillo-4-way-comparison-2.jpeg
-docs/images_kebab/tinterillo/tinterillo-4-way-comparison-3.jpeg
-docs/images_kebab/tinterillo/tinterillo-copycat-training-graph.png
-docs/images_kebab/tinterillo/tinterillo-spatial-recovery-script-overview-2.jpeg
-docs/images_kebab/tinterillo/tinterillo-copycat-training-graph-2.png
-docs/images_kebab/tinterillo/tinterillo-contact-sheet.jpeg
-docs/images_kebab/tinterillo/tinterillo-contact-sheet-3.png
-docs/images_kebab/tinterillo/tinterillo-contact-sheet-2.png
-docs/images_kebab/rebelion-de-las-tapadas/rebelion-de-tapadas-chroma-recovery-script-overview.jpeg
-docs/images_kebab/rebelion-de-las-tapadas/rebelion-de-tapadas-3-way-comparison.png
-docs/images_kebab/rebelion-de-las-tapadas/rebelion-de-las-tapadas-artwork-reference.png
-docs/images_kebab/rebelion-de-las-tapadas/rebelion-de-tapadas-chroma-recovery-script-overview-2.jpeg
-docs/images_kebab/rebelion-de-las-tapadas/rebelion-de-las-tapadas-3-way-comparison-4.jpeg
-docs/images_kebab/rebelion-de-las-tapadas/rebeli-n-de-las-tapadas-artwork-reference.png
-docs/images_kebab/rebelion-de-las-tapadas/rebelion-de-las-tapadas-3-way-comparison-2.png
-docs/images_kebab/rebelion-de-las-tapadas/rebelion-de-las-tapadas-artwork-reference-2.jpeg
-docs/images_kebab/rebelion-de-las-tapadas/rebelion-de-las-tapadas-3-way-comparison.png
-docs/images_kebab/rebelion-de-las-tapadas/rebelion-de-las-tapadas-3-way-comparison-3.jpeg
-docs/images_kebab/nuke-ui/nuke-crop-node-settings-reformat.png
-docs/images_kebab/nuke-ui/nuke-viewer-two-shot-film-frame.png
-docs/images_kebab/nuke-ui/nuke-project-settings-color-management-lut.png
-docs/images_kebab/nuke-ui/nuke-node-graph-copycat-chroma-workflow-2.png
-docs/images_kebab/nuke-ui/nuke-node-graph-copycat-training-setup.png
-docs/images_kebab/nuke-ui/nuke-copycat-training-session-candy-candy.png
-docs/images_kebab/nuke-ui/nuke-grade-node-settings-film-scan.png
-docs/images_kebab/nuke-ui/nuke-remove-node-settings-chromatic.png
-docs/images_kebab/nuke-ui/nuke-f-align-node-settings-analysis.png
-docs/images_kebab/nuke-ui/nuke-node-graph-copycat-chroma-workflow.png
-docs/images_kebab/nuke-ui/nuke-remove-node-settings-chromatic-duplicate.png
-docs/images_kebab/nuke-ui/nuke-write-node-settings-exr-output.png
-docs/images_kebab/nuke-ui/nuke-dissolve-node-settings-which-1.png
-docs/images_kebab/workflow/copycat-contact-sheet-collection-2.jpeg
-docs/images_kebab/workflow/copycat-loss-curve-training-complete-mac.png
-docs/images_kebab/workflow/copycat-training-graph.png
-docs/images_kebab/workflow/copycat-loss-curve-training-complete-windows.png
-docs/images_kebab/workflow/copycat-contact-sheet-collection.jpeg
-docs/images_kebab/workflow/copycat-training-graph-2.png
-docs/images_kebab/ben/ben-tlr-00104648.png
-docs/images_kebab/ben/ben-shot-1-color-reference-frame-2.png
-docs/images_kebab/ben/ben-tlr-00104930.png
-docs/images_kebab/ben/ben-tlr-00103905.png
-docs/images_kebab/ben/ben-shot-1-color-reference-frame-3.png
-docs/images_kebab/ben/ben-raw-1.png
-docs/images_kebab/ben/ben-contact-sheet-8.png
-docs/images_kebab/ben/ben-photoshop-chroma-reference-creation.jpeg
-docs/images_kebab/ben/ben-tlr-00104955.png
-docs/images_kebab/ben/ben-tlr-00103961.png
-docs/images_kebab/ben/ben-shot-2-color-reference-frame.png
-docs/images_kebab/ben/ben-shot-3-color-reference-frame.png
-docs/images_kebab/ben/ben-4-way-comparison.jpeg
-docs/images_kebab/ben/ben-tlr-00104608.png
-docs/images_kebab/ben/ben-original-reference-1.png
-docs/images_kebab/ben/ben-tlr-00104625.png
-docs/images_kebab/ben/ben-shot-3-color-reference-frame-2.png
-docs/images_kebab/ben/ben-original-reference-3.png
-docs/images_kebab/ben/ben-original-reference-2.png
-docs/images_kebab/ben/ben-shot-3-color-reference-frame-3.png
-docs/images_kebab/ben/ben-shot-1-color-reference-frame.png
-docs/images_kebab/ben/ben-tlr-00104906.png
-docs/images_kebab/ben/ben-contact-sheet-4.png
-docs/images_kebab/ben/ben-contact-sheet-5.png
-docs/images_kebab/ben/ben-photoshop-chroma-reference-creation-2.jpeg
-docs/images_kebab/ben/ben-contact-sheet-7.png
-docs/images_kebab/ben/ben-contact-sheet-6.png
-docs/images_kebab/ben/ben-shot-2-color-reference-frame-2.png
-docs/images_kebab/ben/ben-contact-sheet-2.png
-docs/images_kebab/ben/ben-contact-sheet-3.png
-docs/images_kebab/ben/ben-shot-2-color-reference-frame-3.png
-docs/images_kebab/ben/ben-tlr-00103936.png
-docs/images_kebab/ben/ben-contact-sheet-1.png
-docs/images_kebab/candy-candy/candy-candy-individual-shot-chroma-recovery-script.jpeg
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-16.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-14.png
-docs/images_kebab/candy-candy/candy-candy-copycat-training-settings.png
-docs/images_kebab/candy-candy/candy-candy-film-frame-source-scan.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-15.png
-docs/images_kebab/candy-candy/candy-candy-4-way-comparison-2.jpeg
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-11.png
-docs/images_kebab/candy-candy/candy-candy-sequence-chroma-recovery-script.jpeg
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-10.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-12.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-13.png
-docs/images_kebab/candy-candy/candy-candy-individual-shot-chroma-recovery-script-2.jpeg
-docs/images_kebab/candy-candy/candy-candy-film-strip-vertical-source-scan.png
-docs/images_kebab/candy-candy/candy-candy-resolve-dctl-faded-balance-ofx-settings.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-9.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-8.png
-docs/images_kebab/candy-candy/candy-candy-film-frame-chroma-recovered.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-2.png
-docs/images_kebab/candy-candy/candy-candy-4-way-comparison-2.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-1.png
-docs/images_kebab/candy-candy/candy-candy-copycat-graph.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-5.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-4.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-6.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-7.png
-docs/images_kebab/candy-candy/candy-candy-4-way-comparison.jpeg
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-22.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-23.png
-docs/images_kebab/candy-candy/candy-candy-faded-balancer.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-21.png
-docs/images_kebab/candy-candy/candy-candy-training-contact-sheet.jpeg
-docs/images_kebab/candy-candy/candy-candy-faded-balancer-2.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-20.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-18.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-24.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-25.png
-docs/images_kebab/candy-candy/candy-candy-4-way-comparison.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-19.png
-docs/images_kebab/candy-candy/candy-candy-contact-sheet-26.png
-docs/images_kebab/dragan/dragan-nuke-viewer-source-scan.png
-docs/images_kebab/dragan/dragan-film-frame-cropped-source.png
-docs/images_kebab/friends/friends-chroma-recovery-comparison-3.jpeg
-docs/images_kebab/friends/friends-chroma-recovery-comparison-4.jpeg
-docs/images_kebab/friends/friends-contact-sheet-1.png
-docs/images_kebab/friends/friends-contact-sheet-3.png
-docs/images_kebab/friends/friends-chroma-recovery-contact-sheet.jpeg
-docs/images_kebab/friends/friends-contact-sheet-2.png
-docs/images_kebab/friends/friends-chroma-recovery-comparison-2.png
-docs/images_kebab/friends/friends-chroma-recovery-contact-sheet-2.jpeg
-docs/images_kebab/friends/friends-chroma-recovery-comparison.png
-docs/images_kebab/cropped/matchgrade-node-settings-cropped.png
-docs/images_kebab/cropped/transform-node-settings-cropped.png
-docs/images_kebab/cropped/median-node-settings-cropped.png
-docs/images_kebab/cropped/grade-node-setting-cropped.png
-docs/images_kebab/cropped/muralla-verde-chroma-recovery-script-full-overview-cropped.png
-docs/images_kebab/cropped/matchgrade-render-optional-cropped.png
-docs/images_kebab/cropped/f-align-node-cropped.png
-docs/images_kebab/cropped/knight-of-a-trail-spatial-recovery-script-cropped.jpeg
-docs/images_kebab/cropped/muralla-verde-color-composite-timeline-resolve-cropped.png
-docs/images_kebab/cropped/frame-range-node-settings-cropped.png
-docs/images_kebab/cropped/project-settings-cropped.png
-docs/images_kebab/cropped/muralla-verde-source-cropped.png
-docs/images_kebab/cropped/dissolve-node-settings-cropped.png
-docs/images_kebab/cropped/read-node-settings-cropped.png
-docs/images_kebab/cropped/inference-node-settings-cropped.png
-docs/images_kebab/cropped/reformat-node-settings-cropped.png
+# Demo masters remain outside version control; only reviewed web proxies belong here
+/DEMOS - Exploración del Aprendizaje Automático Experimental en la Restauración de Películas/**/*.mp4
+!/DEMOS - Exploración del Aprendizaje Automático Experimental en la Restauración de Películas/**/*_web.mp4
+ffmpeg2pass-*.log*

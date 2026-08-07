@@ -17,7 +17,7 @@ You can run the workflow in ComfyUI Cloud or on a local ComfyUI installation. St
 
 <div class="app-hero-strip" aria-label="Color recovery example">
   <figure>
-    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.png' | relative_url }}" alt="Faded source frame">
+    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.jpg' | relative_url }}" alt="Faded source frame">
     <figcaption><strong>Source</strong><br>Faded frame supplied to the model.</figcaption>
   </figure>
   <figure>
@@ -80,7 +80,7 @@ ComfyUI Cloud may require an active plan and available credits before it can run
 1. Open [ComfyUI Cloud](https://cloud.comfy.org/).
 2. Import `faded-qwen-2511-cloud-composite-app.json`.
 3. Upload your faded frame to the input labelled `source frame`.
-4. If Cloud asks for the color reference, upload `Belak_Color_Patch_Chart_softblur_32.png` from the app package.
+4. If Cloud asks for the colour reference, upload `faded-color-reference-palette.png` from the app package.
 5. Run the workflow.
 6. Save `Recovered color` if you want to inspect the model’s direct proposal.
 7. Save `Final composite` for the source-preserving version.
@@ -93,7 +93,7 @@ The hard Canny guide is created inside the workflow from the source frame. You d
 2. Download and unzip the app package.
 3. Copy `qwen-color-recovery/custom_nodes/faded_color_recovery` into `ComfyUI/custom_nodes/`.
 4. Restart ComfyUI.
-5. Copy `Belak_Color_Patch_Chart_softblur_32.png` into `ComfyUI/input/`.
+5. Copy `faded-color-reference-palette.png` into `ComfyUI/input/`.
 6. Import either workflow JSON from `qwen-color-recovery/workflows/`.
 7. If ComfyUI reports missing Qwen Image Edit 2511 files, use ComfyUI Manager or follow the paths shown in the missing-model message.
 
@@ -101,7 +101,7 @@ The hard Canny guide is created inside the workflow from the source frame. You d
 
 The workflow creates two useful images: the direct colour proposal and the source-preserving composite. Compare both with the original at full resolution. Look especially for altered faces, shifted edges, invented objects, clipped highlights, colour bleeding, and changes in grain or damage.
 
-For more examples, including matched references, visual atlases, tiled generation, sequence tests, and failure cases, visit the [SEAPAVAA 2026 companion](seapavaa-2026-companion.md).
+For more examples, including matched references, visual atlases, tiled generation, sequence tests, and failure cases, visit the [SEAPAVAA 2026 companion]({{ '/seapavaa-2026-companion/' | relative_url }}).
 
 Before redistributing the workflow or its examples, read [Credits & Attribution]({{ '/credits/' | relative_url }}) and the package's [Third-Party Notices]({{ '/downloads/qwen-color-recovery/THIRD_PARTY_NOTICES.md' | relative_url }}). Credit identifies a source; it does not grant permission to reuse third-party footage, models, or software.
 

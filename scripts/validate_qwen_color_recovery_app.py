@@ -39,13 +39,13 @@ def node_by_id(workflow: dict, node_id: int) -> dict:
     raise AssertionError(f"missing node {node_id}")
 
 
-def internal_qwen_prompt(workflow: dict) -> str:
+def embedded_qwen_prompt(workflow: dict) -> str:
     for subgraph in workflow.get("definitions", {}).get("subgraphs", []):
         for node in subgraph.get("nodes", []):
             if str(node.get("id")) == "151":
                 values = node.get("widgets_values") or []
                 return str(values[0]) if values else ""
-    raise AssertionError("missing internal Qwen prompt node 151")
+    raise AssertionError("missing embedded Qwen prompt node 151")
 
 
 def validate_links(workflow: dict) -> None:
@@ -80,11 +80,11 @@ def validate_qwen_contract(workflow: dict) -> None:
         if inputs.get(name) != link_id:
             raise AssertionError(f"Qwen {name} should use link {link_id}, got {inputs.get(name)}")
     top_prompt = str((qwen.get("widgets_values") or [""])[0])
-    subgraph_prompt = internal_qwen_prompt(workflow)
+    subgraph_prompt = embedded_qwen_prompt(workflow)
     if top_prompt != EXPECTED_PROMPT:
         raise AssertionError("top-level Qwen prompt does not match the public recovery prompt")
     if subgraph_prompt != EXPECTED_PROMPT:
-        raise AssertionError("internal Qwen prompt does not match the public recovery prompt")
+        raise AssertionError("embedded Qwen prompt does not match the recovery prompt")
 
 
 def validate_source_reference_control(workflow: dict) -> None:
@@ -95,8 +95,8 @@ def validate_source_reference_control(workflow: dict) -> None:
         raise AssertionError("node 41 must be a LoadImage source frame input")
     if reference.get("type") != "LoadImage":
         raise AssertionError("node 83 must be a LoadImage color reference input")
-    if (reference.get("widgets_values") or [""])[0] != "Belak_Color_Patch_Chart_softblur_32.png":
-        raise AssertionError("node 83 must load the included Belak color reference")
+    if (reference.get("widgets_values") or [""])[0] != "faded-color-reference-palette.png":
+        raise AssertionError("node 83 must load the included colour reference palette")
     if canny.get("type") != "Canny":
         raise AssertionError("node 171 must generate Canny from the source frame")
     if canny.get("widgets_values") != [0.4, 0.8]:
@@ -135,39 +135,6 @@ def validate_local_workflow(workflow: dict) -> None:
         raise AssertionError("local workflow must include the full final-composite helper")
 
 
-def workflow_summary(workflow: dict) -> dict:
-    qwen = node_by_id(workflow, 170)
-    reference = node_by_id(workflow, 83)
-    canny = node_by_id(workflow, 171)
-    save_prefixes = [
-        (node.get("widgets_values") or [""])[0]
-        for node in workflow.get("nodes", [])
-        if node.get("type") == "SaveImage"
-    ]
-    return {
-        "qwen_type": qwen.get("type"),
-        "prompt": (qwen.get("widgets_values") or [""])[0],
-        "reference": (reference.get("widgets_values") or [""])[0],
-        "canny_thresholds": canny.get("widgets_values"),
-        "save_prefixes": sorted(save_prefixes),
-    }
-
-
-def validate_private_reference(public_workflow: dict, private_reference_path: Path) -> None:
-    private = load_json(private_reference_path)
-    public = workflow_summary(public_workflow)
-    private_summary = workflow_summary(private)
-    keys = ["qwen_type", "prompt", "reference", "canny_thresholds"]
-    mismatches = [
-        key
-        for key in keys
-        if public.get(key) != private_summary.get(key)
-    ]
-    if mismatches:
-        details = ", ".join(f"{key}: public={public.get(key)!r} private={private_summary.get(key)!r}" for key in mismatches)
-        raise AssertionError(f"public workflow does not match private inference contract: {details}")
-
-
 def validate_zip(repo: Path, files: list[Path]) -> None:
     zip_path = repo / "docs/downloads/faded-qwen-color-recovery-app.zip"
     if not zip_path.is_file():
@@ -177,7 +144,7 @@ def validate_zip(repo: Path, files: list[Path]) -> None:
         required_entries = [
             "qwen-color-recovery/README.md",
             "qwen-color-recovery/THIRD_PARTY_NOTICES.md",
-            "qwen-color-recovery/assets/Belak_Color_Patch_Chart_softblur_32.png",
+            "qwen-color-recovery/assets/faded-color-reference-palette.png",
             "qwen-color-recovery/assets/demo_unbalanced_source_frame.jpg",
             "qwen-color-recovery/workflows/faded-qwen-2511-cloud-composite-app.json",
             "qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json",
@@ -196,7 +163,6 @@ def validate_zip(repo: Path, files: list[Path]) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--private-reference", type=Path)
     args = parser.parse_args()
 
     repo = args.repo.resolve()
@@ -204,7 +170,7 @@ def main() -> int:
     cloud_path = package_root / "workflows/faded-qwen-2511-cloud-composite-app.json"
     local_path = package_root / "workflows/faded-qwen-2511-still-composite-app.json"
     assets = [
-        package_root / "assets/Belak_Color_Patch_Chart_softblur_32.png",
+        package_root / "assets/faded-color-reference-palette.png",
         package_root / "assets/demo_unbalanced_source_frame.jpg",
     ]
     package_docs = [
@@ -224,14 +190,10 @@ def main() -> int:
         validate_outputs(workflow)
         print(f"OK {name}: graph, prompt, inputs, Canny, outputs")
     validate_cloud_workflow(cloud)
-    print("OK cloud: no custom/private nodes and built-in composite path present")
+    print("OK cloud: portable built-in composite path present")
     validate_local_workflow(local)
     print("OK local: full final-composite helper present")
-    if args.private_reference:
-        validate_private_reference(cloud, args.private_reference)
-        validate_private_reference(local, args.private_reference)
-        print("OK private reference: public workflows match private inference contract")
-    validate_zip(repo, [cloud_path, local_path, *package_docs])
+    validate_zip(repo, [cloud_path, local_path, *assets, *package_docs])
     print("OK package zip: required files present and workflow entries are current")
     return 0
 

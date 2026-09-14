@@ -1,18 +1,5 @@
 # Machine Learning for Film Restoration
 
-## How to talk to CWC
-
-CWC is the shared ComfyUI control plane. Do not call worker `/prompt` endpoints or operate ComfyUI workers from this repo.
-
-- Live: `http://100.109.144.91:8799/help` and `GET /api/help`
-- Local: `http://100.109.144.91:8799/help`
-- Send `POST /jobs`, poll `GET /jobs/{job_id}` until `completed` or `failed`, download artifacts from CWC
-- Hub files here: `shared_storage_id=jiminy-syncthing` plus `REPOS/custom-machine-learning-for-film-restoration/...`
-- Client-owned large files: `POST /api/uploads` then the returned `uploads/` object key
-- Never send `S:\`, UNC paths, MinIO credentials, or worker IDs
-
-Resolve, Phoenix, and Nuke are a separate direct application lane. When this project's requested work itself requires one of those applications, the project may take control of one exact configured worker only while it owns the Operations executor and the exact whole-worker, host, GPU, console, application, licence, and storage resource fences. This is independent of CWC `enabled`; request a safe CWC handoff, never disable CWC merely to reserve the worker, and release the fences after verification.
-
 Open research and practical workflows for recovering colour and detail in faded or damaged moving images.
 
 This repository follows two connected lines of work:
@@ -22,15 +9,9 @@ This repository follows two connected lines of work:
 
 The project is written for film archives, restoration practitioners, colourists, researchers, and students. It is research material rather than a finished commercial product.
 
-## CWC client boundary
+## Using these docs
 
-Shared GPU/Comfy execution for this research goes through ComfyUI Worker Control, not a worker `/prompt` endpoint. This checkout is `S:\REPOS\custom-machine-learning-for-film-restoration` on `jiminy-syncthing`.
-
-- Live contract: `http://100.109.144.91:8799/help` and `GET /api/help`
-- Hub files: `shared_storage_id=jiminy-syncthing` plus `REPOS/custom-machine-learning-for-film-restoration/...`
-- Client-owned large files: `POST /api/uploads` then the returned `uploads/` object key
-- Do not send `S:\`, UNC paths, MinIO credentials, or worker IDs
-- A job is complete only when CWC lists its artifacts
+New to this project? Start with the [documentation guide](docs/HOW_TO_USE_RESEARCH_DOCS.md) to understand the reading order, decision trails, and how to learn from what has worked and failed in past projects.
 
 <p align="center">
   <a href="https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/"><strong>Explore the research website</strong></a>

@@ -143,10 +143,10 @@
         "secondTabWidth": 65
       },
       "widgets_values": [
-        "Belak_Color_Patch_Chart_softblur_32.png",
+        "faded-color-reference-palette.png",
         "image"
       ],
-      "title": "hidden Belak softblur calibration reference"
+      "title": "Faded colour reference palette"
     },
     {
       "id": 170,
@@ -2416,13 +2416,12 @@
     "VHS_MetadataImage": true,
     "VHS_KeepIntermediate": true,
     "faded_color_recovery": {
-      "app_mode_demo": true,
+      "mode": "single_frame_experiment",
       "primary_output": "source_luma_generated_chroma_composite",
       "composite_node": "FadedSourceLumaChromaComposite",
-      "control_source": "internal Canny from uploaded source image",
-      "default_prompt_manifest": "benchmarks/unbalanced/controlnet_chroma_canny_2511_scaled_control_prompt.json",
-      "default_reference_source": "benchmarks/unbalanced/references/Belak_Color_Patch_Chart_softblur_32.png",
-      "public_demo_controls": [
+      "control_source": "Canny edge map generated from the uploaded source image",
+      "default_reference_source": "assets/faded-color-reference-palette.png",
+      "adjustable_controls": [
         "unbalanced source image",
         "seed"
       ],

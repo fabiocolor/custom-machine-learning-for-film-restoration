@@ -5,14 +5,10 @@ on:
     branches: ["main"]
   pull_request:
     branches: ["main"]
-  schedule:
-    # Retry deferred automatic translations without requiring a new commit.
-    - cron: "17 4 * * *"
   workflow_dispatch:
 
 permissions:
   contents: read
-  models: read
   pages: write
   id-token: write
 
@@ -35,51 +31,6 @@ jobs:
         with:
           source: ./docs
           destination: ./_site
-
-      - name: Prepare built site for post-processing
-        run: sudo chown -R "$(id -u):$(id -g)" "$GITHUB_WORKSPACE/_site"
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: npm
-          cache-dependency-path: tools/site-i18n/package-lock.json
-
-      - name: Install translation tooling
-        run: npm ci --prefix tools/site-i18n
-
-      - name: Validate multilingual build
-        run: npm run validate --prefix tools/site-i18n -- --site "$GITHUB_WORKSPACE/_site"
-
-      - name: Preserve canonical English build
-        if: github.event_name != 'pull_request'
-        run: cp -a "$GITHUB_WORKSPACE/_site" "$RUNNER_TEMP/site-english"
-
-      - name: Restore translation cache
-        if: github.event_name != 'pull_request'
-        uses: actions/cache@v4
-        with:
-          path: .translation-cache
-          key: site-translations-v1-${{ github.run_id }}
-          restore-keys: |
-            site-translations-v1-
-
-      - name: Generate translated editions
-        id: translations
-        if: github.event_name != 'pull_request'
-        continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: npm run translate --prefix tools/site-i18n -- --site "$GITHUB_WORKSPACE/_site"
-
-      - name: Restore English-only site when translations are deferred
-        if: github.event_name != 'pull_request' && steps.translations.outcome == 'failure'
-        run: |
-          mv "$GITHUB_WORKSPACE/_site" "$RUNNER_TEMP/site-partial"
-          mv "$RUNNER_TEMP/site-english" "$GITHUB_WORKSPACE/_site"
-          npm run translate --prefix tools/site-i18n -- --site "$GITHUB_WORKSPACE/_site" --english-only
-          echo "::warning::Automatic translations are temporarily unavailable. Publishing the canonical English site without unavailable language links; a scheduled workflow will retry."
 
       - name: Upload artifact
         if: github.event_name != 'pull_request'

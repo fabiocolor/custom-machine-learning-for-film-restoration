@@ -7,8 +7,6 @@ nav_order: 3
 
 # Provenance and Metadata for ML Restoration
 
-> **Future work.** This document outlines an approach to ethical training data documentation for ML-based film restoration. Implementation details are still being developed.
-
 ## Motivation
 
 ML restoration should be transparent and reproducible. Declaring what was trained, on what sources, with what parameters allows future practitioners and archives to understand and audit the work.
@@ -20,7 +18,19 @@ ML restoration should be transparent and reproducible. Declaring what was traine
 - **Record training metadata:** dataset shots/frames, steps, model size, checkpoint.
 - **Classify recovery type:** Color (Reference/Non-Reference), Spatial, or Combined.
 
-## Proposed Approach
+## Minimum public record
+
+For every published result, record:
+
+- the source element and scan used;
+- every visual reference and the right to use it;
+- the model, workflow, prompt, seed, and relevant settings;
+- whether the output is reference-based, reference-free, spatial, chroma-only, or combined;
+- the training frames and checkpoint when a project-specific model was trained;
+- the processing date and the person or institution responsible for acceptance;
+- a plain statement distinguishing generated interpretation from verified historical evidence.
+
+Keep this record with the output even when the same fields are also embedded in the image file.
 
 ### IPTC Digital Source Type
 
@@ -42,15 +52,15 @@ metadata['metadata'].fromScript("""
 """)
 ```
 
-### Sidecar Files
+### Sidecar files
 
 Keep a small machine-readable record and a plain-language note beside the renders. At minimum, name the source and reference elements, the model and checkpoint, the frames used for training, the processing date, and the person or institution responsible for the restoration decisions.
 
-### Resolve Integration
+### Resolve integration
 
 Import EXR metadata via Resolve's Metadata panel. Map to Description, Scene/Shot/Take, Keywords, Creator, Rights, Dates. Use Batch Change for common fields.
 
-## Standards Context
+## Standards context
 
 - IPTC fields communicate AI/ML classification. Pair with institutional policy text.
-- C2PA / Content Credentials can be layered later for cryptographic provenance.
+- C2PA Content Credentials can supplement the project record with signed provenance assertions where the production system supports them.

@@ -95,11 +95,11 @@ For this workflow, the point is practical more than aesthetic: the magenta image
 
 <div class="media-grid media-grid-2">
   <figure>
-    <img src="{{ '/images_kebab/candy-candy/candy-candy-resolve-dctl-before-correction-faded.png' | relative_url }}" alt="Faded Candy Candy scan before DCTL correction">
+    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}" alt="Faded Candy Candy scan before DCTL correction">
     <figcaption>Faded animation scan before channel-specific correction.</figcaption>
   </figure>
   <figure>
-    <img src="{{ '/images_kebab/candy-candy/candy-candy-resolve-dctl-after-correction-red-channel.png' | relative_url }}" alt="Diagnostic red-channel correction view in Candy Candy">
+    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}" alt="Balanced Candy Candy scan after DCTL correction">
     <figcaption>Diagnostic red-channel correction view used to isolate and control a dominant channel component.</figcaption>
   </figure>
 </div>

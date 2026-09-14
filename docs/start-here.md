@@ -9,28 +9,28 @@ nav_order: 1
 
 This page covers everything both recovery modes share: Resolve export, Nuke project setup, dataset curation, alignment, shared crop, and the branch decision. Follow this page first, then continue in the guide for your chosen branch.
 
-For automatic reel, shot, and frame-level alignment with strict training-pair rejection, use the [Automated Dataset Preparation](automated-dataset-preparation.md) runbook.
+For reel-, shot-, and frame-level alignment with strict training-pair rejection, see [Preparing Reliable Training Pairs]({{ '/automated-dataset-preparation/' | relative_url }}).
 
-- [Chroma Recovery](chroma-recovery.md): when detail is intact but colour is faded, collapsed, or shifted.
-- [Spatial Recovery](spatial-recovery.md): when colour is acceptable but detail, sharpness, or grain are weaker than the reference.
+- [Chroma Recovery]({{ '/chroma-recovery/' | relative_url }}): when detail is intact but colour is faded, collapsed, or shifted.
+- [Spatial Recovery]({{ '/spatial-recovery/' | relative_url }}): when colour is acceptable but detail, sharpness, or grain are weaker than the reference.
 
-![Workflow overview](images_kebab/general/full-overview-comparison.png)
+![Workflow overview]({{ '/images_kebab/general/full-overview-comparison.png' | relative_url }})
 *End-to-end overview of the recovery workflow.*
 
 ---
 
 ## Stage 0: Resolve Export + Nuke Project Setup
 
-Before starting the workflow, make sure the scan preserves as much recoverable image evidence as possible: avoid clipping, automatic white balance, baked creative grades, and compressed low-bit-depth intermediates. For the background thinking, see [Digitization: First Scan, Last Chance](additional-resources.md#digitization-first-scan-last-chance).
+Before starting the workflow, make sure the scan preserves as much recoverable image evidence as possible: avoid clipping, automatic white balance, baked creative grades, and compressed low-bit-depth intermediates. For the background thinking, see [Digitization: First Scan, Last Chance]({{ '/additional-resources/' | relative_url }}#digitization-first-scan-last-chance).
 
 ### Source and Reference Preparation
 
 What matters is whether the reference preserves better information for the problem you are solving, not whether it is newer, sharper, or higher resolution.
 
-![Raw source before balancing](images_kebab/muralla-verde/muralla-verde-scan-27-35-preview.gif)
+![Raw source before balancing]({{ '/images_kebab/muralla-verde/muralla-verde-scan-27-35-preview.gif' | relative_url }})
 *Source that should be technically balanced before training.*
 
-![Balanced source for training](images_kebab/muralla-verde/muralla-verde-source-27-35-preview.gif)
+![Balanced source for training]({{ '/images_kebab/muralla-verde/muralla-verde-source-27-35-preview.gif' | relative_url }})
 *Balanced source plate used as cleaner input to the workflow.*
 
 **Source preparation:**
@@ -39,11 +39,11 @@ What matters is whether the reference preserves better information for the probl
 - Remove severe flicker, dirt, splice flashes, and instability that would poison training.
 - For chroma recovery: degrain the source for training if grain interferes with chroma learning. Document settings and keep the original plate.
 - For spatial recovery: preserve original grain structure. Do not degrain unless the reference is also degrained.
-- Global cast neutralization: if the source has a strong bias from dye fade or scanning, apply a neutral pre-balance. Recommended: [Faded Balancer DCTL/OFX](https://github.com/fabiocolor/Faded-Balancer-DCTL). For background on magenta dye fade and channel imbalance, see [Why Faded Scans Turn Magenta](additional-resources.md#why-faded-scans-turn-magenta).
+- Global cast neutralization: if the source has a strong bias from dye fade or scanning, apply a neutral pre-balance. Recommended: [Faded Balancer DCTL/OFX](https://github.com/fabiocolor/Faded-Balancer-DCTL). For background on magenta dye fade and channel imbalance, see [Why Faded Scans Turn Magenta]({{ '/additional-resources/' | relative_url }}#why-faded-scans-turn-magenta).
 
 | Before (raw faded scan) | After (Faded Balancer applied) |
 | --- | --- |
-| ![Raw faded scan](images_kebab/candy-candy/candy-candy-faded-balancer-raw.png) | ![Balanced scan](images_kebab/candy-candy/candy-candy-faded-balancer-finished.png) |
+| ![Raw faded scan]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}) | ![Balanced scan]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}) |
 
 *Faded Balancer DCTL neutralizing magenta dye fade in Resolve before Nuke ingest.*
 
@@ -57,12 +57,12 @@ What matters is whether the reference preserves better information for the probl
 
 ### Resolve Export
 
-![Resolve reference prep](images_kebab/cropped/muralla-verde-reference-pre-alignment-timeline-resolve-cropped.png)
+![Resolve reference prep]({{ '/images_kebab/cropped/muralla-verde-reference-pre-alignment-timeline-resolve-cropped.png' | relative_url }})
 *Source and reference placed in the same Resolve container.*
 
 1. Conform both sources in a single timeline. Disable retimes, effects, and per-clip grades.
 2. Align the reference to the source in Edit/Inspector (Translate/Scale/Rotate). Allow letterbox/pillarbox; keep stable framing.
-3. Use ACES project settings. Export both with **Rec.709 2.4 ODT** to EXR. This keeps values bounded in [0–1], which `CopyCat` expects.
+3. Use one documented colour-management path for both elements. If training in a display-referred Rec.709 domain, apply the same display transform to both exports and verify their numeric range before connecting them to CopyCat.
 4. Verify parity: resolution, pixel aspect, frame range/rate, channel set (RGB only; omit alpha).
 5. Note any global offsets (scale/translate/rotate) for later reference.
 
@@ -82,14 +82,14 @@ What matters is whether the reference preserves better information for the probl
 
 **Project settings:**
 
-- Color management: `OCIO` with `ACES 1.2` or `ACES 1.3`.
-- Working space: `ACEScg` (scene-linear, AP1).
-- Viewer process: ACES ODT matching your display (e.g., `ACES 1.0 SDR-video / Rec.709 2.4`).
+- Colour management: use the project-approved OCIO/ACES configuration.
+- Working space: use the same documented working space throughout the project.
+- Viewer process: select the display transform that matches the calibrated review display.
 
 **Read node settings (both Source and Reference):**
 
-- Training pairs (from Resolve Rec.709 2.4 ODT): `Read.colorspace = Utility - sRGB - Color Picking`.
-- ACES masters (interchange/comp): `Read.colorspace = ACES - ACES2065-1`. If used for training, transform to display-referred (apply Rec.709 2.4 ODT) rather than clamping naively.
+- Assign the input transform that matches the files actually exported from Resolve.
+- Treat archival ACES masters and display-referred training files as different deliverables; do not label one as the other.
 
 **Verify:**
 
@@ -98,7 +98,7 @@ What matters is whether the reference preserves better information for the probl
 
 ### ACES and Color Management Reference
 
-**Training domain (recommended):** Display-referred. Export Rec.709 2.4 ODT, ingest via `Utility - sRGB - Color Picking`, process in ACEScg, and build YCbCr ground truth with identical chains. Values are naturally bounded; only light safety clamping is needed.
+**Training domain used by this workflow:** Display-referred Rec.709. Apply the same transform to source and reference, confirm the resulting range, and build the YCbCr target from those matched files.
 
 **Alternative, log domain:** Viable in theory but significantly slower and, in testing, inferior for chroma recovery fidelity. Use only if the footage demands it.
 
@@ -113,9 +113,9 @@ What matters is whether the reference preserves better information for the probl
 
 **Resolve interop:**
 
-- ACES 1.2/1.3 project; export ACES 2065-1 EXR masters for Nuke ingest.
-- For display-referred training, export Rec.709 2.4 ODT and ingest with `Utility - sRGB - Color Picking`.
-- Keep frame size, PAR, and channels identical.
+- Record the exact ACES/OCIO configuration and transforms used by the project.
+- Keep archival masters separate from display-referred training exports.
+- Keep frame size, pixel aspect ratio, channel set, and frame range identical between paired training files.
 
 ---
 
@@ -123,7 +123,7 @@ What matters is whether the reference preserves better information for the probl
 
 Build a small teaching set from representative frames. Do not put the whole sequence into training.
 
-![Dataset curation](images_kebab/cropped/dataset-curation-cropped.png)
+![Dataset curation]({{ '/images_kebab/cropped/dataset-curation-cropped.png' | relative_url }})
 *Building paired training examples in Nuke.*
 
 ### Selection Criteria
@@ -177,7 +177,7 @@ Ensure diversity across:
 
 Pixel-accurate alignment with shared crop so branches differ only in the intended characteristic (color or spatial detail).
 
-![Alignment workflow](images_kebab/cropped/alignment-cropped.png)
+![Alignment workflow]({{ '/images_kebab/cropped/alignment-cropped.png' | relative_url }})
 *Auto and manual alignment paths inside the template.*
 
 ### Strategy
@@ -186,7 +186,7 @@ Pixel-accurate alignment with shared crop so branches differ only in the intende
 2. Evaluate immediately with `Merge (difference)`. If edges/geometry remain, switch to manual `Transform` with keyframes.
 3. Keep a `Dissolve` to compare auto/manual paths quickly.
 
-![Merge (difference) alignment check](images_kebab/general/merge-difference-alignment-check.gif)
+![Merge (difference) alignment check]({{ '/images_kebab/general/merge-difference-alignment-check.gif' | relative_url }})
 *Merge (difference) in the viewer: geometry and edges should be near-black. Visible colour differences are expected; only structural misalignment is a problem.*
 
 ### Crop and Subtitle Handling
@@ -195,7 +195,7 @@ Pixel-accurate alignment with shared crop so branches differ only in the intende
 - Exclude burned-in subtitles/logos. Where unavoidable, animate a shared crop.
 - Apply the **exact same crop** to Source and Reference (clone/link) so pixel areas correspond.
 
-![Crop node settings](images_kebab/cropped/crop-node-settings-cropped.png)
+![Crop node settings]({{ '/images_kebab/cropped/crop-node-settings-cropped.png' | relative_url }})
 *Shared crop keeping both branches in the same live picture area.*
 
 ### Nuke Build
@@ -220,21 +220,21 @@ Pixel-accurate alignment with shared crop so branches differ only in the intende
 
 This is where the workflow diverges. The layout is shared; the branch decision is which channels go into the ground-truth target.
 
-![Colorspace node settings](images_kebab/cropped/colorspace-node-linear-to-ycbcr-settings-cropped.png)
+![Colorspace node settings]({{ '/images_kebab/cropped/colorspace-node-linear-to-ycbcr-settings-cropped.png' | relative_url }})
 *Convert both branches to YCbCr before channel recombination.*
 
-![Shuffle node settings](images_kebab/cropped/shuffle-node-settings-cropped.png)
+![Shuffle node settings]({{ '/images_kebab/cropped/shuffle-node-settings-cropped.png' | relative_url }})
 *Shuffle node used to build the ground-truth target.*
 
-![CopyBBox node](images_kebab/general/copybbox-node-settings.png)
+![CopyBBox node]({{ '/images_kebab/general/copybbox-node-settings.png' | relative_url }})
 *CopyBBox ensures identical bbox across Source and Ground Truth before connecting to CopyCat.*
 
 | Branch | Ground truth target | Continue in |
 | --- | --- | --- |
-| **Chroma recovery** | Source `Y` + Reference `Cb/Cr` | [chroma-recovery.md](chroma-recovery.md) |
-| **Spatial recovery** | Reference `Y` + Source `Cb/Cr` | [spatial-recovery.md](spatial-recovery.md) |
+| **Chroma recovery** | Source `Y` + Reference `Cb/Cr` | [Chroma recovery]({{ '/chroma-recovery/' | relative_url }}) |
+| **Spatial recovery** | Reference `Y` + Source `Cb/Cr` | [Spatial recovery]({{ '/spatial-recovery/' | relative_url }}) |
 
-Do not combine chroma and spatial recovery in one target. After the target is built, both branches continue through the same [training, inference, and review stages](training-inference-review.md).
+Do not combine chroma and spatial recovery in one target. After the target is built, both branches continue through the same [training, inference, and review stages]({{ '/training-inference-review/' | relative_url }}).
 
 ### Common Failure Modes
 

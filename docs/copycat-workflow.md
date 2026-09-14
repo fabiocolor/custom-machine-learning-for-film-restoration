@@ -48,9 +48,9 @@ It is intended for film archives, restoration practitioners, colourists, and res
 
 ## Continue
 
-- [Shared workflow](start-here.md): preparation, alignment, dataset selection, and project setup.
-- [Chroma recovery](chroma-recovery.md) or [spatial recovery](spatial-recovery.md): build the branch-specific target.
-- [Training, inference, and review](training-inference-review.md): the stages shared by both branches.
-- [Preparing training pairs](automated-dataset-preparation.md): what makes a pair trustworthy and how difficult references are handled.
-- [Case studies](case-studies.md): practical examples across different formats and reference types.
-- [Provenance and metadata](provenance-metadata.md): recording how a result was made.
+- [Shared workflow]({{ '/start-here/' | relative_url }}): preparation, alignment, dataset selection, and project setup.
+- [Chroma recovery]({{ '/chroma-recovery/' | relative_url }}) or [spatial recovery]({{ '/spatial-recovery/' | relative_url }}): build the branch-specific target.
+- [Training, inference, and review]({{ '/training-inference-review/' | relative_url }}): the stages shared by both branches.
+- [Preparing training pairs]({{ '/automated-dataset-preparation/' | relative_url }}): what makes a pair trustworthy and how difficult references are handled.
+- [Case studies]({{ '/case-studies/' | relative_url }}): practical examples across different formats and reference types.
+- [Provenance and metadata]({{ '/provenance-metadata/' | relative_url }}): recording how a result was made.

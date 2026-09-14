@@ -1,5 +1,18 @@
 # Machine Learning for Film Restoration
 
+## How to talk to CWC
+
+CWC is the shared ComfyUI control plane. Do not call worker `/prompt` endpoints or operate ComfyUI workers from this repo.
+
+- Live: `http://100.109.144.91:8799/help` and `GET /api/help`
+- Local: `http://100.109.144.91:8799/help`
+- Send `POST /jobs`, poll `GET /jobs/{job_id}` until `completed` or `failed`, download artifacts from CWC
+- Hub files here: `shared_storage_id=jiminy-syncthing` plus `REPOS/custom-machine-learning-for-film-restoration/...`
+- Client-owned large files: `POST /api/uploads` then the returned `uploads/` object key
+- Never send `S:\`, UNC paths, MinIO credentials, or worker IDs
+
+Resolve, Phoenix, and Nuke are a separate direct application lane. When this project's requested work itself requires one of those applications, the project may take control of one exact configured worker only while it owns the Operations executor and the exact whole-worker, host, GPU, console, application, licence, and storage resource fences. This is independent of CWC `enabled`; request a safe CWC handoff, never disable CWC merely to reserve the worker, and release the fences after verification.
+
 Open research and practical workflows for recovering colour and detail in faded or damaged moving images.
 
 This repository follows two connected lines of work:
@@ -9,6 +22,16 @@ This repository follows two connected lines of work:
 
 The project is written for film archives, restoration practitioners, colourists, researchers, and students. It is research material rather than a finished commercial product.
 
+## CWC client boundary
+
+Shared GPU/Comfy execution for this research goes through ComfyUI Worker Control, not a worker `/prompt` endpoint. This checkout is `S:\REPOS\custom-machine-learning-for-film-restoration` on `jiminy-syncthing`.
+
+- Live contract: `http://100.109.144.91:8799/help` and `GET /api/help`
+- Hub files: `shared_storage_id=jiminy-syncthing` plus `REPOS/custom-machine-learning-for-film-restoration/...`
+- Client-owned large files: `POST /api/uploads` then the returned `uploads/` object key
+- Do not send `S:\`, UNC paths, MinIO credentials, or worker IDs
+- A job is complete only when CWC lists its artifacts
+
 <p align="center">
   <a href="https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/"><strong>Explore the research website</strong></a>
   &nbsp;·&nbsp;
@@ -16,8 +39,6 @@ The project is written for film archives, restoration practitioners, colourists,
   &nbsp;·&nbsp;
   <a href="docs/seapavaa-2026-companion.md">SEAPAVAA 2026 companion</a>
 </p>
-
-The [research website](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/) is also available in Spanish, French, German, Italian, Portuguese, Simplified Chinese, Japanese, and Hindi. These editions are generated automatically to improve accessibility and may contain errors. The English edition remains the authoritative version.
 
 ## Open-weight colour recovery
 
@@ -35,7 +56,7 @@ Start with:
 
 | Faded source | Qwen colour proposal | Source-preserving composite |
 | --- | --- | --- |
-| ![Faded source frame](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.png) | ![Qwen Image Edit colour proposal](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/04_raw_inference.png) | ![Final source-preserving composite](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png) |
+| ![Faded source frame](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.jpg) | ![Qwen Image Edit colour proposal](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/04_raw_inference.png) | ![Final source-preserving composite](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png) |
 
 ## Reference-trained recovery in Nuke
 
@@ -69,9 +90,6 @@ The current Nuke Indie template is available from the [latest release](https://g
 - `docs/`: the public research website and downloadable Qwen material
 - `templates/`: the Nuke Indie workflow template
 - `scripts/`: checks for the downloadable Qwen material
-- `tools/site-i18n/`: the automatic website translation and language-routing build
-
-Production-specific utilities are documented only when they are ready for safe, responsible reuse.
 
 ## Responsible use
 

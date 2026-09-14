@@ -545,7 +545,7 @@
         "secondTabWidth": 65
       },
       "widgets_values": [
-        "Belak_Color_Patch_Chart_softblur_32.png",
+        "faded-color-reference-palette.png",
         "image"
       ],
       "title": "color reference"
@@ -2606,13 +2606,12 @@
     "VHS_MetadataImage": true,
     "VHS_KeepIntermediate": true,
     "faded_color_recovery": {
-      "app_mode_demo": true,
+      "mode": "single_frame_experiment",
       "primary_output": "source_luma_generated_chroma_composite",
       "composite_node": "ComfyUI built-in ImageRGBToYUV + ImageYUVToRGB",
       "control_source": "hard Canny edge map generated from source frame inside workflow",
-      "default_prompt_manifest": "benchmarks/unbalanced/controlnet_chroma_canny_2511_scaled_control_prompt.json",
-      "default_reference_source": "docs/downloads/qwen-color-recovery/assets/Belak_Color_Patch_Chart_softblur_32.png",
-      "public_demo_controls": [
+      "default_reference_source": "assets/faded-color-reference-palette.png",
+      "adjustable_controls": [
         "source image",
         "seed"
       ],

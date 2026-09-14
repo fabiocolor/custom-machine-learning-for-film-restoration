@@ -22,7 +22,7 @@ Review each model card and upstream licence before downloading or using the mode
 ## Included visual material
 
 - `assets/demo_unbalanced_source_frame.jpg` is provided only as a research demonstration frame.
-- `assets/Belak_Color_Patch_Chart_softblur_32.png` is the colour-chart reference currently used by the workflow. Its creator and original publication source are not established in the public repository. Do not redistribute it separately as an independently cleared asset.
+- `assets/faded-color-reference-palette.png` was created for this project as a simple workflow reference and may be reused with the package.
 
 Credit does not grant reuse permission. Included and downloaded third-party material remains subject to the rights and terms of its respective owner or project.
 

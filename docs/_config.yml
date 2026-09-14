@@ -35,9 +35,7 @@ defaults:
 
 exclude:
   - images_kebab/full/
-  - images_kebab/IMAGE_CATALOG.md
-  - PRIVATE_FRONTIER_COPYCAT_SHOT_AUTOMATION.md
-  - PRIVATE_NUKE_SHOT_PROJECT_AUTOMATION.md
+  - film-element-pair-alignment-runbook.md
   - downloads/qwen-color-recovery/README.md
   - downloads/qwen-color-recovery/custom_nodes/faded_color_recovery/README.md
   - Gemfile.lock

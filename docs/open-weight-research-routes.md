@@ -6,7 +6,7 @@ nav_order: 2
 permalink: /open-weight-color-recovery/research-routes/
 ---
 
-<p class="eyebrow">Evidence as of July 2026</p>
+<p class="eyebrow">Evidence reviewed August 2026</p>
 
 # Open-Weight Colour Recovery: Research Routes
 
@@ -24,7 +24,7 @@ This map is a dated research snapshot rather than a permanent ranking. Routes ma
 
 ## Selected experiments, with context
 
-The images below are not a gallery of finished restorations. Each one answers a narrower question. The notes explain what went into the test, what the comparison can support, and what it cannot prove. Film, model, software, and source information is collected on the [Credits & Attribution]({{ '/credits/' | relative_url }}) page; entries that still need source confirmation are clearly marked there.
+The images below are not a gallery of finished restorations. Each one answers a narrower question. The notes explain what went into the test, what the comparison can support, and what it cannot prove. Film, model, software, and source information is collected on the [Credits & Attribution]({{ '/credits/' | relative_url }}) page.
 
 <article class="experiment-evidence">
   <div class="experiment-evidence-copy">
@@ -45,7 +45,7 @@ The images below are not a gallery of finished restorations. Each one answers a 
     <a href="{{ '/images_kebab/seapavaa2026/jug_auditorium_full_lineage_5stage.png' | relative_url }}" target="_blank">
       <img src="{{ '/images_kebab/seapavaa2026/jug_auditorium_full_lineage_5stage.png' | relative_url }}" alt="Five-stage Qwen experiment showing the faded source, soft colour reference, source edge control, raw generated proposal, and final source-preserving composite">
     </a>
-    <figcaption><em>Juggernaut</em> (1974), directed by Richard Lester. Five-stage lineage from surviving frame to final composite. Exact research-source edition still requires confirmation; see <a href="{{ '/credits/' | relative_url }}">credits</a>.</figcaption>
+    <figcaption><em>Juggernaut</em> (1974), directed by Richard Lester. Five-stage lineage from surviving frame to final composite.</figcaption>
   </figure>
 </article>
 
@@ -68,7 +68,7 @@ The images below are not a gallery of finished restorations. Each one answers a 
     <a href="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" target="_blank">
       <img src="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" alt="Split comparison with the faded FANJI garden source on the left and the source-preserving colour composite on the right">
     </a>
-    <figcaption><code>FANJI</code> working research title. Faded source at left; reviewed colour proposal recombined with source luminance at right. Full filmographic and source credit still requires confirmation; see <a href="{{ '/credits/' | relative_url }}">credits</a>.</figcaption>
+    <figcaption><code>FANJI</code> research material. Faded source at left; reviewed colour proposal recombined with source luminance at right.</figcaption>
   </figure>
 </article>
 
@@ -81,16 +81,12 @@ The images below are not a gallery of finished restorations. Each one answers a 
   </div>
   <div class="experiment-video-grid">
     <figure class="experiment-figure">
-      <video controls preload="metadata" poster="{{ '/images_kebab/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun_preview.png' | relative_url }}">
-        <source src="{{ '/media/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}" type="video/mp4">
-      </video>
-      <figcaption><strong>Favourable shot.</strong> Low-to-moderate motion remains coherent enough to demonstrate that video-aware chroma can work under bounded conditions. Footage source: see <a href="{{ '/credits/' | relative_url }}">credits and open confirmation items</a>.</figcaption>
+      <img src="{{ '/media/seapavaa2026/shot0006-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for a favourable low-motion shot">
+      <figcaption><strong>Favourable shot.</strong> Low-to-moderate motion remains coherent enough to demonstrate that video-aware chroma can work under bounded conditions. Source context is listed in the <a href="{{ '/credits/' | relative_url }}">credits</a>.</figcaption>
     </figure>
     <figure class="experiment-figure">
-      <video controls preload="metadata" poster="{{ '/images_kebab/seapavaa2026/shot0011_fourchunk_vace_stitched_source_raw_inference_composite_preview.png' | relative_url }}">
-        <source src="{{ '/media/seapavaa2026/shot0011_fourchunk_vace_stitched_source_raw_inference_composite.mp4' | relative_url }}" type="video/mp4">
-      </video>
-      <figcaption><strong>Hard-motion failure.</strong> Faster movement and chunked processing expose inconsistent interpretation and temporal breakdown. This is why the method is not presented as a general video solution. Footage source: see <a href="{{ '/credits/' | relative_url }}">credits and open confirmation items</a>.</figcaption>
+      <img src="{{ '/media/seapavaa2026/shot0011-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison showing a hard-motion failure">
+      <figcaption><strong>Hard-motion failure.</strong> Faster movement and chunked processing expose inconsistent interpretation and temporal breakdown. This is why the method is not presented as a general video solution. Source context is listed in the <a href="{{ '/credits/' | relative_url }}">credits</a>.</figcaption>
     </figure>
   </div>
 </article>
@@ -102,7 +98,7 @@ The images below are not a gallery of finished restorations. Each one answers a 
     <a href="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" target="_blank">
       <img src="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" alt="Faded source compared with a visually polished but semantically incorrect generated image">
     </a>
-    <p class="experiment-credit"><em>Ben</em> (1972), directed by Phil Karlson. Exact research-source edition still requires confirmation; see <a href="{{ '/credits/' | relative_url }}">credits</a>.</p>
+    <p class="experiment-credit"><em>Ben</em> (1972), directed by Phil Karlson.</p>
     <p>The source is difficult to read, and the model invents a polished wooden structure and a face. The output is visually coherent but no longer describes the photographed scene. This is direct evidence for keeping the source visible and requiring human acceptance.</p>
   </article>
   <article class="experiment-note">
@@ -111,7 +107,7 @@ The images below are not a gallery of finished restorations. Each one answers a 
     <a href="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" target="_blank">
       <img src="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" alt="Tiled raw Qwen inference with visible colour discontinuities compared with a coherent full-frame inference">
     </a>
-    <p class="experiment-credit"><em>Reptilicus</em> (US release 1962), directed by Sidney Pink and Poul Bang. Exact research-source edition still requires confirmation; see <a href="{{ '/credits/' | relative_url }}">credits</a>.</p>
+    <p class="experiment-credit"><em>Reptilicus</em> (US release 1962), directed by Sidney Pink and Poul Bang.</p>
     <p>The four-tile result at left contains visible boundaries and conflicting local colour decisions. The full-frame result at right is more coherent, although it still remains a generated interpretation. This experiment is evidence against treating tiling as a solved route.</p>
   </article>
 </div>
@@ -134,29 +130,17 @@ Tests using a faded source, source-derived edge control, a softened colour chart
 
 <span class="status status-promising">Promising, strongest reference-driven route</span>
 
-When one frame in a shot has an approved colour interpretation, that frame can act as a restrained palette and material guide for the remaining source frames. Each new frame still enters as the primary image; the anchor is not allowed to dictate pose, framing, or object layout.
+When one frame in a shot has an approved colour interpretation, that frame can act as a restrained palette and material guide for neighbouring source frames. Each new frame still enters as the primary image; the anchor is not allowed to dictate pose, framing, or object layout.
 
-The guarded TeleStyle V2 experiment completed all `338` frames of the FANJI waterfront shot without a processing failure. Human review promoted it as the best visual-quality route for that test. Delivery used untouched source luminance with generated chroma.
+The public [context-board experiment]({{ '/seapavaa-2026-companion/' | relative_url }}#slide-14) demonstrates the anchor idea on a defined sequence. It supports further controlled testing, but it does not establish general success across films, motion types, or restoration aesthetics.
 
-**What is established:** one carefully chosen anchor can hold a recurring shot palette across a substantial real sequence.
-
-**Why confidence is still limited:** this is strong evidence from a defined shot, not proof of general success across films, motion types, or restoration aesthetics.
-
-**Public evidence note:** the exact `338`-frame review package is not reproduced on this page. The conference companion shows an earlier [context-board experiment]({{ '/seapavaa-2026-companion/' | relative_url }}#slide-14) that explains the anchor idea, but it should not be read as evidence for the newer run.
-
-## Route 4 · True paired data and a learned chroma model
+## Route 4 · True paired data and reference-trained chroma recovery
 
 <span class="status status-demonstrated">Demonstrated on paired material</span>
 
-Where real source/reference pairs exist, a small open trainable model can learn residual chroma directly rather than asking a large image model to reinterpret every frame.
+Where real source/reference pairs exist, a compact project-specific model can learn chroma directly rather than asking a general image model to reinterpret every frame.
 
-On the Frontier comparison, the retained full-resolution model used original source luminance and learned chroma. In the documented held-out review it was preferred to CopyCat on `9` of `16` shots and came within `1.79%` of CopyCat’s aggregate chroma error, while being much faster to run.
-
-**What is established:** open, production-specific chroma learning is a credible route when genuine aligned pairs exist.
-
-**What remains:** the result must be repeated on additional paired films before it can be described as a general replacement for the established CopyCat workflow.
-
-**Public evidence note:** the published Frontier material currently documents how the paired frames were prepared and checked. A clearly labelled visual comparison for the newer open model will be added only after the held-out outputs have been cleared for publication.
+The published CopyCat case studies demonstrate this route on aligned film elements, while the [Frontier preparation guide]({{ '/automated-dataset-preparation/' | relative_url }}) documents how drifting references were matched and reviewed before training. The evidence supports paired learning as a practical project-specific method; it does not establish one model or setting as a general solution for every film.
 
 ## Route 5 · Video-aware chroma generation
 
@@ -166,24 +150,7 @@ Wan/VACE-style video models can see a short sequence as a temporal object rather
 
 Two experiments show coherent shot-level chroma on favourable low- or moderate-motion material. Other tests altered faces, clothing, objects, or geometry. On harder motion, temporal coherence sometimes stabilised the wrong interpretation.
 
-## Route 6 · Approved keyframes plus temporal propagation
-
-<span class="status status-promising">Active research</span>
-
-A likely bridge between strong Qwen stills and a stable shot is:
-
-1. choose a small number of representative source frames;
-2. create and human-approve colour proposals for those exact frames;
-3. use them as art-directed supervision for a temporal chroma model or feature-based propagation method;
-4. infer the complete shot while retaining source luminance and geometry.
-
-Early work has tested Qwen anchors and learned temporal adapters. Generated anchors are treated as **pseudo-targets**: approved interpretations, not historical ground truth.
-
-**Why this route matters:** it could combine the visual quality of carefully reviewed stills with the speed and temporal calmness of a smaller shot model.
-
-**Why it is not yet a result:** broader human review and comparison on difficult motion are still required.
-
-## Route 7 · Full-resolution and tiled inference
+## Route 6 · Full-resolution and tiled inference
 
 <span class="status status-open">Open question</span>
 

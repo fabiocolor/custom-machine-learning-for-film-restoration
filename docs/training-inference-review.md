@@ -9,8 +9,8 @@ nav_order: 4
 
 This page covers the stages shared by chroma and spatial recovery. Build the correct branch target first:
 
-- [Chroma recovery](chroma-recovery.md): Source Y with Reference Cb and Cr.
-- [Spatial recovery](spatial-recovery.md): Reference Y with Source Cb and Cr.
+- [Chroma recovery]({{ '/chroma-recovery/' | relative_url }}): Source Y with Reference Cb and Cr.
+- [Spatial recovery]({{ '/spatial-recovery/' | relative_url }}): Reference Y with Source Cb and Cr.
 
 ## Stage 4: Train and monitor
 
@@ -27,10 +27,10 @@ Start with a modest model and a held-out frame that is not part of the training 
 
 Use small geometric augmentation only when the composition allows it. Mild exposure variation can help, but do not introduce transformations that change the property being learned. Chroma training should not distort colour relationships. Spatial training should not add sharpening, blur, or synthetic grain.
 
-![CopyCat Progress contact sheet](images_kebab/cropped/copycat-settings-contact-sheet-cropped.png)
+![CopyCat Progress contact sheet]({{ '/images_kebab/cropped/copycat-settings-contact-sheet-cropped.png' | relative_url }})
 *The Progress tab shows loss and training crops over time.*
 
-![CopyCat held-out preview](images_kebab/cropped/copycat-settings-preview-cropped.png)
+![CopyCat held-out preview]({{ '/images_kebab/cropped/copycat-settings-preview-cropped.png' | relative_url }})
 *A held-out preview is more useful than loss alone because it tests an unseen frame.*
 
 Check range and bounding-box parity in both branches. For chroma recovery, source and target luminance should remain nearly identical. For spatial recovery, source and target chroma should remain nearly identical.
@@ -47,7 +47,7 @@ Train on selected pairs and infer on the complete source.
 6. Review motion, transitions, first and last frames, and shot joins.
 7. Add new pairs only when they address a specific observed failure, then test again.
 
-![Inference workflow](images_kebab/cropped/inference-render-cropped.png)
+![Inference workflow]({{ '/images_kebab/cropped/inference-render-cropped.png' | relative_url }})
 *The trained model is applied to the complete source sequence.*
 
 For archival renders, follow the project’s delivery standard. A common working choice is 16-bit half-float EXR with ZIP or DWAA compression in ACES2065-1. Include the shot, version, and model or checkpoint identifier in the file naming.
@@ -74,13 +74,13 @@ Keep:
 - short validation renders and rejected examples;
 - a note explaining assumptions, remaining limits, and who approved the result.
 
-The [provenance guide](provenance-metadata.md) provides a fuller record structure.
+The [provenance guide]({{ '/provenance-metadata/' | relative_url }}) provides a fuller record structure.
 
 ## Shared troubleshooting
 
 | Problem | First action |
 | --- | --- |
-| Residual geometry in a difference view | Return to [alignment](start-here.md#stage-2-alignment) and use keyed transforms where necessary |
+| Residual geometry in a difference view | Return to [alignment]({{ '/start-here/' | relative_url }}#stage-2-alignment) and use keyed transforms where necessary |
 | Training stalls | Improve pair coverage and alignment before increasing model size |
 | Results fail only on certain shots | Add targeted pairs or split those shots into a separate model |
 | Full-range output differs from the held-out test | Confirm ingest, crop, preprocessing, and inference settings match training |

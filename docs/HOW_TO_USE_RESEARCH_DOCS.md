@@ -12,8 +12,8 @@ This guide helps you navigate the documentation for the Machine Learning for Fil
 
 Start with the overview documents, then move into the specific workflow you need:
 
-1. **[STATUS.md]({{ site.baseurl }}{% link ../STATUS.md %})** — Current project scope and research status
-2. **[README.md]({{ site.baseurl }}{% link ../README.md %})** — Repository overview and quick links
+1. **[STATUS.md](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/blob/main/STATUS.md)** — Current project scope and research status
+2. **[README.md](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/blob/main/README.md)** — Repository overview and quick links
 3. **[Start Here]({% link start-here.md %})** — Shared workflow preparation and alignment stages
 4. **[CopyCat Workflow]({% link copycat-workflow.md %})** — Overview of the reference-trained recovery method
 5. **Branch-specific guides:**

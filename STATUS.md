@@ -25,8 +25,8 @@ This repository is **not**:
 ## Related research
 
 This project is part of a broader research portfolio:
-- **Private colour recovery experiments:** [fabiocolor/qwen-color-recovery-workflow](https://github.com/fabiocolor/qwen-color-recovery-workflow) (access restricted)
-- **Temporal processing:** [fabiocolor/temporal-cbcr-adapter](https://github.com/fabiocolor/temporal-cbcr-adapter)
+- **Private colour recovery experiments:** fabiocolor/qwen-color-recovery-workflow (access restricted)
+- **Temporal processing:** fabiocolor/temporal-cbcr-adapter (access restricted)
 - **Upscaling and reconstruction research** (repositories not yet public)
 
 ## Getting started

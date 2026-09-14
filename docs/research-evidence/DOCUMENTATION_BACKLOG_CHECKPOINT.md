@@ -15,8 +15,8 @@ nav_exclude: true
 
 This repository (`fabiocolor/custom-machine-learning-for-film-restoration`) is now part of the Research Assistant documentation portfolio alongside related research projects:
 
-- **Colour recovery:** [fabiocolor/qwen-color-recovery-workflow](https://github.com/fabiocolor/qwen-color-recovery-workflow) (private)
-- **Temporal processing:** [fabiocolor/temporal-cbcr-adapter](https://github.com/fabiocolor/temporal-cbcr-adapter)
+- **Colour recovery:** fabiocolor/qwen-color-recovery-workflow (access restricted)
+- **Temporal processing:** fabiocolor/temporal-cbcr-adapter (access restricted)
 - **Upscaling and reconstruction research** (not yet public)
 
 ## Documentation scope

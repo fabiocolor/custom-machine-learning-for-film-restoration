@@ -94,8 +94,8 @@ The case studies and workflow pages are written to teach judgment, not just proc
 This project is part of a broader research portfolio. For context on related work:
 
 ### Private research repositories
-- **Colour recovery experiments:** [fabiocolor/qwen-color-recovery-workflow](https://github.com/fabiocolor/qwen-color-recovery-workflow) — Detailed experiment registry, decision trails, and evidence evaluation for open-weight colour recovery (private)
-- **Temporal processing:** [fabiocolor/temporal-cbcr-adapter](https://github.com/fabiocolor/temporal-cbcr-adapter) — Temporally consistent chroma processing; CopyCat is a related historical baseline
+- **Colour recovery experiments:** [fabiocolor/qwen-color-recovery-workflow](https://github.com/fabiocolor/qwen-color-recovery-workflow) — Detailed experiment registry, decision trails, and evidence evaluation for open-weight colour recovery (access restricted)
+- **Temporal processing:** fabiocolor/temporal-cbcr-adapter — Temporally consistent chroma processing; CopyCat is a related historical baseline (access restricted)
 - **Upscaling and reconstruction research** — Related diffusion-based methods (repositories not yet public)
 
 ### How CopyCat fits the research landscape

@@ -30,6 +30,31 @@ Rights, source context, software, and contributor information is collected on th
 | **Key decisions** | The DVD reference is SD, which is acceptable because CopyCat learns colour mapping (Cb/Cr), not spatial detail. The 16mm source was cropped to the valid reference area so CopyCat did not learn black borders. Shot-specific models outperformed a single sequence-level model when motion became too complex. |
 | **Result** | Successfully replicated DVD colors onto 16mm while preserving original film resolution and grain structure. Established a reusable working method for reference alignment, frame selection, and highlight management. |
 
+### What worked
+- **SD DVD as colour reference:** Resolution mismatch did not matter because CopyCat learns colour (CbCr), not spatial detail
+- **Pre-balancing with Faded Balancer DCTL:** Neutralized magenta cast and improved training convergence
+- **Cropping to valid reference area:** Prevented model from learning borders and subtitles
+- **Highlight clamping:** Reduced artifacts in bright areas by preventing the model from learning incorrect colour relationships in blown highlights
+- **Shot-specific pivot:** When sequence model failed on complex motion, switching to shot-level models (4–9 pairs per shot) rescued the result
+
+### What failed or had limits
+- **Sequence-level model on complex motion:** Could not generalize across fast pans and varied character movement
+- **Manual alignment:** DVD framing differences required time-consuming manual Transform keyframing
+- **Subtitle handling:** Frames with burned-in subtitles required animated crops or exclusion from training
+
+### Reuse and skip guidance
+**Reuse this pattern when:**
+- Source has intact detail but faded colour
+- Reference is SD video (DVD, VHS, Betacam) with good colour integrity
+- You can invest time in alignment and shot-specific training if needed
+
+**Skip or adapt when:**
+- Source has lost spatial detail (wrong branch — use spatial recovery)
+- Reference colour is worse than source
+- You cannot align due to parallax or geometric distortion
+
+**For full decision trail:** See [Candy Candy Chroma Recovery Trail]({% link research-evidence/CANDY_CANDY_CHROMA_COPYCAT.md %})
+
 ![Candy Candy comparison preview]({{ '/images_kebab/candy-candy/candy-candy-comparison-preview.gif' | relative_url }})
 
 ---
@@ -48,6 +73,16 @@ Rights, source context, software, and contributor information is collected on th
 | **Approach** | Standard reference-based chroma recovery in Resolve + Nuke/CopyCat. Source balanced and lightly cleaned before training. Reference placed into a `2048x858` container from its native `720x576` to reduce alignment problems. Training target keeps source luminance and replaces chroma with beta reference in YCbCr space. |
 | **Key decisions** | Work began sequence by sequence, then moved shot by shot where the broader model was insufficient. The Beta tape was accepted as a colour reference despite compression, following the same reasoning as the Candy Candy DVD. |
 | **Result** | Color recovered from the beta reference while preserving the film scan's spatial detail. Both sequence-level and shot-level methods validated. |
+
+### What worked
+- **Betacam as colour reference:** Despite compression and low resolution, the tape preserved usable colour information
+- **Container approach:** Placing 720×576 reference into 2048×858 container reduced alignment problems
+- **Sequence-to-shot progression:** Starting broad, then training shot-specific models for problem areas
+
+### Reuse and skip guidance
+**Reuse this pattern when:** Your reference is archived video (Betacam, VHS, U-matic) with better colour than the film scan.
+
+**Skip when:** Video reference has severe banding, posterization, or baked-in creative grades that don't match source intent.
 
 ![Beta comparison preview]({{ '/images_kebab/beta/beta-comparison-preview.gif' | relative_url }})
 *4-way comparison: Original Scan → Balanced & Cleaned → Betacam Reference → Chroma Recovery.*
@@ -126,6 +161,21 @@ Rights, source context, software, and contributor information is collected on th
 | **Approach** | Standard reference-based chroma recovery. Telecine used only as a source of demonstrable color evidence, not as a spatial reference. Important because it uses a standard archival secondary source rather than artwork or a consumer DVD. |
 | **Key challenge** | Difficult sky and shadow areas may need either more training frames or segmentation by scene groups (interiors vs. exteriors). |
 | **Result** | Structurally convincing result. Some skies and shadows do not fully resolve, pointing to the limits of sequence-level models on varied lighting conditions. |
+
+### What worked
+- **Telecine as archival colour reference:** Standard archival secondary source provided demonstrable colour evidence
+- **Basic alignment:** Despite cadence issues, reference stayed aligned enough to train
+
+### What failed or had limits
+- **Sequence model on varied lighting:** Model struggled with skies, shadows, and interior/exterior transitions
+- **Single model for mixed conditions:** Day vs. night and interior vs. exterior exceeded what one model could generalize
+
+### Reuse and skip guidance
+**Reuse this pattern when:** You have archival telecine with acceptable colour and limited cadence problems.
+
+**Expect limits when:** Lighting varies significantly (day/night, interior/exterior). Plan for scene-group segmentation or shot-specific models.
+
+**Learning:** This case teaches the stopping rule for sequence models. When held-out frames show persistent failures in specific conditions (skies, shadows, lighting transitions), segment by scene type rather than forcing one model to learn everything.
 
 ![Frontier Experience comparison preview]({{ '/images_kebab/frontier-experience/frontier-experience-comparison-preview.gif' | relative_url }})
 *Original Scan vs. Telecine Reference vs. Machine Learning Output.*

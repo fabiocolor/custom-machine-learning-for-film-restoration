@@ -79,3 +79,21 @@ ffmpeg2pass-*.log*
 
 # Jekyll build cache
 docs/.jekyll-cache/
+
+# Enforced external result storage (including compatibility links).
+/.research/storage.local.json
+/results
+/runs
+/outputs
+/models
+/artifacts
+/checkpoints
+/caches
+/EXPERIMENT_RESULTS
+*.npy
+*.npz
+*.safetensors
+*.ckpt
+*.pth
+.env.local
+.env.*.local

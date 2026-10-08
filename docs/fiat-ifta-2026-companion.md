@@ -26,7 +26,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
   <p>This page goes with my talk. It follows the slides in order, so you can find the full-size version of each example as it comes up, or come back to it later. For each experiment, I've written down what worked and where it still falls short.</p>
 </header>
 
-<p class="fc-tip">Tap a video to play it here. The player streams from Google Drive, so it may show a lower quality than the original, especially on a slow connection. To see the detail, use “Full-size original” under each video: it downloads the original file, which you can open in your phone's or computer's video player. Under each still, the buttons open each image at full size. Large files are best downloaded on Wi-Fi. Most videos are side-by-side comparisons, so each half is smaller than the full file.</p>
+<p class="fc-tip">Tap a video to play it here. The player streams from Google Drive, so it may show a lower quality than the original, especially on a slow connection. The parts and evidence under each example open at full size in a viewer, where you can zoom in to see the detail. Most videos are side-by-side comparisons, so each half is smaller than the full file.</p>
 
 <nav class="fc-toc" aria-labelledby="contents">
   <h2 id="contents">Follow the talk</h2>
@@ -112,16 +112,16 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       <button type="button" class="fc-ev fc-ev-img fc-process" data-id="s05-04" data-kind="image" data-w="1920" data-h="886" data-title="Candy Candy training: the 16mm source plus the PAL DVD gives the training target, and the model&#x27;s result at training steps 1, 1,000, 30,000 and 60,000"><img src="{{ vb }}s05-04_preview.jpg" alt="Candy Candy training: the 16mm source plus the PAL DVD gives the training target, and the model's result at training steps 1, 1,000, 30,000 and 60,000" loading="lazy" decoding="async"></button>
       <p class="fc-file">How it was made · open each part at full size</p>
       <ol class="fc-parts">
-        <li><button type="button" class="fc-part fc-ev" data-id="s05-01" data-kind="image" data-w="2200" data-h="1650" data-title="Faded 16mm scan">Faded 16mm scan<span class="fc-dims">2200 × 1650</span></button><p>A frame of the faded 16mm print of the opening, as scanned, before any correction. It has a strong magenta cast, and most of the flicker is in the red channel.</p></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="s05-02" data-kind="image" data-w="4400" data-h="3300" data-title="Balanced and cleaned scan">Balanced and cleaned scan<span class="fc-dims">4400 × 3300</span></button><p>The same frame after clean-up and colour balancing in Phoenix and Loki: the frames CopyCat was trained on.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-01" data-kind="image" data-w="2200" data-h="1650" data-title="Faded 16mm scan">Faded 16mm scan<span class="fc-dims">2200 × 1650</span></button><p>A frame of the opening from the 16mm scan of the faded print, before any correction. It has a strong magenta cast, and most of the flicker is in the red channel.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-02" data-kind="image" data-w="4400" data-h="3300" data-title="Cleaned and rebalanced scan">Cleaned and rebalanced scan<span class="fc-dims">4400 × 3300</span></button><p>The same frame after clean-up and rebalancing in Phoenix and Loki: the frames CopyCat was trained on.</p></li>
         <li><button type="button" class="fc-part fc-ev" data-id="s05-03" data-kind="image" data-w="1951" data-h="1098" data-title="The Nuke script">The Nuke script<span class="fc-dims">1951 × 1098</span></button><p>The Nuke script for one Candy Candy shot: the shot in the viewer and the CopyCat graph. The scan frames are the input; the target keeps the scan's brightness and takes the DVD's colour.</p></li>
         <li><button type="button" class="fc-part fc-ev" data-id="s05-04" data-kind="image" data-w="1920" data-h="886" data-title="Training steps">Training steps<span class="fc-dims">1920 × 886</span></button><p>The 16mm source plus the PAL DVD gives the target. Below, the model's result after 1, 1,000, 30,000 and 60,000 training steps.</p></li>
         <li><button type="button" class="fc-part fc-ev" data-id="s05-07" data-kind="image" data-w="2742" data-h="2112" data-title="Recovered frame">Recovered frame<span class="fc-dims">2742 × 2112</span></button><p>A frame of the result at full size.</p></li>
       </ol>
       <details>
         <summary>Full-resolution result (4400 × 3300, about 298 MB)</summary>
-        <p>The colour-recovered scan on its own, at the scan's full 4400 × 3300 size. Silent, 24 fps, HEVC. It's a large file, so it's best downloaded on Wi-Fi. The Drive player may stream a smaller version; download it to see full resolution.</p>
-{% include fiat-companion/files.html key="candy-full" %}
+        <p>The colour-recovered scan on its own, at the scan's full 4400 × 3300 size. Silent, 24 fps, HEVC. The Drive player below streams a smaller version.</p>
+{% include fiat-companion/video.html key="candy-full" title="Candy Candy: the colour-recovered scan at full resolution" label="Play video: Candy Candy, the colour-recovered scan at full resolution (1 minute 10 seconds)" %}
       </details>
     </figcaption>
   </figure>

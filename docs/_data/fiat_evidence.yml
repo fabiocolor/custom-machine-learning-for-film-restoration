@@ -155,21 +155,21 @@ examples:
       pt-br: Digitalização desbotada em 16mm
       es: Escaneo de 16mm desvanecido
     caption:
-      en: A frame of the faded 16mm print of the opening, as scanned, before any correction. It has a strong magenta cast, and most of the flicker is in the red channel.
-      pt-br: Um quadro da cópia 16mm desbotada da abertura, como foi digitalizado, antes de qualquer correção. Tem uma forte dominante magenta, e a maior parte da cintilação está no canal vermelho.
-      es: Un fotograma de la copia de 16mm desvanecida de la apertura, tal como se escaneó, antes de cualquier corrección. Tiene una fuerte dominante magenta, y la mayor parte del parpadeo está en el canal rojo.
+      en: A frame of the opening from the 16mm scan of the faded print, before any correction. It has a strong magenta cast, and most of the flicker is in the red channel.
+      pt-br: Um quadro da abertura, da digitalização em 16mm da cópia desbotada, antes de qualquer correção. Tem uma forte dominante magenta, e a maior parte da cintilação está no canal vermelho.
+      es: Un fotograma de la apertura, del escaneo de 16mm de la copia desvanecida, antes de cualquier corrección. Tiene una fuerte dominante magenta, y la mayor parte del parpadeo está en el canal rojo.
     width: 2200
     height: 1650
   - id: s05-02
     kind: image
     label:
-      en: Balanced and cleaned scan
-      pt-br: Digitalização limpa e equilibrada
-      es: Escaneo limpio y equilibrado
+      en: Cleaned and rebalanced scan
+      pt-br: Digitalização limpa e reequilibrada
+      es: Escaneo limpio y reequilibrado
     caption:
-      en: 'The same frame after clean-up and colour balancing in Phoenix and Loki: the frames CopyCat was trained on.'
-      pt-br: 'O mesmo quadro depois da limpeza e do equilíbrio de cor no Phoenix e no Loki: os quadros usados no treinamento do CopyCat.'
-      es: 'El mismo fotograma después de la limpieza y el equilibrio de color en Phoenix y Loki: los fotogramas con los que se entrenó CopyCat.'
+      en: 'The same frame after clean-up and rebalancing in Phoenix and Loki: the frames CopyCat was trained on.'
+      pt-br: 'O mesmo quadro depois da limpeza e do reequilíbrio no Phoenix e no Loki: os quadros usados no treinamento do CopyCat.'
+      es: 'El mismo fotograma después de la limpieza y el reequilibrio en Phoenix y Loki: los fotogramas con los que se entrenó CopyCat.'
     width: 4400
     height: 3300
   - id: s05-03

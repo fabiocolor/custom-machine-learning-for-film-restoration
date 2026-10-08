@@ -16,7 +16,7 @@ window.addEventListener('resize', function () {
   for (var i = 0; i < loaded.length; i++) fcFit(loaded[i]);
 });
 document.addEventListener('click', function (event) {
-  var link = event.target.closest ? event.target.closest('a.fc-play') : null;
+  var link = event.target.closest ? event.target.closest('.fc-play') : null;
   if (link) {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();

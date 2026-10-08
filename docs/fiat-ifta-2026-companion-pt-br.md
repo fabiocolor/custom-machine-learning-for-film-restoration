@@ -26,7 +26,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <p>Esta página acompanha a minha palestra. Ela segue os slides na ordem, então você pode encontrar a versão em tamanho real de cada exemplo à medida que ele aparece, ou voltar a ela depois. Para cada experimento, anotei o que funcionou e onde ainda há limitações.</p>
 </header>
 
-<p class="fc-tip">Toque em um vídeo para assistir aqui mesmo. O player transmite do Google Drive, então pode mostrar uma qualidade menor que a do original, principalmente em uma conexão lenta. Para ver os detalhes, use “Original em tamanho real” abaixo de cada vídeo: ele baixa o arquivo original, que você pode abrir no player de vídeo do celular ou do computador. Abaixo de cada imagem, os botões abrem cada imagem em tamanho real. É melhor baixar os arquivos grandes pelo Wi-Fi. A maioria dos vídeos são comparações lado a lado, então cada metade é menor que o arquivo completo.</p>
+<p class="fc-tip">Toque em um vídeo para assistir aqui mesmo. O player transmite do Google Drive, então pode mostrar uma qualidade menor que a do original, principalmente em uma conexão lenta. As partes e as evidências de cada exemplo abrem em tamanho real em um visualizador, onde você pode dar zoom para ver os detalhes. A maioria dos vídeos são comparações lado a lado, então cada metade é menor que o arquivo completo.</p>
 
 <nav class="fc-toc" aria-labelledby="contents">
   <h2 id="contents">Acompanhe a palestra</h2>
@@ -112,16 +112,16 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       <button type="button" class="fc-ev fc-ev-img fc-process" data-id="s05-04" data-kind="image" data-w="1920" data-h="886" data-title="Treinamento de Candy Candy: a fonte em 16mm mais o DVD PAL formam o alvo do treinamento, e o resultado do modelo nos passos 1, 1.000, 30.000 e 60.000"><img src="{{ vb }}s05-04_preview.jpg" alt="Treinamento de Candy Candy: a fonte em 16mm mais o DVD PAL formam o alvo do treinamento, e o resultado do modelo nos passos 1, 1.000, 30.000 e 60.000" loading="lazy" decoding="async"></button>
       <p class="fc-file">Como foi feito · abra cada parte em tamanho real</p>
       <ol class="fc-parts">
-        <li><button type="button" class="fc-part fc-ev" data-id="s05-01" data-kind="image" data-w="2200" data-h="1650" data-title="Digitalização desbotada em 16mm">Digitalização desbotada em 16mm<span class="fc-dims">2200 × 1650</span></button><p>Um quadro da cópia 16mm desbotada da abertura, como foi digitalizado, antes de qualquer correção. Tem uma forte dominante magenta, e a maior parte da cintilação está no canal vermelho.</p></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="s05-02" data-kind="image" data-w="4400" data-h="3300" data-title="Digitalização limpa e equilibrada">Digitalização limpa e equilibrada<span class="fc-dims">4400 × 3300</span></button><p>O mesmo quadro depois da limpeza e do equilíbrio de cor no Phoenix e no Loki: os quadros usados no treinamento do CopyCat.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-01" data-kind="image" data-w="2200" data-h="1650" data-title="Digitalização desbotada em 16mm">Digitalização desbotada em 16mm<span class="fc-dims">2200 × 1650</span></button><p>Um quadro da abertura, da digitalização em 16mm da cópia desbotada, antes de qualquer correção. Tem uma forte dominante magenta, e a maior parte da cintilação está no canal vermelho.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-02" data-kind="image" data-w="4400" data-h="3300" data-title="Digitalização limpa e reequilibrada">Digitalização limpa e reequilibrada<span class="fc-dims">4400 × 3300</span></button><p>O mesmo quadro depois da limpeza e do reequilíbrio no Phoenix e no Loki: os quadros usados no treinamento do CopyCat.</p></li>
         <li><button type="button" class="fc-part fc-ev" data-id="s05-03" data-kind="image" data-w="1951" data-h="1098" data-title="O script do Nuke">O script do Nuke<span class="fc-dims">1951 × 1098</span></button><p>O script do Nuke de um plano de Candy Candy: o plano no visualizador e o grafo do CopyCat. Os quadros da digitalização são a entrada; o alvo mantém o brilho da digitalização e usa a cor do DVD.</p></li>
         <li><button type="button" class="fc-part fc-ev" data-id="s05-04" data-kind="image" data-w="1920" data-h="886" data-title="Passos do treinamento">Passos do treinamento<span class="fc-dims">1920 × 886</span></button><p>A fonte em 16mm mais o DVD PAL formam o alvo. Abaixo, o resultado do modelo depois de 1, 1.000, 30.000 e 60.000 passos de treinamento.</p></li>
         <li><button type="button" class="fc-part fc-ev" data-id="s05-07" data-kind="image" data-w="2742" data-h="2112" data-title="Quadro recuperado">Quadro recuperado<span class="fc-dims">2742 × 2112</span></button><p>Um quadro do resultado em tamanho real.</p></li>
       </ol>
       <details>
         <summary>Resultado em resolução total (4400 × 3300, cerca de 298 MB)</summary>
-        <p>A digitalização com a cor recuperada, sozinha, no tamanho total da digitalização, 4400 × 3300. Sem som, 24 fps, HEVC. É um arquivo grande, então é melhor baixá-lo pelo Wi-Fi. O player do Drive pode transmitir uma versão menor; baixe o arquivo para ver a resolução total.</p>
-{% include fiat-companion/files.html key="candy-full" %}
+        <p>A digitalização com a cor recuperada, sozinha, no tamanho total da digitalização, 4400 × 3300. Sem som, 24 fps, HEVC. O player do Drive abaixo transmite uma versão menor.</p>
+{% include fiat-companion/video.html key="candy-full" title="Candy Candy: a digitalização com a cor recuperada em resolução total" label="Assistir ao vídeo: Candy Candy, a digitalização com a cor recuperada em resolução total (1 minuto e 10 segundos)" %}
       </details>
     </figcaption>
   </figure>

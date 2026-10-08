@@ -3,122 +3,15 @@ layout: default
 title: FIAT/IFTA 2026 Companion
 nav_order: 2
 permalink: /fiat-ifta-2026-companion/
+fc_lang: en
 description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 talk, The Current Limits of AI in Film Restoration and How They May Be Surpassed.
 ---
 
-<style>
-/* Page-scoped styling that follows the FIAT/IFTA 2026 slides:
-   white pages, cyan accent bars, FIAT/IFTA blue panels, plain sans-serif type. */
-body, .main-content-wrap, .main-header { background: #fff !important; }
-body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif; }
-.side-bar, .site-header, .search { background: #1d3676 !important; }
-.side-bar { border-right: 0 !important; }
-.main-header { border-bottom: 1px solid #dde3ee !important; }
-.site-title { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif !important; font-weight: 700; }
-.site-nav .nav-list-item .nav-list-link { color: #e6ebf5; }
-.site-nav .nav-list-item .nav-list-link.active { background: rgba(255,255,255,0.12); box-shadow: inset 4px 0 0 #0f9ed5; }
-.site-nav .nav-list-item .nav-list-expander { color: #c8d2e6; }
-.search-input { color: #1a1a1a !important; background: #f3f6fb !important; border: 1px solid #c3cde0 !important; }
-.search-input::placeholder { color: #5a6478; }
-.aux-nav a { color: #2b3f8c !important; }
-.site-title:hover, .site-button:hover, .nav-list .nav-list-item .nav-list-link:hover, .nav-list .nav-list-item .nav-list-link.active, .nav-list .nav-list-item .nav-list-expander:hover { background-image: none !important; }
-.site-title:hover, .site-button:hover { background-color: rgba(255,255,255,0.08) !important; }
+{% include fiat-companion/style.html %}
 
-.fc { --cyan: #0f9ed5; --navy: #2b3f8c; --navy-dark: #1d3676; --ink: #1a1a1a; --soft: #474747; --line: #dde3ee; color: var(--ink); font-size: 17px; line-height: 1.6; }
-.main-content .fc p, .main-content .fc li { font-size: 17px; }
-.main-content .fc h1, .main-content .fc h2, .main-content .fc h3 { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif; color: #000; font-weight: 700; letter-spacing: 0; }
-.main-content .fc p, .main-content .fc li { color: var(--ink); }
-.main-content .fc a { color: var(--navy); text-decoration-color: rgba(43,63,140,0.45); }
-.main-content .fc a:hover { color: var(--navy-dark); }
-.fc a:focus-visible, .fc button:focus-visible, .fc summary:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+<div class="fc" lang="en">
 
-/* Title block, after slide 1 */
-.fc-hero { position: relative; margin: 0 0 2.5rem; padding: 0 0 0 1.4rem; border-left: 6px solid var(--cyan); }
-.main-content .fc .fc-kicker { margin: 0 0 0.8rem; color: var(--navy); font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
-.main-content .fc h1 { max-width: 24ch; margin: 0 0 1rem; font-size: clamp(1.9rem, 5.2vw, 3rem); line-height: 1.12; }
-.fc-byline { margin: 0 0 1.4rem; font-size: 19px; }
-.fc-byline span { display: block; color: var(--soft); font-size: 16px; }
-.main-content .fc .fc-panel { display: inline-block; margin: 0 0 1.4rem; padding: 0.75rem 1.1rem; color: #fff; background: var(--navy); font-weight: 700; line-height: 1.35; }
-.main-content .fc .fc-panel span { display: block; color: #fff; font-weight: 400; font-size: 15px; }
-.fc-buttons { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0 0 1.5rem; }
-.main-content .fc .fc-btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0.55rem 1rem; color: var(--navy); background: #fff; border: 2px solid var(--navy); font-weight: 700; text-decoration: none; }
-.main-content .fc .fc-btn-primary { color: #fff; background: var(--navy); }
-.main-content .fc .fc-btn:hover { color: #fff; background: var(--navy-dark); border-color: var(--navy-dark); }
-.fc-tip { margin: 0 0 2rem; padding: 0.9rem 1.1rem; background: #eef6fb; border-left: 4px solid var(--cyan); font-size: 16px; }
-
-/* Contents: slide numbers so people in the room can follow along */
-.fc-toc { margin: 0 0 3rem; padding: 1.1rem 1.2rem 0.6rem; border: 1px solid var(--line); border-top: 4px solid var(--cyan); }
-.main-content .fc .fc-toc h2 { margin: 0 0 0.6rem; padding: 0; border: 0; font-size: 20px; }
-.fc-toc ol { margin: 0; padding: 0; list-style: none; columns: 2 18rem; column-gap: 2rem; }
-.fc-toc li { break-inside: avoid; margin: 0; }
-.fc-toc ol > li::before { content: none !important; display: none !important; }
-.main-content .fc .fc-toc a { display: flex; gap: 0.6rem; min-height: 44px; align-items: center; text-decoration: none; }
-.fc-toc .fc-n { flex: 0 0 3.2rem; color: var(--soft); font-size: 15px; font-variant-numeric: tabular-nums; }
-.fc-toc .fc-v { margin-left: auto; padding: 0.05rem 0.4rem; color: #fff; background: var(--navy); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
-
-/* Sections, after the slide titles: double cyan bar, bold title, cyan rule */
-.fc-section { margin: 0 0 3.5rem; scroll-margin-top: 1rem; }
-.main-content .fc .fc-slide { margin: 0 0 0.4rem; color: var(--navy); font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
-.main-content .fc .fc-section > h2 { position: relative; margin: 0 0 1.2rem; padding: 0 0 0.7rem 1.6rem; border-bottom: 0; font-size: clamp(1.5rem, 3.6vw, 2rem); line-height: 1.2; }
-.main-content .fc .fc-section > h2::before { content: ""; position: absolute; left: 0; top: 0.1em; width: 0.45rem; height: 1.1em; background: var(--cyan); box-shadow: 0.7rem 0 0 var(--cyan); transform: scaleX(0.6); transform-origin: left; }
-.main-content .fc .fc-section > h2::after { content: ""; position: absolute; left: 1.6rem; bottom: 0; width: min(18rem, 60%); height: 3px; background: var(--cyan); }
-.main-content .fc h3 { margin: 0 0 0.5rem; font-size: 21px; line-height: 1.25; }
-.fc-film { color: var(--soft); font-size: 15px; }
-
-/* Media card, after the white cards with a cyan block behind them */
-.fc-media { position: relative; z-index: 0; margin: 1.6rem 10px 1.6rem 0; padding: 1rem; }
-.fc-media::after { content: ""; position: absolute; z-index: -1; inset: 0; background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.14); }
-.fc-media::before { content: ""; position: absolute; z-index: -1; top: -10px; right: -10px; width: 30%; height: 45%; background: var(--cyan); }
-.fc-player { position: relative; width: 100%; background: #111; overflow: hidden; }
-.fc-player iframe { display: block; width: 100%; height: 100%; border: 0; }
-.main-content .fc a.fc-play { position: absolute; inset: 0; display: block; color: #fff; text-decoration: none; }
-.main-content .fc .fc-play img { display: block; width: 100%; height: 100%; margin: 0; object-fit: cover; border: 0; border-radius: 0; }
-.fc-play-label { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 0.55rem; min-height: 48px; padding: 0.6rem 1.15rem; color: #fff; background: rgba(29,54,118,0.92); font-weight: 700; white-space: nowrap; box-shadow: 0 2px 10px rgba(0,0,0,0.35); }
-.fc-play-label::before { content: ""; width: 0; height: 0; border-style: solid; border-width: 0.5em 0 0.5em 0.85em; border-color: transparent transparent transparent #fff; }
-.fc-play:hover .fc-play-label, .fc-play:focus-visible .fc-play-label { background: var(--cyan); color: #000; }
-.fc-play:hover .fc-play-label::before, .fc-play:focus-visible .fc-play-label::before { border-left-color: #000; }
-.main-content .fc .fc-bar { margin: 0; padding: 0.55rem 0.8rem; color: #fff; background: #404040; font-size: 15px; line-height: 1.4; }
-.fc-body { padding: 1rem 0 0; }
-.main-content .fc .fc-body p { margin: 0 0 0.8rem; }
-.fc-verdict { display: grid; gap: 0.8rem; grid-template-columns: 1fr 1fr; margin: 0.4rem 0 0.9rem; }
-.fc-verdict div { padding: 0.7rem 0.9rem; background: #f4f6fa; border-top: 3px solid var(--navy); }
-.fc-verdict div + div { border-top-color: var(--cyan); }
-.main-content .fc .fc-verdict p { margin: 0; font-size: 16px; }
-.fc-verdict strong { display: block; margin-bottom: 0.2rem; color: #000; }
-.main-content .fc .fc-file { margin: 0; color: var(--soft); font-size: 15px; }
-.main-content .fc .fc-file a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; color: var(--navy); }
-.fc details { margin: 0.6rem 0 0; padding-top: 0.6rem; border-top: 1px solid var(--line); }
-.fc summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; font-weight: 700; color: var(--navy); }
-.fc-limits { padding: 0.8rem 1rem; background: #f4f6fa; border-left: 4px solid var(--navy); }
-.main-content .fc .fc-limits p { margin: 0; }
-.fc-missing { padding: 0.8rem 1rem; color: var(--soft); border: 1px dashed #9aa6bd; font-size: 16px; }
-.main-content .fc .fc-missing p { margin: 0; color: var(--soft); }
-.fc ul.fc-points { padding-left: 1.2rem; }
-.fc ul.fc-points li { margin-bottom: 0.6rem; }
-
-/* Closing panel, after the FIAT/IFTA blue panel on the last slide */
-.fc-thanks { margin: 0 10px 2rem 0; padding: 1.4rem 1.4rem 1.2rem; color: #fff; background: var(--navy); }
-.main-content .fc .fc-thanks h2 { margin: 0 0 0.8rem; padding: 0; border: 0; color: #fff; font-size: clamp(1.5rem, 3.6vw, 2rem); }
-.main-content .fc .fc-thanks p, .main-content .fc .fc-thanks li { color: #fff; }
-.main-content .fc .fc-thanks a { color: #fff; text-decoration-color: rgba(255,255,255,0.6); }
-.main-content .fc .fc-slide-light { color: #fff; }
-.main-content .fc .fc-thanks ul > li::before { color: #fff; }
-.fc-thanks ul { margin: 0 0 1rem; padding-left: 1.2rem; }
-.fc-thanks .fc-small { font-size: 15px; }
-
-@media (max-width: 600px) {
-  .fc-hero { padding-left: 1rem; border-left-width: 5px; }
-  .fc-verdict { grid-template-columns: 1fr; }
-  .fc-media { padding: 0.6rem; margin-right: 8px; }
-  .fc-media::before { top: -8px; right: -8px; }
-  .main-content .fc .fc-panel { display: block; }
-  .main-content .fc .fc-btn { flex: 1 1 100%; justify-content: center; }
-  .fc-toc ol { columns: 1; }
-}
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-</style>
-
-<div class="fc">
+{% include fiat-companion/langswitch.html %}
 
 <header class="fc-hero">
   <p class="fc-kicker">FIAT/IFTA World Conference · São Paulo 2026</p>
@@ -132,16 +25,16 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
   <p>This page goes with my talk. It follows the slides in order, so you can find the full-size version of each example as it comes up, or come back to it later. For each experiment, I've written down what worked and where it still falls short.</p>
 </header>
 
-<p class="fc-tip">Tap a video to load it. The videos stream from Google Drive, so on a slow connection they may start at a lower quality: pick a higher one in the player's settings, or use “Open in Google Drive” to download the original file. Most videos are side-by-side comparisons, so each half is smaller than the full file.</p>
+<p class="fc-tip">Tap a video to play it here. The player streams from Google Drive, so it may show a lower quality than the original, especially on a slow connection. To see the detail, use “Full-size original” under each video: it downloads the original file, which you can open in your phone's or computer's video player. Under each still, the buttons open each image at full size. Large files are best downloaded on Wi-Fi. Most videos are side-by-side comparisons, so each half is smaller than the full file.</p>
 
 <nav class="fc-toc" aria-labelledby="contents">
   <h2 id="contents">Follow the talk</h2>
   <ol>
     <li><a href="#copycat-to-open-weight"><span class="fc-n">2</span>From CopyCat to open-weight models</a></li>
     <li><a href="#masking-versus-recovery"><span class="fc-n">3</span>Masking versus recovery</a></li>
-    <li><a href="#the-limits"><span class="fc-n">4</span>The limits</a></li>
+    <li><a href="#the-limits"><span class="fc-n">4</span>The limits<span class="fc-v">Stills</span></a></li>
     <li><a href="#reference-recovery"><span class="fc-n">5–6</span>Reference-based colour recovery<span class="fc-v">Video</span></a></li>
-    <li><a href="#synthetic-reference"><span class="fc-n">7</span>Creating a synthetic reference</a></li>
+    <li><a href="#synthetic-reference"><span class="fc-n">7</span>Creating a synthetic reference<span class="fc-v">Stills</span></a></li>
     <li><a href="#telestyle"><span class="fc-n">8–9</span>Keeping colour steady through a shot<span class="fc-v">Video</span></a></li>
     <li><a href="#h3-controlnet"><span class="fc-n">10–11</span>Making it faster<span class="fc-v">Video</span></a></li>
     <li><a href="#temporal-cbcr"><span class="fc-n">12–13</span>The Temporal CbCr adapter<span class="fc-v">Video</span></a></li>
@@ -179,6 +72,21 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
     <li><strong>Resolution and length.</strong> In my tests, local video models worked at around 768 × 432 pixels and could only follow about ten seconds at a time. On the slide, Qwen Image Edit ran twice on a frame from <em>Reptilicus</em> (1961) with the same prompt: once on the whole frame (1184 × 880) and once on four tiles stitched together (2048 × 1556). Look at the lifeguard tower: the tiles keep more of the film's grain and detail, but the colour drifts between them and the seams show. Tiling helps, but it brings a new problem to solve.</li>
     <li><strong>Cost.</strong> Restoration takes a lot of iterations, and in the cloud every one costs money. That's why I work locally, but that still means hardware, time and electricity. There's no free compute, even if you own the computer.</li>
   </ul>
+
+  <figure class="fc-media fc-still">
+    <a href="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" alt="Reptilicus beach frame: four tiles stitched together on the left, the whole frame in one pass on the right" width="1732" height="770" loading="lazy" decoding="async"></a>
+    <p class="fc-bar">Slide 4 · <em>Reptilicus</em> (1961): four tiles stitched together (left) and the whole frame in one pass (right)</p>
+    <figcaption class="fc-body">
+      <p class="fc-file">How it was made · open each part at full size</p>
+      <ol class="fc-parts">
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/01_source_reptilicus_tlr_000025-40689881.jpg' | relative_url }}">Faded source<span class="fc-dims">2048 × 1556</span></a><p>The faded frame at the scan's full size.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_fullframe_clara_baseline_frame_000000_test.png' | relative_url }}">Whole frame in one pass<span class="fc-dims">1184 × 880</span></a><p>Qwen Image Edit on the whole frame, with the Clara prompt from slide 7. The result comes back smaller than the scan.</p></li>
+        <li><span class="fc-part-label">Four tiles from the source<span class="fc-dims">1328 × 800 each</span></span><span class="fc-part-set"><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_top_left_source_tile.png' | relative_url }}">top left</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_top_right_source_tile.png' | relative_url }}">top right</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_bottom_left_source_tile.png' | relative_url }}">bottom left</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_bottom_right_source_tile.png' | relative_url }}">bottom right</a></span><p>The same frame cut into four overlapping tiles.</p></li>
+        <li><span class="fc-part-label">Each tile after the model<span class="fc-dims">1328 × 800 each</span></span><span class="fc-part-set"><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_top_left_raw_inference.png' | relative_url }}">top left</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_top_right_raw_inference.png' | relative_url }}">top right</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_bottom_left_raw_inference.png' | relative_url }}">bottom left</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_bottom_right_raw_inference.png' | relative_url }}">bottom right</a></span><p>Each tile went through the model on its own, with the same prompt.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_four_tile_raw_inference_hard_stitch.png' | relative_url }}">Four tiles stitched<span class="fc-dims">2048 × 1556</span></a><p>The four results pasted back into one frame at the scan's size, without blending, so the seams stay visible.</p></li>
+      </ol>
+    </figcaption>
+  </figure>
 </section>
 
 <section class="fc-section" id="reference-recovery">
@@ -189,12 +97,7 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
   <div class="fc-missing"><p>The clip shown on slide 6 isn't included on this page. Below is another example of the same method.</p></div>
 
   <figure class="fc-media">
-    <div class="fc-player" style="aspect-ratio: 1920 / 1080">
-      <a class="fc-play" href="https://drive.google.com/file/d/11UucDpEAC5QRlfF3BN12f3mggg-S58Ds/view" data-drive="11UucDpEAC5QRlfF3BN12f3mggg-S58Ds" data-title="Candy Candy: original scan, balanced scan, DVD reference and colour recovery" aria-label="Play video: Candy Candy, reference-based colour recovery (1 minute 10 seconds)">
-        <img src="https://drive.google.com/thumbnail?id=11UucDpEAC5QRlfF3BN12f3mggg-S58Ds&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id=11UucDpEAC5QRlfF3BN12f3mggg-S58Ds&amp;sz=w640 640w, https://drive.google.com/thumbnail?id=11UucDpEAC5QRlfF3BN12f3mggg-S58Ds&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="720" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
-        <span class="fc-play-label">Play · 1:10</span>
-      </a>
-    </div>
+{% include fiat-companion/video.html key="candy" title="Candy Candy: original scan, balanced scan, DVD reference and colour recovery" label="Play video: Candy Candy, reference-based colour recovery (1 minute 10 seconds)" %}
     <figcaption class="fc-body">
       <h3 id="candy-candy-title">Candy Candy: colour from a DVD reference</h3>
       <p>Colour from a matched French PAL DVD is carried over to a faded 16mm scan. Four versions play side by side: the original scan, the scan after balancing and cleaning, the DVD reference, and the model's result.</p>
@@ -202,11 +105,20 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
         <div><strong>What worked</strong><p>The result takes its colour from the DVD, while the detail comes from the 16mm scan.</p></div>
         <div><strong>Limits</strong><p>The method is only as good as its reference. This DVD is standard definition and has its own grading and transfer choices. And many films no longer have any reference at all.</p></div>
       </div>
-      <p class="fc-file">1920 × 1080 comparison · 1 min 10 s · 24 fps<br><a href="https://drive.google.com/file/d/11UucDpEAC5QRlfF3BN12f3mggg-S58Ds/view">Open in Google Drive</a></p>
+{% include fiat-companion/files.html key="candy" desc="1920 × 1080 comparison · 1 min 10 s · 24 fps" %}
+      <a class="fc-process" href="{{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }}"><img src="{{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }}" alt="Candy Candy training: the 16mm source plus the PAL DVD gives the training target, and the model's result at training steps 1, 1,000, 30,000 and 60,000" width="1920" height="886" loading="lazy" decoding="async"></a>
+      <p class="fc-file">How it was made · open each part at full size</p>
+      <ol class="fc-parts">
+        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}">Faded 16mm scan<span class="fc-dims">3024 × 1890</span></a><p>A frame of the faded print in DaVinci Resolve, before any correction.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}">Balanced scan<span class="fc-dims">3024 × 1890</span></a><p>The same frame after the Faded Balancer DCTL, which evens out the faded colour channels before training.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/cropped/copycat-training-cropped.png' | relative_url }}">Training setup in Nuke<span class="fc-dims">1230 × 1602</span></a><p>The CopyCat training graph. The scan frames are the input. The target keeps the scan's brightness and takes the DVD's colour.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }}">Training steps<span class="fc-dims">1920 × 886</span></a><p>The 16mm source plus the PAL DVD gives the target. Below, the model's result after 1, 1,000, 30,000 and 60,000 training steps.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-chroma-recovery-finished.png' | relative_url }}">Recovered frame<span class="fc-dims">2742 × 2112</span></a><p>A frame of the result at full size.</p></li>
+      </ol>
       <details>
         <summary>Full-resolution result (4400 × 3300, about 298 MB)</summary>
         <p>The colour-recovered scan on its own, at the scan's full 4400 × 3300 size. Silent, 24 fps, HEVC. It's a large file, so it's best downloaded on Wi-Fi. The Drive player may stream a smaller version; download it to see full resolution.</p>
-        <p class="fc-file"><a href="https://drive.google.com/file/d/1EgkquRW2zm2lQzR_uWOQCSvpl0agE7G1/view">Open the full-resolution result in Google Drive</a></p>
+{% include fiat-companion/files.html key="candy-full" %}
       </details>
     </figcaption>
   </figure>
@@ -218,8 +130,62 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
   <p>So what happens when there's no reference? You create one: an approved colour frame for each shot. I call it a synthetic reference, and I make it with Qwen Image Edit, an open-weight image model from Alibaba.</p>
   <p>My first try was to guide it with a leader lady, the woman on the calibration frames at the start of a reel. It didn't work. These models don't understand meaning the way we do, so instead of taking only the colour, the model mixed the two images and the woman ended up in the shot. I call that semantic contamination.</p>
   <p>A plain colour chart worked better, once I softly blurred it. It guides the colour without giving the model anything else to copy.</p>
+
   <p>Then came the prompt, which is how you talk to the model. I ran a small contest, which I called America's Next Top Machine Learning Model: dozens of prompts and hundreds of test frames, over seven rounds on seven faded films. A prompt only survived a round if eight out of ten frames were acceptable. The bottom row of the slide shows a faded frame from <em>Counter Attack</em>, a Chinese film from 1976, with three of the finalists. The winner, Clara, is the one I use most, but I use the others too, depending on the shot.</p>
   <p>From the synthetic reference I keep only the colour. The brightness still comes from the scan.</p>
+
+  <figure class="fc-media fc-still">
+    <a href="{{ '/images_kebab/seapavaa2026/leader_lady_semantic_contamination_gar01_triptych.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/leader_lady_semantic_contamination_gar01_triptych.png' | relative_url }}" alt="Three frames: the faded source, the result guided by a leader lady with the woman mixed into the shot, and the result guided by a colour chart" width="1388" height="416" loading="lazy" decoding="async"></a>
+    <p class="fc-bar">Slide 7 · The faded source, the result guided by a leader lady, and the result guided by a colour chart</p>
+    <figcaption class="fc-body">
+      <p class="fc-file">How it was made · open each part at full size</p>
+      <ol class="fc-parts">
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/01_raw_source.png' | relative_url }}">Faded source<span class="fc-dims">2048 × 1556</span></a><p>The faded frame.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/02_early_marcie_contamination.png' | relative_url }}">Guided by a leader lady<span class="fc-dims">1168 × 888</span></a><p>The model mixed the woman from the leader into the shot.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/02_reference_chart.png' | relative_url }}">Softly blurred colour chart<span class="fc-dims">333 × 238</span></a><p>The guide that replaced the leader lady. It gives colour and nothing else to copy.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/03_belak_chart_corrected.png' | relative_url }}">Guided by the colour chart<span class="fc-dims">1184 × 880</span></a><p>Only the colour changes.</p></li>
+      </ol>
+      <div class="fc-missing" style="margin-top: 0.8rem"><p>The leader-lady image used as the guide isn't included on this page.</p></div>
+    </figcaption>
+  </figure>
+
+  <figure class="fc-media fc-still">
+    <div class="fc-grid4">
+      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/fanji_film_copy_000059.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/01_source.png' | relative_url }}" alt="Faded source frame" width="1284" height="960" loading="lazy" decoding="async"><span>Faded source</span></a>
+      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/i2_frame_000000_test.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/02_iris_spectrum.png' | relative_url }}" alt="Result with the Iris prompt" width="1284" height="960" loading="lazy" decoding="async"><span>Iris</span></a>
+      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/c4_frame_000000_test.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/03_celeste_redguard.png' | relative_url }}" alt="Result with the Celeste prompt" width="1284" height="960" loading="lazy" decoding="async"><span>Celeste</span></a>
+      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/cl2_frame_000000_test.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/04_clara_anchor.png' | relative_url }}" alt="Result with the Clara prompt" width="1284" height="960" loading="lazy" decoding="async"><span>Clara, the winner</span></a>
+    </div>
+    <p class="fc-bar">Slide 7 · Bottom row: the three finalist prompts on a faded frame of <em>Counter Attack</em> (1976)</p>
+    <figcaption class="fc-body">
+      <p>The bottom row of the slide: the same faded frame with each of the three finalists.</p>
+      <p class="fc-file">How it was made · open each part at full size</p>
+      <ol class="fc-parts">
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/fanji_film_copy_000059.png' | relative_url }}">Faded source<span class="fc-dims">1920 × 1440</span></a></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/i2_frame_000000_test.png' | relative_url }}">Iris<span class="fc-dims">1184 × 880</span></a></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/c4_frame_000000_test.png' | relative_url }}">Celeste<span class="fc-dims">1184 × 880</span></a></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/cl2_frame_000000_test.png' | relative_url }}">Clara, the winner<span class="fc-dims">1184 × 880</span></a></li>
+      </ol>
+      <p class="fc-more">The same three prompts on the crowd shot from the slide 9 video: <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/fanji_film_copy_000007.png' | relative_url }}">Faded source</a> · <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/i2_frame_000000_test.png' | relative_url }}">Iris</a> · <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/c4_frame_000000_test.png' | relative_url }}">Celeste</a> · <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/cl2_frame_000000_test.png' | relative_url }}">Clara</a></p>
+    </figcaption>
+  </figure>
+
+  <figure class="fc-media fc-still">
+    <a href="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" alt="Counter Attack garden frame: the faded source on the left and the final frame on the right" width="1400" height="760" loading="lazy" decoding="async"></a>
+    <p class="fc-bar">Slide 7 · From a faded frame to a synthetic reference, step by step (<em>Counter Attack</em>)</p>
+    <figcaption class="fc-body">
+      <p>The faded frame is on the left, and the final frame on the right.</p>
+      <p class="fc-file">How it was made · open each part at full size</p>
+      <ol class="fc-parts">
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/01_source_fanji_film_copy_000015-db56f6f7.png' | relative_url }}">Faded source<span class="fc-dims">1920 × 1440</span></a><p>A faded frame of the film.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/02_control_fanji_film_copy_r4_v1_03_garden_buil-dd5a1638.png' | relative_url }}">Edge map<span class="fc-dims">1920 × 1440</span></a><p>The edges of the faded frame (a Canny map). They keep the model on the frame's own shapes.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/03_reference_Belak_Color_Patch_Chart_softblur_32-9142a789.png' | relative_url }}">Softly blurred colour chart<span class="fc-dims">333 × 238</span></a><p>The colour guide.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/04_inference_frame_000000_test-7b87dbc0.png' | relative_url }}">Synthetic reference<span class="fc-dims">1184 × 880</span></a><p>What Qwen Image Edit returns. It's a reduced picture; only its colour is used.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/05_final_composite_fanji_film_copy_r4_v1_03_garden_buil-1622230d.png' | relative_url }}">Final frame<span class="fc-dims">1920 × 1440</span></a><p>The synthetic reference's colour on top of the brightness of the original scan, at full size.</p></li>
+      </ol>
+      <p class="fc-more">The test setup in ComfyUI, with the source, the chart, the edge map, the prompt, the model and the output in one graph. It's from the crowd shot of the slide 9 video. <a href="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}">ComfyUI screenshot</a> · <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}">Workflow file (JSON)</a></p>
+    </figcaption>
+  </figure>
 </section>
 
 <section class="fc-section" id="telestyle">
@@ -229,20 +195,24 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
   <p>Slide 8 shows a dance scene from <em>Obsession</em> where every frame was recovered on its own. Watch the dress of the woman on the right, and the background. Each frame is a fair interpretation by itself, but together they don't agree. One good frame is a thumbnail. A restoration needs the whole shot to agree with itself. That's temporal consistency, and it was the biggest hurdle.</p>
 
   <figure class="fc-media">
-    <div class="fc-player" style="aspect-ratio: 1920 / 1080">
-      <a class="fc-play" href="https://drive.google.com/file/d/1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8/view" data-drive="1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8" data-title="Counter Attack: one reference for the whole shot (TeleStyle)" aria-label="Play video: Counter Attack, one reference for the whole shot (11 seconds)">
-        <img src="https://drive.google.com/thumbnail?id=1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id=1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8&amp;sz=w640 640w, https://drive.google.com/thumbnail?id=1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="720" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
-        <span class="fc-play-label">Play · 0:11</span>
-      </a>
-    </div>
+{% include fiat-companion/video.html key="slide09" title="Counter Attack: one reference for the whole shot (TeleStyle)" label="Play video: Counter Attack, one reference for the whole shot (11 seconds)" %}
     <p class="fc-bar">Slide 9 · <em>Counter Attack</em> (1976): one reference for the whole shot (TeleStyle)</p>
     <figcaption class="fc-body">
       <p>TeleStyle, from TeleAI, is a LoRA: a small add-on for Qwen Image Edit, made to copy the style of one image onto another. I take one approved reference and copy its colour onto every frame of the shot.</p>
       <div class="fc-verdict">
         <div><strong>What worked</strong><p>The colour holds through the whole shot.</p></div>
-        <div><strong>Limits</strong><p>It runs the model on every single frame, and each frame still had to be checked, seed after seed. This 11-second shot took almost four hours. Fine as a test, but not something you can use on a feature film.</p></div>
+        <div><strong>Limits</strong><p>It runs the model on every single frame, with one fixed seed for the whole shot. This 11-second shot took almost four hours. Fine as a test, but not something you can use on a feature film.</p></div>
       </div>
-      <p class="fc-file">1920 × 1080 comparison · 11 s · 30 fps<br><a href="https://drive.google.com/file/d/1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8/view">Open in Google Drive</a></p>
+{% include fiat-companion/files.html key="slide09" desc="1920 × 1080 comparison · 11 s · 30 fps" %}
+      <p class="fc-file">How it was made, from the research records</p>
+      <ol class="fc-parts fc-steps">
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/01_source.png' | relative_url }}">Faded source<span class="fc-dims">1920 × 1440</span></a><p>The shot from the film copy: 338 frames, 1920 × 1440, at 30 frames per second.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/04_output.png' | relative_url }}">Approved reference<span class="fc-dims">1184 × 880</span></a><p>One frame of the shot, recovered with Qwen Image Edit and approved before the full run.</p></li>
+        <li><span class="fc-part-label">TeleStyle on every frame</span><p>Each frame went through Qwen Image Edit with the TeleStyle LoRA on its own, with the faded frame and the approved reference as its two inputs, in 4 steps. All 338 frames were generated.</p></li>
+        <li><span class="fc-part-label">Colour only</span><p>The TeleStyle colour, made at 1184 × 880, was put on top of the untouched 1920 × 1440 brightness of the scan.</p></li>
+        <li><span class="fc-part-label">Time</span><p>The whole run took about 13,560 seconds, close to four hours: around 32 seconds a frame once the machine was warm.</p></li>
+        <li><span class="fc-part-label">Comparison</span><p>After approval, the three panels were put side by side: original scan, approved reference and chroma recovery, at 30 frames per second.</p></li>
+      </ol>
     </figcaption>
   </figure>
 </section>
@@ -255,12 +225,7 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
   <p>I keep only the colour and put it on top of the original brightness, so the grain, the roughness, even the dirt, stay. Left on their own, these models want to change everything and make it look plasticky.</p>
 
   <figure class="fc-media">
-    <div class="fc-player" style="aspect-ratio: 1920 / 840">
-      <a class="fc-play" href="https://drive.google.com/file/d/1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi/view" data-drive="1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi" data-title="Counter Attack: H3 and ControlNet, finished with the Temporal CbCr adapter" aria-label="Play video: Counter Attack, H3 and ControlNet (13 seconds)">
-        <img src="https://drive.google.com/thumbnail?id=1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id=1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi&amp;sz=w640 640w, https://drive.google.com/thumbnail?id=1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="560" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
-        <span class="fc-play-label">Play · 0:13</span>
-      </a>
-    </div>
+{% include fiat-companion/video.html key="slide11" title="Counter Attack: H3 and ControlNet, finished with the Temporal CbCr adapter" label="Play video: Counter Attack, H3 and ControlNet (13 seconds)" %}
     <p class="fc-bar">Slide 11 · <em>Counter Attack</em>: H3 + ControlNet, finished with the Temporal CbCr adapter</p>
     <figcaption class="fc-body">
       <p>The colour comes from H3 with the ControlNet, and it's finished with the Temporal CbCr adapter, explained in the next section. I chose this shot because it's hard: a lot of movement, a crowd that keeps changing, and a fast pan in the middle.</p>
@@ -268,7 +233,18 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
         <div><strong>What worked</strong><p>The colour holds through all that movement, and the geometry stays the same as the original.</p></div>
         <div><strong>Limits</strong><p>Look closely and there's some tint in the shadows. My copy was 30 frames per second with a broken cadence, so getting clean frames out of it was hard, and the adapter needs properly aligned frames. I'm still working on this.</p></div>
       </div>
-      <p class="fc-file">1920 × 840 comparison · 13 s · 24 fps<br><a href="https://drive.google.com/file/d/1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi/view">Open in Google Drive</a></p>
+{% include fiat-companion/files.html key="slide11" desc="1920 × 840 comparison · 13 s · 24 fps" %}
+      <p class="fc-file">How it was made, from the research records</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Source and cadence</span><p>385 frames at 1920 × 1440 and 30 frames per second. 77 of them were near-duplicates from the broken cadence, so the 308 distinct frames were mapped to 24 frames per second, frame by frame.</p></li>
+        <li><span class="fc-part-label">Approved palettes</span><p>Two approved colour references: the main outdoor palette, and one for an indoor close-up.</p></li>
+        <li><span class="fc-part-label">Edges</span><p>An edge map (Canny) of every frame, made from the source after a small median filter and a local contrast step.</p></li>
+        <li><span class="fc-part-label">H3 with the ControlNet</span><p>H3 ran with the ControlNet on 124-frame sections, at 768 × 576 and 24 frames per second.</p></li>
+        <li><span class="fc-part-label">Teachers</span><p>Each H3 frame was registered to the source and kept only if its brightness lined up, within 1.5 pixels overall. After an audit for contamination, 278 frames were admitted as teachers.</p></li>
+        <li><span class="fc-part-label">Adapter</span><p>The Temporal CbCr adapter learned from the teachers. The best epoch was chosen on held-out frames, then the adapter was fitted again on all of them.</p></li>
+        <li><span class="fc-part-label">Final</span><p>The colour was run again at 640 × 480, upscaled with guidance and put on the original brightness at 1920 × 1440, for all 385 frames. Approved on 30 September. The tint that remains is in the shadowed folds of a yellow jacket, in the first frames.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
 </section>
@@ -281,20 +257,25 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
   <p>A small model, with fewer than a million parameters, learns the colour of the shot from the teachers in minutes. Then it fills in the frames that have no teacher and keeps the colour steady across the whole shot. On slide 12, the first and third frames have no teacher and the second and fourth do.</p>
 
   <figure class="fc-media">
-    <div class="fc-player" style="aspect-ratio: 1920 / 850">
-      <a class="fc-play" href="https://drive.google.com/file/d/1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD/view" data-drive="1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD" data-title="Unman, Wittering and Zigo: Temporal CbCr adapter" aria-label="Play video: Unman, Wittering and Zigo, Temporal CbCr adapter (7 seconds)">
-        <img src="https://drive.google.com/thumbnail?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&amp;sz=w640 640w, https://drive.google.com/thumbnail?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="567" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
-        <span class="fc-play-label">Play · 0:07</span>
-      </a>
-    </div>
+{% include fiat-companion/video.html key="slide13" title="Unman, Wittering and Zigo: Temporal CbCr adapter" label="Play video: Unman, Wittering and Zigo, Temporal CbCr adapter (7 seconds)" %}
     <p class="fc-bar">Slide 13 · <em>Unman, Wittering and Zigo</em> (1971): Temporal CbCr adapter</p>
     <figcaption class="fc-body">
-      <p>A choir scene, with the faded source on the left and the adapter's result on the right. Teachers covered 101 of the 164 frames, and the adapter filled the rest. Training took about a minute and a half.</p>
+      <p>A choir scene, with the faded source on the left and the adapter's result on the right. For this shot, H3 didn't line up with the picture, so all the teachers came from TeleStyle. They covered 101 of the 164 frames, and the adapter filled the rest. Training itself took about a minute and a half (88.5 seconds).</p>
       <div class="fc-verdict">
         <div><strong>What worked</strong><p>It keeps everything in the original: the dirt, the roughness of the film. Even the stained glass behind the choir stays consistent through the whole pan.</p></div>
         <div><strong>Limits</strong><p>The adapter is only as good as its teachers, and it needs frames that line up properly. The colour is still an interpretation unless a surviving reference supports it.</p></div>
       </div>
-      <p class="fc-file">1920 × 850 comparison · 7 s · 24 fps<br><a href="https://drive.google.com/file/d/1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD/view">Open in Google Drive</a></p>
+{% include fiat-companion/files.html key="slide13" desc="1920 × 850 comparison · 7 s · 24 fps" %}
+      <p class="fc-file">How it was made, from the research records</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Source</span><p>164 frames of the trailer, 2048 × 1556, at 24 frames per second.</p></li>
+        <li><span class="fc-part-label">H3, tried first</span><p>H3 was run first on two overlapping sections. None of its frames lined up well enough with the source, so none were used.</p></li>
+        <li><span class="fc-part-label">Palette</span><p>One approved frame set the palette: a Qwen Image Edit result laid on the source brightness.</p></li>
+        <li><span class="fc-part-label">Teachers</span><p>TeleStyle made the teachers, each checked for alignment and palette. 101 frames passed: 82 in three runs used for training, and a separate run of 19 kept for validation. 63 frames had no teacher.</p></li>
+        <li><span class="fc-part-label">Training</span><p>The adapter has 931,274 parameters. 60 epochs took 88.5 seconds of training on one RTX 5090. The best epoch was 56.</p></li>
+        <li><span class="fc-part-label">Result</span><p>The adapter coloured all 164 frames, and its colour was laid on the untouched brightness of the source.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
 </section>
@@ -303,15 +284,10 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
   <p class="fc-slide">Slides 14–15</p>
   <h2 id="diffusion-upscaling-section-title">Diffusion upscaling</h2>
   <p>So far, the model only adds colour and the scan keeps its own picture. But sometimes the surviving element doesn't carry enough information for a traditional restoration. Our tools borrow from the same frame or the frames around it, and when every frame is damaged, there's nothing left to borrow. Diffusion upscaling lets a video model rebuild the picture from what survives, following its structure and movement.</p>
-  <p><em>El Tinterillo</em> survives only as a damaged 16mm print and a telecine that is cleaner, but soft, cropped and with the strange cadence of telecines from that time. I combined the two, with the telecine inside and the 16mm around it, then cleaned that hybrid with a median filter. That gives a rough outline to guide the geometry, but it also removes the fine detail. So, for how the picture should look, I made another synthetic reference with ChatGPT Images. MiniMax H3, in reference mode, then uses that image and the outline to generate each section of the shot.</p>
+  <p><em>El Tinterillo</em> survives only as a damaged 16mm print and a telecine that is cleaner, but soft, cropped and with the strange cadence of telecines from that time. I smoothed the 16mm with a median filter, then combined the two, with the telecine inside and the 16mm around it. That gives a rough outline to guide the geometry, but the filter also removes the fine detail. So, for how the picture should look, I made more synthetic references with ChatGPT Images. MiniMax H3, in reference mode, then uses those references, with the telecine clip for the movement, to generate each section of the shot.</p>
 
   <figure class="fc-media">
-    <div class="fc-player" style="aspect-ratio: 1920 / 756">
-      <a class="fc-play" href="https://drive.google.com/file/d/1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw/view" data-drive="1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw" data-title="El Tinterillo: diffusion upscaling, the stairs" aria-label="Play video: El Tinterillo, diffusion upscaling (26 seconds)">
-        <img src="https://drive.google.com/thumbnail?id=1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id=1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw&amp;sz=w640 640w, https://drive.google.com/thumbnail?id=1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="504" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
-        <span class="fc-play-label">Play · 0:26</span>
-      </a>
-    </div>
+{% include fiat-companion/video.html key="slide15" title="El Tinterillo: diffusion upscaling, the stairs" label="Play video: El Tinterillo, diffusion upscaling (26 seconds)" %}
     <p class="fc-bar">Slide 15 · <em>El Tinterillo</em>: diffusion upscaling, the stairs</p>
     <figcaption class="fc-body">
       <p>The original 16mm scan is on the left, and the result I approved is on the right. It took a long process of iteration to get here.</p>
@@ -320,7 +296,17 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
         <div><strong>Limits</strong><p>The result is partly synthetic: the model invents fine detail the film no longer carries, and that has to be declared. The model worked at 768 × 432. There's still a jump in brightness on the first frame, and faces and fine detail remain weak.</p></div>
       </div>
       <p>Some people will call this heresy, and to a degree it is. I wouldn't call it proper film restoration myself. But with footage like this, I don't see another way, and we may need to open our minds to what restoration can be.</p>
-      <p class="fc-file">1920 × 756 comparison · 26 s · 24 fps<br><a href="https://drive.google.com/file/d/1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw/view">Open in Google Drive</a></p>
+{% include fiat-companion/files.html key="slide15" desc="1920 × 756 comparison · 26 s · 24 fps" %}
+      <p class="fc-file">How it was made, from the research records</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Sources</span><p>The 16mm scan, which the result is judged against, and the telecine, used for its motion. The shot is 624 frames at 24 frames per second.</p></li>
+        <li><span class="fc-part-label">Hybrid</span><p>For each key frame, the 16mm scan was smoothed with a median filter and shrunk to make a soft base for the full frame. The telecine, registered and matched in tone, went inside it with a 48-pixel feather.</p></li>
+        <li><span class="fc-part-label">Synthetic references</span><p>Seven stills were generated with ChatGPT Images, each from its own hybrid. Each was checked for drift inside the frame against a 3-pixel limit; the accepted ones measured 0.66 to 1.23 pixels.</p></li>
+        <li><span class="fc-part-label">H3 in sections</span><p>H3 in reference mode generated the shot in four sections at 768 × 432 (frames 1 to 200, 201 to 340, 341 to 400 and 401 to 624), with three reference images each and the telecine clip as the motion input. 20 steps, seed 0.</p></li>
+        <li><span class="fc-part-label">One section redone</span><p>The second section was made again with calibrated references, because the first version lagged behind the motion.</p></li>
+        <li><span class="fc-part-label">Joining the sections</span><p>A tone bridge and a 12-frame dissolve joined the sections. The brightness jump on the first frame was left as it was.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
 </section>
@@ -340,15 +326,10 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
   <h2 id="combining-sources-section-title">Combining sources, then reconstructing</h2>
   <p>When several elements survive, each one is usually damaged in different places. The George Eastman Museum sent me <em>Knight of the Trail</em> (1915) as a nitrate print and a diacetate safety copy. Together they cover most of the film, but in some places the nitrate has decayed and the safety copy is missing those frames too.</p>
   <p>First, I bring the two elements together. They had different colour, warping and framing, so each frame of one is matched to the other by its features and warped into place. Then one tone correction, fitted on the cleanest matching frames, gives both the same look.</p>
-  <p>After that, each frame comes from whichever element survives undamaged: 155 frames from the nitrate print and 53 from the safety copy. The timeline on slide 18 is a map of this, with orange for the nitrate, blue for the safety copy and red where neither survives. In those 18 frames, I mask only the damaged areas and reconstruct those. The surviving picture stays original, because we don't want to replace a whole frame just because part of it is damaged.</p>
+  <p>After that, each frame comes from whichever element survives undamaged: 155 frames from the nitrate print and 53 from the safety copy. The timeline on slide 18 is a map of this, with orange for the nitrate, blue for the safety copy and red where neither survives. In those 18 frames, I mask only the damaged areas, including damaged still background, and Wan VACE 14B, Alibaba's video model, reconstructs those. The surviving picture stays original, because we don't want to replace a whole frame just because part of it is damaged.</p>
 
   <figure class="fc-media">
-    <div class="fc-player" style="aspect-ratio: 1920 / 832">
-      <a class="fc-play" href="https://drive.google.com/file/d/1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K/view" data-drive="1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K" data-title="Knight of the Trail: diffusion reconstruction of nitrate damage" aria-label="Play video: Knight of the Trail, reconstruction of nitrate damage (9 seconds)">
-        <img src="https://drive.google.com/thumbnail?id=1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id=1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K&amp;sz=w640 640w, https://drive.google.com/thumbnail?id=1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="555" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
-        <span class="fc-play-label">Play · 0:09</span>
-      </a>
-    </div>
+{% include fiat-companion/video.html key="slide19" title="Knight of the Trail: diffusion reconstruction of nitrate damage" label="Play video: Knight of the Trail, reconstruction of nitrate damage (9 seconds)" %}
     <p class="fc-bar">Slide 19 · <em>Knight of the Trail</em> (1915): diffusion reconstruction of nitrate damage. Courtesy of the George Eastman Museum.</p>
     <figcaption class="fc-body">
       <p>The nitrate original is on the left, and the approved result is on the right.</p>
@@ -356,7 +337,18 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
         <div><strong>What worked</strong><p>It holds together well, and here the resolution isn't much of an issue.</p></div>
         <div><strong>Limits</strong><p>This is a working test at 640 × 512, shown inside an HD comparison. It isn't a native HD restoration.</p></div>
       </div>
-      <p class="fc-file">1920 × 832 comparison · 9 s · 24 fps · silent<br><a href="https://drive.google.com/file/d/1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K/view">Open in Google Drive</a></p>
+{% include fiat-companion/files.html key="slide19" desc="1920 × 832 comparison · 9 s · 24 fps · silent" %}
+      <p class="fc-file">How it was made, from the research records</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Two elements</span><p>The nitrate print and the diacetate safety copy of this shot: 226 frames at 24 frames per second, worked at 640 × 512.</p></li>
+        <li><span class="fc-part-label">Registration</span><p>The safety copy was aligned to the nitrate by matching features, with one transform for the whole frame in each pair. 160 of the 162 overlapping pairs gave strong matches.</p></li>
+        <li><span class="fc-part-label">Tone</span><p>One tone and colour correction, fitted on the 40 cleanest pairs, made the safety copy match the nitrate.</p></li>
+        <li><span class="fc-part-label">Frame by frame</span><p>155 frames come from the nitrate, 53 from the safety copy, and 18 have no undamaged source, in five short gaps.</p></li>
+        <li><span class="fc-part-label">Generation</span><p>Wan VACE 14B generated each gap in a 33-frame window at 640 × 512, with one clean nitrate frame as its reference and the actors' tracked poses as control. 20 steps, CFG 3.5, seed 0.</p></li>
+        <li><span class="fc-part-label">Keeping the original</span><p>Everything that moves stayed original. Gross losses and damaged still background were replaced, and blended in over 24 pixels. 64.8% of the pixels in the gap frames are original.</p></li>
+        <li><span class="fc-part-label">Approval</span><p>This version was approved on 26 September. Frames outside the gaps are identical to the prepared plate.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
 </section>
@@ -376,17 +368,22 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
   <p>AI can also work through the tools we already use. The companies that make them are building it in, for control and management as well as processing. DaVinci Resolve 21.1 lets AI assistants operate it directly, Premiere Pro has an AI Assistant that works inside the project, and Avid has shown agentic AI for Media Composer. Restoration tools can work the same way.</p>
 
   <figure class="fc-media">
-    <div class="fc-player" style="aspect-ratio: 1920 / 1080">
-      <a class="fc-play" href="https://drive.google.com/file/d/1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs/view" data-drive="1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs" data-title="Point Blank: a model working inside Phoenix" aria-label="Play video: Point Blank, a model working inside Phoenix (30 seconds)">
-        <img src="https://drive.google.com/thumbnail?id=1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id=1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs&amp;sz=w640 640w, https://drive.google.com/thumbnail?id=1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="720" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
-        <span class="fc-play-label">Play · 0:30</span>
-      </a>
-    </div>
+{% include fiat-companion/video.html key="slide21" title="Point Blank: a model working inside Phoenix" label="Play video: Point Blank, a model working inside Phoenix (30 seconds)" %}
     <p class="fc-bar">Slide 21 · <em>Point Blank</em> (1967): a model working inside Phoenix</p>
     <figcaption class="fc-body">
       <p>One of my research tests. After Dry Clean runs in Phoenix, a model paints the protection masks directly in the project. The red shows what Dry Clean changed.</p>
       <div class="fc-limits"><p><strong>Limits.</strong> It's still at an early stage. This is a screen recording of the workflow, not a finished restoration.</p></div>
-      <p class="fc-file" style="margin-top: 0.8rem">1920 × 1080 screen recording · 30 s · 24 fps · silent<br><a href="https://drive.google.com/file/d/1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs/view">Open in Google Drive</a></p>
+{% include fiat-companion/files.html key="slide21" desc="1920 × 1080 screen recording · 30 s · 24 fps · silent" %}
+      <p class="fc-file">How it was made, from the research records</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Source</span><p>A teaching copy of the Point Blank trailer project in Phoenix: a 52-frame shot, 2048 × 1556, at 24 frames per second.</p></li>
+        <li><span class="fc-part-label">Two renders</span><p>The shot was exported twice from Phoenix: once without Dry Clean and once with it.</p></li>
+        <li><span class="fc-part-label">What Dry Clean changed</span><p>The difference between the two renders shows what Dry Clean changed. Changes larger than 8 code values were grouped into separate marks.</p></li>
+        <li><span class="fc-part-label">The model</span><p>A small image classifier (ResNet18), trained on brush strokes from another film, looked at each mark with the frames before and after it and predicted whether to bring the original picture back there.</p></li>
+        <li><span class="fc-part-label">Into the project</span><p>Its choices became Matte Paint brush strokes: 630 over the 52 frames, written into the Phoenix project and read back to check them.</p></li>
+        <li><span class="fc-part-label">Review</span><p>The recording is Phoenix playing the result with Red Difference on. In review, it also brought back wall areas where no meaningful information was lost, so it isn't accepted yet.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
 </section>
@@ -435,18 +432,4 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
 
 </div>
 
-<script>
-/* Load each Google Drive player only when someone taps it, so the page stays light on slow connections. */
-document.addEventListener('click', function (event) {
-  var link = event.target.closest ? event.target.closest('a.fc-play') : null;
-  if (!link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-  event.preventDefault();
-  var frame = document.createElement('iframe');
-  frame.src = 'https://drive.google.com/file/d/' + link.getAttribute('data-drive') + '/preview';
-  frame.title = link.getAttribute('data-title');
-  frame.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
-  frame.setAttribute('allowfullscreen', '');
-  link.parentNode.replaceChild(frame, link);
-  frame.focus();
-});
-</script>
+{% include fiat-companion/script.html %}

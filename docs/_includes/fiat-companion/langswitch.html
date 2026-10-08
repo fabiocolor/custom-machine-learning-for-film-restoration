@@ -1,0 +1,8 @@
+{%- assign pages = site.data.fiat_companion.pages -%}
+{%- assign ui = site.data.fiat_companion.ui -%}
+<nav class="fc-lang" aria-label="Language · Idioma">
+  <span class="fc-lang-label" aria-hidden="true">Language · Idioma</span>
+  <a href="{{ pages['en'] | relative_url }}" hreflang="en" lang="en"{% if page.fc_lang == 'en' %} aria-current="page"{% endif %}>{{ ui['en'].lang_name }}</a>
+  <a href="{{ pages['pt-br'] | relative_url }}" hreflang="pt-BR" lang="pt-BR"{% if page.fc_lang == 'pt-br' %} aria-current="page"{% endif %}>{{ ui['pt-br'].lang_name }}</a>
+  <a href="{{ pages['es'] | relative_url }}" hreflang="es" lang="es"{% if page.fc_lang == 'es' %} aria-current="page"{% endif %}>{{ ui['es'].lang_name }}</a>
+</nav>

@@ -1,0 +1,49 @@
+<script>
+/* Load each Google Drive player only when someone taps it, so the page stays light on slow connections.
+   On touch screens the loaded player gets a square box (see the style), because Drive's phone player
+   dims and crops the picture in a 16:9 box. Drive's player is also at least 320 px wide, so on narrow
+   phones the loaded player runs to the edges of the screen instead of being clipped. */
+function fcFit(player) {
+  player.style.width = ''; player.style.marginLeft = '';
+  if (!window.matchMedia('(pointer: coarse)').matches) return;
+  var r = player.getBoundingClientRect(), vw = document.documentElement.clientWidth;
+  if (r.width >= 320) return;
+  player.style.width = vw + 'px';
+  player.style.marginLeft = -r.left + 'px';
+}
+window.addEventListener('resize', function () {
+  var loaded = document.querySelectorAll('.fc-player.fc-loaded');
+  for (var i = 0; i < loaded.length; i++) fcFit(loaded[i]);
+});
+document.addEventListener('click', function (event) {
+  var link = event.target.closest ? event.target.closest('a.fc-play') : null;
+  if (link) {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    var frame = document.createElement('iframe');
+    frame.src = 'https://drive.google.com/file/d/' + link.getAttribute('data-drive') + '/preview';
+    frame.title = link.getAttribute('data-title');
+    frame.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+    frame.setAttribute('allowfullscreen', '');
+    var player = link.parentNode;
+    player.classList.add('fc-loaded');
+    player.replaceChild(frame, link);
+    fcFit(player);
+    /* The box grows when the player loads; keep all of it, including Drive's start button, on screen. */
+    player.scrollIntoView({ block: 'nearest' });
+    frame.focus({ preventScroll: true });
+    return;
+  }
+  /* Keep the reader's place when switching language. */
+  var lang = event.target.closest ? event.target.closest('.fc-lang a') : null;
+  if (lang && !event.metaKey && !event.ctrlKey && !event.shiftKey) {
+    var here = '', sections = document.querySelectorAll('.fc-section[id], .fc-thanks[id]');
+    for (var i = 0; i < sections.length; i++) { if (sections[i].getBoundingClientRect().top < 120) here = sections[i].id; }
+    if (here) { event.preventDefault(); location.href = lang.href + '#' + here; }
+  }
+});
+(function () {
+  var root = document.querySelector('.fc[lang]');
+  if (root) document.documentElement.lang = root.getAttribute('lang');
+})();
+</script>

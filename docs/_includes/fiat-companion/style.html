@@ -139,6 +139,11 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
 .fc-process img { display: block; width: 100%; height: auto; margin: 0; }
 .fc-grid4 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: #111; padding: 6px; }
 .main-content .fc .fc-grid4 a { position: relative; display: block; color: #fff; text-decoration: none; }
+.main-content .fc button.fc-ev-img { display: block; width: 100%; margin: 0; padding: 0; background: none; border: 0; cursor: zoom-in; }
+.main-content .fc button.fc-ev-img img { display: block; width: 100%; height: auto; margin: 0; }
+.main-content .fc .fc-grid4 button.fc-ev-img { position: relative; color: #fff; }
+.main-content .fc button.fc-ev-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0; color: var(--navy); background: none; border: 0; font: inherit; font-weight: 700; text-decoration: underline; text-decoration-color: rgba(43,63,140,0.45); cursor: pointer; }
+.fc button.fc-ev-img:focus-visible, .fc button.fc-ev-link:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
 .fc-grid4 img { display: block; width: 100%; height: auto; margin: 0; }
 .fc-grid4 span { position: absolute; left: 0; bottom: 0; padding: 0.15rem 0.45rem; color: #fff; background: rgba(0,0,0,0.72); font-size: 14px; font-weight: 700; }
 

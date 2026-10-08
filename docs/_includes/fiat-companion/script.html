@@ -104,7 +104,7 @@ document.addEventListener('click', function (event) {
     clear();
     current = btn;
     var id = btn.getAttribute('data-id');
-    title.textContent = btn.firstChild.textContent;
+    title.textContent = btn.getAttribute('data-title') || btn.firstChild.textContent;
     box.classList.remove('fc-actual'); fitBtn.textContent = UI.actual;
     box.classList.toggle('fc-is-video', btn.getAttribute('data-kind') === 'video');
     box.hidden = false; document.documentElement.classList.add('fc-noscroll');

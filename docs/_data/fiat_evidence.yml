@@ -152,38 +152,38 @@ examples:
     kind: image
     label:
       en: Faded 16mm scan
-      pt-br: Digitalização 16mm desbotada
+      pt-br: Digitalização desbotada em 16mm
       es: Escaneo de 16mm desvanecido
     caption:
-      en: A frame of the faded 16mm print before any correction. It has a strong magenta cast, and most of the flicker is in the red channel.
-      pt-br: Um quadro da cópia 16mm desbotada antes de qualquer correção. Tem uma forte dominante magenta, e a maior parte da cintilação está no canal vermelho.
-      es: Un fotograma de la copia de 16mm desvanecida antes de cualquier corrección. Tiene una fuerte dominante magenta, y la mayor parte del parpadeo está en el canal rojo.
-    width: 3024
-    height: 1890
+      en: A frame of the faded 16mm print of the opening, as scanned, before any correction. It has a strong magenta cast, and most of the flicker is in the red channel.
+      pt-br: Um quadro da cópia 16mm desbotada da abertura, como foi digitalizado, antes de qualquer correção. Tem uma forte dominante magenta, e a maior parte da cintilação está no canal vermelho.
+      es: Un fotograma de la copia de 16mm desvanecida de la apertura, tal como se escaneó, antes de cualquier corrección. Tiene una fuerte dominante magenta, y la mayor parte del parpadeo está en el canal rojo.
+    width: 2200
+    height: 1650
   - id: s05-02
     kind: image
     label:
-      en: Balanced scan
-      pt-br: Digitalização equilibrada
-      es: Escaneo equilibrado
+      en: Balanced and cleaned scan
+      pt-br: Digitalização limpa e equilibrada
+      es: Escaneo limpio y equilibrado
     caption:
-      en: The same frame after the Faded Balancer DCTL in Resolve, which evens out the faded colour channels before training.
-      pt-br: O mesmo quadro depois do Faded Balancer DCTL no Resolve, que equilibra os canais de cor desbotados antes do treinamento.
-      es: El mismo fotograma después del Faded Balancer DCTL en Resolve, que equilibra los canales de color desvanecidos antes del entrenamiento.
-    width: 3024
-    height: 1890
+      en: 'The same frame after clean-up and colour balancing in Phoenix and Loki: the frames CopyCat was trained on.'
+      pt-br: 'O mesmo quadro depois da limpeza e do equilíbrio de cor no Phoenix e no Loki: os quadros usados no treinamento do CopyCat.'
+      es: 'El mismo fotograma después de la limpieza y el equilibrio de color en Phoenix y Loki: los fotogramas con los que se entrenó CopyCat.'
+    width: 4400
+    height: 3300
   - id: s05-03
     kind: image
     label:
-      en: Training setup in Nuke
-      pt-br: Treinamento montado no Nuke
-      es: Configuración de entrenamiento en Nuke
+      en: The Nuke script
+      pt-br: O script do Nuke
+      es: El script de Nuke
     caption:
-      en: The CopyCat training graph. The scan frames are the input; the target keeps the scan's brightness and takes the DVD's colour.
-      pt-br: O grafo de treinamento do CopyCat. Os quadros da digitalização são a entrada; o alvo mantém o brilho da digitalização e pega a cor do DVD.
-      es: El grafo de entrenamiento de CopyCat. Los fotogramas del escaneo son la entrada; el objetivo conserva el brillo del escaneo y toma el color del DVD.
-    width: 1230
-    height: 1602
+      en: 'The Nuke script for one Candy Candy shot: the shot in the viewer and the CopyCat graph. The scan frames are the input; the target keeps the scan''s brightness and takes the DVD''s colour.'
+      pt-br: 'O script do Nuke de um plano de Candy Candy: o plano no visualizador e o grafo do CopyCat. Os quadros da digitalização são a entrada; o alvo mantém o brilho da digitalização e usa a cor do DVD.'
+      es: 'El script de Nuke de un plano de Candy Candy: el plano en el visor y el grafo de CopyCat. Los fotogramas del escaneo son la entrada; el objetivo conserva el brillo del escaneo y toma el color del DVD.'
+    width: 1951
+    height: 1098
   - id: s05-04
     kind: image
     label:
@@ -215,9 +215,9 @@ examples:
       pt-br: Folha de treinamento, mais adiante
       es: Hoja de entrenamiento, más adelante
     caption:
-      en: 'A later training sheet from the same work: the faded scan, the target and the model''s output, which now comes close to the target.'
-      pt-br: 'Uma folha de treinamento posterior do mesmo trabalho: a digitalização desbotada, o alvo e o resultado do modelo, que agora chega perto do alvo.'
-      es: 'Una hoja de entrenamiento posterior del mismo trabajo: el escaneo desvanecido, el objetivo y el resultado del modelo, que ahora se acerca al objetivo.'
+      en: 'A training sheet from a later CopyCat run on the same opening: the faded scan, the target and the model''s output, which now comes close to the target.'
+      pt-br: 'Uma folha de treinamento de uma execução posterior do CopyCat na mesma abertura: a digitalização desbotada, o alvo e o resultado do modelo, que agora chega perto do alvo.'
+      es: 'Una hoja de entrenamiento de una ejecución posterior de CopyCat sobre la misma apertura: el escaneo desvanecido, el objetivo y el resultado del modelo, que ahora se acerca al objetivo.'
     width: 1536
     height: 1536
   - id: s05-07

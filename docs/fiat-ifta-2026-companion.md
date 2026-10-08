@@ -66,7 +66,8 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
 .fc-film { color: var(--soft); font-size: 15px; }
 
 /* Media card, after the white cards with a cyan block behind them */
-.fc-media { position: relative; z-index: 0; margin: 1.6rem 10px 1.6rem 0; padding: 1rem; background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.14); }
+.fc-media { position: relative; z-index: 0; margin: 1.6rem 10px 1.6rem 0; padding: 1rem; }
+.fc-media::after { content: ""; position: absolute; z-index: -1; inset: 0; background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.14); }
 .fc-media::before { content: ""; position: absolute; z-index: -1; top: -10px; right: -10px; width: 30%; height: 45%; background: var(--cyan); }
 .fc-player { position: relative; width: 100%; background: #111; overflow: hidden; }
 .fc-player iframe { display: block; width: 100%; height: 100%; border: 0; }

@@ -29,7 +29,9 @@ document.addEventListener('click', function (event) {
     player.classList.add('fc-loaded');
     player.replaceChild(frame, link);
     fcFit(player);
-    frame.focus();
+    /* The box grows when the player loads; keep all of it, including Drive's start button, on screen. */
+    player.scrollIntoView({ block: 'nearest' });
+    frame.focus({ preventScroll: true });
     return;
   }
   /* Keep the reader's place when switching language. */

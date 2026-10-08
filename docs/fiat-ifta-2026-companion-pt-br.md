@@ -77,11 +77,14 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
     <a href="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" alt="Quadro de Reptilicus na praia: quatro blocos unidos à esquerda e o quadro inteiro em uma única passada à direita" width="1732" height="770" loading="lazy" decoding="async"></a>
     <p class="fc-bar">Slide 4 · <em>Reptilicus</em> (1961): quatro blocos unidos (à esquerda) e o quadro inteiro em uma única passada (à direita)</p>
     <figcaption class="fc-body">
-      <p class="fc-file">Imagens em tamanho real</p>
-      <ul class="fc-links">
-        <li><a class="fc-full" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_fullframe_clara_baseline_frame_000000_test.png' | relative_url }}">Quadro inteiro · 1184 × 880</a></li>
-        <li><a class="fc-full" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_four_tile_raw_inference_hard_stitch.png' | relative_url }}">Quatro blocos · 2048 × 1556</a></li>
-      </ul>
+      <p class="fc-file">Como foi feito · abra cada parte em tamanho real</p>
+      <ol class="fc-parts">
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/01_source_reptilicus_tlr_000025-40689881.jpg' | relative_url }}">Fonte desbotada<span class="fc-dims">2048 × 1556</span></a><p>O quadro desbotado no tamanho total da digitalização.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_fullframe_clara_baseline_frame_000000_test.png' | relative_url }}">Quadro inteiro em uma passada<span class="fc-dims">1184 × 880</span></a><p>O Qwen Image Edit no quadro inteiro, com o prompt Clara do slide 7. O resultado volta menor que a digitalização.</p></li>
+        <li><span class="fc-part-label">Quatro blocos da fonte<span class="fc-dims">1328 × 800 cada</span></span><span class="fc-part-set"><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_top_left_source_tile.png' | relative_url }}">superior esquerdo</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_top_right_source_tile.png' | relative_url }}">superior direito</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_bottom_left_source_tile.png' | relative_url }}">inferior esquerdo</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_bottom_right_source_tile.png' | relative_url }}">inferior direito</a></span><p>O mesmo quadro cortado em quatro blocos que se sobrepõem.</p></li>
+        <li><span class="fc-part-label">Cada bloco depois do modelo<span class="fc-dims">1328 × 800 cada</span></span><span class="fc-part-set"><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_top_left_raw_inference.png' | relative_url }}">superior esquerdo</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_top_right_raw_inference.png' | relative_url }}">superior direito</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_bottom_left_raw_inference.png' | relative_url }}">inferior esquerdo</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_bottom_right_raw_inference.png' | relative_url }}">inferior direito</a></span><p>Cada bloco passou pelo modelo separadamente, com o mesmo prompt.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_four_tile_raw_inference_hard_stitch.png' | relative_url }}">Quatro blocos unidos<span class="fc-dims">2048 × 1556</span></a><p>Os quatro resultados colados de volta em um único quadro, no tamanho da digitalização, sem mesclagem, por isso as emendas continuam visíveis.</p></li>
+      </ol>
     </figcaption>
   </figure>
 </section>
@@ -103,6 +106,15 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
         <div><strong>Limitações</strong><p>O método só é tão bom quanto a sua referência. Este DVD é em definição padrão e tem as suas próprias escolhas de correção de cor e de transferência. E muitos filmes já não têm nenhuma referência.</p></div>
       </div>
 {% include fiat-companion/files.html key="candy" desc="comparação 1920 × 1080 · 1 min 10 s · 24 fps" %}
+      <a class="fc-process" href="{{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }}"><img src="{{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }}" alt="Treinamento de Candy Candy: a fonte em 16mm mais o DVD PAL formam o alvo do treinamento, e o resultado do modelo nos passos 1, 1.000, 30.000 e 60.000" width="1920" height="886" loading="lazy" decoding="async"></a>
+      <p class="fc-file">Como foi feito · abra cada parte em tamanho real</p>
+      <ol class="fc-parts">
+        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}">Digitalização desbotada em 16mm<span class="fc-dims">3024 × 1890</span></a><p>Um quadro da cópia desbotada no DaVinci Resolve, antes de qualquer correção.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}">Digitalização equilibrada<span class="fc-dims">3024 × 1890</span></a><p>O mesmo quadro depois do DCTL Faded Balancer, que equilibra os canais de cor desbotados antes do treinamento.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/cropped/copycat-training-cropped.png' | relative_url }}">Configuração do treinamento no Nuke<span class="fc-dims">1230 × 1602</span></a><p>O grafo de treinamento do CopyCat. Os quadros da digitalização são a entrada. O alvo mantém o brilho da digitalização e usa a cor do DVD.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }}">Passos do treinamento<span class="fc-dims">1920 × 886</span></a><p>A fonte em 16mm mais o DVD PAL formam o alvo. Abaixo, o resultado do modelo depois de 1, 1.000, 30.000 e 60.000 passos de treinamento.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-chroma-recovery-finished.png' | relative_url }}">Quadro recuperado<span class="fc-dims">2742 × 2112</span></a><p>Um quadro do resultado em tamanho real.</p></li>
+      </ol>
       <details>
         <summary>Resultado em resolução total (4400 × 3300, cerca de 298 MB)</summary>
         <p>A digitalização com a cor recuperada, sozinha, no tamanho total da digitalização, 4400 × 3300. Sem som, 24 fps, HEVC. É um arquivo grande, então é melhor baixá-lo pelo Wi-Fi. O player do Drive pode transmitir uma versão menor; baixe o arquivo para ver a resolução total.</p>
@@ -126,13 +138,52 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
     <a href="{{ '/images_kebab/seapavaa2026/leader_lady_semantic_contamination_gar01_triptych.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/leader_lady_semantic_contamination_gar01_triptych.png' | relative_url }}" alt="Três quadros: a fonte desbotada, o resultado guiado por uma leader lady com a mulher misturada ao plano e o resultado guiado por uma carta de cores" width="1388" height="416" loading="lazy" decoding="async"></a>
     <p class="fc-bar">Slide 7 · A fonte desbotada, o resultado guiado por uma leader lady e o resultado guiado por uma carta de cores</p>
     <figcaption class="fc-body">
-      <p class="fc-file">Imagens em tamanho real</p>
-      <ul class="fc-links">
-        <li><a class="fc-full" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/01_raw_source.png' | relative_url }}">Fonte desbotada · 2048 × 1556</a></li>
-        <li><a class="fc-full" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/02_early_marcie_contamination.png' | relative_url }}">Leader lady · 1168 × 888</a></li>
-        <li><a class="fc-full" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/03_belak_chart_corrected.png' | relative_url }}">Carta de cores · 1184 × 880</a></li>
-      </ul>
-      <div class="fc-missing" style="margin-top: 0.8rem"><p>Os prompts finalistas da fileira de baixo do slide não estão incluídos nesta página.</p></div>
+      <p class="fc-file">Como foi feito · abra cada parte em tamanho real</p>
+      <ol class="fc-parts">
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/01_raw_source.png' | relative_url }}">Fonte desbotada<span class="fc-dims">2048 × 1556</span></a><p>O quadro desbotado.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/02_early_marcie_contamination.png' | relative_url }}">Guiado por uma leader lady<span class="fc-dims">1168 × 888</span></a><p>O modelo misturou ao plano a mulher da ponta de calibração.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/02_reference_chart.png' | relative_url }}">Carta de cores levemente desfocada<span class="fc-dims">333 × 238</span></a><p>O guia que substituiu a leader lady. Ela dá a cor e nada mais para copiar.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/03_belak_chart_corrected.png' | relative_url }}">Guiado pela carta de cores<span class="fc-dims">1184 × 880</span></a><p>Só a cor muda.</p></li>
+      </ol>
+      <div class="fc-missing" style="margin-top: 0.8rem"><p>A imagem da leader lady usada como guia não está incluída nesta página.</p></div>
+    </figcaption>
+  </figure>
+
+  <figure class="fc-media fc-still">
+    <div class="fc-grid4">
+      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/fanji_film_copy_000059.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/01_source.png' | relative_url }}" alt="Quadro fonte desbotado" width="1284" height="960" loading="lazy" decoding="async"><span>Fonte desbotada</span></a>
+      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/i2_frame_000000_test.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/02_iris_spectrum.png' | relative_url }}" alt="Resultado com o prompt Iris" width="1284" height="960" loading="lazy" decoding="async"><span>Iris</span></a>
+      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/c4_frame_000000_test.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/03_celeste_redguard.png' | relative_url }}" alt="Resultado com o prompt Celeste" width="1284" height="960" loading="lazy" decoding="async"><span>Celeste</span></a>
+      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/cl2_frame_000000_test.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/04_clara_anchor.png' | relative_url }}" alt="Resultado com o prompt Clara" width="1284" height="960" loading="lazy" decoding="async"><span>Clara, o vencedor</span></a>
+    </div>
+    <p class="fc-bar">Slide 7 · Fileira de baixo: os três prompts finalistas em um quadro desbotado de <em>Counter Attack</em> (1976)</p>
+    <figcaption class="fc-body">
+      <p>A fileira de baixo do slide: o mesmo quadro desbotado com cada um dos três finalistas.</p>
+      <p class="fc-file">Como foi feito · abra cada parte em tamanho real</p>
+      <ol class="fc-parts">
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/fanji_film_copy_000059.png' | relative_url }}">Fonte desbotada<span class="fc-dims">1920 × 1440</span></a></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/i2_frame_000000_test.png' | relative_url }}">Iris<span class="fc-dims">1184 × 880</span></a></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/c4_frame_000000_test.png' | relative_url }}">Celeste<span class="fc-dims">1184 × 880</span></a></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/cl2_frame_000000_test.png' | relative_url }}">Clara, o vencedor<span class="fc-dims">1184 × 880</span></a></li>
+      </ol>
+      <p class="fc-more">Os mesmos três prompts no plano da multidão do vídeo do slide 9: <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/fanji_film_copy_000007.png' | relative_url }}">Fonte desbotada</a> · <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/i2_frame_000000_test.png' | relative_url }}">Iris</a> · <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/c4_frame_000000_test.png' | relative_url }}">Celeste</a> · <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/cl2_frame_000000_test.png' | relative_url }}">Clara</a></p>
+    </figcaption>
+  </figure>
+
+  <figure class="fc-media fc-still">
+    <a href="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" alt="Quadro do jardim de Counter Attack: a fonte desbotada à esquerda e o quadro final à direita" width="1400" height="760" loading="lazy" decoding="async"></a>
+    <p class="fc-bar">Slide 7 · De um quadro desbotado a uma referência sintética, passo a passo (<em>Counter Attack</em>)</p>
+    <figcaption class="fc-body">
+      <p>O quadro desbotado está à esquerda, e o quadro final à direita.</p>
+      <p class="fc-file">Como foi feito · abra cada parte em tamanho real</p>
+      <ol class="fc-parts">
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/01_source_fanji_film_copy_000015-db56f6f7.png' | relative_url }}">Fonte desbotada<span class="fc-dims">1920 × 1440</span></a><p>Um quadro desbotado do filme.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/02_control_fanji_film_copy_r4_v1_03_garden_buil-dd5a1638.png' | relative_url }}">Mapa de bordas<span class="fc-dims">1920 × 1440</span></a><p>As bordas do quadro desbotado (um mapa Canny). Elas mantêm o modelo preso às formas do próprio quadro.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/03_reference_Belak_Color_Patch_Chart_softblur_32-9142a789.png' | relative_url }}">Carta de cores levemente desfocada<span class="fc-dims">333 × 238</span></a><p>O guia de cor.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/04_inference_frame_000000_test-7b87dbc0.png' | relative_url }}">Referência sintética<span class="fc-dims">1184 × 880</span></a><p>O que o Qwen Image Edit devolve. É uma imagem reduzida; só a cor dela é usada.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/05_final_composite_fanji_film_copy_r4_v1_03_garden_buil-1622230d.png' | relative_url }}">Quadro final<span class="fc-dims">1920 × 1440</span></a><p>A cor da referência sintética sobre o brilho da digitalização original, em tamanho real.</p></li>
+      </ol>
+      <p class="fc-more">A configuração do teste no ComfyUI, com a fonte, a carta, o mapa de bordas, o prompt, o modelo e o resultado em um único grafo. É do plano da multidão do vídeo do slide 9. <a href="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}">Captura de tela do ComfyUI</a> · <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}">Arquivo do fluxo de trabalho (JSON)</a></p>
     </figcaption>
   </figure>
 </section>

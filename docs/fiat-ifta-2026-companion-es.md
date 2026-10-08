@@ -204,6 +204,15 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
         <div><strong>Limitaciones</strong><p>Ejecuta el modelo en cada fotograma, y cada fotograma igual había que revisarlo, semilla tras semilla. Este plano de 11 segundos tomó casi cuatro horas. Está bien como prueba, pero no es algo que puedas usar en un largometraje.</p></div>
       </div>
 {% include fiat-companion/files.html key="slide09" desc="comparación 1920 × 1080 · 11 s · 30 fps" %}
+      <p class="fc-file">Cómo se hizo, según los registros de la investigación</p>
+      <ol class="fc-parts fc-steps">
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/01_source.png' | relative_url }}">Fuente desvanecida<span class="fc-dims">1920 × 1440</span></a><p>El plano de la copia de la película: 338 fotogramas, 1920 × 1440, a 30 fotogramas por segundo.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/04_output.png' | relative_url }}">Referencia aprobada<span class="fc-dims">1184 × 880</span></a><p>Un fotograma del plano, recuperado con Qwen Image Edit y aprobado antes de la ejecución completa.</p></li>
+        <li><span class="fc-part-label">TeleStyle en cada fotograma</span><p>Cada fotograma pasó por separado por Qwen Image Edit con el LoRA TeleStyle, con el fotograma desvanecido y la referencia aprobada como sus dos entradas, en 4 pasos. Se generaron los 338 fotogramas.</p></li>
+        <li><span class="fc-part-label">Solo el color</span><p>El color de TeleStyle, generado a 1184 × 880, se puso sobre el brillo intacto del escaneo a 1920 × 1440.</p></li>
+        <li><span class="fc-part-label">Tiempo</span><p>La ejecución completa tomó unos 13.560 segundos, casi cuatro horas: unos 32 segundos por fotograma una vez que la máquina estaba caliente.</p></li>
+        <li><span class="fc-part-label">Comparación</span><p>Después de la aprobación, los tres paneles se pusieron lado a lado: escaneo original, referencia aprobada y recuperación de croma, a 30 fotogramas por segundo.</p></li>
+      </ol>
     </figcaption>
   </figure>
 </section>
@@ -225,6 +234,17 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
         <div><strong>Limitaciones</strong><p>Si miras de cerca, hay algo de tinte en las sombras. Mi copia era de 30 fotogramas por segundo con una cadencia rota, así que sacar fotogramas limpios de ella fue difícil, y el adaptador necesita fotogramas bien alineados. Todavía estoy trabajando en esto.</p></div>
       </div>
 {% include fiat-companion/files.html key="slide11" desc="comparación 1920 × 840 · 13 s · 24 fps" %}
+      <p class="fc-file">Cómo se hizo, según los registros de la investigación</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Fuente y cadencia</span><p>385 fotogramas a 1920 × 1440 y 30 fotogramas por segundo. 77 eran casi duplicados por la cadencia rota, así que los 308 fotogramas distintos se mapearon a 24 fotogramas por segundo, fotograma por fotograma.</p></li>
+        <li><span class="fc-part-label">Paletas aprobadas</span><p>Dos referencias de color aprobadas: la paleta principal de exteriores y otra para un primer plano en interior.</p></li>
+        <li><span class="fc-part-label">Bordes</span><p>Un mapa de bordes (Canny) de cada fotograma, hecho a partir de la fuente después de un filtro de mediana leve y un ajuste de contraste local.</p></li>
+        <li><span class="fc-part-label">H3 con el ControlNet</span><p>H3 se ejecutó con el ControlNet en secciones de 124 fotogramas, a 768 × 576 y 24 fotogramas por segundo.</p></li>
+        <li><span class="fc-part-label">Maestros</span><p>Cada fotograma de H3 se registró con la fuente y solo se conservó si el brillo coincidía, con un máximo de 1,5 píxeles de diferencia en general. Después de una auditoría de contaminación, 278 fotogramas se aceptaron como maestros.</p></li>
+        <li><span class="fc-part-label">Adaptador</span><p>El adaptador Temporal CbCr aprendió de los maestros. La mejor época se eligió con fotogramas reservados para validación, y luego el adaptador se ajustó de nuevo con todos.</p></li>
+        <li><span class="fc-part-label">Final</span><p>El color se generó otra vez a 640 × 480, se escaló con guía y se puso sobre el brillo original a 1920 × 1440, en los 385 fotogramas. Aprobado el 30 de septiembre. El tinte que queda está en los pliegues en sombra de una chaqueta amarilla, en los primeros fotogramas.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
 </section>
@@ -246,6 +266,16 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
         <div><strong>Limitaciones</strong><p>El adaptador es tan bueno como sus maestros, y necesita fotogramas que coincidan bien. El color sigue siendo una interpretación, a menos que lo respalde una referencia que haya sobrevivido.</p></div>
       </div>
 {% include fiat-companion/files.html key="slide13" desc="comparación 1920 × 850 · 7 s · 24 fps" %}
+      <p class="fc-file">Cómo se hizo, según los registros de la investigación</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Fuente</span><p>164 fotogramas del tráiler, 2048 × 1556, a 24 fotogramas por segundo.</p></li>
+        <li><span class="fc-part-label">H3, probado primero</span><p>H3 se ejecutó primero en dos secciones que se superponen. Ninguno de sus fotogramas se alineó lo bastante bien con la fuente, así que no se usó ninguno.</p></li>
+        <li><span class="fc-part-label">Paleta</span><p>Un fotograma aprobado definió la paleta: un resultado de Qwen Image Edit puesto sobre el brillo de la fuente.</p></li>
+        <li><span class="fc-part-label">Maestros</span><p>TeleStyle hizo los maestros, y cada uno se revisó en alineación y paleta. Pasaron 101 fotogramas: 82, en tres tramos, usados para el entrenamiento, y un tramo aparte de 19 reservado para validación. 63 fotogramas quedaron sin maestro.</p></li>
+        <li><span class="fc-part-label">Entrenamiento</span><p>El adaptador tiene 931.274 parámetros. 60 épocas tomaron 88,5 segundos de entrenamiento en una RTX 5090. La mejor época fue la 56.</p></li>
+        <li><span class="fc-part-label">Resultado</span><p>El adaptador coloreó los 164 fotogramas, y su color se puso sobre el brillo intacto de la fuente.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
 </section>
@@ -267,6 +297,16 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       </div>
       <p>Algunas personas dirán que esto es una herejía, y en cierta medida lo es. Yo mismo no lo llamaría una restauración de película propiamente dicha. Pero con material como este, no veo otro camino, y quizá tengamos que abrir la mente a lo que puede ser la restauración.</p>
 {% include fiat-companion/files.html key="slide15" desc="comparación 1920 × 756 · 26 s · 24 fps" %}
+      <p class="fc-file">Cómo se hizo, según los registros de la investigación</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Fuentes</span><p>El escaneo de 16mm, contra el que se juzga el resultado, y el telecine, usado por su movimiento. El plano tiene 624 fotogramas a 24 fotogramas por segundo.</p></li>
+        <li><span class="fc-part-label">Híbrido</span><p>Para cada fotograma clave, el escaneo de 16mm se suavizó con un filtro de mediana y se redujo, para hacer una base suave del cuadro completo. El telecine, registrado y con el tono igualado, entró por dentro con un difuminado de 48 píxeles.</p></li>
+        <li><span class="fc-part-label">Referencias sintéticas</span><p>Se generaron siete imágenes con ChatGPT Images, cada una a partir de su propio híbrido. Cada una se revisó por desplazamiento dentro del cuadro, con un límite de 3 píxeles; las aceptadas midieron entre 0,66 y 1,23 píxeles.</p></li>
+        <li><span class="fc-part-label">H3 por secciones</span><p>H3, en modo de referencia, generó el plano en cuatro secciones a 768 × 432 (fotogramas 1 a 200, 201 a 340, 341 a 400 y 401 a 624), con tres imágenes de referencia cada una y el clip del telecine como entrada de movimiento. 20 pasos, semilla 0.</p></li>
+        <li><span class="fc-part-label">Una sección rehecha</span><p>La segunda sección se hizo de nuevo con referencias calibradas, porque la primera versión iba atrasada respecto al movimiento.</p></li>
+        <li><span class="fc-part-label">Unión de las secciones</span><p>Un puente de tono y un fundido de 12 fotogramas unieron las secciones. El salto de brillo en el primer fotograma se dejó como estaba.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
 </section>
@@ -298,6 +338,17 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
         <div><strong>Limitaciones</strong><p>Es una prueba de trabajo a 640 × 512, mostrada dentro de una comparación en HD. No es una restauración en HD nativo.</p></div>
       </div>
 {% include fiat-companion/files.html key="slide19" desc="comparación 1920 × 832 · 9 s · 24 fps · sin sonido" %}
+      <p class="fc-file">Cómo se hizo, según los registros de la investigación</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Dos elementos</span><p>La copia en nitrato y la copia de seguridad en diacetato de este plano: 226 fotogramas a 24 fotogramas por segundo, trabajados a 640 × 512.</p></li>
+        <li><span class="fc-part-label">Registro</span><p>La copia de seguridad se alineó con el nitrato por sus rasgos, con una sola transformación para el cuadro completo en cada par. 160 de los 162 pares superpuestos dieron coincidencias fuertes.</p></li>
+        <li><span class="fc-part-label">Tono</span><p>Una sola corrección de tono y color, ajustada sobre los 40 pares más limpios, igualó la copia de seguridad con el nitrato.</p></li>
+        <li><span class="fc-part-label">Fotograma por fotograma</span><p>155 fotogramas vienen del nitrato, 53 de la copia de seguridad, y 18 no tienen ninguna fuente sin daños, en cinco huecos cortos.</p></li>
+        <li><span class="fc-part-label">Generación</span><p>Wan VACE 14B generó cada hueco en una ventana de 33 fotogramas a 640 × 512, con un fotograma limpio del nitrato como referencia y las poses con seguimiento de los actores como control. 20 pasos, CFG 3,5, semilla 0.</p></li>
+        <li><span class="fc-part-label">Conservar el original</span><p>Todo lo que se mueve quedó original. Las pérdidas grandes y el fondo quieto dañado se reemplazaron, con un fundido de 24 píxeles. El 64,8% de los píxeles de los fotogramas de los huecos es original.</p></li>
+        <li><span class="fc-part-label">Aprobación</span><p>Esta versión se aprobó el 26 de septiembre. Los fotogramas fuera de los huecos son idénticos a la base preparada.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
 </section>
@@ -323,6 +374,16 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       <p>Una de mis pruebas de investigación. Después de ejecutar Dry Clean en Phoenix, un modelo pinta las máscaras de protección directamente en el proyecto. El rojo muestra lo que cambió Dry Clean.</p>
       <div class="fc-limits"><p><strong>Limitaciones.</strong> Todavía está en una etapa temprana. Esta es una grabación de pantalla del flujo de trabajo, no una restauración terminada.</p></div>
 {% include fiat-companion/files.html key="slide21" desc="grabación de pantalla 1920 × 1080 · 30 s · 24 fps · sin sonido" %}
+      <p class="fc-file">Cómo se hizo, según los registros de la investigación</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Fuente</span><p>Una copia de estudio del proyecto del tráiler de Point Blank en Phoenix: un plano de 52 fotogramas, 2048 × 1556, a 24 fotogramas por segundo.</p></li>
+        <li><span class="fc-part-label">Dos exportaciones</span><p>El plano se exportó dos veces desde Phoenix: una sin Dry Clean y otra con él.</p></li>
+        <li><span class="fc-part-label">Lo que cambió Dry Clean</span><p>La diferencia entre las dos exportaciones muestra lo que cambió Dry Clean. Los cambios mayores de 8 valores de código se agruparon en marcas separadas.</p></li>
+        <li><span class="fc-part-label">El modelo</span><p>Un pequeño clasificador de imágenes (ResNet18), entrenado con pinceladas de otra película, miró cada marca con los fotogramas anterior y siguiente y predijo si debía devolver ahí la imagen original.</p></li>
+        <li><span class="fc-part-label">En el proyecto</span><p>Sus decisiones se convirtieron en pinceladas de Matte Paint: 630 a lo largo de los 52 fotogramas, escritas en el proyecto de Phoenix y leídas de nuevo para comprobarlas.</p></li>
+        <li><span class="fc-part-label">Revisión</span><p>La grabación es Phoenix reproduciendo el resultado con Red Difference activado. En la revisión, también devolvió zonas de la pared donde no se perdió información importante, así que todavía no se aceptó.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
 </section>

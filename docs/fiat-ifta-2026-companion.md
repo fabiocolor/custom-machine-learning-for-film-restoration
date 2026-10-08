@@ -204,6 +204,15 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
         <div><strong>Limits</strong><p>It runs the model on every single frame, and each frame still had to be checked, seed after seed. This 11-second shot took almost four hours. Fine as a test, but not something you can use on a feature film.</p></div>
       </div>
 {% include fiat-companion/files.html key="slide09" desc="1920 × 1080 comparison · 11 s · 30 fps" %}
+      <p class="fc-file">How it was made, from the research records</p>
+      <ol class="fc-parts fc-steps">
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/01_source.png' | relative_url }}">Faded source<span class="fc-dims">1920 × 1440</span></a><p>The shot from the film copy: 338 frames, 1920 × 1440, at 30 frames per second.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/04_output.png' | relative_url }}">Approved reference<span class="fc-dims">1184 × 880</span></a><p>One frame of the shot, recovered with Qwen Image Edit and approved before the full run.</p></li>
+        <li><span class="fc-part-label">TeleStyle on every frame</span><p>Each frame went through Qwen Image Edit with the TeleStyle LoRA on its own, with the faded frame and the approved reference as its two inputs, in 4 steps. All 338 frames were generated.</p></li>
+        <li><span class="fc-part-label">Colour only</span><p>The TeleStyle colour, made at 1184 × 880, was put on top of the untouched 1920 × 1440 brightness of the scan.</p></li>
+        <li><span class="fc-part-label">Time</span><p>The whole run took about 13,560 seconds, close to four hours: around 32 seconds a frame once the machine was warm.</p></li>
+        <li><span class="fc-part-label">Comparison</span><p>After approval, the three panels were put side by side: original scan, approved reference and chroma recovery, at 30 frames per second.</p></li>
+      </ol>
     </figcaption>
   </figure>
 </section>
@@ -225,6 +234,17 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
         <div><strong>Limits</strong><p>Look closely and there's some tint in the shadows. My copy was 30 frames per second with a broken cadence, so getting clean frames out of it was hard, and the adapter needs properly aligned frames. I'm still working on this.</p></div>
       </div>
 {% include fiat-companion/files.html key="slide11" desc="1920 × 840 comparison · 13 s · 24 fps" %}
+      <p class="fc-file">How it was made, from the research records</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Source and cadence</span><p>385 frames at 1920 × 1440 and 30 frames per second. 77 of them were near-duplicates from the broken cadence, so the 308 distinct frames were mapped to 24 frames per second, frame by frame.</p></li>
+        <li><span class="fc-part-label">Approved palettes</span><p>Two approved colour references: the main outdoor palette, and one for an indoor close-up.</p></li>
+        <li><span class="fc-part-label">Edges</span><p>An edge map (Canny) of every frame, made from the source after a small median filter and a local contrast step.</p></li>
+        <li><span class="fc-part-label">H3 with the ControlNet</span><p>H3 ran with the ControlNet on 124-frame sections, at 768 × 576 and 24 frames per second.</p></li>
+        <li><span class="fc-part-label">Teachers</span><p>Each H3 frame was registered to the source and kept only if its brightness lined up, within 1.5 pixels overall. After an audit for contamination, 278 frames were admitted as teachers.</p></li>
+        <li><span class="fc-part-label">Adapter</span><p>The Temporal CbCr adapter learned from the teachers. The best epoch was chosen on held-out frames, then the adapter was fitted again on all of them.</p></li>
+        <li><span class="fc-part-label">Final</span><p>The colour was run again at 640 × 480, upscaled with guidance and put on the original brightness at 1920 × 1440, for all 385 frames. Approved on 30 September. The tint that remains is in the shadowed folds of a yellow jacket, in the first frames.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
 </section>
@@ -246,6 +266,16 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
         <div><strong>Limits</strong><p>The adapter is only as good as its teachers, and it needs frames that line up properly. The colour is still an interpretation unless a surviving reference supports it.</p></div>
       </div>
 {% include fiat-companion/files.html key="slide13" desc="1920 × 850 comparison · 7 s · 24 fps" %}
+      <p class="fc-file">How it was made, from the research records</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Source</span><p>164 frames of the trailer, 2048 × 1556, at 24 frames per second.</p></li>
+        <li><span class="fc-part-label">H3, tried first</span><p>H3 was run first on two overlapping sections. None of its frames lined up well enough with the source, so none were used.</p></li>
+        <li><span class="fc-part-label">Palette</span><p>One approved frame set the palette: a Qwen Image Edit result laid on the source brightness.</p></li>
+        <li><span class="fc-part-label">Teachers</span><p>TeleStyle made the teachers, each checked for alignment and palette. 101 frames passed: 82 in three runs used for training, and a separate run of 19 kept for validation. 63 frames had no teacher.</p></li>
+        <li><span class="fc-part-label">Training</span><p>The adapter has 931,274 parameters. 60 epochs took 88.5 seconds of training on one RTX 5090. The best epoch was 56.</p></li>
+        <li><span class="fc-part-label">Result</span><p>The adapter coloured all 164 frames, and its colour was laid on the untouched brightness of the source.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
 </section>
@@ -267,6 +297,16 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       </div>
       <p>Some people will call this heresy, and to a degree it is. I wouldn't call it proper film restoration myself. But with footage like this, I don't see another way, and we may need to open our minds to what restoration can be.</p>
 {% include fiat-companion/files.html key="slide15" desc="1920 × 756 comparison · 26 s · 24 fps" %}
+      <p class="fc-file">How it was made, from the research records</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Sources</span><p>The 16mm scan, which the result is judged against, and the telecine, used for its motion. The shot is 624 frames at 24 frames per second.</p></li>
+        <li><span class="fc-part-label">Hybrid</span><p>For each key frame, the 16mm scan was smoothed with a median filter and shrunk to make a soft base for the full frame. The telecine, registered and matched in tone, went inside it with a 48-pixel feather.</p></li>
+        <li><span class="fc-part-label">Synthetic references</span><p>Seven stills were generated with ChatGPT Images, each from its own hybrid. Each was checked for drift inside the frame against a 3-pixel limit; the accepted ones measured 0.66 to 1.23 pixels.</p></li>
+        <li><span class="fc-part-label">H3 in sections</span><p>H3 in reference mode generated the shot in four sections at 768 × 432 (frames 1 to 200, 201 to 340, 341 to 400 and 401 to 624), with three reference images each and the telecine clip as the motion input. 20 steps, seed 0.</p></li>
+        <li><span class="fc-part-label">One section redone</span><p>The second section was made again with calibrated references, because the first version lagged behind the motion.</p></li>
+        <li><span class="fc-part-label">Joining the sections</span><p>A tone bridge and a 12-frame dissolve joined the sections. The brightness jump on the first frame was left as it was.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
 </section>
@@ -298,6 +338,17 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
         <div><strong>Limits</strong><p>This is a working test at 640 × 512, shown inside an HD comparison. It isn't a native HD restoration.</p></div>
       </div>
 {% include fiat-companion/files.html key="slide19" desc="1920 × 832 comparison · 9 s · 24 fps · silent" %}
+      <p class="fc-file">How it was made, from the research records</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Two elements</span><p>The nitrate print and the diacetate safety copy of this shot: 226 frames at 24 frames per second, worked at 640 × 512.</p></li>
+        <li><span class="fc-part-label">Registration</span><p>The safety copy was aligned to the nitrate by matching features, with one transform for the whole frame in each pair. 160 of the 162 overlapping pairs gave strong matches.</p></li>
+        <li><span class="fc-part-label">Tone</span><p>One tone and colour correction, fitted on the 40 cleanest pairs, made the safety copy match the nitrate.</p></li>
+        <li><span class="fc-part-label">Frame by frame</span><p>155 frames come from the nitrate, 53 from the safety copy, and 18 have no undamaged source, in five short gaps.</p></li>
+        <li><span class="fc-part-label">Generation</span><p>Wan VACE 14B generated each gap in a 33-frame window at 640 × 512, with one clean nitrate frame as its reference and the actors' tracked poses as control. 20 steps, CFG 3.5, seed 0.</p></li>
+        <li><span class="fc-part-label">Keeping the original</span><p>Everything that moves stayed original. Gross losses and damaged still background were replaced, and blended in over 24 pixels. 64.8% of the pixels in the gap frames are original.</p></li>
+        <li><span class="fc-part-label">Approval</span><p>This version was approved on 26 September. Frames outside the gaps are identical to the prepared plate.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
 </section>
@@ -323,6 +374,16 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       <p>One of my research tests. After Dry Clean runs in Phoenix, a model paints the protection masks directly in the project. The red shows what Dry Clean changed.</p>
       <div class="fc-limits"><p><strong>Limits.</strong> It's still at an early stage. This is a screen recording of the workflow, not a finished restoration.</p></div>
 {% include fiat-companion/files.html key="slide21" desc="1920 × 1080 screen recording · 30 s · 24 fps · silent" %}
+      <p class="fc-file">How it was made, from the research records</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Source</span><p>A teaching copy of the Point Blank trailer project in Phoenix: a 52-frame shot, 2048 × 1556, at 24 frames per second.</p></li>
+        <li><span class="fc-part-label">Two renders</span><p>The shot was exported twice from Phoenix: once without Dry Clean and once with it.</p></li>
+        <li><span class="fc-part-label">What Dry Clean changed</span><p>The difference between the two renders shows what Dry Clean changed. Changes larger than 8 code values were grouped into separate marks.</p></li>
+        <li><span class="fc-part-label">The model</span><p>A small image classifier (ResNet18), trained on brush strokes from another film, looked at each mark with the frames before and after it and predicted whether to bring the original picture back there.</p></li>
+        <li><span class="fc-part-label">Into the project</span><p>Its choices became Matte Paint brush strokes: 630 over the 52 frames, written into the Phoenix project and read back to check them.</p></li>
+        <li><span class="fc-part-label">Review</span><p>The recording is Phoenix playing the result with Red Difference on. In review, it also brought back wall areas where no meaningful information was lost, so it isn't accepted yet.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
 </section>

@@ -204,6 +204,15 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
         <div><strong>Limitações</strong><p>Ele roda o modelo em cada quadro, um por um, e cada quadro ainda precisou ser conferido, seed após seed. Este plano de 11 segundos levou quase quatro horas. Serve como teste, mas não é algo que dê para usar em um longa-metragem.</p></div>
       </div>
 {% include fiat-companion/files.html key="slide09" desc="comparação 1920 × 1080 · 11 s · 30 fps" %}
+      <p class="fc-file">Como foi feito, segundo os registros da pesquisa</p>
+      <ol class="fc-parts fc-steps">
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/01_source.png' | relative_url }}">Fonte desbotada<span class="fc-dims">1920 × 1440</span></a><p>O plano da cópia do filme: 338 quadros, 1920 × 1440, a 30 quadros por segundo.</p></li>
+        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/04_output.png' | relative_url }}">Referência aprovada<span class="fc-dims">1184 × 880</span></a><p>Um quadro do plano, recuperado com o Qwen Image Edit e aprovado antes da execução completa.</p></li>
+        <li><span class="fc-part-label">TeleStyle em cada quadro</span><p>Cada quadro passou separadamente pelo Qwen Image Edit com o LoRA TeleStyle, tendo como entradas o quadro desbotado e a referência aprovada, em 4 passos. Os 338 quadros foram gerados.</p></li>
+        <li><span class="fc-part-label">Só a cor</span><p>A cor do TeleStyle, gerada em 1184 × 880, foi colocada sobre o brilho intacto da digitalização em 1920 × 1440.</p></li>
+        <li><span class="fc-part-label">Tempo</span><p>A execução completa levou cerca de 13.560 segundos, quase quatro horas: uns 32 segundos por quadro depois que a máquina já estava aquecida.</p></li>
+        <li><span class="fc-part-label">Comparação</span><p>Depois da aprovação, os três painéis foram colocados lado a lado: digitalização original, referência aprovada e recuperação de croma, a 30 quadros por segundo.</p></li>
+      </ol>
     </figcaption>
   </figure>
 </section>
@@ -225,6 +234,17 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
         <div><strong>Limitações</strong><p>Olhando de perto, há um pouco de dominante de cor nas sombras. A minha cópia estava a 30 quadros por segundo com a cadência quebrada, então foi difícil extrair quadros limpos dela, e o adaptador precisa de quadros bem alinhados. Ainda estou trabalhando nisso.</p></div>
       </div>
 {% include fiat-companion/files.html key="slide11" desc="comparação 1920 × 840 · 13 s · 24 fps" %}
+      <p class="fc-file">Como foi feito, segundo os registros da pesquisa</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Fonte e cadência</span><p>385 quadros em 1920 × 1440, a 30 quadros por segundo. 77 deles eram quase duplicados por causa da cadência quebrada, então os 308 quadros distintos foram mapeados para 24 quadros por segundo, quadro a quadro.</p></li>
+        <li><span class="fc-part-label">Paletas aprovadas</span><p>Duas referências de cor aprovadas: a paleta principal de exteriores e uma para um close interno.</p></li>
+        <li><span class="fc-part-label">Bordas</span><p>Um mapa de bordas (Canny) de cada quadro, feito a partir da fonte depois de um filtro de mediana leve e de um ajuste de contraste local.</p></li>
+        <li><span class="fc-part-label">H3 com o ControlNet</span><p>O H3 rodou com o ControlNet em trechos de 124 quadros, em 768 × 576 e a 24 quadros por segundo.</p></li>
+        <li><span class="fc-part-label">Professores</span><p>Cada quadro do H3 foi registrado com a fonte e só foi mantido se o brilho coincidisse, com no máximo 1,5 pixel de diferença no geral. Depois de uma auditoria de contaminação, 278 quadros foram aceitos como professores.</p></li>
+        <li><span class="fc-part-label">Adaptador</span><p>O adaptador Temporal CbCr aprendeu com os professores. A melhor época foi escolhida com quadros separados para validação, e depois o adaptador foi ajustado de novo com todos eles.</p></li>
+        <li><span class="fc-part-label">Final</span><p>A cor foi gerada de novo em 640 × 480, ampliada com guia e colocada sobre o brilho original em 1920 × 1440, nos 385 quadros. Aprovado em 30 de setembro. A dominante que resta está nas dobras sombreadas de uma jaqueta amarela, nos primeiros quadros.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
     </figcaption>
   </figure>
 </section>
@@ -246,6 +266,16 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
         <div><strong>Limitações</strong><p>O adaptador só é tão bom quanto os seus professores, e precisa de quadros bem alinhados. A cor continua sendo uma interpretação, a menos que uma referência sobrevivente a confirme.</p></div>
       </div>
 {% include fiat-companion/files.html key="slide13" desc="comparação 1920 × 850 · 7 s · 24 fps" %}
+      <p class="fc-file">Como foi feito, segundo os registros da pesquisa</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Fonte</span><p>164 quadros do trailer, 2048 × 1556, a 24 quadros por segundo.</p></li>
+        <li><span class="fc-part-label">H3, testado primeiro</span><p>O H3 rodou primeiro em dois trechos que se sobrepõem. Nenhum dos seus quadros se alinhou bem o bastante com a fonte, então nenhum foi usado.</p></li>
+        <li><span class="fc-part-label">Paleta</span><p>Um quadro aprovado definiu a paleta: um resultado do Qwen Image Edit colocado sobre o brilho da fonte.</p></li>
+        <li><span class="fc-part-label">Professores</span><p>O TeleStyle fez os professores, e cada um foi conferido quanto ao alinhamento e à paleta. 101 quadros passaram: 82, em três trechos, usados no treinamento, e um trecho separado de 19 guardado para validação. 63 quadros ficaram sem professor.</p></li>
+        <li><span class="fc-part-label">Treinamento</span><p>O adaptador tem 931.274 parâmetros. 60 épocas levaram 88,5 segundos de treinamento em uma RTX 5090. A melhor época foi a 56.</p></li>
+        <li><span class="fc-part-label">Resultado</span><p>O adaptador coloriu os 164 quadros, e a cor dele foi colocada sobre o brilho intacto da fonte.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
     </figcaption>
   </figure>
 </section>
@@ -267,6 +297,16 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       </div>
       <p>Algumas pessoas vão chamar isso de heresia, e até certo ponto é. Eu mesmo não chamaria isso de restauração de filme propriamente dita. Mas, com um material como este, não vejo outro caminho, e talvez precisemos abrir a cabeça para o que a restauração pode ser.</p>
 {% include fiat-companion/files.html key="slide15" desc="comparação 1920 × 756 · 26 s · 24 fps" %}
+      <p class="fc-file">Como foi feito, segundo os registros da pesquisa</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Fontes</span><p>A digitalização em 16mm, que é a base de comparação do resultado, e a telecinagem, usada pelo movimento. O plano tem 624 quadros a 24 quadros por segundo.</p></li>
+        <li><span class="fc-part-label">Híbrido</span><p>Para cada quadro-chave, a digitalização em 16mm foi suavizada com um filtro de mediana e reduzida, para formar uma base suave para o quadro inteiro. A telecinagem, registrada e com o tom igualado, entrou por dentro com uma transição de 48 pixels.</p></li>
+        <li><span class="fc-part-label">Referências sintéticas</span><p>Sete imagens foram geradas com o ChatGPT Images, cada uma a partir do seu próprio híbrido. Cada uma foi conferida quanto ao deslocamento dentro do quadro, com um limite de 3 pixels; as aceitas mediram de 0,66 a 1,23 pixel.</p></li>
+        <li><span class="fc-part-label">H3 em trechos</span><p>O H3, no modo de referência, gerou o plano em quatro trechos em 768 × 432 (quadros 1 a 200, 201 a 340, 341 a 400 e 401 a 624), com três imagens de referência cada um e o trecho da telecinagem como entrada de movimento. 20 passos, seed 0.</p></li>
+        <li><span class="fc-part-label">Um trecho refeito</span><p>O segundo trecho foi feito de novo com referências calibradas, porque a primeira versão ficava atrás do movimento.</p></li>
+        <li><span class="fc-part-label">União dos trechos</span><p>Uma ponte de tom e uma fusão de 12 quadros uniram os trechos. O salto de brilho no primeiro quadro ficou como estava.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
     </figcaption>
   </figure>
 </section>
@@ -298,6 +338,17 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
         <div><strong>Limitações</strong><p>Este é um teste de trabalho em 640 × 512, mostrado dentro de uma comparação em HD. Não é uma restauração nativa em HD.</p></div>
       </div>
 {% include fiat-companion/files.html key="slide19" desc="comparação 1920 × 832 · 9 s · 24 fps · sem som" %}
+      <p class="fc-file">Como foi feito, segundo os registros da pesquisa</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Dois elementos</span><p>A cópia em nitrato e a cópia de segurança em diacetato deste plano: 226 quadros a 24 quadros por segundo, trabalhados em 640 × 512.</p></li>
+        <li><span class="fc-part-label">Registro</span><p>A cópia de segurança foi alinhada ao nitrato pelas suas características, com uma única transformação para o quadro inteiro em cada par. 160 dos 162 pares sobrepostos deram correspondências fortes.</p></li>
+        <li><span class="fc-part-label">Tom</span><p>Uma única correção de tom e cor, ajustada nos 40 pares mais limpos, igualou a cópia de segurança ao nitrato.</p></li>
+        <li><span class="fc-part-label">Quadro a quadro</span><p>155 quadros vêm do nitrato, 53 da cópia de segurança, e 18 não têm nenhuma fonte sem danos, em cinco lacunas curtas.</p></li>
+        <li><span class="fc-part-label">Geração</span><p>O Wan VACE 14B gerou cada lacuna em uma janela de 33 quadros em 640 × 512, com um quadro limpo do nitrato como referência e as poses rastreadas dos atores como controle. 20 passos, CFG 3,5, seed 0.</p></li>
+        <li><span class="fc-part-label">Preservar o original</span><p>Tudo o que se move continuou original. As perdas grandes e o fundo parado danificado foram substituídos, com uma mesclagem de 24 pixels. 64,8% dos pixels dos quadros das lacunas são originais.</p></li>
+        <li><span class="fc-part-label">Aprovação</span><p>Esta versão foi aprovada em 26 de setembro. Os quadros fora das lacunas são idênticos à base preparada.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
     </figcaption>
   </figure>
 </section>
@@ -323,6 +374,16 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       <p>Um dos meus testes de pesquisa. Depois que o Dry Clean roda no Phoenix, um modelo pinta as máscaras de proteção diretamente no projeto. O vermelho mostra o que o Dry Clean alterou.</p>
       <div class="fc-limits"><p><strong>Limitações.</strong> Ainda está em um estágio inicial. Esta é uma gravação de tela do fluxo de trabalho, não uma restauração finalizada.</p></div>
 {% include fiat-companion/files.html key="slide21" desc="gravação de tela 1920 × 1080 · 30 s · 24 fps · sem som" %}
+      <p class="fc-file">Como foi feito, segundo os registros da pesquisa</p>
+      <ol class="fc-parts fc-steps">
+        <li><span class="fc-part-label">Fonte</span><p>Uma cópia de estudo do projeto do trailer de Point Blank no Phoenix: um plano de 52 quadros, 2048 × 1556, a 24 quadros por segundo.</p></li>
+        <li><span class="fc-part-label">Duas exportações</span><p>O plano foi exportado duas vezes do Phoenix: uma sem o Dry Clean e outra com ele.</p></li>
+        <li><span class="fc-part-label">O que o Dry Clean mudou</span><p>A diferença entre as duas exportações mostra o que o Dry Clean mudou. As mudanças maiores que 8 valores de código foram agrupadas em marcas separadas.</p></li>
+        <li><span class="fc-part-label">O modelo</span><p>Um pequeno classificador de imagem (ResNet18), treinado com pinceladas de outro filme, examinou cada marca com os quadros anterior e seguinte e previu se devia trazer de volta a imagem original naquele ponto.</p></li>
+        <li><span class="fc-part-label">No projeto</span><p>As escolhas viraram pinceladas do Matte Paint: 630 ao longo dos 52 quadros, gravadas no projeto do Phoenix e lidas de volta para conferência.</p></li>
+        <li><span class="fc-part-label">Revisão</span><p>A gravação é o Phoenix reproduzindo o resultado com o Red Difference ligado. Na revisão, ele também trouxe de volta áreas da parede onde não se perdeu nenhuma informação importante, então ainda não foi aceito.</p></li>
+      </ol>
+      <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
     </figcaption>
   </figure>
 </section>

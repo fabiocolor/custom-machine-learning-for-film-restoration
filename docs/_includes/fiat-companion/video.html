@@ -1,0 +1,9 @@
+{%- comment -%} Video card player. Shows the Drive thumbnail with a play button; the script swaps in a native player for the original file. Without JavaScript the button opens the file on Google Drive. {%- endcomment -%}
+{%- assign v = site.data.fiat_companion.videos[include.key] -%}
+{%- assign t = site.data.fiat_companion.ui[page.fc_lang] -%}
+    <div class="fc-player" style="aspect-ratio: {{ v.width }} / {{ v.height }}" data-key="{{ include.key }}">
+      <a class="fc-play" href="https://drive.google.com/file/d/{{ v.drive }}/view" data-drive="{{ v.drive }}" data-title="{{ include.title }}" aria-label="{{ include.label }}">
+        <img src="https://drive.google.com/thumbnail?id={{ v.drive }}&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id={{ v.drive }}&amp;sz=w640 640w, https://drive.google.com/thumbnail?id={{ v.drive }}&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="{{ 1280 | times: v.height | divided_by: v.width }}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
+        <span class="fc-play-label">{{ t.play }} · {{ v.duration }}</span>
+      </a>
+    </div>

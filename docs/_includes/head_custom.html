@@ -1,0 +1,7 @@
+{%- if page.fc_lang -%}
+{%- assign fcp = site.data.fiat_companion.pages -%}
+<link rel="alternate" hreflang="en" href="https://fabiocolor.github.io{{ fcp['en'] | relative_url }}">
+<link rel="alternate" hreflang="pt-BR" href="https://fabiocolor.github.io{{ fcp['pt-br'] | relative_url }}">
+<link rel="alternate" hreflang="es" href="https://fabiocolor.github.io{{ fcp['es'] | relative_url }}">
+<link rel="alternate" hreflang="x-default" href="https://fabiocolor.github.io{{ fcp['en'] | relative_url }}">
+{%- endif -%}

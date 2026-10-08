@@ -61,6 +61,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <p>A maioria das ferramentas de restauração usa filtros espaciais e temporais. Elas pegam imagem emprestada do mesmo quadro, ou dos quadros ao redor, e quando não há nada limpo para copiar, elas interpolam. O slide mostra o Dry Clean no Phoenix em <em>Point Blank</em> (1967); as marcas vermelhas são o que ele detectou e removeu.</p>
   <p>Essas ferramentas conseguem esconder poeira, riscos e cintilação, e preencher dois ou três quadros faltantes. Mas não conseguem trazer de volta o que se perdeu. Sendo honestos, a restauração digital sempre foi sobre mascarar, não sobre recuperar.</p>
   <p>Por isso, a IA na restauração não é algo completamente novo. O que ela nos dá é uma forma de enfrentar problemas que antes não eram viáveis, técnica ou financeiramente, trabalhando com a digitalização do jeito que ela está. Em muitos arquivos, principalmente na América Latina e no Sudeste Asiático, essa digitalização desbotada é tudo o que resta de um filme.</p>
+{% include fiat-companion/evidence.html key="slide03" %}
 </section>
 
 <section class="fc-section" id="the-limits">
@@ -87,6 +88,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       </ol>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide04" %}
 </section>
 
 <section class="fc-section" id="reference-recovery">
@@ -122,6 +124,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       </details>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide05" %}
 </section>
 
 <section class="fc-section" id="synthetic-reference">
@@ -186,6 +189,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       <p class="fc-more">A configuração do teste no ComfyUI, com a fonte, a carta, o mapa de bordas, o prompt, o modelo e o resultado em um único grafo. É do plano da multidão do vídeo do slide 9. <a href="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}">Captura de tela do ComfyUI</a> · <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}">Arquivo do fluxo de trabalho (JSON)</a></p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide07" %}
 </section>
 
 <section class="fc-section" id="telestyle">
@@ -193,6 +197,8 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <h2 id="telestyle-section-title">Mantendo a cor estável ao longo de um plano</h2>
   <p>Conseguir um quadro convincente já não é a parte difícil. Se você simplesmente rodar o modelo 24 vezes por segundo, não funciona, porque esses modelos não são determinísticos: cada execução é um pouco uma roleta. Cada quadro recebe uma interpretação ligeiramente diferente, e a cor cintila.</p>
   <p>O slide 8 mostra uma cena de dança de <em>Obsession</em> em que cada quadro foi recuperado separadamente. Observe o vestido da mulher à direita e o fundo. Cada quadro, sozinho, é uma interpretação razoável, mas juntos eles não combinam. Um bom quadro é uma miniatura. Uma restauração precisa que o plano inteiro seja coerente consigo mesmo. Isso é consistência temporal, e foi o maior obstáculo.</p>
+
+{% include fiat-companion/evidence.html key="slide08" %}
 
   <figure class="fc-media">
 {% include fiat-companion/video.html key="slide09" title="Counter Attack: uma referência para o plano inteiro (TeleStyle)" label="Assistir ao vídeo: Counter Attack, uma referência para o plano inteiro (11 segundos)" %}
@@ -215,6 +221,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       </ol>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide09" %}
 </section>
 
 <section class="fc-section" id="h3-controlnet">
@@ -247,6 +254,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide11" %}
 </section>
 
 <section class="fc-section" id="temporal-cbcr">
@@ -278,6 +286,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide13" %}
 </section>
 
 <section class="fc-section" id="diffusion-upscaling">
@@ -309,6 +318,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide15" %}
 </section>
 
 <section class="fc-section" id="diffusion-reconstruction">
@@ -351,6 +361,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide19" %}
 </section>
 
 <section class="fc-section" id="dialogue-recovery">
@@ -386,6 +397,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide21" %}
 </section>
 
 <section class="fc-section" id="limits-now">

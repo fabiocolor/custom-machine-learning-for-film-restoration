@@ -142,6 +142,19 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
 .fc-grid4 img { display: block; width: 100%; height: auto; margin: 0; }
 .fc-grid4 span { position: absolute; left: 0; bottom: 0; padding: 0.15rem 0.45rem; color: #fff; background: rgba(0,0,0,0.72); font-size: 14px; font-weight: 700; }
 
+/* Full evidence per example, and the full-size viewer */
+.fc details.fc-evidence { margin: 0.8rem 0 0; padding: 0.2rem 0.8rem 0.4rem; background: #f4f6fa; border: 0; border-left: 4px solid var(--cyan); }
+.fc details.fc-evidence > summary { min-height: 48px; color: var(--navy); font-size: 17px; }
+.fc-viewer { position: fixed; inset: 0; z-index: 1000; display: flex; flex-direction: column; background: #0a0c12; }
+.fc-viewer[hidden] { display: none; }
+.fc-viewer-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.6rem; padding: 0.5rem 0.7rem; color: #fff; background: #1d3676; }
+.fc-viewer-title { flex: 1 1 12rem; font-weight: 700; font-size: 15px; }
+.fc-viewer-bar button, .fc-viewer-bar a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 0.8rem; color: #fff; background: transparent; border: 2px solid #fff; font: inherit; font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; }
+.fc-viewer-stage { flex: 1 1 auto; overflow: auto; -webkit-overflow-scrolling: touch; display: flex; }
+.fc-viewer-stage img, .fc-viewer-stage video { display: block; margin: auto; max-width: 100%; max-height: 100%; object-fit: contain; background: #000; }
+.fc-viewer.fc-actual .fc-viewer-stage img, .fc-viewer.fc-actual .fc-viewer-stage video { max-width: none; max-height: none; margin: 0; }
+html.fc-noscroll { overflow: hidden; }
+
 @media (max-width: 600px) {
   .fc-hero { padding-left: 1rem; border-left-width: 5px; }
   .fc-verdict { grid-template-columns: 1fr; }

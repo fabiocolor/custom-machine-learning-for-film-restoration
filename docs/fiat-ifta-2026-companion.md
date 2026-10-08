@@ -3,163 +3,449 @@ layout: default
 title: FIAT/IFTA 2026 Companion
 nav_order: 2
 permalink: /fiat-ifta-2026-companion/
-description: Video examples and practical workflow notes from Fabio Bedoya's FIAT/IFTA 2026 presentation on the limits of AI in film restoration.
+description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 talk, The Current Limits of AI in Film Restoration and How They May Be Surpassed.
 ---
 
 <style>
-.fiat-companion h1 { max-width: 30ch; font-size: clamp(2rem, 4.5vw, 3.3rem); }
-.fiat-companion .fiat-byline { margin: 0.8rem 0 1.1rem; color: #56625c; }
-.fiat-companion .fiat-links, .fiat-companion .fiat-jump { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 1.5rem; }
-.fiat-companion .fiat-links a, .fiat-companion .fiat-jump a { display: inline-flex; align-items: center; min-height: 44px; padding: 0.5rem 0.85rem; border: 1px solid #a9a395; border-radius: 2px; text-decoration: none; font-size: 1rem; }
-.fiat-companion .fiat-links a:first-child { color: #fff; background: #244136; border-color: #244136; }
-.fiat-companion .fiat-links a:focus-visible, .fiat-companion .fiat-jump a:focus-visible, .fiat-companion summary:focus-visible { outline: 3px solid #a47a3c; outline-offset: 3px; }
-.fiat-companion .fiat-note { padding: 1rem 1.15rem; border-left: 3px solid #a47a3c; background: #eae5d9; }
-.fiat-companion section { scroll-margin-top: 1rem; margin: 2.5rem 0; }
-.fiat-companion section h2 { margin-top: 0; }
-.fiat-companion .fiat-card { margin: 1.4rem 0; padding: 1.1rem; background: #fbf9f3; border: 1px solid #d6d0c2; border-top: 3px solid #356c60; }
-.fiat-companion .fiat-card h3 { margin: 0.15rem 0 0.5rem; }
-.fiat-companion .fiat-meta { color: #56625c; font-size: 0.95rem; margin: 0 0 0.55rem; }
-.fiat-companion video { display: block; width: 100%; height: auto; max-height: 70vh; background: #0c100e; margin: 1rem 0; }
-.fiat-companion iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; background: #0c100e; margin: 1rem 0; }
-.fiat-companion .fiat-caption { color: #56625c; font-size: 0.95rem; line-height: 1.5; }
-.fiat-companion .fiat-file { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; overflow-wrap: anywhere; }
-.fiat-companion details { margin: 1rem 0 0; padding-top: 0.8rem; border-top: 1px solid #d6d0c2; }
-.fiat-companion summary { min-height: 44px; cursor: pointer; font-weight: 600; }
-.fiat-companion p:last-child { margin-bottom: 0; }
-@media (max-width: 480px) { .fiat-companion .fiat-card { padding: 0.8rem; } .fiat-companion .fiat-links a { width: 100%; } }
+/* Page-scoped styling that follows the FIAT/IFTA 2026 slides:
+   white pages, cyan accent bars, FIAT/IFTA blue panels, plain sans-serif type. */
+body, .main-content-wrap, .main-header { background: #fff !important; }
+body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif; }
+.side-bar, .site-header, .search { background: #1d3676 !important; }
+.side-bar { border-right: 0 !important; }
+.main-header { border-bottom: 1px solid #dde3ee !important; }
+.site-title { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif !important; font-weight: 700; }
+.site-nav .nav-list-item .nav-list-link { color: #e6ebf5; }
+.site-nav .nav-list-item .nav-list-link.active { background: rgba(255,255,255,0.12); box-shadow: inset 4px 0 0 #0f9ed5; }
+.site-nav .nav-list-item .nav-list-expander { color: #c8d2e6; }
+.search-input { color: #1a1a1a !important; background: #f3f6fb !important; border: 1px solid #c3cde0 !important; }
+.search-input::placeholder { color: #5a6478; }
+.aux-nav a { color: #2b3f8c !important; }
+.site-title:hover, .site-button:hover, .nav-list .nav-list-item .nav-list-link:hover, .nav-list .nav-list-item .nav-list-link.active, .nav-list .nav-list-item .nav-list-expander:hover { background-image: none !important; }
+.site-title:hover, .site-button:hover { background-color: rgba(255,255,255,0.08) !important; }
+
+.fc { --cyan: #0f9ed5; --navy: #2b3f8c; --navy-dark: #1d3676; --ink: #1a1a1a; --soft: #474747; --line: #dde3ee; color: var(--ink); font-size: 17px; line-height: 1.6; }
+.main-content .fc p, .main-content .fc li { font-size: 17px; }
+.main-content .fc h1, .main-content .fc h2, .main-content .fc h3 { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-serif; color: #000; font-weight: 700; letter-spacing: 0; }
+.main-content .fc p, .main-content .fc li { color: var(--ink); }
+.main-content .fc a { color: var(--navy); text-decoration-color: rgba(43,63,140,0.45); }
+.main-content .fc a:hover { color: var(--navy-dark); }
+.fc a:focus-visible, .fc button:focus-visible, .fc summary:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+
+/* Title block, after slide 1 */
+.fc-hero { position: relative; margin: 0 0 2.5rem; padding: 0 0 0 1.4rem; border-left: 6px solid var(--cyan); }
+.main-content .fc .fc-kicker { margin: 0 0 0.8rem; color: var(--navy); font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.main-content .fc h1 { max-width: 24ch; margin: 0 0 1rem; font-size: clamp(1.9rem, 5.2vw, 3rem); line-height: 1.12; }
+.fc-byline { margin: 0 0 1.4rem; font-size: 19px; }
+.fc-byline span { display: block; color: var(--soft); font-size: 16px; }
+.main-content .fc .fc-panel { display: inline-block; margin: 0 0 1.4rem; padding: 0.75rem 1.1rem; color: #fff; background: var(--navy); font-weight: 700; line-height: 1.35; }
+.main-content .fc .fc-panel span { display: block; color: #fff; font-weight: 400; font-size: 15px; }
+.fc-buttons { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0 0 1.5rem; }
+.main-content .fc .fc-btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0.55rem 1rem; color: var(--navy); background: #fff; border: 2px solid var(--navy); font-weight: 700; text-decoration: none; }
+.main-content .fc .fc-btn-primary { color: #fff; background: var(--navy); }
+.main-content .fc .fc-btn:hover { color: #fff; background: var(--navy-dark); border-color: var(--navy-dark); }
+.fc-tip { margin: 0 0 2rem; padding: 0.9rem 1.1rem; background: #eef6fb; border-left: 4px solid var(--cyan); font-size: 16px; }
+
+/* Contents: slide numbers so people in the room can follow along */
+.fc-toc { margin: 0 0 3rem; padding: 1.1rem 1.2rem 0.6rem; border: 1px solid var(--line); border-top: 4px solid var(--cyan); }
+.main-content .fc .fc-toc h2 { margin: 0 0 0.6rem; padding: 0; border: 0; font-size: 20px; }
+.fc-toc ol { margin: 0; padding: 0; list-style: none; columns: 2 18rem; column-gap: 2rem; }
+.fc-toc li { break-inside: avoid; margin: 0; }
+.fc-toc ol > li::before { content: none !important; display: none !important; }
+.main-content .fc .fc-toc a { display: flex; gap: 0.6rem; min-height: 44px; align-items: center; text-decoration: none; }
+.fc-toc .fc-n { flex: 0 0 3.2rem; color: var(--soft); font-size: 15px; font-variant-numeric: tabular-nums; }
+.fc-toc .fc-v { margin-left: auto; padding: 0.05rem 0.4rem; color: #fff; background: var(--navy); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Sections, after the slide titles: double cyan bar, bold title, cyan rule */
+.fc-section { margin: 0 0 3.5rem; scroll-margin-top: 1rem; }
+.main-content .fc .fc-slide { margin: 0 0 0.4rem; color: var(--navy); font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.main-content .fc .fc-section > h2 { position: relative; margin: 0 0 1.2rem; padding: 0 0 0.7rem 1.6rem; border-bottom: 0; font-size: clamp(1.5rem, 3.6vw, 2rem); line-height: 1.2; }
+.main-content .fc .fc-section > h2::before { content: ""; position: absolute; left: 0; top: 0.1em; width: 0.45rem; height: 1.1em; background: var(--cyan); box-shadow: 0.7rem 0 0 var(--cyan); transform: scaleX(0.6); transform-origin: left; }
+.main-content .fc .fc-section > h2::after { content: ""; position: absolute; left: 1.6rem; bottom: 0; width: min(18rem, 60%); height: 3px; background: var(--cyan); }
+.main-content .fc h3 { margin: 0 0 0.5rem; font-size: 21px; line-height: 1.25; }
+.fc-film { color: var(--soft); font-size: 15px; }
+
+/* Media card, after the white cards with a cyan block behind them */
+.fc-media { position: relative; z-index: 0; margin: 1.6rem 10px 1.6rem 0; padding: 1rem; background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.14); }
+.fc-media::before { content: ""; position: absolute; z-index: -1; top: -10px; right: -10px; width: 30%; height: 45%; background: var(--cyan); }
+.fc-player { position: relative; width: 100%; background: #111; overflow: hidden; }
+.fc-player iframe { display: block; width: 100%; height: 100%; border: 0; }
+.main-content .fc a.fc-play { position: absolute; inset: 0; display: block; color: #fff; text-decoration: none; }
+.main-content .fc .fc-play img { display: block; width: 100%; height: 100%; margin: 0; object-fit: cover; border: 0; border-radius: 0; }
+.fc-play-label { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 0.55rem; min-height: 48px; padding: 0.6rem 1.15rem; color: #fff; background: rgba(29,54,118,0.92); font-weight: 700; white-space: nowrap; box-shadow: 0 2px 10px rgba(0,0,0,0.35); }
+.fc-play-label::before { content: ""; width: 0; height: 0; border-style: solid; border-width: 0.5em 0 0.5em 0.85em; border-color: transparent transparent transparent #fff; }
+.fc-play:hover .fc-play-label, .fc-play:focus-visible .fc-play-label { background: var(--cyan); color: #000; }
+.fc-play:hover .fc-play-label::before, .fc-play:focus-visible .fc-play-label::before { border-left-color: #000; }
+.main-content .fc .fc-bar { margin: 0; padding: 0.55rem 0.8rem; color: #fff; background: #404040; font-size: 15px; line-height: 1.4; }
+.fc-body { padding: 1rem 0 0; }
+.main-content .fc .fc-body p { margin: 0 0 0.8rem; }
+.fc-verdict { display: grid; gap: 0.8rem; grid-template-columns: 1fr 1fr; margin: 0.4rem 0 0.9rem; }
+.fc-verdict div { padding: 0.7rem 0.9rem; background: #f4f6fa; border-top: 3px solid var(--navy); }
+.fc-verdict div + div { border-top-color: var(--cyan); }
+.main-content .fc .fc-verdict p { margin: 0; font-size: 16px; }
+.fc-verdict strong { display: block; margin-bottom: 0.2rem; color: #000; }
+.main-content .fc .fc-file { margin: 0; color: var(--soft); font-size: 15px; }
+.main-content .fc .fc-file a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; color: var(--navy); }
+.fc details { margin: 0.6rem 0 0; padding-top: 0.6rem; border-top: 1px solid var(--line); }
+.fc summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; font-weight: 700; color: var(--navy); }
+.fc-limits { padding: 0.8rem 1rem; background: #f4f6fa; border-left: 4px solid var(--navy); }
+.main-content .fc .fc-limits p { margin: 0; }
+.fc-missing { padding: 0.8rem 1rem; color: var(--soft); border: 1px dashed #9aa6bd; font-size: 16px; }
+.main-content .fc .fc-missing p { margin: 0; color: var(--soft); }
+.fc ul.fc-points { padding-left: 1.2rem; }
+.fc ul.fc-points li { margin-bottom: 0.6rem; }
+
+/* Closing panel, after the FIAT/IFTA blue panel on the last slide */
+.fc-thanks { margin: 0 10px 2rem 0; padding: 1.4rem 1.4rem 1.2rem; color: #fff; background: var(--navy); }
+.main-content .fc .fc-thanks h2 { margin: 0 0 0.8rem; padding: 0; border: 0; color: #fff; font-size: clamp(1.5rem, 3.6vw, 2rem); }
+.main-content .fc .fc-thanks p, .main-content .fc .fc-thanks li { color: #fff; }
+.main-content .fc .fc-thanks a { color: #fff; text-decoration-color: rgba(255,255,255,0.6); }
+.main-content .fc .fc-slide-light { color: #fff; }
+.main-content .fc .fc-thanks ul > li::before { color: #fff; }
+.fc-thanks ul { margin: 0 0 1rem; padding-left: 1.2rem; }
+.fc-thanks .fc-small { font-size: 15px; }
+
+@media (max-width: 600px) {
+  .fc-hero { padding-left: 1rem; border-left-width: 5px; }
+  .fc-verdict { grid-template-columns: 1fr; }
+  .fc-media { padding: 0.6rem; margin-right: 8px; }
+  .fc-media::before { top: -8px; right: -8px; }
+  .main-content .fc .fc-panel { display: block; }
+  .main-content .fc .fc-btn { flex: 1 1 100%; justify-content: center; }
+  .fc-toc ol { columns: 1; }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 
-<div class="fiat-companion" markdown="1">
+<div class="fc">
 
-<p class="eyebrow">FIAT/IFTA World Conference · São Paulo · 8 October 2026</p>
+<header class="fc-hero">
+  <p class="fc-kicker">FIAT/IFTA World Conference · São Paulo 2026</p>
+  <h1 id="the-current-limits-of-ai-in-film-restoration">The Current Limits of AI in Film Restoration and How They May Be Surpassed</h1>
+  <p class="fc-byline">Fabio Bedoya<span>Head of Restoration, Filmfinity</span></p>
+  <p class="fc-panel">Cinemateca Brasileira<span>8 October 2026</span></p>
+  <div class="fc-buttons">
+    <a class="fc-btn fc-btn-primary" href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">The research on GitHub</a>
+    <a class="fc-btn" href="#workflows">Workflows and guides</a>
+  </div>
+  <p>This page goes with my talk. It follows the slides in order, so you can find the full-size version of each example as it comes up, or come back to it later. For each experiment, I've written down what worked and where it still falls short.</p>
+</header>
 
-# The Current Limits of AI in Film Restoration and How They May Be Surpassed
+<p class="fc-tip">Tap a video to load it. The videos stream from Google Drive, so on a slow connection they may start at a lower quality: pick a higher one in the player's settings, or use “Open in Google Drive” to download the original file. Most videos are side-by-side comparisons, so each half is smaller than the full file.</p>
 
-<p class="fiat-byline">Fabio Bedoya · Head of Restoration, Filmfinity<br>Cinemateca Brasileira</p>
-
-<div class="fiat-links">
-  <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">Research and workflows on GitHub</a>
-</div>
-
-<p>Video examples from the talk, with original-resolution MP4 access and notes on what each result demonstrates.</p>
-
-<p class="fiat-note">For the highest available streaming quality, open the player's settings and choose its highest resolution. Use <strong>Open video / download original MP4</strong> for the original export. The dimensions below describe the complete file; individual panels in a comparison can be smaller.</p>
-
-<nav class="fiat-jump" aria-label="Video examples">
-  <a href="#reference-recovery">Reference-based recovery</a>
-  <a href="#telestyle">Colour through a shot</a>
-  <a href="#diffusion-upscaling">Diffusion upscaling</a>
-  <a href="#combining-sources">Combining sources</a>
-  <a href="#inside-existing-tools">Tool control</a>
+<nav class="fc-toc" aria-labelledby="contents">
+  <h2 id="contents">Follow the talk</h2>
+  <ol>
+    <li><a href="#copycat-to-open-weight"><span class="fc-n">2</span>From CopyCat to open-weight models</a></li>
+    <li><a href="#masking-versus-recovery"><span class="fc-n">3</span>Masking versus recovery</a></li>
+    <li><a href="#the-limits"><span class="fc-n">4</span>The limits</a></li>
+    <li><a href="#reference-recovery"><span class="fc-n">5–6</span>Reference-based colour recovery<span class="fc-v">Video</span></a></li>
+    <li><a href="#synthetic-reference"><span class="fc-n">7</span>Creating a synthetic reference</a></li>
+    <li><a href="#telestyle"><span class="fc-n">8–9</span>Keeping colour steady through a shot<span class="fc-v">Video</span></a></li>
+    <li><a href="#h3-controlnet"><span class="fc-n">10–11</span>Making it faster<span class="fc-v">Video</span></a></li>
+    <li><a href="#temporal-cbcr"><span class="fc-n">12–13</span>The Temporal CbCr adapter<span class="fc-v">Video</span></a></li>
+    <li><a href="#diffusion-upscaling"><span class="fc-n">14–15</span>Diffusion upscaling<span class="fc-v">Video</span></a></li>
+    <li><a href="#diffusion-reconstruction"><span class="fc-n">16–17</span>Diffusion reconstruction</a></li>
+    <li><a href="#combining-sources"><span class="fc-n">18–19</span>Combining sources, then reconstructing<span class="fc-v">Video</span></a></li>
+    <li><a href="#dialogue-recovery"><span class="fc-n">20</span>Dialogue recovery</a></li>
+    <li><a href="#inside-existing-tools"><span class="fc-n">21</span>AI inside the tools we already use<span class="fc-v">Video</span></a></li>
+    <li><a href="#limits-now"><span class="fc-n">22</span>Where the limits are now</a></li>
+    <li><a href="#thanks"><span class="fc-n">23</span>Thank you and credits</a></li>
+  </ol>
 </nav>
 
-
-
-<section id="video-examples">
-<h2 id="video-examples-title">Video examples</h2>
-
-<article id="reference-recovery" class="fiat-card">
-  <p class="fiat-meta">Replacement for slides 5–6 · 1920 × 1080 comparison export · 1 minute 9.92 seconds · 24 fps</p>
-  <h3 id="reference-recovery-title">Candy Candy: reference-based colour recovery</h3>
-  <p>Colour from a matched French PAL DVD reference is transferred to a faded 16mm scan while retaining the film's detail. This is a different example of the reference-trained colour-recovery method discussed in the talk.</p>
-  <iframe src="https://drive.google.com/file/d/11UucDpEAC5QRlfF3BN12f3mggg-S58Ds/preview" title="Candy Candy: scan, balanced source, PAL DVD reference and colour recovery" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
-  <p class="fiat-caption">The four-way comparison shows the original scan, the balanced and cleaned scan, the PAL DVD reference and the machine-learning result. The 1920 × 1080 file is a comparison export; the reference itself is standard definition. Reference colour can have its own grading and transfer limitations.</p>
-  <a class="fiat-file" href="https://drive.google.com/file/d/11UucDpEAC5QRlfF3BN12f3mggg-S58Ds/view">Open comparison / download original MP4</a>
-  <details>
-    <summary>Full-resolution result: 4400 × 3300</summary>
-    <p>The separate colour-recovery result retains the scan's 4400 × 3300 dimensions. The original file is silent, 24 fps, HEVC, about 298 MiB. Streaming may use a smaller rendition; download the original for full-resolution inspection.</p>
-    <a class="fiat-file" href="https://drive.google.com/file/d/1EgkquRW2zm2lQzR_uWOQCSvpl0agE7G1/view">Open full-resolution result / download original MP4</a>
-  </details>
-</article>
-
-<article id="telestyle" class="fiat-card">
-  <p class="fiat-meta">Slide 9 · 1920 × 1080 export · 11.27 seconds · 30 fps</p>
-  <h3 id="telestyle-title">Counter Attack: one reference for the whole shot</h3>
-  <p>TeleStyle carries an approved colour reference through the shot. The result still needs frame-by-frame review.</p>
-  <iframe src="https://drive.google.com/file/d/1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8/preview" title="Counter Attack: one reference for the whole shot" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
-  <p class="fiat-caption">This comparison is an HD viewing export. The panels inside it are smaller than the full canvas.</p>
-  <a class="fiat-file" href="https://drive.google.com/file/d/1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8/view">Open video / download original MP4</a>
-</article>
-
-<article id="h3-controlnet" class="fiat-card">
-  <p class="fiat-meta">Slide 11 · 1920 × 840 export · 12.83 seconds · 24 fps</p>
-  <h3 id="h3-controlnet-title">Counter Attack: H3, ControlNet and Temporal CbCr</h3>
-  <p>H3 proposes colour over a section of the shot. Edge control helps it follow the source geometry and movement. The Temporal CbCr adapter is used to finish the colour across the shot.</p>
-  <iframe src="https://drive.google.com/file/d/1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi/preview" title="Counter Attack: H3, ControlNet and Temporal CbCr" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
-  <p class="fiat-caption">Only the chroma is retained; the original scan supplies luminance, grain and fine detail.</p>
-  <a class="fiat-file" href="https://drive.google.com/file/d/1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi/view">Open video / download original MP4</a>
-</article>
-
-<article id="temporal-cbcr" class="fiat-card">
-  <p class="fiat-meta">Slide 13 · 1920 × 850 export · 6.83 seconds · 24 fps</p>
-  <h3 id="temporal-cbcr-title">Unman, Wittering and Zigo: Temporal CbCr adapter</h3>
-  <p>A small model learns from approved teacher frames and supplies colour to the remaining frames. Watch the colour across the full shot, rather than judging a single frame.</p>
-  <iframe src="https://drive.google.com/file/d/1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD/preview" title="Unman, Wittering and Zigo: Temporal CbCr adapter" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
-  <p class="fiat-caption">The comparison export shows the workflow result. It is not evidence that generated colour is historically correct.</p>
-  <a class="fiat-file" href="https://drive.google.com/file/d/1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD/view">Open video / download original MP4</a>
-</article>
-
-<article id="diffusion-upscaling" class="fiat-card">
-  <p class="fiat-meta">Slide 15 · 1920 × 756 export · 26.00 seconds · 24 fps</p>
-  <h3 id="diffusion-upscaling-title">El Tinterillo: diffusion upscaling, the stairs</h3>
-  <p>The surviving sources are a damaged 16mm print and a soft, cropped telecine. This test explores a video model rebuilding detail while following the surviving picture and movement.</p>
-  <iframe src="https://drive.google.com/file/d/1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw/preview" title="El Tinterillo: diffusion upscaling, the stairs" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
-  <p class="fiat-caption">The model result is 768 × 432, shown inside a 1920 × 756 comparison export. It includes geometry calibration and tone/dissolve finishing. A first-frame brightness jump and limitations in faces and fine detail remain. The synthetic detail must be declared.</p>
-  <a class="fiat-file" href="https://drive.google.com/file/d/1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw/view">Open video / download original MP4</a>
-</article>
-
-<article id="combining-sources" class="fiat-card">
-  <p class="fiat-meta">Slide 19 · 1920 × 832 export · 9.42 seconds · 24 fps</p>
-  <h3 id="combining-sources-title">Knight of the Trail: combining sources and reconstructing damage</h3>
-  <p>A nitrate print and a safety copy are aligned and brought to a common look. Usable surviving frames are selected first; reconstruction is reserved for the damage that neither element can supply.</p>
-  <iframe src="https://drive.google.com/file/d/1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K/preview" title="Knight of the Trail: combining sources and reconstructing damage" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
-  <p class="fiat-caption">This HD comparison export presents a 640 × 512 working-resolution test. It is not a native-HD restoration. Silent.</p>
-  <a class="fiat-file" href="https://drive.google.com/file/d/1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K/view">Open video / download original MP4</a>
-</article>
-
-<article id="inside-existing-tools" class="fiat-card">
-  <p class="fiat-meta">Slide 21 · 1920 × 1080 export · 30.00 seconds · 24 fps</p>
-  <h3 id="inside-existing-tools-title">Point Blank: AI inside an existing restoration tool</h3>
-  <p>An early research test in Phoenix: after Dry Clean, a model paints protection masks in the project. Red shows the changes made by Dry Clean.</p>
-  <iframe src="https://drive.google.com/file/d/1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs/preview" title="Point Blank: AI inside an existing restoration tool" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
-  <p class="fiat-caption">This is a workflow screencast, not a finished restoration comparison. Silent.</p>
-  <a class="fiat-file" href="https://drive.google.com/file/d/1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs/view">Open video / download original MP4</a>
-</article>
-
+<section class="fc-section" id="copycat-to-open-weight">
+  <p class="fc-slide">Slide 2</p>
+  <h2 id="copycat-to-open-weight-title">From CopyCat to open-weight models</h2>
+  <p>My research started with CopyCat, inside Nuke. The idea is to train a small model for each film from matching frames of two copies: the damaged scan, and a better copy of the same film that shows the result we want. That's what I presented last year in Rome, and it's still my baseline. But it needs that better copy to learn from, and it's a closed platform built for visual effects.</p>
+  <p>Since then, open-weight models, the ones anyone can download and run, have become good enough for images, video and voice on a single workstation. People already use them to “restore” old photos and home movies, but almost always outside the archive. So my question is: how do we constrain them so they become useful for the work we actually need?</p>
 </section>
 
-<section id="public-examples" markdown="1">
-
-## Reconstruction and dialogue examples
-
-The 15-frame-gap and dialogue-recovery clips from the talk are not included in this public companion. The Knight of the Trail comparison above is a related reconstruction example: it concerns damaged picture supplied by two surviving elements, rather than a complete 15-frame gap. No alternate dialogue-recovery clip is presented here.
-
+<section class="fc-section" id="masking-versus-recovery">
+  <p class="fc-slide">Slide 3</p>
+  <h2 id="masking-versus-recovery-title">Masking versus recovery</h2>
+  <p>Most restoration tools use spatial and temporal filters. They borrow picture from the same frame, or from the frames around it, and when there's nothing clean to copy, they interpolate. The slide shows Dry Clean in Phoenix on <em>Point Blank</em> (1967); the red marks are what it detected and removed.</p>
+  <p>These tools can hide dust, scratches and flicker, and bridge two or three missing frames. But they can't bring back what is lost. If we're honest, digital restoration has always been about masking, not recovery.</p>
+  <p>So AI in restoration isn't something completely new. What it gives us is a way to take on problems that weren't technically or financially possible before, working with the scan as it is. In many archives, especially in Latin America and Southeast Asia, that faded scan is the only thing left of a film.</p>
 </section>
 
-<section class="fiat-reading" markdown="1">
-
-## Reading the examples
-
-- In the colour-recovery workflow, the scan supplies the luminance, detail and grain. The model supplies a colour proposal. Generated colour remains an interpretation unless a surviving reference supports it.
-- A convincing frame is only a starting point. Review the whole shot for flicker, drift, inconsistent colour and changes to movement or geometry.
-- Diffusion upscaling creates fine detail that the surviving element may no longer contain. That synthetic contribution needs to be declared.
-- For reconstruction, keep surviving frames and usable picture intact. Identify the regions or frames that were generated.
-
-The resolution of a viewing file and the resolution used by a model are different things. An HD export does not mean the model worked at HD, or that generated detail was recovered from the film.
-
+<section class="fc-section" id="the-limits">
+  <p class="fc-slide">Slide 4</p>
+  <h2 id="the-limits-title">The limits</h2>
+  <p>As I see it, there are three main limits.</p>
+  <ul class="fc-points">
+    <li><strong>They weren't made for film.</strong> These models were built to create or edit born-digital images. They smooth away grain and fine detail, or invent new detail. The picture looks sharper, but it stops looking like film.</li>
+    <li><strong>Resolution and length.</strong> In my tests, local video models worked at around 768 × 432 pixels and could only follow about ten seconds at a time. On the slide, Qwen Image Edit ran twice on a frame from <em>Reptilicus</em> (1961) with the same prompt: once on the whole frame (1184 × 880) and once on four tiles stitched together (2048 × 1556). Look at the lifeguard tower: the tiles keep more of the film's grain and detail, but the colour drifts between them and the seams show. Tiling helps, but it brings a new problem to solve.</li>
+    <li><strong>Cost.</strong> Restoration takes a lot of iterations, and in the cloud every one costs money. That's why I work locally, but that still means hardware, time and electricity. There's no free compute, even if you own the computer.</li>
+  </ul>
 </section>
 
-<section id="workflows" markdown="1">
+<section class="fc-section" id="reference-recovery">
+  <p class="fc-slide">Slides 5–6</p>
+  <h2 id="reference-recovery-title">Reference-based colour recovery</h2>
+  <p>Let's start with what already works. A small model trains on matching pairs of frames: the faded source, and a reference that still carries the colour. That reference can be a telecine, a DVD, another print, or the original negative wherever the two overlap.</p>
+  <p>The model only learns colour. Its output is combined with the luma, the brightness, of the original scan, so resolution, grain and detail stay as they were. The workflow is <a href="{{ '/chroma-recovery/' | relative_url }}">documented here</a> and is now used in production.</p>
+  <div class="fc-missing"><p>The clip shown on slide 6 isn't included on this page. Below is another example of the same method.</p></div>
 
-## Workflows and research
-
-- [Reference-trained colour recovery]({{ '/chroma-recovery/' | relative_url }}): learn from aligned source and reference frames, then combine the predicted colour with the source luminance.
-- [Open-weight colour recovery]({{ '/open-weight-color-recovery/' | relative_url }}): create and review colour proposals while keeping the scan authoritative.
-- [Training, inference and review]({{ '/training-inference-review/' | relative_url }}): preparation, iteration and the decisions needed before a result is accepted.
-- [Research routes and unresolved questions]({{ '/open-weight-color-recovery/research-routes/' | relative_url }}): an earlier research snapshot with evidence, limitations and unresolved questions.
-
-Film excerpts remain the property of their respective rights holders. Their inclusion here does not grant permission to reuse them. [Credits and attribution]({{ '/credits/' | relative_url }}).
-
+  <figure class="fc-media">
+    <div class="fc-player" style="aspect-ratio: 1920 / 1080">
+      <a class="fc-play" href="https://drive.google.com/file/d/11UucDpEAC5QRlfF3BN12f3mggg-S58Ds/view" data-drive="11UucDpEAC5QRlfF3BN12f3mggg-S58Ds" data-title="Candy Candy: original scan, balanced scan, DVD reference and colour recovery" aria-label="Play video: Candy Candy, reference-based colour recovery (1 minute 10 seconds)">
+        <img src="https://drive.google.com/thumbnail?id=11UucDpEAC5QRlfF3BN12f3mggg-S58Ds&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id=11UucDpEAC5QRlfF3BN12f3mggg-S58Ds&amp;sz=w640 640w, https://drive.google.com/thumbnail?id=11UucDpEAC5QRlfF3BN12f3mggg-S58Ds&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="720" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
+        <span class="fc-play-label">Play · 1:10</span>
+      </a>
+    </div>
+    <figcaption class="fc-body">
+      <h3 id="candy-candy-title">Candy Candy: colour from a DVD reference</h3>
+      <p>Colour from a matched French PAL DVD is carried over to a faded 16mm scan. Four versions play side by side: the original scan, the scan after balancing and cleaning, the DVD reference, and the model's result.</p>
+      <div class="fc-verdict">
+        <div><strong>What worked</strong><p>The result takes its colour from the DVD, while the detail comes from the 16mm scan.</p></div>
+        <div><strong>Limits</strong><p>The method is only as good as its reference. This DVD is standard definition and has its own grading and transfer choices. And many films no longer have any reference at all.</p></div>
+      </div>
+      <p class="fc-file">1920 × 1080 comparison · 1 min 10 s · 24 fps<br><a href="https://drive.google.com/file/d/11UucDpEAC5QRlfF3BN12f3mggg-S58Ds/view">Open in Google Drive</a></p>
+      <details>
+        <summary>Full-resolution result (4400 × 3300, about 298 MB)</summary>
+        <p>The colour-recovered scan on its own, at the scan's full 4400 × 3300 size. Silent, 24 fps, HEVC. It's a large file, so it's best downloaded on Wi-Fi. The Drive player may stream a smaller version; download it to see full resolution.</p>
+        <p class="fc-file"><a href="https://drive.google.com/file/d/1EgkquRW2zm2lQzR_uWOQCSvpl0agE7G1/view">Open the full-resolution result in Google Drive</a></p>
+      </details>
+    </figcaption>
+  </figure>
 </section>
+
+<section class="fc-section" id="synthetic-reference">
+  <p class="fc-slide">Slide 7</p>
+  <h2 id="synthetic-reference-title">Creating a synthetic reference</h2>
+  <p>So what happens when there's no reference? You create one: an approved colour frame for each shot. I call it a synthetic reference, and I make it with Qwen Image Edit, an open-weight image model from Alibaba.</p>
+  <p>My first try was to guide it with a leader lady, the woman on the calibration frames at the start of a reel. It didn't work. These models don't understand meaning the way we do, so instead of taking only the colour, the model mixed the two images and the woman ended up in the shot. I call that semantic contamination.</p>
+  <p>A plain colour chart worked better, once I softly blurred it. It guides the colour without giving the model anything else to copy.</p>
+  <p>Then came the prompt, which is how you talk to the model. I ran a small contest, which I called America's Next Top Machine Learning Model: dozens of prompts and hundreds of test frames, over seven rounds on seven faded films. A prompt only survived a round if eight out of ten frames were acceptable. The bottom row of the slide shows a faded frame from <em>Counter Attack</em>, a Chinese film from 1976, with three of the finalists. The winner, Clara, is the one I use most, but I use the others too, depending on the shot.</p>
+  <p>From the synthetic reference I keep only the colour. The brightness still comes from the scan.</p>
+</section>
+
+<section class="fc-section" id="telestyle">
+  <p class="fc-slide">Slides 8–9</p>
+  <h2 id="telestyle-section-title">Keeping colour steady through a shot</h2>
+  <p>Getting one convincing frame is no longer the hard part. If you just run the model 24 times a second, it doesn't work, because these models aren't deterministic: every run is a bit of a roulette. Each frame gets a slightly different interpretation, and the colour flickers.</p>
+  <p>Slide 8 shows a dance scene from <em>Obsession</em> where every frame was recovered on its own. Watch the dress of the woman on the right, and the background. Each frame is a fair interpretation by itself, but together they don't agree. One good frame is a thumbnail. A restoration needs the whole shot to agree with itself. That's temporal consistency, and it was the biggest hurdle.</p>
+
+  <figure class="fc-media">
+    <div class="fc-player" style="aspect-ratio: 1920 / 1080">
+      <a class="fc-play" href="https://drive.google.com/file/d/1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8/view" data-drive="1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8" data-title="Counter Attack: one reference for the whole shot (TeleStyle)" aria-label="Play video: Counter Attack, one reference for the whole shot (11 seconds)">
+        <img src="https://drive.google.com/thumbnail?id=1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id=1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8&amp;sz=w640 640w, https://drive.google.com/thumbnail?id=1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="720" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
+        <span class="fc-play-label">Play · 0:11</span>
+      </a>
+    </div>
+    <p class="fc-bar">Slide 9 · <em>Counter Attack</em> (1976): one reference for the whole shot (TeleStyle)</p>
+    <figcaption class="fc-body">
+      <p>TeleStyle, from TeleAI, is a LoRA: a small add-on for Qwen Image Edit, made to copy the style of one image onto another. I take one approved reference and copy its colour onto every frame of the shot.</p>
+      <div class="fc-verdict">
+        <div><strong>What worked</strong><p>The colour holds through the whole shot.</p></div>
+        <div><strong>Limits</strong><p>It runs the model on every single frame, and each frame still had to be checked, seed after seed. This 11-second shot took almost four hours. Fine as a test, but not something you can use on a feature film.</p></div>
+      </div>
+      <p class="fc-file">1920 × 1080 comparison · 11 s · 30 fps<br><a href="https://drive.google.com/file/d/1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8/view">Open in Google Drive</a></p>
+    </figcaption>
+  </figure>
+</section>
+
+<section class="fc-section" id="h3-controlnet">
+  <p class="fc-slide">Slides 10–11</p>
+  <h2 id="h3-controlnet-section-title">Making it faster: H3 and ControlNet</h2>
+  <p>I had colour that held together, but it took far too long. At the end of July, MiniMax released H3, a video model that is very good with reference images. In one pass, it carries the approved colour through a whole section of a shot.</p>
+  <p>On its own, though, H3 drifts from the picture and loses the geometry. So I had to run it in short sections and make them all agree, which meant more processing and more time. Then in August, Alibaba PAI released a ControlNet for H3. A ControlNet is a way to steer what the model does; this one feeds it the edges of every frame, which helps keep the film's own geometry and movement.</p>
+  <p>I keep only the colour and put it on top of the original brightness, so the grain, the roughness, even the dirt, stay. Left on their own, these models want to change everything and make it look plasticky.</p>
+
+  <figure class="fc-media">
+    <div class="fc-player" style="aspect-ratio: 1920 / 840">
+      <a class="fc-play" href="https://drive.google.com/file/d/1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi/view" data-drive="1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi" data-title="Counter Attack: H3 and ControlNet, finished with the Temporal CbCr adapter" aria-label="Play video: Counter Attack, H3 and ControlNet (13 seconds)">
+        <img src="https://drive.google.com/thumbnail?id=1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id=1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi&amp;sz=w640 640w, https://drive.google.com/thumbnail?id=1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="560" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
+        <span class="fc-play-label">Play · 0:13</span>
+      </a>
+    </div>
+    <p class="fc-bar">Slide 11 · <em>Counter Attack</em>: H3 + ControlNet, finished with the Temporal CbCr adapter</p>
+    <figcaption class="fc-body">
+      <p>The colour comes from H3 with the ControlNet, and it's finished with the Temporal CbCr adapter, explained in the next section. I chose this shot because it's hard: a lot of movement, a crowd that keeps changing, and a fast pan in the middle.</p>
+      <div class="fc-verdict">
+        <div><strong>What worked</strong><p>The colour holds through all that movement, and the geometry stays the same as the original.</p></div>
+        <div><strong>Limits</strong><p>Look closely and there's some tint in the shadows. My copy was 30 frames per second with a broken cadence, so getting clean frames out of it was hard, and the adapter needs properly aligned frames. I'm still working on this.</p></div>
+      </div>
+      <p class="fc-file">1920 × 840 comparison · 13 s · 24 fps<br><a href="https://drive.google.com/file/d/1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi/view">Open in Google Drive</a></p>
+    </figcaption>
+  </figure>
+</section>
+
+<section class="fc-section" id="temporal-cbcr">
+  <p class="fc-slide">Slides 12–13</p>
+  <h2 id="temporal-cbcr-section-title">The Temporal CbCr adapter</h2>
+  <p>This is the idea behind my CopyCat work, taken out of Nuke so the research can run on an open platform. CbCr are the two colour channels of a video picture, kept separate from its brightness.</p>
+  <p>I run H3 or TeleStyle once or twice, depending on the length of the shot, and keep only the frames that pass review. I call them teachers. They don't have to cover the whole shot, as long as their geometry lines up with the picture.</p>
+  <p>A small model, with fewer than a million parameters, learns the colour of the shot from the teachers in minutes. Then it fills in the frames that have no teacher and keeps the colour steady across the whole shot. On slide 12, the first and third frames have no teacher and the second and fourth do.</p>
+
+  <figure class="fc-media">
+    <div class="fc-player" style="aspect-ratio: 1920 / 850">
+      <a class="fc-play" href="https://drive.google.com/file/d/1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD/view" data-drive="1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD" data-title="Unman, Wittering and Zigo: Temporal CbCr adapter" aria-label="Play video: Unman, Wittering and Zigo, Temporal CbCr adapter (7 seconds)">
+        <img src="https://drive.google.com/thumbnail?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&amp;sz=w640 640w, https://drive.google.com/thumbnail?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="567" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
+        <span class="fc-play-label">Play · 0:07</span>
+      </a>
+    </div>
+    <p class="fc-bar">Slide 13 · <em>Unman, Wittering and Zigo</em> (1971): Temporal CbCr adapter</p>
+    <figcaption class="fc-body">
+      <p>A choir scene, with the faded source on the left and the adapter's result on the right. Teachers covered 101 of the 164 frames, and the adapter filled the rest. Training took about a minute and a half.</p>
+      <div class="fc-verdict">
+        <div><strong>What worked</strong><p>It keeps everything in the original: the dirt, the roughness of the film. Even the stained glass behind the choir stays consistent through the whole pan.</p></div>
+        <div><strong>Limits</strong><p>The adapter is only as good as its teachers, and it needs frames that line up properly. The colour is still an interpretation unless a surviving reference supports it.</p></div>
+      </div>
+      <p class="fc-file">1920 × 850 comparison · 7 s · 24 fps<br><a href="https://drive.google.com/file/d/1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD/view">Open in Google Drive</a></p>
+    </figcaption>
+  </figure>
+</section>
+
+<section class="fc-section" id="diffusion-upscaling">
+  <p class="fc-slide">Slides 14–15</p>
+  <h2 id="diffusion-upscaling-section-title">Diffusion upscaling</h2>
+  <p>So far, the model only adds colour and the scan keeps its own picture. But sometimes the surviving element doesn't carry enough information for a traditional restoration. Our tools borrow from the same frame or the frames around it, and when every frame is damaged, there's nothing left to borrow. Diffusion upscaling lets a video model rebuild the picture from what survives, following its structure and movement.</p>
+  <p><em>El Tinterillo</em> survives only as a damaged 16mm print and a telecine that is cleaner, but soft, cropped and with the strange cadence of telecines from that time. I combined the two, with the telecine inside and the 16mm around it, then cleaned that hybrid with a median filter. That gives a rough outline to guide the geometry, but it also removes the fine detail. So, for how the picture should look, I made another synthetic reference with ChatGPT Images. MiniMax H3, in reference mode, then uses that image and the outline to generate each section of the shot.</p>
+
+  <figure class="fc-media">
+    <div class="fc-player" style="aspect-ratio: 1920 / 756">
+      <a class="fc-play" href="https://drive.google.com/file/d/1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw/view" data-drive="1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw" data-title="El Tinterillo: diffusion upscaling, the stairs" aria-label="Play video: El Tinterillo, diffusion upscaling (26 seconds)">
+        <img src="https://drive.google.com/thumbnail?id=1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id=1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw&amp;sz=w640 640w, https://drive.google.com/thumbnail?id=1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="504" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
+        <span class="fc-play-label">Play · 0:26</span>
+      </a>
+    </div>
+    <p class="fc-bar">Slide 15 · <em>El Tinterillo</em>: diffusion upscaling, the stairs</p>
+    <figcaption class="fc-body">
+      <p>The original 16mm scan is on the left, and the result I approved is on the right. It took a long process of iteration to get here.</p>
+      <div class="fc-verdict">
+        <div><strong>What worked</strong><p>The picture in this scan is beyond saving with traditional tools. H3 fills those gaps and rebuilds the picture, following the structure and movement of the original.</p></div>
+        <div><strong>Limits</strong><p>The result is partly synthetic: the model invents fine detail the film no longer carries, and that has to be declared. The model worked at 768 × 432. There's still a jump in brightness on the first frame, and faces and fine detail remain weak.</p></div>
+      </div>
+      <p>Some people will call this heresy, and to a degree it is. I wouldn't call it proper film restoration myself. But with footage like this, I don't see another way, and we may need to open our minds to what restoration can be.</p>
+      <p class="fc-file">1920 × 756 comparison · 26 s · 24 fps<br><a href="https://drive.google.com/file/d/1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw/view">Open in Google Drive</a></p>
+    </figcaption>
+  </figure>
+</section>
+
+<section class="fc-section" id="diffusion-reconstruction">
+  <p class="fc-slide">Slides 16–17</p>
+  <h2 id="diffusion-reconstruction-title">Diffusion reconstruction</h2>
+  <p>Sometimes the picture isn't damaged, it's gone: frames missing from the only surviving element. This happens a lot with nitrate, when a decaying section was cut out so it wouldn't damage the rest of the reel.</p>
+  <p>Tools like Phoenix, DIAMANT or DaVinci Resolve can bridge two or three missing frames with optical flow. Across a longer gap, the motion starts to feel wrong, because they can only interpolate what survives.</p>
+  <p>In the talk, the example is a 15-frame gap in a camera negative where the sound still survives, so the gap has to be filled to keep picture and sound together. I tracked the actors from the last frame before the gap to the first frame after it, and carried that movement through the missing frames: those are the skeletons on slide 16. Then Alibaba's VACE video model generated the picture, guided by that movement, only inside the gap.</p>
+  <div class="fc-limits"><p><strong>What worked, and the limits.</strong> The generated frames hold up well, and every original frame stays untouched. The resolution limit from slide 4 still applies, and what is generated has to be declared.</p></div>
+  <div class="fc-missing" style="margin-top: 1rem"><p>The clip shown on slide 17 isn't included on this page. The <a href="#combining-sources"><em>Knight of the Trail</em> example</a> below uses the same idea on nitrate damage.</p></div>
+</section>
+
+<section class="fc-section" id="combining-sources">
+  <p class="fc-slide">Slides 18–19</p>
+  <h2 id="combining-sources-section-title">Combining sources, then reconstructing</h2>
+  <p>When several elements survive, each one is usually damaged in different places. The George Eastman Museum sent me <em>Knight of the Trail</em> (1915) as a nitrate print and a diacetate safety copy. Together they cover most of the film, but in some places the nitrate has decayed and the safety copy is missing those frames too.</p>
+  <p>First, I bring the two elements together. They had different colour, warping and framing, so each frame of one is matched to the other by its features and warped into place. Then one tone correction, fitted on the cleanest matching frames, gives both the same look.</p>
+  <p>After that, each frame comes from whichever element survives undamaged: 155 frames from the nitrate print and 53 from the safety copy. The timeline on slide 18 is a map of this, with orange for the nitrate, blue for the safety copy and red where neither survives. In those 18 frames, I mask only the damaged areas and reconstruct those. The surviving picture stays original, because we don't want to replace a whole frame just because part of it is damaged.</p>
+
+  <figure class="fc-media">
+    <div class="fc-player" style="aspect-ratio: 1920 / 832">
+      <a class="fc-play" href="https://drive.google.com/file/d/1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K/view" data-drive="1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K" data-title="Knight of the Trail: diffusion reconstruction of nitrate damage" aria-label="Play video: Knight of the Trail, reconstruction of nitrate damage (9 seconds)">
+        <img src="https://drive.google.com/thumbnail?id=1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id=1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K&amp;sz=w640 640w, https://drive.google.com/thumbnail?id=1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="555" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
+        <span class="fc-play-label">Play · 0:09</span>
+      </a>
+    </div>
+    <p class="fc-bar">Slide 19 · <em>Knight of the Trail</em> (1915): diffusion reconstruction of nitrate damage. Courtesy of the George Eastman Museum.</p>
+    <figcaption class="fc-body">
+      <p>The nitrate original is on the left, and the approved result is on the right.</p>
+      <div class="fc-verdict">
+        <div><strong>What worked</strong><p>It holds together well, and here the resolution isn't much of an issue.</p></div>
+        <div><strong>Limits</strong><p>This is a working test at 640 × 512, shown inside an HD comparison. It isn't a native HD restoration.</p></div>
+      </div>
+      <p class="fc-file">1920 × 832 comparison · 9 s · 24 fps · silent<br><a href="https://drive.google.com/file/d/1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K/view">Open in Google Drive</a></p>
+    </figcaption>
+  </figure>
+</section>
+
+<section class="fc-section" id="dialogue-recovery">
+  <p class="fc-slide">Slide 20</p>
+  <h2 id="dialogue-recovery-title">Dialogue recovery</h2>
+  <p>The same idea applies to sound: a word that has been badly distorted can be rebuilt from the actor's own voice.</p>
+  <p>I used Fish Audio S2 Pro, an open-weight speech model, running locally. It's given a few seconds of the same actor's clean dialogue from the film, about ten seconds in this case, and the exact words. It generates many takes of the whole line. Speech recognition and voice comparison help rank them, but listening decides. Then only the damaged part goes back in, about a third of a second here. Everything else is the original soundtrack.</p>
+  <div class="fc-limits"><p><strong>Limits.</strong> The model's output was so clean that it didn't blend in, so I added some of the film's own background noise. A good ear may still hear it in the repaired word.</p></div>
+  <div class="fc-missing" style="margin-top: 1rem"><p>The audio example from the talk isn't included on this page.</p></div>
+</section>
+
+<section class="fc-section" id="inside-existing-tools">
+  <p class="fc-slide">Slide 21</p>
+  <h2 id="inside-existing-tools-section-title">AI inside the tools we already use</h2>
+  <p>AI can also work through the tools we already use. The companies that make them are building it in, for control and management as well as processing. DaVinci Resolve 21.1 lets AI assistants operate it directly, Premiere Pro has an AI Assistant that works inside the project, and Avid has shown agentic AI for Media Composer. Restoration tools can work the same way.</p>
+
+  <figure class="fc-media">
+    <div class="fc-player" style="aspect-ratio: 1920 / 1080">
+      <a class="fc-play" href="https://drive.google.com/file/d/1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs/view" data-drive="1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs" data-title="Point Blank: a model working inside Phoenix" aria-label="Play video: Point Blank, a model working inside Phoenix (30 seconds)">
+        <img src="https://drive.google.com/thumbnail?id=1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs&amp;sz=w1280" srcset="https://drive.google.com/thumbnail?id=1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs&amp;sz=w640 640w, https://drive.google.com/thumbnail?id=1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs&amp;sz=w1280 1280w" sizes="(min-width: 66rem) 50rem, 100vw" alt="" width="1280" height="720" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">
+        <span class="fc-play-label">Play · 0:30</span>
+      </a>
+    </div>
+    <p class="fc-bar">Slide 21 · <em>Point Blank</em> (1967): a model working inside Phoenix</p>
+    <figcaption class="fc-body">
+      <p>One of my research tests. After Dry Clean runs in Phoenix, a model paints the protection masks directly in the project. The red shows what Dry Clean changed.</p>
+      <div class="fc-limits"><p><strong>Limits.</strong> It's still at an early stage. This is a screen recording of the workflow, not a finished restoration.</p></div>
+      <p class="fc-file" style="margin-top: 0.8rem">1920 × 1080 screen recording · 30 s · 24 fps · silent<br><a href="https://drive.google.com/file/d/1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs/view">Open in Google Drive</a></p>
+    </figcaption>
+  </figure>
+</section>
+
+<section class="fc-section" id="limits-now">
+  <p class="fc-slide">Slide 22</p>
+  <h2 id="limits-now-title">Where the limits are now</h2>
+  <ul class="fc-points">
+    <li>What has worked best is keeping the film's own picture and letting the model add only what is missing: the colour, a gap, a word.</li>
+    <li>Colour holds through a shot when approved references guide the whole shot, either through a video model or through the small adapter.</li>
+    <li>Control helps the most. Edges, tracked movement and registration keep the model on the film, not on its own idea of it.</li>
+    <li>In the colour workflow, a small model learns from approved teacher frames and fills in the shot, so the big model doesn't have to run on every frame.</li>
+    <li>What still needs to improve is resolution and length. The models still see a reduced picture, about ten seconds at a time.</li>
+    <li>None of it is one click. It takes patience, and a restorer to decide what is acceptable and to say what was generated.</li>
+  </ul>
+  <p>A year ago, even a couple of months ago, none of this was possible.</p>
+</section>
+
+<section class="fc-section" id="workflows">
+  <h2 id="workflows-title">Workflows and guides</h2>
+  <ul class="fc-points">
+    <li><a href="{{ '/chroma-recovery/' | relative_url }}">Reference-trained colour recovery</a>: learn from matched source and reference frames, then combine the predicted colour with the brightness of the scan.</li>
+    <li><a href="{{ '/open-weight-color-recovery/' | relative_url }}">Open-weight colour recovery</a>: create and review colour proposals while the scan stays the authority.</li>
+    <li><a href="{{ '/training-inference-review/' | relative_url }}">Training, inference and review</a>: preparing material, iterating, and deciding when a result is acceptable.</li>
+    <li><a href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}">Research routes and open questions</a>: an earlier snapshot of the research, with its evidence and limits.</li>
+    <li><a href="{{ '/' | relative_url }}">All research on this site</a>, or the <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">repository on GitHub</a>.</li>
+  </ul>
+</section>
+
+<section class="fc-thanks" id="thanks">
+  <p class="fc-slide fc-slide-light">Slide 23</p>
+  <h2 id="thanks-title">Thank you</h2>
+  <p>Thank you to FIAT/IFTA and the organisers. Special thanks to:</p>
+  <ul>
+    <li>Studiocanal, for <em>For Better, For Worse</em> (1954) and <em>Poison Pen</em> (1939)</li>
+    <li>the George Eastman Museum, for <em>Knight of the Trail</em> (1915)</li>
+  </ul>
+  <p class="fc-small">Other examples are research tests on publicly available copies, mostly faded trailers from archive.org. Film excerpts remain the property of their rights holders, and showing them here doesn't grant permission to reuse them. See <a href="{{ '/credits/' | relative_url }}">credits and attribution</a>.</p>
+  <p>Questions or suggestions are welcome:</p>
+  <ul>
+    <li>Email: <a href="mailto:info@fabiocolor.com">info@fabiocolor.com</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/fabiobedoya/">/fabiobedoya</a> · Instagram: <a href="https://www.instagram.com/fabiocolor/">@fabiocolor</a></li>
+    <li>YouTube: <a href="https://www.youtube.com/@fabiocolor">@fabiocolor</a> · GitHub: <a href="https://github.com/fabiocolor">/fabiocolor</a></li>
+  </ul>
+</section>
+
 </div>
+
+<script>
+/* Load each Google Drive player only when someone taps it, so the page stays light on slow connections. */
+document.addEventListener('click', function (event) {
+  var link = event.target.closest ? event.target.closest('a.fc-play') : null;
+  if (!link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  var frame = document.createElement('iframe');
+  frame.src = 'https://drive.google.com/file/d/' + link.getAttribute('data-drive') + '/preview';
+  frame.title = link.getAttribute('data-title');
+  frame.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+  frame.setAttribute('allowfullscreen', '');
+  link.parentNode.replaceChild(frame, link);
+  frame.focus();
+});
+</script>

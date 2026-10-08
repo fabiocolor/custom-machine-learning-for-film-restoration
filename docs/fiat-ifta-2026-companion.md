@@ -47,6 +47,7 @@ description: Video examples and practical workflow notes from Fabio Bedoya's FIA
 <p class="fiat-note">For the highest available streaming quality, open the player's settings and choose its highest resolution. Use <strong>Open video / download original MP4</strong> for the original export. The dimensions below describe the complete file; individual panels in a comparison can be smaller.</p>
 
 <nav class="fiat-jump" aria-label="Video examples">
+  <a href="#reference-recovery">Reference-based recovery</a>
   <a href="#telestyle">Colour through a shot</a>
   <a href="#diffusion-upscaling">Diffusion upscaling</a>
   <a href="#combining-sources">Combining sources</a>
@@ -57,6 +58,20 @@ description: Video examples and practical workflow notes from Fabio Bedoya's FIA
 
 <section id="video-examples">
 <h2>Video examples</h2>
+
+<article id="reference-recovery" class="fiat-card">
+  <p class="fiat-meta">Replacement for slides 5–6 · 1920 × 1080 comparison · 2 minutes 15.62 seconds · 24 fps</p>
+  <h3>The Frontier Experience: reference-based colour recovery</h3>
+  <p>A photographed telecine reference supplies colour evidence while the film scan retains its original detail. This is a different film demonstrating the same reference-trained colour-recovery method.</p>
+  <iframe src="https://drive.google.com/file/d/1lYxIogVjPS5Ok1YZJ3WhtyeRUSTmwQcn/preview" title="The Frontier Experience: source, recovered colour and photographed reference" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+  <p class="fiat-caption">Some sky and shadow areas remain limited. Telecine reference supplied by Ross Lipman. <a href="{{ '/case-studies/' | relative_url }}">Read the research case study</a>.</p>
+  <a class="fiat-file" href="https://drive.google.com/file/d/1lYxIogVjPS5Ok1YZJ3WhtyeRUSTmwQcn/view">Open comparison / download original MP4</a>
+  <details>
+    <summary>Full-frame result: 2048 × 1556</summary>
+    <p>The separate full-frame colour result is available at 2048 × 1556, 24 fps, in 10-bit HEVC. The download is the original file; streaming quality depends on the player settings.</p>
+    <a class="fiat-file" href="https://drive.google.com/file/d/1Dpqs75nTtpdJLy_26TuDvC8KpK4yjUfF/view">Open full-frame result / download original MP4</a>
+  </details>
+</article>
 
 <article id="telestyle" class="fiat-card">
   <p class="fiat-meta">Slide 9 · 1920 × 1080 export · 11.27 seconds · 30 fps</p>
@@ -90,7 +105,7 @@ description: Video examples and practical workflow notes from Fabio Bedoya's FIA
   <h3>El Tinterillo: diffusion upscaling, the stairs</h3>
   <p>The surviving sources are a damaged 16mm print and a soft, cropped telecine. This test explores a video model rebuilding detail while following the surviving picture and movement.</p>
   <iframe src="https://drive.google.com/file/d/1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw/preview" title="El Tinterillo: diffusion upscaling, the stairs" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
-  <p class="fiat-caption">Part of the detail is synthetic. The result should not be described as a recovered record of detail that no longer survives.</p>
+  <p class="fiat-caption">The model result is 768 × 432, shown inside a 1920 × 756 comparison export. It includes geometry calibration and tone/dissolve finishing. A first-frame brightness jump and limitations in faces and fine detail remain. The synthetic detail must be declared.</p>
   <a class="fiat-file" href="https://drive.google.com/file/d/1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw/view">Open video / download original MP4</a>
 </article>
 
@@ -111,6 +126,14 @@ description: Video examples and practical workflow notes from Fabio Bedoya's FIA
   <p class="fiat-caption">This is a workflow screencast, not a finished restoration comparison. Silent.</p>
   <a class="fiat-file" href="https://drive.google.com/file/d/1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs/view">Open video / download original MP4</a>
 </article>
+
+</section>
+
+<section id="public-examples" markdown="1">
+
+## Reconstruction and dialogue examples
+
+The 15-frame-gap and dialogue-recovery clips from the talk are not included in this public companion. The Knight of the Trail comparison above is a related reconstruction example: it concerns damaged picture supplied by two surviving elements, rather than a complete 15-frame gap. No alternate dialogue-recovery clip is presented here.
 
 </section>
 

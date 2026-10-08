@@ -8,6 +8,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
 ---
 
 {% include fiat-companion/style.html %}
+{% assign vb = site.fc_view_base_override | default: site.data.fiat_evidence.view_base %}
 
 <div class="fc" lang="es">
 
@@ -25,7 +26,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   <p>Esta página acompaña mi charla. Sigue las diapositivas en orden, así que puedes encontrar la versión a tamaño completo de cada ejemplo a medida que aparece, o volver a ella más tarde. Para cada experimento, anoté qué funcionó y en qué todavía se queda corto.</p>
 </header>
 
-<p class="fc-tip">Toca un video para reproducirlo aquí. El reproductor transmite desde Google Drive, así que puede mostrar una calidad menor que la del original, sobre todo con una conexión lenta. Para ver el detalle, usa “Original a tamaño completo” debajo de cada video: descarga el archivo original, que puedes abrir en el reproductor de video de tu teléfono o de tu computadora. Debajo de cada imagen, los botones abren cada imagen a tamaño completo. Conviene descargar los archivos grandes por wifi. La mayoría de los videos son comparaciones lado a lado, así que cada mitad es más pequeña que el archivo completo.</p>
+<p class="fc-tip">Toca un video para reproducirlo aquí. El reproductor transmite desde Google Drive, así que puede mostrar una calidad menor que la del original, sobre todo con una conexión lenta. Las partes y la evidencia de cada ejemplo se abren a tamaño completo en un visor, donde puedes hacer zoom para ver el detalle. La mayoría de los videos son comparaciones lado a lado, así que cada mitad es más pequeña que el archivo completo.</p>
 
 <nav class="fc-toc" aria-labelledby="contents">
   <h2 id="contents">Sigue la charla</h2>
@@ -61,6 +62,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   <p>La mayoría de las herramientas de restauración usan filtros espaciales y temporales. Toman imagen prestada del mismo fotograma o de los fotogramas de alrededor, y cuando no hay nada limpio que copiar, interpolan. La diapositiva muestra Dry Clean en Phoenix sobre <em>Point Blank</em> (1967); las marcas rojas son lo que detectó y eliminó.</p>
   <p>Estas herramientas pueden ocultar polvo, rayas y parpadeo, y cubrir dos o tres fotogramas faltantes. Pero no pueden traer de vuelta lo que se perdió. Si somos honestos, la restauración digital siempre ha consistido en ocultar, no en recuperar.</p>
   <p>Así que la IA en restauración no es algo completamente nuevo. Lo que nos da es una forma de abordar problemas que antes no eran posibles ni técnica ni económicamente, trabajando con el escaneo tal como está. En muchos archivos, sobre todo en América Latina y el Sudeste Asiático, ese escaneo desvanecido es lo único que queda de una película.</p>
+{% include fiat-companion/evidence.html key="slide03" %}
 </section>
 
 <section class="fc-section" id="the-limits">
@@ -74,19 +76,20 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   </ul>
 
   <figure class="fc-media fc-still">
-    <a href="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" alt="Fotograma de la playa de Reptilicus: cuatro mosaicos unidos a la izquierda y el fotograma completo en una sola pasada a la derecha" width="1732" height="770" loading="lazy" decoding="async"></a>
+    <button type="button" class="fc-ev fc-ev-img" data-id="v-reptilicus-beach-tiled-vs-fu-f83c" data-kind="image" data-w="1732" data-h="770" data-title="Fotograma de la playa de Reptilicus: cuatro mosaicos unidos a la izquierda y el fotograma completo en una sola pasada a la derecha"><img src="{{ vb }}v-reptilicus-beach-tiled-vs-fu-f83c_preview.jpg" alt="Fotograma de la playa de Reptilicus: cuatro mosaicos unidos a la izquierda y el fotograma completo en una sola pasada a la derecha" loading="lazy" decoding="async"></button>
     <p class="fc-bar">Diapositiva 4 · <em>Reptilicus</em> (1961): cuatro mosaicos unidos (izquierda) y el fotograma completo en una sola pasada (derecha)</p>
     <figcaption class="fc-body">
       <p class="fc-file">Cómo se hizo · abre cada parte a tamaño completo</p>
       <ol class="fc-parts">
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/01_source_reptilicus_tlr_000025-40689881.jpg' | relative_url }}">Fuente desvanecida<span class="fc-dims">2048 × 1556</span></a><p>El fotograma desvanecido al tamaño completo del escaneo.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_fullframe_clara_baseline_frame_000000_test.png' | relative_url }}">Fotograma completo en una pasada<span class="fc-dims">1184 × 880</span></a><p>Qwen Image Edit sobre el fotograma completo, con el prompt Clara de la diapositiva 7. El resultado sale más pequeño que el escaneo.</p></li>
-        <li><span class="fc-part-label">Cuatro mosaicos de la fuente<span class="fc-dims">1328 × 800 cada uno</span></span><span class="fc-part-set"><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_top_left_source_tile.png' | relative_url }}">superior izquierdo</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_top_right_source_tile.png' | relative_url }}">superior derecho</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_bottom_left_source_tile.png' | relative_url }}">inferior izquierdo</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_bottom_right_source_tile.png' | relative_url }}">inferior derecho</a></span><p>El mismo fotograma cortado en cuatro mosaicos que se superponen.</p></li>
-        <li><span class="fc-part-label">Cada mosaico después del modelo<span class="fc-dims">1328 × 800 cada uno</span></span><span class="fc-part-set"><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_top_left_raw_inference.png' | relative_url }}">superior izquierdo</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_top_right_raw_inference.png' | relative_url }}">superior derecho</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_bottom_left_raw_inference.png' | relative_url }}">inferior izquierdo</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_bottom_right_raw_inference.png' | relative_url }}">inferior derecho</a></span><p>Cada mosaico pasó por el modelo por separado, con el mismo prompt.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_four_tile_raw_inference_hard_stitch.png' | relative_url }}">Cuatro mosaicos unidos<span class="fc-dims">2048 × 1556</span></a><p>Los cuatro resultados pegados de nuevo en un solo fotograma, al tamaño del escaneo, sin fundido, así que las uniones siguen a la vista.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-01-source-reptilicus-tlr-000-f859" data-kind="image" data-w="2048" data-h="1556" data-title="Fuente desvanecida">Fuente desvanecida<span class="fc-dims">2048 × 1556</span></button><p>El fotograma desvanecido al tamaño completo del escaneo.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-fullframe-cl-cf78" data-kind="image" data-w="1184" data-h="880" data-title="Fotograma completo en una pasada">Fotograma completo en una pasada<span class="fc-dims">1184 × 880</span></button><p>Qwen Image Edit sobre el fotograma completo, con el prompt Clara de la diapositiva 7. El resultado sale más pequeño que el escaneo.</p></li>
+        <li><span class="fc-part-label">Cuatro mosaicos de la fuente<span class="fc-dims">1328 × 800 cada uno</span></span><span class="fc-part-set"><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-top-left-sou-fd20" data-kind="image" data-w="1328" data-h="800" data-title="superior izquierdo">superior izquierdo</button><button type="button" class="fc-part fc-ev" data-id="s04-01" data-kind="image" data-w="1328" data-h="800" data-title="superior derecho">superior derecho</button><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-bottom-left--3036" data-kind="image" data-w="1328" data-h="800" data-title="inferior izquierdo">inferior izquierdo</button><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-bottom-right-b547" data-kind="image" data-w="1328" data-h="800" data-title="inferior derecho">inferior derecho</button></span><p>El mismo fotograma cortado en cuatro mosaicos que se superponen.</p></li>
+        <li><span class="fc-part-label">Cada mosaico después del modelo<span class="fc-dims">1328 × 800 cada uno</span></span><span class="fc-part-set"><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-tile-top-lef-75eb" data-kind="image" data-w="1328" data-h="800" data-title="superior izquierdo">superior izquierdo</button><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-tile-top-rig-e731" data-kind="image" data-w="1328" data-h="800" data-title="superior derecho">superior derecho</button><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-tile-bottom--4bd3" data-kind="image" data-w="1328" data-h="800" data-title="inferior izquierdo">inferior izquierdo</button><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-tile-bottom--f8c1" data-kind="image" data-w="1328" data-h="800" data-title="inferior derecho">inferior derecho</button></span><p>Cada mosaico pasó por el modelo por separado, con el mismo prompt.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-four-tile-ra-2024" data-kind="image" data-w="2048" data-h="1556" data-title="Cuatro mosaicos unidos">Cuatro mosaicos unidos<span class="fc-dims">2048 × 1556</span></button><p>Los cuatro resultados pegados de nuevo en un solo fotograma, al tamaño del escaneo, sin fundido, así que las uniones siguen a la vista.</p></li>
       </ol>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide04" %}
 </section>
 
 <section class="fc-section" id="reference-recovery">
@@ -106,22 +109,23 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
         <div><strong>Limitaciones</strong><p>El método es tan bueno como su referencia. Este DVD es de definición estándar y tiene sus propias decisiones de etalonaje y de transferencia. Y muchas películas ya no tienen ninguna referencia.</p></div>
       </div>
 {% include fiat-companion/files.html key="candy" desc="comparación 1920 × 1080 · 1 min 10 s · 24 fps" %}
-      <a class="fc-process" href="{{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }}"><img src="{{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }}" alt="Entrenamiento de Candy Candy: la fuente de 16mm más el DVD PAL forman el objetivo del entrenamiento, y el resultado del modelo en los pasos 1, 1.000, 30.000 y 60.000" width="1920" height="886" loading="lazy" decoding="async"></a>
+      <button type="button" class="fc-ev fc-ev-img fc-process" data-id="s05-04" data-kind="image" data-w="1920" data-h="886" data-title="Entrenamiento de Candy Candy: la fuente de 16mm más el DVD PAL forman el objetivo del entrenamiento, y el resultado del modelo en los pasos 1, 1.000, 30.000 y 60.000"><img src="{{ vb }}s05-04_preview.jpg" alt="Entrenamiento de Candy Candy: la fuente de 16mm más el DVD PAL forman el objetivo del entrenamiento, y el resultado del modelo en los pasos 1, 1.000, 30.000 y 60.000" loading="lazy" decoding="async"></button>
       <p class="fc-file">Cómo se hizo · abre cada parte a tamaño completo</p>
       <ol class="fc-parts">
-        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}">Escaneo de 16mm desvanecido<span class="fc-dims">3024 × 1890</span></a><p>Un fotograma de la copia desvanecida en DaVinci Resolve, antes de cualquier corrección.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}">Escaneo equilibrado<span class="fc-dims">3024 × 1890</span></a><p>El mismo fotograma después del DCTL Faded Balancer, que equilibra los canales de color desvanecidos antes del entrenamiento.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/cropped/copycat-training-cropped.png' | relative_url }}">Configuración del entrenamiento en Nuke<span class="fc-dims">1230 × 1602</span></a><p>El grafo de entrenamiento de CopyCat. Los fotogramas del escaneo son la entrada. El objetivo conserva el brillo del escaneo y toma el color del DVD.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }}">Pasos del entrenamiento<span class="fc-dims">1920 × 886</span></a><p>La fuente de 16mm más el DVD PAL forman el objetivo. Abajo, el resultado del modelo después de 1, 1.000, 30.000 y 60.000 pasos de entrenamiento.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-chroma-recovery-finished.png' | relative_url }}">Fotograma recuperado<span class="fc-dims">2742 × 2112</span></a><p>Un fotograma del resultado a tamaño completo.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-01" data-kind="image" data-w="2200" data-h="1650" data-title="Escaneo de 16mm desvanecido">Escaneo de 16mm desvanecido<span class="fc-dims">2200 × 1650</span></button><p>Un fotograma de la apertura, del escaneo de 16mm de la copia desvanecida, antes de cualquier corrección. Tiene una fuerte dominante magenta, y la mayor parte del parpadeo está en el canal rojo.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-02" data-kind="image" data-w="4400" data-h="3300" data-title="Escaneo limpio y reequilibrado">Escaneo limpio y reequilibrado<span class="fc-dims">4400 × 3300</span></button><p>El mismo fotograma después de la limpieza y el reequilibrio en Phoenix y Loki: los fotogramas con los que se entrenó CopyCat.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-03" data-kind="image" data-w="1951" data-h="1098" data-title="El script de Nuke">El script de Nuke<span class="fc-dims">1951 × 1098</span></button><p>El script de Nuke de un plano de Candy Candy: el plano en el visor y el grafo de CopyCat. Los fotogramas del escaneo son la entrada; el objetivo conserva el brillo del escaneo y toma el color del DVD.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-04" data-kind="image" data-w="1920" data-h="886" data-title="Pasos del entrenamiento">Pasos del entrenamiento<span class="fc-dims">1920 × 886</span></button><p>La fuente de 16mm más el DVD PAL forman el objetivo. Abajo, el resultado del modelo después de 1, 1.000, 30.000 y 60.000 pasos de entrenamiento.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-07" data-kind="image" data-w="2742" data-h="2112" data-title="Fotograma recuperado">Fotograma recuperado<span class="fc-dims">2742 × 2112</span></button><p>Un fotograma del resultado a tamaño completo.</p></li>
       </ol>
       <details>
         <summary>Resultado a resolución completa (4400 × 3300, unos 298 MB)</summary>
-        <p>El escaneo con el color recuperado, solo, al tamaño completo del escaneo, 4400 × 3300. Sin sonido, 24 fps, HEVC. Es un archivo grande, así que conviene descargarlo por wifi. El reproductor de Drive puede transmitir una versión más pequeña; descárgalo para verlo a resolución completa.</p>
-{% include fiat-companion/files.html key="candy-full" %}
+        <p>El escaneo con el color recuperado, solo, al tamaño completo del escaneo, 4400 × 3300. Sin sonido, 24 fps, HEVC. El reproductor de Drive de abajo transmite una versión más pequeña.</p>
+{% include fiat-companion/video.html key="candy-full" title="Candy Candy: el escaneo con el color recuperado a resolución completa" label="Reproducir video: Candy Candy, el escaneo con el color recuperado a resolución completa (1 minuto 10 segundos)" %}
       </details>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide05" %}
 </section>
 
 <section class="fc-section" id="synthetic-reference">
@@ -135,15 +139,15 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   <p>De la referencia sintética me quedo solo con el color. El brillo sigue viniendo del escaneo.</p>
 
   <figure class="fc-media fc-still">
-    <a href="{{ '/images_kebab/seapavaa2026/leader_lady_semantic_contamination_gar01_triptych.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/leader_lady_semantic_contamination_gar01_triptych.png' | relative_url }}" alt="Tres fotogramas: la fuente desvanecida, el resultado guiado por una leader lady con la mujer mezclada en el plano y el resultado guiado por una carta de color" width="1388" height="416" loading="lazy" decoding="async"></a>
+    <button type="button" class="fc-ev fc-ev-img" data-id="v-leader-lady-semantic-contami-9dce" data-kind="image" data-w="1388" data-h="416" data-title="Tres fotogramas: la fuente desvanecida, el resultado guiado por una leader lady con la mujer mezclada en el plano y el resultado guiado por una carta de color"><img src="{{ vb }}v-leader-lady-semantic-contami-9dce_preview.jpg" alt="Tres fotogramas: la fuente desvanecida, el resultado guiado por una leader lady con la mujer mezclada en el plano y el resultado guiado por una carta de color" loading="lazy" decoding="async"></button>
     <p class="fc-bar">Diapositiva 7 · La fuente desvanecida, el resultado guiado por una leader lady y el resultado guiado por una carta de color</p>
     <figcaption class="fc-body">
       <p class="fc-file">Cómo se hizo · abre cada parte a tamaño completo</p>
       <ol class="fc-parts">
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/01_raw_source.png' | relative_url }}">Fuente desvanecida<span class="fc-dims">2048 × 1556</span></a><p>El fotograma desvanecido.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/02_early_marcie_contamination.png' | relative_url }}">Guiado por una leader lady<span class="fc-dims">1168 × 888</span></a><p>El modelo mezcló en el plano a la mujer de la cola de calibración.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/02_reference_chart.png' | relative_url }}">Carta de color ligeramente desenfocada<span class="fc-dims">333 × 238</span></a><p>La guía que reemplazó a la leader lady. Da el color y nada más que copiar.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/03_belak_chart_corrected.png' | relative_url }}">Guiado por la carta de color<span class="fc-dims">1184 × 880</span></a><p>Solo cambia el color.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-01-raw-source-316a" data-kind="image" data-w="2048" data-h="1556" data-title="Fuente desvanecida">Fuente desvanecida<span class="fc-dims">2048 × 1556</span></button><p>El fotograma desvanecido.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s07-01" data-kind="image" data-w="1168" data-h="888" data-title="Guiado por una leader lady">Guiado por una leader lady<span class="fc-dims">1168 × 888</span></button><p>El modelo mezcló en el plano a la mujer de la cola de calibración.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-02-reference-chart-800a" data-kind="image" data-w="333" data-h="238" data-title="Carta de color ligeramente desenfocada">Carta de color ligeramente desenfocada<span class="fc-dims">333 × 238</span></button><p>La guía que reemplazó a la leader lady. Da el color y nada más que copiar.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-03-belak-chart-corrected-c2a4" data-kind="image" data-w="1184" data-h="880" data-title="Guiado por la carta de color">Guiado por la carta de color<span class="fc-dims">1184 × 880</span></button><p>Solo cambia el color.</p></li>
       </ol>
       <div class="fc-missing" style="margin-top: 0.8rem"><p>La imagen de la leader lady usada como guía no está incluida en esta página.</p></div>
     </figcaption>
@@ -151,41 +155,42 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
 
   <figure class="fc-media fc-still">
     <div class="fc-grid4">
-      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/fanji_film_copy_000059.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/01_source.png' | relative_url }}" alt="Fotograma fuente desvanecido" width="1284" height="960" loading="lazy" decoding="async"><span>Fuente desvanecida</span></a>
-      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/i2_frame_000000_test.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/02_iris_spectrum.png' | relative_url }}" alt="Resultado con el prompt Iris" width="1284" height="960" loading="lazy" decoding="async"><span>Iris</span></a>
-      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/c4_frame_000000_test.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/03_celeste_redguard.png' | relative_url }}" alt="Resultado con el prompt Celeste" width="1284" height="960" loading="lazy" decoding="async"><span>Celeste</span></a>
-      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/cl2_frame_000000_test.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/04_clara_anchor.png' | relative_url }}" alt="Resultado con el prompt Clara" width="1284" height="960" loading="lazy" decoding="async"><span>Clara, el ganador</span></a>
+      <button type="button" class="fc-ev fc-ev-img" data-id="v-fanji-film-copy-000059-3569" data-kind="image" data-w="1920" data-h="1440" data-title="Fotograma fuente desvanecido"><img src="{{ vb }}v-fanji-film-copy-000059-3569_preview.jpg" alt="Fotograma fuente desvanecido" loading="lazy" decoding="async"><span>Fuente desvanecida</span></button>
+      <button type="button" class="fc-ev fc-ev-img" data-id="v-i2-frame-000000-test-b280" data-kind="image" data-w="1184" data-h="880" data-title="Resultado con el prompt Iris"><img src="{{ vb }}v-i2-frame-000000-test-b280_preview.jpg" alt="Resultado con el prompt Iris" loading="lazy" decoding="async"><span>Iris</span></button>
+      <button type="button" class="fc-ev fc-ev-img" data-id="v-c4-frame-000000-test-d995" data-kind="image" data-w="1184" data-h="880" data-title="Resultado con el prompt Celeste"><img src="{{ vb }}v-c4-frame-000000-test-d995_preview.jpg" alt="Resultado con el prompt Celeste" loading="lazy" decoding="async"><span>Celeste</span></button>
+      <button type="button" class="fc-ev fc-ev-img" data-id="v-cl2-frame-000000-test-5683" data-kind="image" data-w="1184" data-h="880" data-title="Resultado con el prompt Clara"><img src="{{ vb }}v-cl2-frame-000000-test-5683_preview.jpg" alt="Resultado con el prompt Clara" loading="lazy" decoding="async"><span>Clara, el ganador</span></button>
     </div>
     <p class="fc-bar">Diapositiva 7 · Fila inferior: los tres prompts finalistas sobre un fotograma desvanecido de <em>Counter Attack</em> (1976)</p>
     <figcaption class="fc-body">
       <p>La fila inferior de la diapositiva: el mismo fotograma desvanecido con cada uno de los tres finalistas.</p>
       <p class="fc-file">Cómo se hizo · abre cada parte a tamaño completo</p>
       <ol class="fc-parts">
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/fanji_film_copy_000059.png' | relative_url }}">Fuente desvanecida<span class="fc-dims">1920 × 1440</span></a></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/i2_frame_000000_test.png' | relative_url }}">Iris<span class="fc-dims">1184 × 880</span></a></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/c4_frame_000000_test.png' | relative_url }}">Celeste<span class="fc-dims">1184 × 880</span></a></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/cl2_frame_000000_test.png' | relative_url }}">Clara, el ganador<span class="fc-dims">1184 × 880</span></a></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-fanji-film-copy-000059-3569" data-kind="image" data-w="1920" data-h="1440" data-title="Fuente desvanecida">Fuente desvanecida<span class="fc-dims">1920 × 1440</span></button></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-i2-frame-000000-test-b280" data-kind="image" data-w="1184" data-h="880" data-title="Iris">Iris<span class="fc-dims">1184 × 880</span></button></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-c4-frame-000000-test-d995" data-kind="image" data-w="1184" data-h="880" data-title="Celeste">Celeste<span class="fc-dims">1184 × 880</span></button></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-cl2-frame-000000-test-5683" data-kind="image" data-w="1184" data-h="880" data-title="Clara, el ganador">Clara, el ganador<span class="fc-dims">1184 × 880</span></button></li>
       </ol>
-      <p class="fc-more">Los mismos tres prompts sobre el plano de la multitud del video de la diapositiva 9: <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/fanji_film_copy_000007.png' | relative_url }}">Fuente desvanecida</a> · <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/i2_frame_000000_test.png' | relative_url }}">Iris</a> · <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/c4_frame_000000_test.png' | relative_url }}">Celeste</a> · <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/cl2_frame_000000_test.png' | relative_url }}">Clara</a></p>
+      <p class="fc-more">Los mismos tres prompts sobre el plano de la multitud del video de la diapositiva 9: <button type="button" class="fc-ev fc-ev-link" data-id="v-fanji-film-copy-000007-ecfa" data-kind="image" data-w="1920" data-h="1440" data-title="Fuente desvanecida">Fuente desvanecida</button> · <button type="button" class="fc-ev fc-ev-link" data-id="v-i2-frame-000000-test-0884" data-kind="image" data-w="1184" data-h="880" data-title="Iris">Iris</button> · <button type="button" class="fc-ev fc-ev-link" data-id="v-c4-frame-000000-test-ea0c" data-kind="image" data-w="1184" data-h="880" data-title="Celeste">Celeste</button> · <button type="button" class="fc-ev fc-ev-link" data-id="v-cl2-frame-000000-test-e7be" data-kind="image" data-w="1184" data-h="880" data-title="Clara">Clara</button></p>
     </figcaption>
   </figure>
 
   <figure class="fc-media fc-still">
-    <a href="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" alt="Fotograma del jardín de Counter Attack: la fuente desvanecida a la izquierda y el fotograma final a la derecha" width="1400" height="760" loading="lazy" decoding="async"></a>
+    <button type="button" class="fc-ev fc-ev-img" data-id="v-fanji-c4-row3-garden-split-c-184f" data-kind="image" data-w="1400" data-h="760" data-title="Fotograma del jardín de Counter Attack: la fuente desvanecida a la izquierda y el fotograma final a la derecha"><img src="{{ vb }}v-fanji-c4-row3-garden-split-c-184f_preview.jpg" alt="Fotograma del jardín de Counter Attack: la fuente desvanecida a la izquierda y el fotograma final a la derecha" loading="lazy" decoding="async"></button>
     <p class="fc-bar">Diapositiva 7 · De un fotograma desvanecido a una referencia sintética, paso a paso (<em>Counter Attack</em>)</p>
     <figcaption class="fc-body">
       <p>El fotograma desvanecido está a la izquierda, y el fotograma final a la derecha.</p>
       <p class="fc-file">Cómo se hizo · abre cada parte a tamaño completo</p>
       <ol class="fc-parts">
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/01_source_fanji_film_copy_000015-db56f6f7.png' | relative_url }}">Fuente desvanecida<span class="fc-dims">1920 × 1440</span></a><p>Un fotograma desvanecido de la película.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/02_control_fanji_film_copy_r4_v1_03_garden_buil-dd5a1638.png' | relative_url }}">Mapa de bordes<span class="fc-dims">1920 × 1440</span></a><p>Los bordes del fotograma desvanecido (un mapa Canny). Mantienen al modelo pegado a las formas del propio fotograma.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/03_reference_Belak_Color_Patch_Chart_softblur_32-9142a789.png' | relative_url }}">Carta de color ligeramente desenfocada<span class="fc-dims">333 × 238</span></a><p>La guía de color.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/04_inference_frame_000000_test-7b87dbc0.png' | relative_url }}">Referencia sintética<span class="fc-dims">1184 × 880</span></a><p>Lo que devuelve Qwen Image Edit. Es una imagen reducida; solo se usa su color.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/05_final_composite_fanji_film_copy_r4_v1_03_garden_buil-1622230d.png' | relative_url }}">Fotograma final<span class="fc-dims">1920 × 1440</span></a><p>El color de la referencia sintética sobre el brillo del escaneo original, a tamaño completo.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-01-source-fanji-film-copy-00-5674" data-kind="image" data-w="1920" data-h="1440" data-title="Fuente desvanecida">Fuente desvanecida<span class="fc-dims">1920 × 1440</span></button><p>Un fotograma desvanecido de la película.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-02-control-fanji-film-copy-r-42c2" data-kind="image" data-w="1920" data-h="1440" data-title="Mapa de bordes">Mapa de bordes<span class="fc-dims">1920 × 1440</span></button><p>Los bordes del fotograma desvanecido (un mapa Canny). Mantienen al modelo pegado a las formas del propio fotograma.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s07-02" data-kind="image" data-w="333" data-h="238" data-title="Carta de color ligeramente desenfocada">Carta de color ligeramente desenfocada<span class="fc-dims">333 × 238</span></button><p>La guía de color.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-04-inference-frame-000000-te-b3c5" data-kind="image" data-w="1184" data-h="880" data-title="Referencia sintética">Referencia sintética<span class="fc-dims">1184 × 880</span></button><p>Lo que devuelve Qwen Image Edit. Es una imagen reducida; solo se usa su color.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-05-final-composite-fanji-fil-9236" data-kind="image" data-w="1920" data-h="1440" data-title="Fotograma final">Fotograma final<span class="fc-dims">1920 × 1440</span></button><p>El color de la referencia sintética sobre el brillo del escaneo original, a tamaño completo.</p></li>
       </ol>
-      <p class="fc-more">La configuración de la prueba en ComfyUI, con la fuente, la carta, el mapa de bordes, el prompt, el modelo y el resultado en un solo grafo. Es del plano de la multitud del video de la diapositiva 9. <a href="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}">Captura de pantalla de ComfyUI</a> · <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}">Archivo del flujo de trabajo (JSON)</a></p>
+      <p class="fc-more">La configuración de la prueba en ComfyUI, con la fuente, la carta, el mapa de bordes, el prompt, el modelo y el resultado en un solo grafo. Es del plano de la multitud del video de la diapositiva 9. <button type="button" class="fc-ev fc-ev-link" data-id="v-comfyui-workflow-fanji-water-d2cc" data-kind="image" data-w="1920" data-h="670" data-title="Captura de pantalla de ComfyUI">Captura de pantalla de ComfyUI</button> · <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}">Archivo del flujo de trabajo (JSON)</a></p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide07" %}
 </section>
 
 <section class="fc-section" id="telestyle">
@@ -193,6 +198,8 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   <h2 id="telestyle-section-title">Mantener el color estable a lo largo de un plano</h2>
   <p>Conseguir un fotograma convincente ya no es lo difícil. Si simplemente ejecutas el modelo 24 veces por segundo, no funciona, porque estos modelos no son deterministas: cada ejecución es un poco una ruleta. Cada fotograma recibe una interpretación ligeramente distinta, y el color parpadea.</p>
   <p>La diapositiva 8 muestra una escena de baile de <em>Obsession</em> en la que cada fotograma se recuperó por separado. Mira el vestido de la mujer de la derecha, y el fondo. Cada fotograma es una interpretación razonable por sí solo, pero juntos no coinciden. Un buen fotograma es una miniatura. Una restauración necesita que todo el plano sea coherente consigo mismo. Eso es la consistencia temporal, y fue el mayor obstáculo.</p>
+
+{% include fiat-companion/evidence.html key="slide08" %}
 
   <figure class="fc-media">
 {% include fiat-companion/video.html key="slide09" title="Counter Attack: una sola referencia para todo el plano (TeleStyle)" label="Reproducir video: Counter Attack, una sola referencia para todo el plano (11 segundos)" %}
@@ -206,8 +213,8 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
 {% include fiat-companion/files.html key="slide09" desc="comparación 1920 × 1080 · 11 s · 30 fps" %}
       <p class="fc-file">Cómo se hizo, según los registros de la investigación</p>
       <ol class="fc-parts fc-steps">
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/01_source.png' | relative_url }}">Fuente desvanecida<span class="fc-dims">1920 × 1440</span></a><p>El plano de la copia de la película: 338 fotogramas, 1920 × 1440, a 30 fotogramas por segundo.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/04_output.png' | relative_url }}">Referencia aprobada<span class="fc-dims">1184 × 880</span></a><p>Un fotograma del plano, recuperado con Qwen Image Edit y aprobado antes de la ejecución completa.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s09-01" data-kind="image" data-w="1920" data-h="1440" data-title="Fuente desvanecida">Fuente desvanecida<span class="fc-dims">1920 × 1440</span></button><p>El plano de la copia de la película: 338 fotogramas, 1920 × 1440, a 30 fotogramas por segundo.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s09-02" data-kind="image" data-w="1184" data-h="880" data-title="Referencia aprobada">Referencia aprobada<span class="fc-dims">1184 × 880</span></button><p>Un fotograma del plano, recuperado con Qwen Image Edit y aprobado antes de la ejecución completa.</p></li>
         <li><span class="fc-part-label">TeleStyle en cada fotograma</span><p>Cada fotograma pasó por separado por Qwen Image Edit con el LoRA TeleStyle, con el fotograma desvanecido y la referencia aprobada como sus dos entradas, en 4 pasos. Se generaron los 338 fotogramas.</p></li>
         <li><span class="fc-part-label">Solo el color</span><p>El color de TeleStyle, generado a 1184 × 880, se puso sobre el brillo intacto del escaneo a 1920 × 1440.</p></li>
         <li><span class="fc-part-label">Tiempo</span><p>La ejecución completa tomó unos 13.560 segundos, casi cuatro horas: unos 32 segundos por fotograma una vez que la máquina estaba caliente.</p></li>
@@ -215,6 +222,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       </ol>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide09" %}
 </section>
 
 <section class="fc-section" id="h3-controlnet">
@@ -247,6 +255,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide11" %}
 </section>
 
 <section class="fc-section" id="temporal-cbcr">
@@ -278,6 +287,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide13" %}
 </section>
 
 <section class="fc-section" id="diffusion-upscaling">
@@ -309,6 +319,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide15" %}
 </section>
 
 <section class="fc-section" id="diffusion-reconstruction">
@@ -351,6 +362,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide19" %}
 </section>
 
 <section class="fc-section" id="dialogue-recovery">
@@ -386,6 +398,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide21" %}
 </section>
 
 <section class="fc-section" id="limits-now">

@@ -16,7 +16,7 @@ window.addEventListener('resize', function () {
   for (var i = 0; i < loaded.length; i++) fcFit(loaded[i]);
 });
 document.addEventListener('click', function (event) {
-  var link = event.target.closest ? event.target.closest('a.fc-play') : null;
+  var link = event.target.closest ? event.target.closest('.fc-play') : null;
   if (link) {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
@@ -45,5 +45,103 @@ document.addEventListener('click', function (event) {
 (function () {
   var root = document.querySelector('.fc[lang]');
   if (root) document.documentElement.lang = root.getAttribute('lang');
+})();
+
+/* Evidence viewer, view-only: images open as zoomable tiles (OpenSeadragon, Deep Zoom), videos as a stream (HLS).
+   No original file is linked or offered for download; screenshots are fine. Libraries load on first use. */
+(function () {
+  var UI = {{ site.data.fiat_evidence.ui[page.fc_lang] | jsonify }};
+  var BASE = {{ site.fc_view_base_override | default: site.data.fiat_evidence.view_base | jsonify }};
+  var LIB = {{ '/assets/fiat-viewer/' | relative_url | jsonify }};
+  var box, stage, title, fitBtn, osd, video, hls, current, loaded = {};
+  function load(name) {
+    if (!loaded[name]) loaded[name] = new Promise(function (ok, fail) {
+      var s = document.createElement('script'); s.src = LIB + name; s.onload = ok; s.onerror = fail; document.head.appendChild(s);
+    });
+    return loaded[name];
+  }
+  function button(cls, text, fn) {
+    var b = document.createElement('button'); b.type = 'button'; b.className = cls; b.textContent = text;
+    b.addEventListener('click', fn); return b;
+  }
+  function build() {
+    box = document.createElement('div'); box.className = 'fc-viewer'; box.hidden = true;
+    box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true');
+    var bar = document.createElement('div'); bar.className = 'fc-viewer-bar';
+    title = document.createElement('span'); title.className = 'fc-viewer-title'; bar.appendChild(title);
+    bar.appendChild(button('fc-viewer-zoom', '+', function () { if (osd) osd.viewport.zoomBy(1.6); }));
+    bar.appendChild(button('fc-viewer-zoom', '−', function () { if (osd) osd.viewport.zoomBy(1 / 1.6); }));
+    fitBtn = button('fc-viewer-fit', UI.actual, toggleActual); bar.appendChild(fitBtn);
+    bar.appendChild(button('fc-viewer-close', UI.close, hide));
+    bar.children[1].setAttribute('aria-label', UI.zoom_in); bar.children[2].setAttribute('aria-label', UI.zoom_out);
+    stage = document.createElement('div'); stage.className = 'fc-viewer-stage';
+    var hint = document.createElement('p'); hint.className = 'fc-viewer-hint'; hint.textContent = UI.hint;
+    box.appendChild(bar); box.appendChild(stage); box.appendChild(hint);
+    box.setAttribute('aria-label', UI.close);
+    /* Viewing only: no context menu or long-press save on the viewer. */
+    box.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+    box.addEventListener('dragstart', function (e) { e.preventDefault(); });
+    document.addEventListener('keydown', function (e) { if (!box.hidden && e.key === 'Escape') hide(); });
+    document.body.appendChild(box);
+  }
+  function isActual() { return box.classList.contains('fc-actual'); }
+  function toggleActual() {
+    if (!osd) return;
+    var on = !isActual();
+    box.classList.toggle('fc-actual', on);
+    fitBtn.textContent = on ? UI.fit : UI.actual;
+    if (on) osd.viewport.zoomTo(osd.viewport.imageToViewportZoom(1 / (window.devicePixelRatio || 1)));
+    else osd.viewport.goHome();
+  }
+  function clear() {
+    if (osd) { osd.destroy(); osd = null; }
+    if (hls) { hls.destroy(); hls = null; }
+    if (video) { video.removeAttribute('src'); video.load(); video = null; }
+    stage.replaceChildren();
+  }
+  function show(btn) {
+    if (!box) build();
+    clear();
+    current = btn;
+    var id = btn.getAttribute('data-id');
+    title.textContent = btn.getAttribute('data-title') || btn.firstChild.textContent;
+    box.classList.remove('fc-actual'); fitBtn.textContent = UI.actual;
+    box.classList.toggle('fc-is-video', btn.getAttribute('data-kind') === 'video');
+    box.hidden = false; document.documentElement.classList.add('fc-noscroll');
+    box.querySelector('.fc-viewer-close').focus();
+    if (btn.getAttribute('data-kind') === 'video') {
+      video = document.createElement('video');
+      video.controls = true; video.playsInline = true; video.setAttribute('playsinline', '');
+      video.setAttribute('controlslist', 'nodownload noremoteplayback noplaybackrate');
+      video.disablePictureInPicture = true; video.setAttribute('disablepictureinpicture', '');
+      stage.appendChild(video);
+      var src = BASE + id + '_stream/index.m3u8';
+      if (video.canPlayType('application/vnd.apple.mpegurl')) { video.src = src; }
+      else load('hls.light.min.js').then(function () {
+        if (!video || !window.Hls || !window.Hls.isSupported()) return;
+        hls = new window.Hls(); hls.loadSource(src); hls.attachMedia(video);
+      });
+    } else {
+      var holder = document.createElement('div'); holder.className = 'fc-viewer-osd'; stage.appendChild(holder);
+      load('openseadragon.min.js').then(function () {
+        if (current !== btn || box.hidden) return;
+        osd = window.OpenSeadragon({
+          element: holder, drawer: 'canvas', crossOriginPolicy: false,
+          tileSources: { Image: { xmlns: 'http://schemas.microsoft.com/deepzoom/2008', Url: BASE + id + '_files/', Format: 'jpg',
+            Overlap: '1', TileSize: '510', Size: { Width: btn.getAttribute('data-w'), Height: btn.getAttribute('data-h') } } },
+          showNavigationControl: false, showNavigator: false, maxZoomPixelRatio: 4, minZoomImageRatio: 0.8,
+          visibilityRatio: 0.5, gestureSettingsTouch: { pinchRotate: false, dblClickToZoom: true }, animationTime: 0.6
+        });
+      });
+    }
+  }
+  function hide() {
+    clear(); box.hidden = true; document.documentElement.classList.remove('fc-noscroll');
+    if (current) current.focus();
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('button.fc-ev') : null;
+    if (b) show(b);
+  });
 })();
 </script>

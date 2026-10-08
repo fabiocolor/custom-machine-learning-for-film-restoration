@@ -8,6 +8,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
 ---
 
 {% include fiat-companion/style.html %}
+{% assign vb = site.fc_view_base_override | default: site.data.fiat_evidence.view_base %}
 
 <div class="fc" lang="en">
 
@@ -25,7 +26,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
   <p>This page goes with my talk. It follows the slides in order, so you can find the full-size version of each example as it comes up, or come back to it later. For each experiment, I've written down what worked and where it still falls short.</p>
 </header>
 
-<p class="fc-tip">Tap a video to play it here. The player streams from Google Drive, so it may show a lower quality than the original, especially on a slow connection. To see the detail, use “Full-size original” under each video: it downloads the original file, which you can open in your phone's or computer's video player. Under each still, the buttons open each image at full size. Large files are best downloaded on Wi-Fi. Most videos are side-by-side comparisons, so each half is smaller than the full file.</p>
+<p class="fc-tip">Tap a video to play it here. The player streams from Google Drive, so it may show a lower quality than the original, especially on a slow connection. The parts and evidence under each example open at full size in a viewer, where you can zoom in to see the detail. Most videos are side-by-side comparisons, so each half is smaller than the full file.</p>
 
 <nav class="fc-toc" aria-labelledby="contents">
   <h2 id="contents">Follow the talk</h2>
@@ -61,6 +62,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
   <p>Most restoration tools use spatial and temporal filters. They borrow picture from the same frame, or from the frames around it, and when there's nothing clean to copy, they interpolate. The slide shows Dry Clean in Phoenix on <em>Point Blank</em> (1967); the red marks are what it detected and removed.</p>
   <p>These tools can hide dust, scratches and flicker, and bridge two or three missing frames. But they can't bring back what is lost. If we're honest, digital restoration has always been about masking, not recovery.</p>
   <p>So AI in restoration isn't something completely new. What it gives us is a way to take on problems that weren't technically or financially possible before, working with the scan as it is. In many archives, especially in Latin America and Southeast Asia, that faded scan is the only thing left of a film.</p>
+{% include fiat-companion/evidence.html key="slide03" %}
 </section>
 
 <section class="fc-section" id="the-limits">
@@ -74,19 +76,20 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
   </ul>
 
   <figure class="fc-media fc-still">
-    <a href="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" alt="Reptilicus beach frame: four tiles stitched together on the left, the whole frame in one pass on the right" width="1732" height="770" loading="lazy" decoding="async"></a>
+    <button type="button" class="fc-ev fc-ev-img" data-id="v-reptilicus-beach-tiled-vs-fu-f83c" data-kind="image" data-w="1732" data-h="770" data-title="Reptilicus beach frame: four tiles stitched together on the left, the whole frame in one pass on the right"><img src="{{ vb }}v-reptilicus-beach-tiled-vs-fu-f83c_preview.jpg" alt="Reptilicus beach frame: four tiles stitched together on the left, the whole frame in one pass on the right" loading="lazy" decoding="async"></button>
     <p class="fc-bar">Slide 4 · <em>Reptilicus</em> (1961): four tiles stitched together (left) and the whole frame in one pass (right)</p>
     <figcaption class="fc-body">
       <p class="fc-file">How it was made · open each part at full size</p>
       <ol class="fc-parts">
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/01_source_reptilicus_tlr_000025-40689881.jpg' | relative_url }}">Faded source<span class="fc-dims">2048 × 1556</span></a><p>The faded frame at the scan's full size.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_fullframe_clara_baseline_frame_000000_test.png' | relative_url }}">Whole frame in one pass<span class="fc-dims">1184 × 880</span></a><p>Qwen Image Edit on the whole frame, with the Clara prompt from slide 7. The result comes back smaller than the scan.</p></li>
-        <li><span class="fc-part-label">Four tiles from the source<span class="fc-dims">1328 × 800 each</span></span><span class="fc-part-set"><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_top_left_source_tile.png' | relative_url }}">top left</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_top_right_source_tile.png' | relative_url }}">top right</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_bottom_left_source_tile.png' | relative_url }}">bottom left</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/reptilicus_t001_bottom_right_source_tile.png' | relative_url }}">bottom right</a></span><p>The same frame cut into four overlapping tiles.</p></li>
-        <li><span class="fc-part-label">Each tile after the model<span class="fc-dims">1328 × 800 each</span></span><span class="fc-part-set"><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_top_left_raw_inference.png' | relative_url }}">top left</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_top_right_raw_inference.png' | relative_url }}">top right</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_bottom_left_raw_inference.png' | relative_url }}">bottom left</a><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/reptilicus_t001_tile_bottom_right_raw_inference.png' | relative_url }}">bottom right</a></span><p>Each tile went through the model on its own, with the same prompt.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_four_tile_raw_inference_hard_stitch.png' | relative_url }}">Four tiles stitched<span class="fc-dims">2048 × 1556</span></a><p>The four results pasted back into one frame at the scan's size, without blending, so the seams stay visible.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-01-source-reptilicus-tlr-000-f859" data-kind="image" data-w="2048" data-h="1556" data-title="Faded source">Faded source<span class="fc-dims">2048 × 1556</span></button><p>The faded frame at the scan's full size.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-fullframe-cl-cf78" data-kind="image" data-w="1184" data-h="880" data-title="Whole frame in one pass">Whole frame in one pass<span class="fc-dims">1184 × 880</span></button><p>Qwen Image Edit on the whole frame, with the Clara prompt from slide 7. The result comes back smaller than the scan.</p></li>
+        <li><span class="fc-part-label">Four tiles from the source<span class="fc-dims">1328 × 800 each</span></span><span class="fc-part-set"><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-top-left-sou-fd20" data-kind="image" data-w="1328" data-h="800" data-title="top left">top left</button><button type="button" class="fc-part fc-ev" data-id="s04-01" data-kind="image" data-w="1328" data-h="800" data-title="top right">top right</button><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-bottom-left--3036" data-kind="image" data-w="1328" data-h="800" data-title="bottom left">bottom left</button><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-bottom-right-b547" data-kind="image" data-w="1328" data-h="800" data-title="bottom right">bottom right</button></span><p>The same frame cut into four overlapping tiles.</p></li>
+        <li><span class="fc-part-label">Each tile after the model<span class="fc-dims">1328 × 800 each</span></span><span class="fc-part-set"><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-tile-top-lef-75eb" data-kind="image" data-w="1328" data-h="800" data-title="top left">top left</button><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-tile-top-rig-e731" data-kind="image" data-w="1328" data-h="800" data-title="top right">top right</button><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-tile-bottom--4bd3" data-kind="image" data-w="1328" data-h="800" data-title="bottom left">bottom left</button><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-tile-bottom--f8c1" data-kind="image" data-w="1328" data-h="800" data-title="bottom right">bottom right</button></span><p>Each tile went through the model on its own, with the same prompt.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-reptilicus-t001-four-tile-ra-2024" data-kind="image" data-w="2048" data-h="1556" data-title="Four tiles stitched">Four tiles stitched<span class="fc-dims">2048 × 1556</span></button><p>The four results pasted back into one frame at the scan's size, without blending, so the seams stay visible.</p></li>
       </ol>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide04" %}
 </section>
 
 <section class="fc-section" id="reference-recovery">
@@ -106,22 +109,23 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
         <div><strong>Limits</strong><p>The method is only as good as its reference. This DVD is standard definition and has its own grading and transfer choices. And many films no longer have any reference at all.</p></div>
       </div>
 {% include fiat-companion/files.html key="candy" desc="1920 × 1080 comparison · 1 min 10 s · 24 fps" %}
-      <a class="fc-process" href="{{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }}"><img src="{{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }}" alt="Candy Candy training: the 16mm source plus the PAL DVD gives the training target, and the model's result at training steps 1, 1,000, 30,000 and 60,000" width="1920" height="886" loading="lazy" decoding="async"></a>
+      <button type="button" class="fc-ev fc-ev-img fc-process" data-id="s05-04" data-kind="image" data-w="1920" data-h="886" data-title="Candy Candy training: the 16mm source plus the PAL DVD gives the training target, and the model&#x27;s result at training steps 1, 1,000, 30,000 and 60,000"><img src="{{ vb }}s05-04_preview.jpg" alt="Candy Candy training: the 16mm source plus the PAL DVD gives the training target, and the model's result at training steps 1, 1,000, 30,000 and 60,000" loading="lazy" decoding="async"></button>
       <p class="fc-file">How it was made · open each part at full size</p>
       <ol class="fc-parts">
-        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}">Faded 16mm scan<span class="fc-dims">3024 × 1890</span></a><p>A frame of the faded print in DaVinci Resolve, before any correction.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}">Balanced scan<span class="fc-dims">3024 × 1890</span></a><p>The same frame after the Faded Balancer DCTL, which evens out the faded colour channels before training.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/cropped/copycat-training-cropped.png' | relative_url }}">Training setup in Nuke<span class="fc-dims">1230 × 1602</span></a><p>The CopyCat training graph. The scan frames are the input. The target keeps the scan's brightness and takes the DVD's colour.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }}">Training steps<span class="fc-dims">1920 × 886</span></a><p>The 16mm source plus the PAL DVD gives the target. Below, the model's result after 1, 1,000, 30,000 and 60,000 training steps.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/candy-candy/candy-candy-chroma-recovery-finished.png' | relative_url }}">Recovered frame<span class="fc-dims">2742 × 2112</span></a><p>A frame of the result at full size.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-01" data-kind="image" data-w="2200" data-h="1650" data-title="Faded 16mm scan">Faded 16mm scan<span class="fc-dims">2200 × 1650</span></button><p>A frame of the opening from the 16mm scan of the faded print, before any correction. It has a strong magenta cast, and most of the flicker is in the red channel.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-02" data-kind="image" data-w="4400" data-h="3300" data-title="Cleaned and rebalanced scan">Cleaned and rebalanced scan<span class="fc-dims">4400 × 3300</span></button><p>The same frame after clean-up and rebalancing in Phoenix and Loki: the frames CopyCat was trained on.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-03" data-kind="image" data-w="1951" data-h="1098" data-title="The Nuke script">The Nuke script<span class="fc-dims">1951 × 1098</span></button><p>The Nuke script for one Candy Candy shot: the shot in the viewer and the CopyCat graph. The scan frames are the input; the target keeps the scan's brightness and takes the DVD's colour.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-04" data-kind="image" data-w="1920" data-h="886" data-title="Training steps">Training steps<span class="fc-dims">1920 × 886</span></button><p>The 16mm source plus the PAL DVD gives the target. Below, the model's result after 1, 1,000, 30,000 and 60,000 training steps.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-07" data-kind="image" data-w="2742" data-h="2112" data-title="Recovered frame">Recovered frame<span class="fc-dims">2742 × 2112</span></button><p>A frame of the result at full size.</p></li>
       </ol>
       <details>
         <summary>Full-resolution result (4400 × 3300, about 298 MB)</summary>
-        <p>The colour-recovered scan on its own, at the scan's full 4400 × 3300 size. Silent, 24 fps, HEVC. It's a large file, so it's best downloaded on Wi-Fi. The Drive player may stream a smaller version; download it to see full resolution.</p>
-{% include fiat-companion/files.html key="candy-full" %}
+        <p>The colour-recovered scan on its own, at the scan's full 4400 × 3300 size. Silent, 24 fps, HEVC. The Drive player below streams a smaller version.</p>
+{% include fiat-companion/video.html key="candy-full" title="Candy Candy: the colour-recovered scan at full resolution" label="Play video: Candy Candy, the colour-recovered scan at full resolution (1 minute 10 seconds)" %}
       </details>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide05" %}
 </section>
 
 <section class="fc-section" id="synthetic-reference">
@@ -135,15 +139,15 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
   <p>From the synthetic reference I keep only the colour. The brightness still comes from the scan.</p>
 
   <figure class="fc-media fc-still">
-    <a href="{{ '/images_kebab/seapavaa2026/leader_lady_semantic_contamination_gar01_triptych.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/leader_lady_semantic_contamination_gar01_triptych.png' | relative_url }}" alt="Three frames: the faded source, the result guided by a leader lady with the woman mixed into the shot, and the result guided by a colour chart" width="1388" height="416" loading="lazy" decoding="async"></a>
+    <button type="button" class="fc-ev fc-ev-img" data-id="v-leader-lady-semantic-contami-9dce" data-kind="image" data-w="1388" data-h="416" data-title="Three frames: the faded source, the result guided by a leader lady with the woman mixed into the shot, and the result guided by a colour chart"><img src="{{ vb }}v-leader-lady-semantic-contami-9dce_preview.jpg" alt="Three frames: the faded source, the result guided by a leader lady with the woman mixed into the shot, and the result guided by a colour chart" loading="lazy" decoding="async"></button>
     <p class="fc-bar">Slide 7 · The faded source, the result guided by a leader lady, and the result guided by a colour chart</p>
     <figcaption class="fc-body">
       <p class="fc-file">How it was made · open each part at full size</p>
       <ol class="fc-parts">
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/01_raw_source.png' | relative_url }}">Faded source<span class="fc-dims">2048 × 1556</span></a><p>The faded frame.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/02_early_marcie_contamination.png' | relative_url }}">Guided by a leader lady<span class="fc-dims">1168 × 888</span></a><p>The model mixed the woman from the leader into the shot.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/02_reference_chart.png' | relative_url }}">Softly blurred colour chart<span class="fc-dims">333 × 238</span></a><p>The guide that replaced the leader lady. It gives colour and nothing else to copy.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/leader_lady_gar01/03_belak_chart_corrected.png' | relative_url }}">Guided by the colour chart<span class="fc-dims">1184 × 880</span></a><p>Only the colour changes.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-01-raw-source-316a" data-kind="image" data-w="2048" data-h="1556" data-title="Faded source">Faded source<span class="fc-dims">2048 × 1556</span></button><p>The faded frame.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s07-01" data-kind="image" data-w="1168" data-h="888" data-title="Guided by a leader lady">Guided by a leader lady<span class="fc-dims">1168 × 888</span></button><p>The model mixed the woman from the leader into the shot.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-02-reference-chart-800a" data-kind="image" data-w="333" data-h="238" data-title="Softly blurred colour chart">Softly blurred colour chart<span class="fc-dims">333 × 238</span></button><p>The guide that replaced the leader lady. It gives colour and nothing else to copy.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-03-belak-chart-corrected-c2a4" data-kind="image" data-w="1184" data-h="880" data-title="Guided by the colour chart">Guided by the colour chart<span class="fc-dims">1184 × 880</span></button><p>Only the colour changes.</p></li>
       </ol>
       <div class="fc-missing" style="margin-top: 0.8rem"><p>The leader-lady image used as the guide isn't included on this page.</p></div>
     </figcaption>
@@ -151,41 +155,42 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
 
   <figure class="fc-media fc-still">
     <div class="fc-grid4">
-      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/fanji_film_copy_000059.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/01_source.png' | relative_url }}" alt="Faded source frame" width="1284" height="960" loading="lazy" decoding="async"><span>Faded source</span></a>
-      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/i2_frame_000000_test.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/02_iris_spectrum.png' | relative_url }}" alt="Result with the Iris prompt" width="1284" height="960" loading="lazy" decoding="async"><span>Iris</span></a>
-      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/c4_frame_000000_test.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/03_celeste_redguard.png' | relative_url }}" alt="Result with the Celeste prompt" width="1284" height="960" loading="lazy" decoding="async"><span>Celeste</span></a>
-      <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/cl2_frame_000000_test.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/04_clara_anchor.png' | relative_url }}" alt="Result with the Clara prompt" width="1284" height="960" loading="lazy" decoding="async"><span>Clara, the winner</span></a>
+      <button type="button" class="fc-ev fc-ev-img" data-id="v-fanji-film-copy-000059-3569" data-kind="image" data-w="1920" data-h="1440" data-title="Faded source frame"><img src="{{ vb }}v-fanji-film-copy-000059-3569_preview.jpg" alt="Faded source frame" loading="lazy" decoding="async"><span>Faded source</span></button>
+      <button type="button" class="fc-ev fc-ev-img" data-id="v-i2-frame-000000-test-b280" data-kind="image" data-w="1184" data-h="880" data-title="Result with the Iris prompt"><img src="{{ vb }}v-i2-frame-000000-test-b280_preview.jpg" alt="Result with the Iris prompt" loading="lazy" decoding="async"><span>Iris</span></button>
+      <button type="button" class="fc-ev fc-ev-img" data-id="v-c4-frame-000000-test-d995" data-kind="image" data-w="1184" data-h="880" data-title="Result with the Celeste prompt"><img src="{{ vb }}v-c4-frame-000000-test-d995_preview.jpg" alt="Result with the Celeste prompt" loading="lazy" decoding="async"><span>Celeste</span></button>
+      <button type="button" class="fc-ev fc-ev-img" data-id="v-cl2-frame-000000-test-5683" data-kind="image" data-w="1184" data-h="880" data-title="Result with the Clara prompt"><img src="{{ vb }}v-cl2-frame-000000-test-5683_preview.jpg" alt="Result with the Clara prompt" loading="lazy" decoding="async"><span>Clara, the winner</span></button>
     </div>
     <p class="fc-bar">Slide 7 · Bottom row: the three finalist prompts on a faded frame of <em>Counter Attack</em> (1976)</p>
     <figcaption class="fc-body">
       <p>The bottom row of the slide: the same faded frame with each of the three finalists.</p>
       <p class="fc-file">How it was made · open each part at full size</p>
       <ol class="fc-parts">
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/fanji_film_copy_000059.png' | relative_url }}">Faded source<span class="fc-dims">1920 × 1440</span></a></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/i2_frame_000000_test.png' | relative_url }}">Iris<span class="fc-dims">1184 × 880</span></a></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/c4_frame_000000_test.png' | relative_url }}">Celeste<span class="fc-dims">1184 × 880</span></a></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_child_close_top3_fullframe/cl2_frame_000000_test.png' | relative_url }}">Clara, the winner<span class="fc-dims">1184 × 880</span></a></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-fanji-film-copy-000059-3569" data-kind="image" data-w="1920" data-h="1440" data-title="Faded source">Faded source<span class="fc-dims">1920 × 1440</span></button></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-i2-frame-000000-test-b280" data-kind="image" data-w="1184" data-h="880" data-title="Iris">Iris<span class="fc-dims">1184 × 880</span></button></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-c4-frame-000000-test-d995" data-kind="image" data-w="1184" data-h="880" data-title="Celeste">Celeste<span class="fc-dims">1184 × 880</span></button></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-cl2-frame-000000-test-5683" data-kind="image" data-w="1184" data-h="880" data-title="Clara, the winner">Clara, the winner<span class="fc-dims">1184 × 880</span></button></li>
       </ol>
-      <p class="fc-more">The same three prompts on the crowd shot from the slide 9 video: <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/fanji_film_copy_000007.png' | relative_url }}">Faded source</a> · <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/i2_frame_000000_test.png' | relative_url }}">Iris</a> · <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/c4_frame_000000_test.png' | relative_url }}">Celeste</a> · <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/cl2_frame_000000_test.png' | relative_url }}">Clara</a></p>
+      <p class="fc-more">The same three prompts on the crowd shot from the slide 9 video: <button type="button" class="fc-ev fc-ev-link" data-id="v-fanji-film-copy-000007-ecfa" data-kind="image" data-w="1920" data-h="1440" data-title="Faded source">Faded source</button> · <button type="button" class="fc-ev fc-ev-link" data-id="v-i2-frame-000000-test-0884" data-kind="image" data-w="1184" data-h="880" data-title="Iris">Iris</button> · <button type="button" class="fc-ev fc-ev-link" data-id="v-c4-frame-000000-test-ea0c" data-kind="image" data-w="1184" data-h="880" data-title="Celeste">Celeste</button> · <button type="button" class="fc-ev fc-ev-link" data-id="v-cl2-frame-000000-test-e7be" data-kind="image" data-w="1184" data-h="880" data-title="Clara">Clara</button></p>
     </figcaption>
   </figure>
 
   <figure class="fc-media fc-still">
-    <a href="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}"><img src="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" alt="Counter Attack garden frame: the faded source on the left and the final frame on the right" width="1400" height="760" loading="lazy" decoding="async"></a>
+    <button type="button" class="fc-ev fc-ev-img" data-id="v-fanji-c4-row3-garden-split-c-184f" data-kind="image" data-w="1400" data-h="760" data-title="Counter Attack garden frame: the faded source on the left and the final frame on the right"><img src="{{ vb }}v-fanji-c4-row3-garden-split-c-184f_preview.jpg" alt="Counter Attack garden frame: the faded source on the left and the final frame on the right" loading="lazy" decoding="async"></button>
     <p class="fc-bar">Slide 7 · From a faded frame to a synthetic reference, step by step (<em>Counter Attack</em>)</p>
     <figcaption class="fc-body">
       <p>The faded frame is on the left, and the final frame on the right.</p>
       <p class="fc-file">How it was made · open each part at full size</p>
       <ol class="fc-parts">
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/01_source_fanji_film_copy_000015-db56f6f7.png' | relative_url }}">Faded source<span class="fc-dims">1920 × 1440</span></a><p>A faded frame of the film.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/02_control_fanji_film_copy_r4_v1_03_garden_buil-dd5a1638.png' | relative_url }}">Edge map<span class="fc-dims">1920 × 1440</span></a><p>The edges of the faded frame (a Canny map). They keep the model on the frame's own shapes.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/03_reference_Belak_Color_Patch_Chart_softblur_32-9142a789.png' | relative_url }}">Softly blurred colour chart<span class="fc-dims">333 × 238</span></a><p>The colour guide.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/04_inference_frame_000000_test-7b87dbc0.png' | relative_url }}">Synthetic reference<span class="fc-dims">1184 × 880</span></a><p>What Qwen Image Edit returns. It's a reduced picture; only its colour is used.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_garden/05_final_composite_fanji_film_copy_r4_v1_03_garden_buil-1622230d.png' | relative_url }}">Final frame<span class="fc-dims">1920 × 1440</span></a><p>The synthetic reference's colour on top of the brightness of the original scan, at full size.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-01-source-fanji-film-copy-00-5674" data-kind="image" data-w="1920" data-h="1440" data-title="Faded source">Faded source<span class="fc-dims">1920 × 1440</span></button><p>A faded frame of the film.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-02-control-fanji-film-copy-r-42c2" data-kind="image" data-w="1920" data-h="1440" data-title="Edge map">Edge map<span class="fc-dims">1920 × 1440</span></button><p>The edges of the faded frame (a Canny map). They keep the model on the frame's own shapes.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s07-02" data-kind="image" data-w="333" data-h="238" data-title="Softly blurred colour chart">Softly blurred colour chart<span class="fc-dims">333 × 238</span></button><p>The colour guide.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-04-inference-frame-000000-te-b3c5" data-kind="image" data-w="1184" data-h="880" data-title="Synthetic reference">Synthetic reference<span class="fc-dims">1184 × 880</span></button><p>What Qwen Image Edit returns. It's a reduced picture; only its colour is used.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-05-final-composite-fanji-fil-9236" data-kind="image" data-w="1920" data-h="1440" data-title="Final frame">Final frame<span class="fc-dims">1920 × 1440</span></button><p>The synthetic reference's colour on top of the brightness of the original scan, at full size.</p></li>
       </ol>
-      <p class="fc-more">The test setup in ComfyUI, with the source, the chart, the edge map, the prompt, the model and the output in one graph. It's from the crowd shot of the slide 9 video. <a href="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}">ComfyUI screenshot</a> · <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}">Workflow file (JSON)</a></p>
+      <p class="fc-more">The test setup in ComfyUI, with the source, the chart, the edge map, the prompt, the model and the output in one graph. It's from the crowd shot of the slide 9 video. <button type="button" class="fc-ev fc-ev-link" data-id="v-comfyui-workflow-fanji-water-d2cc" data-kind="image" data-w="1920" data-h="670" data-title="ComfyUI screenshot">ComfyUI screenshot</button> · <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}">Workflow file (JSON)</a></p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide07" %}
 </section>
 
 <section class="fc-section" id="telestyle">
@@ -193,6 +198,8 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
   <h2 id="telestyle-section-title">Keeping colour steady through a shot</h2>
   <p>Getting one convincing frame is no longer the hard part. If you just run the model 24 times a second, it doesn't work, because these models aren't deterministic: every run is a bit of a roulette. Each frame gets a slightly different interpretation, and the colour flickers.</p>
   <p>Slide 8 shows a dance scene from <em>Obsession</em> where every frame was recovered on its own. Watch the dress of the woman on the right, and the background. Each frame is a fair interpretation by itself, but together they don't agree. One good frame is a thumbnail. A restoration needs the whole shot to agree with itself. That's temporal consistency, and it was the biggest hurdle.</p>
+
+{% include fiat-companion/evidence.html key="slide08" %}
 
   <figure class="fc-media">
 {% include fiat-companion/video.html key="slide09" title="Counter Attack: one reference for the whole shot (TeleStyle)" label="Play video: Counter Attack, one reference for the whole shot (11 seconds)" %}
@@ -206,8 +213,8 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
 {% include fiat-companion/files.html key="slide09" desc="1920 × 1080 comparison · 11 s · 30 fps" %}
       <p class="fc-file">How it was made, from the research records</p>
       <ol class="fc-parts fc-steps">
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/01_source.png' | relative_url }}">Faded source<span class="fc-dims">1920 × 1440</span></a><p>The shot from the film copy: 338 frames, 1920 × 1440, at 30 frames per second.</p></li>
-        <li><a class="fc-part" href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/04_output.png' | relative_url }}">Approved reference<span class="fc-dims">1184 × 880</span></a><p>One frame of the shot, recovered with Qwen Image Edit and approved before the full run.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s09-01" data-kind="image" data-w="1920" data-h="1440" data-title="Faded source">Faded source<span class="fc-dims">1920 × 1440</span></button><p>The shot from the film copy: 338 frames, 1920 × 1440, at 30 frames per second.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s09-02" data-kind="image" data-w="1184" data-h="880" data-title="Approved reference">Approved reference<span class="fc-dims">1184 × 880</span></button><p>One frame of the shot, recovered with Qwen Image Edit and approved before the full run.</p></li>
         <li><span class="fc-part-label">TeleStyle on every frame</span><p>Each frame went through Qwen Image Edit with the TeleStyle LoRA on its own, with the faded frame and the approved reference as its two inputs, in 4 steps. All 338 frames were generated.</p></li>
         <li><span class="fc-part-label">Colour only</span><p>The TeleStyle colour, made at 1184 × 880, was put on top of the untouched 1920 × 1440 brightness of the scan.</p></li>
         <li><span class="fc-part-label">Time</span><p>The whole run took about 13,560 seconds, close to four hours: around 32 seconds a frame once the machine was warm.</p></li>
@@ -215,6 +222,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       </ol>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide09" %}
 </section>
 
 <section class="fc-section" id="h3-controlnet">
@@ -247,6 +255,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide11" %}
 </section>
 
 <section class="fc-section" id="temporal-cbcr">
@@ -278,6 +287,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide13" %}
 </section>
 
 <section class="fc-section" id="diffusion-upscaling">
@@ -309,6 +319,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide15" %}
 </section>
 
 <section class="fc-section" id="diffusion-reconstruction">
@@ -351,6 +362,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide19" %}
 </section>
 
 <section class="fc-section" id="dialogue-recovery">
@@ -386,6 +398,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide21" %}
 </section>
 
 <section class="fc-section" id="limits-now">

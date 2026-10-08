@@ -1,0 +1,16 @@
+{%- comment -%} Full evidence for one example: numbered steps, each opening view-only at full size in the page viewer.
+Items are referred to by opaque ids; the viewer loads zoom tiles (images) or a stream (videos) from the view host.
+No original file is linked. See _data/fiat_evidence.yml. {%- endcomment -%}
+{%- assign ev = site.data.fiat_evidence.examples[include.key] -%}
+{%- assign t = site.data.fiat_evidence.ui[page.fc_lang] -%}
+{%- if ev and ev.size > 0 -%}
+      <details class="fc-evidence">
+        <summary>{{ t.summary | replace: "N", ev.size }}</summary>
+        <ol class="fc-parts fc-ev-list">
+{%- for f in ev %}
+          <li><button type="button" class="fc-part fc-ev" data-id="{{ f.id }}" data-kind="{{ f.kind }}" data-w="{{ f.width }}" data-h="{{ f.height }}">{{ f.label[page.fc_lang] }}<span class="fc-dims">{{ f.width }} × {{ f.height }}{% if f.kind == "video" %} · {{ t.video }} · {{ f.seconds }} {{ t.seconds }}{% endif %}</span></button><p>{{ f.caption[page.fc_lang] }}</p></li>
+{%- endfor %}
+        </ol>
+        <noscript><p class="fc-more">{{ t.nojs }}</p></noscript>
+      </details>
+{%- endif -%}

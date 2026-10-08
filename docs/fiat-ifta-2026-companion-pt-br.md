@@ -201,7 +201,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       <p>O TeleStyle, da TeleAI, é um LoRA: um pequeno complemento para o Qwen Image Edit, feito para copiar o estilo de uma imagem para outra. Eu pego uma referência aprovada e copio a cor dela para cada quadro do plano.</p>
       <div class="fc-verdict">
         <div><strong>O que funcionou</strong><p>A cor se mantém ao longo do plano inteiro.</p></div>
-        <div><strong>Limitações</strong><p>Ele roda o modelo em cada quadro, um por um, e cada quadro ainda precisou ser conferido, seed após seed. Este plano de 11 segundos levou quase quatro horas. Serve como teste, mas não é algo que dê para usar em um longa-metragem.</p></div>
+        <div><strong>Limitações</strong><p>Ele roda o modelo em cada quadro, um por um, com uma única seed fixa para o plano inteiro. Este plano de 11 segundos levou quase quatro horas. Serve como teste, mas não é algo que dê para usar em um longa-metragem.</p></div>
       </div>
 {% include fiat-companion/files.html key="slide09" desc="comparação 1920 × 1080 · 11 s · 30 fps" %}
       <p class="fc-file">Como foi feito, segundo os registros da pesquisa</p>
@@ -260,7 +260,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
 {% include fiat-companion/video.html key="slide13" title="Unman, Wittering and Zigo: adaptador Temporal CbCr" label="Assistir ao vídeo: Unman, Wittering and Zigo, adaptador Temporal CbCr (7 segundos)" %}
     <p class="fc-bar">Slide 13 · <em>Unman, Wittering and Zigo</em> (1971): adaptador Temporal CbCr</p>
     <figcaption class="fc-body">
-      <p>Uma cena de coral, com a fonte desbotada à esquerda e o resultado do adaptador à direita. Os professores cobriram 101 dos 164 quadros, e o adaptador preencheu o restante. O treinamento levou cerca de um minuto e meio.</p>
+      <p>Uma cena de coral, com a fonte desbotada à esquerda e o resultado do adaptador à direita. Neste plano, o H3 não se alinhou com a imagem, então todos os professores vieram do TeleStyle. Eles cobriram 101 dos 164 quadros, e o adaptador preencheu o restante. O treinamento em si levou cerca de um minuto e meio (88,5 segundos).</p>
       <div class="fc-verdict">
         <div><strong>O que funcionou</strong><p>Ele preserva tudo o que está no original: a sujeira, a aspereza do filme. Até o vitral atrás do coral se mantém consistente durante toda a panorâmica.</p></div>
         <div><strong>Limitações</strong><p>O adaptador só é tão bom quanto os seus professores, e precisa de quadros bem alinhados. A cor continua sendo uma interpretação, a menos que uma referência sobrevivente a confirme.</p></div>
@@ -284,7 +284,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <p class="fc-slide">Slides 14–15</p>
   <h2 id="diffusion-upscaling-section-title">Upscaling por difusão</h2>
   <p>Até aqui, o modelo só acrescenta cor, e a digitalização mantém a sua própria imagem. Mas às vezes o elemento que sobreviveu não tem informação suficiente para uma restauração tradicional. Nossas ferramentas pegam emprestado do mesmo quadro ou dos quadros ao redor, e quando todos os quadros estão danificados, não sobra nada para pegar emprestado. O upscaling por difusão permite que um modelo de vídeo reconstrua a imagem a partir do que sobreviveu, seguindo a sua estrutura e o seu movimento.</p>
-  <p><em>El Tinterillo</em> sobrevive apenas como uma cópia em 16mm danificada e uma telecinagem mais limpa, mas suave, cortada nas bordas e com a cadência estranha das telecinagens daquela época. Combinei as duas, com a telecinagem por dentro e o 16mm em volta, e depois limpei esse híbrido com um filtro de mediana. Isso dá um contorno aproximado para guiar a geometria, mas também remove os detalhes finos. Então, para definir como a imagem deveria ficar, fiz outra referência sintética com o ChatGPT Images. O MiniMax H3, no modo de referência, usa então essa imagem e o contorno para gerar cada trecho do plano.</p>
+  <p><em>El Tinterillo</em> sobrevive apenas como uma cópia em 16mm danificada e uma telecinagem mais limpa, mas suave, cortada nas bordas e com a cadência estranha das telecinagens daquela época. Suavizei o 16mm com um filtro de mediana e depois combinei os dois, com a telecinagem por dentro e o 16mm em volta. Isso dá um contorno aproximado para guiar a geometria, mas o filtro também remove os detalhes finos. Então, para definir como a imagem deveria ficar, fiz outras referências sintéticas com o ChatGPT Images. O MiniMax H3, no modo de referência, usa então essas referências, com o clipe da telecinagem para o movimento, para gerar cada trecho do plano.</p>
 
   <figure class="fc-media">
 {% include fiat-companion/video.html key="slide15" title="El Tinterillo: upscaling por difusão, a escada" label="Assistir ao vídeo: El Tinterillo, upscaling por difusão (26 segundos)" %}
@@ -326,7 +326,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <h2 id="combining-sources-section-title">Combinando fontes e depois reconstruindo</h2>
   <p>Quando vários elementos sobrevivem, normalmente cada um está danificado em lugares diferentes. O George Eastman Museum me enviou <em>Knight of the Trail</em> (1915) como uma cópia em nitrato e uma cópia de segurança em diacetato. Juntas, elas cobrem a maior parte do filme, mas em alguns pontos o nitrato se decompôs e a cópia de segurança também não tem esses quadros.</p>
   <p>Primeiro, eu junto os dois elementos. Eles tinham cor, deformação e enquadramento diferentes, então cada quadro de um é alinhado ao outro pelas suas características e deformado até se encaixar. Depois, uma única correção de tom, ajustada nos quadros correspondentes mais limpos, dá aos dois a mesma aparência.</p>
-  <p>Em seguida, cada quadro vem do elemento que sobreviveu sem danos: 155 quadros da cópia em nitrato e 53 da cópia de segurança. A linha do tempo do slide 18 é um mapa disso, com laranja para o nitrato, azul para a cópia de segurança e vermelho onde nenhum dos dois sobreviveu. Nesses 18 quadros, eu mascaro apenas as áreas danificadas e reconstruo só essas áreas. A imagem que sobreviveu continua original, porque não queremos substituir um quadro inteiro só porque uma parte dele está danificada.</p>
+  <p>Em seguida, cada quadro vem do elemento que sobreviveu sem danos: 155 quadros da cópia em nitrato e 53 da cópia de segurança. A linha do tempo do slide 18 é um mapa disso, com laranja para o nitrato, azul para a cópia de segurança e vermelho onde nenhum dos dois sobreviveu. Nesses 18 quadros, eu mascaro apenas as áreas danificadas, incluindo o fundo parado danificado, e o Wan VACE 14B, modelo de vídeo da Alibaba, reconstrói só essas áreas. A imagem que sobreviveu continua original, porque não queremos substituir um quadro inteiro só porque uma parte dele está danificada.</p>
 
   <figure class="fc-media">
 {% include fiat-companion/video.html key="slide19" title="Knight of the Trail: reconstrução por difusão de danos de nitrato" label="Assistir ao vídeo: Knight of the Trail, reconstrução de danos de nitrato (9 segundos)" %}

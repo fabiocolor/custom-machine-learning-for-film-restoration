@@ -201,7 +201,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       <p>TeleStyle, from TeleAI, is a LoRA: a small add-on for Qwen Image Edit, made to copy the style of one image onto another. I take one approved reference and copy its colour onto every frame of the shot.</p>
       <div class="fc-verdict">
         <div><strong>What worked</strong><p>The colour holds through the whole shot.</p></div>
-        <div><strong>Limits</strong><p>It runs the model on every single frame, and each frame still had to be checked, seed after seed. This 11-second shot took almost four hours. Fine as a test, but not something you can use on a feature film.</p></div>
+        <div><strong>Limits</strong><p>It runs the model on every single frame, with one fixed seed for the whole shot. This 11-second shot took almost four hours. Fine as a test, but not something you can use on a feature film.</p></div>
       </div>
 {% include fiat-companion/files.html key="slide09" desc="1920 × 1080 comparison · 11 s · 30 fps" %}
       <p class="fc-file">How it was made, from the research records</p>
@@ -260,7 +260,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
 {% include fiat-companion/video.html key="slide13" title="Unman, Wittering and Zigo: Temporal CbCr adapter" label="Play video: Unman, Wittering and Zigo, Temporal CbCr adapter (7 seconds)" %}
     <p class="fc-bar">Slide 13 · <em>Unman, Wittering and Zigo</em> (1971): Temporal CbCr adapter</p>
     <figcaption class="fc-body">
-      <p>A choir scene, with the faded source on the left and the adapter's result on the right. Teachers covered 101 of the 164 frames, and the adapter filled the rest. Training took about a minute and a half.</p>
+      <p>A choir scene, with the faded source on the left and the adapter's result on the right. For this shot, H3 didn't line up with the picture, so all the teachers came from TeleStyle. They covered 101 of the 164 frames, and the adapter filled the rest. Training itself took about a minute and a half (88.5 seconds).</p>
       <div class="fc-verdict">
         <div><strong>What worked</strong><p>It keeps everything in the original: the dirt, the roughness of the film. Even the stained glass behind the choir stays consistent through the whole pan.</p></div>
         <div><strong>Limits</strong><p>The adapter is only as good as its teachers, and it needs frames that line up properly. The colour is still an interpretation unless a surviving reference supports it.</p></div>
@@ -284,7 +284,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
   <p class="fc-slide">Slides 14–15</p>
   <h2 id="diffusion-upscaling-section-title">Diffusion upscaling</h2>
   <p>So far, the model only adds colour and the scan keeps its own picture. But sometimes the surviving element doesn't carry enough information for a traditional restoration. Our tools borrow from the same frame or the frames around it, and when every frame is damaged, there's nothing left to borrow. Diffusion upscaling lets a video model rebuild the picture from what survives, following its structure and movement.</p>
-  <p><em>El Tinterillo</em> survives only as a damaged 16mm print and a telecine that is cleaner, but soft, cropped and with the strange cadence of telecines from that time. I combined the two, with the telecine inside and the 16mm around it, then cleaned that hybrid with a median filter. That gives a rough outline to guide the geometry, but it also removes the fine detail. So, for how the picture should look, I made another synthetic reference with ChatGPT Images. MiniMax H3, in reference mode, then uses that image and the outline to generate each section of the shot.</p>
+  <p><em>El Tinterillo</em> survives only as a damaged 16mm print and a telecine that is cleaner, but soft, cropped and with the strange cadence of telecines from that time. I smoothed the 16mm with a median filter, then combined the two, with the telecine inside and the 16mm around it. That gives a rough outline to guide the geometry, but the filter also removes the fine detail. So, for how the picture should look, I made more synthetic references with ChatGPT Images. MiniMax H3, in reference mode, then uses those references, with the telecine clip for the movement, to generate each section of the shot.</p>
 
   <figure class="fc-media">
 {% include fiat-companion/video.html key="slide15" title="El Tinterillo: diffusion upscaling, the stairs" label="Play video: El Tinterillo, diffusion upscaling (26 seconds)" %}
@@ -326,7 +326,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
   <h2 id="combining-sources-section-title">Combining sources, then reconstructing</h2>
   <p>When several elements survive, each one is usually damaged in different places. The George Eastman Museum sent me <em>Knight of the Trail</em> (1915) as a nitrate print and a diacetate safety copy. Together they cover most of the film, but in some places the nitrate has decayed and the safety copy is missing those frames too.</p>
   <p>First, I bring the two elements together. They had different colour, warping and framing, so each frame of one is matched to the other by its features and warped into place. Then one tone correction, fitted on the cleanest matching frames, gives both the same look.</p>
-  <p>After that, each frame comes from whichever element survives undamaged: 155 frames from the nitrate print and 53 from the safety copy. The timeline on slide 18 is a map of this, with orange for the nitrate, blue for the safety copy and red where neither survives. In those 18 frames, I mask only the damaged areas and reconstruct those. The surviving picture stays original, because we don't want to replace a whole frame just because part of it is damaged.</p>
+  <p>After that, each frame comes from whichever element survives undamaged: 155 frames from the nitrate print and 53 from the safety copy. The timeline on slide 18 is a map of this, with orange for the nitrate, blue for the safety copy and red where neither survives. In those 18 frames, I mask only the damaged areas, including damaged still background, and Wan VACE 14B, Alibaba's video model, reconstructs those. The surviving picture stays original, because we don't want to replace a whole frame just because part of it is damaged.</p>
 
   <figure class="fc-media">
 {% include fiat-companion/video.html key="slide19" title="Knight of the Trail: diffusion reconstruction of nitrate damage" label="Play video: Knight of the Trail, reconstruction of nitrate damage (9 seconds)" %}

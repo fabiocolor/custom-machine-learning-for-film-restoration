@@ -61,7 +61,6 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   <p>La mayoría de las herramientas de restauración usan filtros espaciales y temporales. Toman imagen prestada del mismo fotograma o de los fotogramas de alrededor, y cuando no hay nada limpio que copiar, interpolan. La diapositiva muestra Dry Clean en Phoenix sobre <em>Point Blank</em> (1967); las marcas rojas son lo que detectó y eliminó.</p>
   <p>Estas herramientas pueden ocultar polvo, rayas y parpadeo, y cubrir dos o tres fotogramas faltantes. Pero no pueden traer de vuelta lo que se perdió. Si somos honestos, la restauración digital siempre ha consistido en ocultar, no en recuperar.</p>
   <p>Así que la IA en restauración no es algo completamente nuevo. Lo que nos da es una forma de abordar problemas que antes no eran posibles ni técnica ni económicamente, trabajando con el escaneo tal como está. En muchos archivos, sobre todo en América Latina y el Sudeste Asiático, ese escaneo desvanecido es lo único que queda de una película.</p>
-{% include fiat-companion/evidence.html key="slide03" %}
 </section>
 
 <section class="fc-section" id="the-limits">
@@ -88,7 +87,6 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       </ol>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide04" %}
 </section>
 
 <section class="fc-section" id="reference-recovery">
@@ -124,7 +122,6 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       </details>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide05" %}
 </section>
 
 <section class="fc-section" id="synthetic-reference">
@@ -189,7 +186,6 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       <p class="fc-more">La configuración de la prueba en ComfyUI, con la fuente, la carta, el mapa de bordes, el prompt, el modelo y el resultado en un solo grafo. Es del plano de la multitud del video de la diapositiva 9. <a href="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}">Captura de pantalla de ComfyUI</a> · <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}">Archivo del flujo de trabajo (JSON)</a></p>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide07" %}
 </section>
 
 <section class="fc-section" id="telestyle">
@@ -197,8 +193,6 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   <h2 id="telestyle-section-title">Mantener el color estable a lo largo de un plano</h2>
   <p>Conseguir un fotograma convincente ya no es lo difícil. Si simplemente ejecutas el modelo 24 veces por segundo, no funciona, porque estos modelos no son deterministas: cada ejecución es un poco una ruleta. Cada fotograma recibe una interpretación ligeramente distinta, y el color parpadea.</p>
   <p>La diapositiva 8 muestra una escena de baile de <em>Obsession</em> en la que cada fotograma se recuperó por separado. Mira el vestido de la mujer de la derecha, y el fondo. Cada fotograma es una interpretación razonable por sí solo, pero juntos no coinciden. Un buen fotograma es una miniatura. Una restauración necesita que todo el plano sea coherente consigo mismo. Eso es la consistencia temporal, y fue el mayor obstáculo.</p>
-
-{% include fiat-companion/evidence.html key="slide08" %}
 
   <figure class="fc-media">
 {% include fiat-companion/video.html key="slide09" title="Counter Attack: una sola referencia para todo el plano (TeleStyle)" label="Reproducir video: Counter Attack, una sola referencia para todo el plano (11 segundos)" %}
@@ -221,7 +215,6 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       </ol>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide09" %}
 </section>
 
 <section class="fc-section" id="h3-controlnet">
@@ -254,7 +247,6 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide11" %}
 </section>
 
 <section class="fc-section" id="temporal-cbcr">
@@ -286,7 +278,6 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide13" %}
 </section>
 
 <section class="fc-section" id="diffusion-upscaling">
@@ -318,7 +309,6 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide15" %}
 </section>
 
 <section class="fc-section" id="diffusion-reconstruction">
@@ -361,7 +351,6 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide19" %}
 </section>
 
 <section class="fc-section" id="dialogue-recovery">
@@ -397,7 +386,6 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide21" %}
 </section>
 
 <section class="fc-section" id="limits-now">

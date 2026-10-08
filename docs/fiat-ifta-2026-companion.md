@@ -61,7 +61,6 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
   <p>Most restoration tools use spatial and temporal filters. They borrow picture from the same frame, or from the frames around it, and when there's nothing clean to copy, they interpolate. The slide shows Dry Clean in Phoenix on <em>Point Blank</em> (1967); the red marks are what it detected and removed.</p>
   <p>These tools can hide dust, scratches and flicker, and bridge two or three missing frames. But they can't bring back what is lost. If we're honest, digital restoration has always been about masking, not recovery.</p>
   <p>So AI in restoration isn't something completely new. What it gives us is a way to take on problems that weren't technically or financially possible before, working with the scan as it is. In many archives, especially in Latin America and Southeast Asia, that faded scan is the only thing left of a film.</p>
-{% include fiat-companion/evidence.html key="slide03" %}
 </section>
 
 <section class="fc-section" id="the-limits">
@@ -88,7 +87,6 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       </ol>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide04" %}
 </section>
 
 <section class="fc-section" id="reference-recovery">
@@ -124,7 +122,6 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       </details>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide05" %}
 </section>
 
 <section class="fc-section" id="synthetic-reference">
@@ -189,7 +186,6 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       <p class="fc-more">The test setup in ComfyUI, with the source, the chart, the edge map, the prompt, the model and the output in one graph. It's from the crowd shot of the slide 9 video. <a href="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}">ComfyUI screenshot</a> · <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}">Workflow file (JSON)</a></p>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide07" %}
 </section>
 
 <section class="fc-section" id="telestyle">
@@ -197,8 +193,6 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
   <h2 id="telestyle-section-title">Keeping colour steady through a shot</h2>
   <p>Getting one convincing frame is no longer the hard part. If you just run the model 24 times a second, it doesn't work, because these models aren't deterministic: every run is a bit of a roulette. Each frame gets a slightly different interpretation, and the colour flickers.</p>
   <p>Slide 8 shows a dance scene from <em>Obsession</em> where every frame was recovered on its own. Watch the dress of the woman on the right, and the background. Each frame is a fair interpretation by itself, but together they don't agree. One good frame is a thumbnail. A restoration needs the whole shot to agree with itself. That's temporal consistency, and it was the biggest hurdle.</p>
-
-{% include fiat-companion/evidence.html key="slide08" %}
 
   <figure class="fc-media">
 {% include fiat-companion/video.html key="slide09" title="Counter Attack: one reference for the whole shot (TeleStyle)" label="Play video: Counter Attack, one reference for the whole shot (11 seconds)" %}
@@ -221,7 +215,6 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       </ol>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide09" %}
 </section>
 
 <section class="fc-section" id="h3-controlnet">
@@ -254,7 +247,6 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide11" %}
 </section>
 
 <section class="fc-section" id="temporal-cbcr">
@@ -286,7 +278,6 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide13" %}
 </section>
 
 <section class="fc-section" id="diffusion-upscaling">
@@ -318,7 +309,6 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide15" %}
 </section>
 
 <section class="fc-section" id="diffusion-reconstruction">
@@ -361,7 +351,6 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide19" %}
 </section>
 
 <section class="fc-section" id="dialogue-recovery">
@@ -397,7 +386,6 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
       <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide21" %}
 </section>
 
 <section class="fc-section" id="limits-now">

@@ -1,7 +1,20 @@
 <script>
 /* Load each Google Drive player only when someone taps it, so the page stays light on slow connections.
    On touch screens the loaded player gets a square box (see the style), because Drive's phone player
-   dims and crops the picture in a 16:9 box. */
+   dims and crops the picture in a 16:9 box. Drive's player is also at least 320 px wide, so on narrow
+   phones the loaded player runs to the edges of the screen instead of being clipped. */
+function fcFit(player) {
+  player.style.width = ''; player.style.marginLeft = '';
+  if (!window.matchMedia('(pointer: coarse)').matches) return;
+  var r = player.getBoundingClientRect(), vw = document.documentElement.clientWidth;
+  if (r.width >= 320) return;
+  player.style.width = vw + 'px';
+  player.style.marginLeft = -r.left + 'px';
+}
+window.addEventListener('resize', function () {
+  var loaded = document.querySelectorAll('.fc-player.fc-loaded');
+  for (var i = 0; i < loaded.length; i++) fcFit(loaded[i]);
+});
 document.addEventListener('click', function (event) {
   var link = event.target.closest ? event.target.closest('a.fc-play') : null;
   if (link) {
@@ -15,6 +28,7 @@ document.addEventListener('click', function (event) {
     var player = link.parentNode;
     player.classList.add('fc-loaded');
     player.replaceChild(frame, link);
+    fcFit(player);
     frame.focus();
     return;
   }

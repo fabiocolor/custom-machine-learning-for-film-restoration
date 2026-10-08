@@ -47,6 +47,7 @@ description: Video examples and practical workflow notes from Fabio Bedoya's FIA
 <p class="fiat-note">For the highest available streaming quality, open the player's settings and choose its highest resolution. Use <strong>Open video / download original MP4</strong> for the original export. The dimensions below describe the complete file; individual panels in a comparison can be smaller.</p>
 
 <nav class="fiat-jump" aria-label="Video examples">
+  <a href="#reference-recovery">Reference-based recovery</a>
   <a href="#telestyle">Colour through a shot</a>
   <a href="#diffusion-upscaling">Diffusion upscaling</a>
   <a href="#combining-sources">Combining sources</a>
@@ -57,6 +58,20 @@ description: Video examples and practical workflow notes from Fabio Bedoya's FIA
 
 <section id="video-examples">
 <h2 id="video-examples-title">Video examples</h2>
+
+<article id="reference-recovery" class="fiat-card">
+  <p class="fiat-meta">Replacement for slides 5–6 · 1920 × 1080 comparison export · 1 minute 9.92 seconds · 24 fps</p>
+  <h3 id="reference-recovery-title">Candy Candy: reference-based colour recovery</h3>
+  <p>Colour from a matched French PAL DVD reference is transferred to a faded 16mm scan while retaining the film's detail. This is a different example of the reference-trained colour-recovery method discussed in the talk.</p>
+  <iframe src="https://drive.google.com/file/d/11UucDpEAC5QRlfF3BN12f3mggg-S58Ds/preview" title="Candy Candy: scan, balanced source, PAL DVD reference and colour recovery" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+  <p class="fiat-caption">The four-way comparison shows the original scan, the balanced and cleaned scan, the PAL DVD reference and the machine-learning result. The 1920 × 1080 file is a comparison export; the reference itself is standard definition. Reference colour can have its own grading and transfer limitations.</p>
+  <a class="fiat-file" href="https://drive.google.com/file/d/11UucDpEAC5QRlfF3BN12f3mggg-S58Ds/view">Open comparison / download original MP4</a>
+  <details>
+    <summary>Full-resolution result: 4400 × 3300</summary>
+    <p>The separate colour-recovery result retains the scan's 4400 × 3300 dimensions. The original file is silent, 24 fps, HEVC, about 298 MiB. Streaming may use a smaller rendition; download the original for full-resolution inspection.</p>
+    <a class="fiat-file" href="https://drive.google.com/file/d/1EgkquRW2zm2lQzR_uWOQCSvpl0agE7G1/view">Open full-resolution result / download original MP4</a>
+  </details>
+</article>
 
 <article id="telestyle" class="fiat-card">
   <p class="fiat-meta">Slide 9 · 1920 × 1080 export · 11.27 seconds · 30 fps</p>

@@ -185,7 +185,7 @@ body { font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", sans-
   <p class="fc-slide">Slides 5–6</p>
   <h2 id="reference-recovery-title">Reference-based colour recovery</h2>
   <p>Let's start with what already works. A small model trains on matching pairs of frames: the faded source, and a reference that still carries the colour. That reference can be a telecine, a DVD, another print, or the original negative wherever the two overlap.</p>
-  <p>The model only learns colour. Its output is combined with the luma, the brightness, of the original scan, so resolution, grain and detail stay as they were. The workflow is <a href="{{ '/chroma-recovery/' | relative_url }}">documented here</a> and is now used in production.</p>
+  <p>The model only learns colour. Its output is combined with the luma, the brightness, of the original scan, so resolution, grain and detail stay as they were. The workflow is <a href="{{ '/chroma-recovery/' | relative_url }}">documented here</a>.</p>
   <div class="fc-missing"><p>The clip shown on slide 6 isn't included on this page. Below is another example of the same method.</p></div>
 
   <figure class="fc-media">
